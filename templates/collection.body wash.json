@@ -1,0 +1,540 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_10.png",
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "sm",
+        "background": "#000000",
+        "text_color": "#1c1c1c",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "slideshow_8AqcGQ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3xNa9p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_4_bcb4147e-fa52-44f8-9809-384ef8e8d273.png",
+            "mobile_image": "shopify://shop_images/mobile_body_wash.png",
+            "subheading": "",
+            "title": "<h2>Healthy Body Wash</h2><br>\n<p>Refresh your routine with our all-natural body wash collection - crafted to cleanse, hydrate, and uplift your senses. At Mumu Bath, we believe your skin deserves nothing but gentle, nourishing care every day.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_3xNa9p"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_Vj3fnh": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_KcUhNb": {
+          "type": "subheading",
+          "settings": {
+            "text": "Our Body Wash Collection"
+          }
+        },
+        "heading_KXVfwU": {
+          "type": "heading",
+          "settings": {
+            "text": "Botanical & Citrus Infusions",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_qe89jW": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Enjoy refreshing blends like Yuzu Eucalyptus, Kiss Me Sunshine, and Coconut & Pineapple. Each bar offers a burst of citrus or herbal clarity, perfect for uplifting your mood while cleansing your skin with a chemical free body wash.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_KcUhNb",
+        "heading_KXVfwU",
+        "richtext_qe89jW"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_Nn8VfX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bLfN3X": {
+          "type": "heading",
+          "settings": {
+            "text": "Floral & Aromatic Blends",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_4WnFpM": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Soaps like Lavender Oasis, Cherry Blossom, and Rose Pink Clay bring the delicate charm of nature’s blooms to your bath. These calming scents help turn every shower into a moment of self-care.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bLfN3X",
+        "richtext_4WnFpM"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_p9mY4z": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NH9Ftj": {
+          "type": "heading",
+          "settings": {
+            "text": "Herbal & Tea-Infused Soaps",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_gRMYiK": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Featuring Mt. Ali Taiwanese Tea, Matcha, and Earth & Sea, these soaps harness ancient plant wisdom. Perfect for those seeking a healthy body wash with a touch of herbal therapy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NH9Ftj",
+        "richtext_gRMYiK"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_eWty3x": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YQ9RVx": {
+          "type": "heading",
+          "settings": {
+            "text": "NYC-Inspired Creations",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_t3nUzD": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Inspired by iconic places, try Brooklyn Bridge, Big Apple, and Central Park for a little New York luxury. These bars blend unique scents with rich lather for a sensory escape.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YQ9RVx",
+        "richtext_t3nUzD"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_f7ctkY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xEjQXR": {
+          "type": "heading",
+          "settings": {
+            "text": "Specialty & Sensitive Skin Soaps",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_Ug6prN": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our Morning Dew Eczema Relief, Super Simple Baby Soap, and Goji Berry Jujube are formulated for delicate or reactive skin. They're ultra-gentle and nourishing - great for the whole family.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xEjQXR",
+        "richtext_Ug6prN"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_6LXYQF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hwAieW": {
+          "type": "heading",
+          "settings": {
+            "text": "Multi-Use Essentials",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_nCiGQQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>The All-In-One Body & Shampoo Bar and Luxury Foaming Bubble Bath are your go-to for convenience without compromise. Ideal for travel or simplifying your self-care ritual.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hwAieW",
+        "richtext_nCiGQQ"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_QKDVtr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_43izgH": {
+          "type": "heading",
+          "settings": {
+            "text": "Benefits of Our Body Wash",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_GaxmAD": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Enjoy a shower experience that’s kind to your skin and kind to the planet. Our body wash bars are packed with natural goodness for daily care that feels indulgent.</p><ol><li><strong>Deep Yet Gentle Cleansing</strong> – Removes dirt and buildup without drying your skin, thanks to our naturally derived cleansers.</li><li><strong>Moisture-Boosting Formula</strong> – Rich oils and butters lock in hydration, leaving your skin soft and nourished after every wash.</li><li><strong>Safe for All Skin Types</strong> – Our healthy body wash is free from harsh chemicals, making it perfect for sensitive or reactive skin.</li><li><strong>Long-Lasting Bars</strong> – Each bar is designed to last, offering great value while reducing plastic waste in your routine.</li><li><strong>Environmentally Conscious</strong> – Our eco friendly body wash is crafted with biodegradable ingredients and plastic-free packaging.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_43izgH",
+        "richtext_GaxmAD"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_Giy4ya": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NcMXLa": {
+          "type": "heading",
+          "settings": {
+            "text": "How to Use for Best Results",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_cTpQ9L": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Discover how to get the most out of your Mumu Bath body wash. Follow these simple steps for a refreshing, nourishing, and eco friendly experience.</p><ol><li><strong>Wet Your Skin Thoroughly</strong> – Begin with warm water to open pores and prep your skin for a deeper cleanse.</li><li><strong>Lather Up Gently</strong> – Rub the eco friendly body wash bar between your hands or on a sponge to create a soft, creamy lather.</li><li><strong>Massage in Circular Motions</strong> – Apply the lather in gentle, circular motions to help boost circulation and enhance absorption.</li><li><strong>Let the Ingredients Work</strong> – Leave the lather on your skin for 30–60 seconds to allow natural oils and botanicals to deeply nourish.</li><li><strong>Rinse with Cool Water</strong> – Rinse off completely with cool or lukewarm water to close pores and seal in moisture.</li><li><strong>Pat Dry & Moisturize</strong> – Gently pat your skin dry with a towel and follow up with a natural moisturizer to lock in hydration for healthy body wash results.</li><li><strong>Store Properly Between Uses</strong> – Keep your bar in a dry, ventilated spot to extend its life and maintain hygiene.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NcMXLa",
+        "richtext_cTpQ9L"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_jhkyVe": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4JKEdV": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Choose Our Body Wash?",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_beVDC4": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our body wash is crafted with care for your skin and the planet. Every bar blends gentle cleansing with wholesome ingredients for a truly refreshing experience.</p><ol><li>Made with Natural Ingredients – We use plant-based oils and botanical extracts to cleanse without stripping your skin’s moisture barrier.</li><li><strong>Gentle on Sensitive Skin</strong> – Our chemical free body wash is safe for all skin types, even the most delicate and allergy-prone.</li><li><strong>Nourishes While It Cleanses</strong> – Rich in vitamins and antioxidants, each wash leaves your skin soft, smooth, and hydrated.</li><li><strong>Eco-Friendly & Sustainable</strong> – Our packaging is plastic-free and biodegradable, making your daily routine better for the earth.</li><li><strong>Promotes Long-Term Skin Health</strong> – With no harsh additives, our healthy body wash supports your skin’s natural balance and glow.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4JKEdV",
+        "richtext_beVDC4"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_WmCxtA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7wBraP": {
+          "type": "heading",
+          "settings": {
+            "text": "Wrap Up Your Routine with Clean, Conscious Care",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_8UymQB": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our body wash bars offer a refreshing cleanse without compromise - gentle on skin, tough on buildup, and kind to the planet. Made with natural, nourishing ingredients, each bar turns your daily shower into a self-care ritual. From sensitive skin to eco-conscious routines, there’s a bar for everyone. Explore the collection and elevate your everyday clean.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7wBraP",
+        "richtext_8UymQB"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_mUrKEg": {
+      "type": "faq",
+      "blocks": {
+        "question_EyADUL": {
+          "type": "question",
+          "settings": {
+            "question": "How long does one bar of Mumu Bath body wash last?",
+            "answer": "<p>Depending on usage and storage, each body wash bar typically lasts 3-4 weeks. Keep it dry between uses to extend its life.</p>"
+          }
+        },
+        "question_8wUT3M": {
+          "type": "question",
+          "settings": {
+            "question": "How does an eco friendly body wash help reduce my carbon footprint?",
+            "answer": "<p>By eliminating plastic packaging and reducing water content, our eco friendly body wash uses less energy in production and transport - minimizing your impact on the environment.</p>"
+          }
+        },
+        "question_g6Qpaz": {
+          "type": "question",
+          "settings": {
+            "question": "How is Mumu Bath different from other natural soap brands?",
+            "answer": "<p>We focus on holistic skin wellness with plant-based, clean ingredients, sustainable packaging, and handcrafted care. Every product is a reflection of our values.</p>"
+          }
+        },
+        "question_AEMxrj": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store the body wash bar between uses?",
+            "answer": "<p>Keep it dry on a soap dish with drainage to prevent it from sitting in the water. This helps extend the life of your bar.</p>"
+          }
+        },
+        "question_7tnBUR": {
+          "type": "question",
+          "settings": {
+            "question": "Is your healthy body wash safe for kids or sensitive skin types?",
+            "answer": "<p>Yes, our healthy body wash is gentle enough for kids and those with sensitive skin. We prioritize clean, minimal ingredients that support skin health at any age.</p>"
+          }
+        },
+        "question_JTGYGL": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy on body wash bars?",
+            "answer": "<p>We accept returns within 30 days if the item is unused and in its original packaging. Please refer to our Returns page for full details.</p>"
+          }
+        },
+        "question_y3QTGC": {
+          "type": "question",
+          "settings": {
+            "question": "What if my body wash bar arrives damaged?",
+            "answer": "<p>We’re here to help! If your item arrives damaged, send us a photo at hello@mumubath.com and we’ll send a replacement or issue a refund.</p>"
+          }
+        },
+        "question_iwGygq": {
+          "type": "question",
+          "settings": {
+            "question": "Is your chemical free body wash safe for daily use?",
+            "answer": "<p>Absolutely! Our chemical free body wash is designed for everyday cleansing without irritating or drying your skin. It’s gentle, effective, and perfect for all skin types.</p>"
+          }
+        },
+        "question_eYM96Y": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take for body wash orders?",
+            "answer": "<p>We usually ship within 2–3 business days. Delivery times vary by location, but most U.S. orders arrive within 3–7 days.</p>"
+          }
+        },
+        "question_UTifKQ": {
+          "type": "question",
+          "settings": {
+            "question": "Do your body wash bars contain artificial fragrances?",
+            "answer": "<p>No, all our bars are scented using only essential oils or natural botanicals. We never use synthetic fragrances or harsh additives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_EyADUL",
+        "question_8wUT3M",
+        "question_g6Qpaz",
+        "question_AEMxrj",
+        "question_7tnBUR",
+        "question_JTGYGL",
+        "question_y3QTGC",
+        "question_iwGygq",
+        "question_eYM96Y",
+        "question_UTifKQ"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "1742280180663d39ae": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_R8h9rQ": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_TaWAmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_R8h9rQ",
+        "targetbay_product_reviews_site_reviews_TaWAmp"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_8AqcGQ",
+    "main",
+    "rich_text_Vj3fnh",
+    "rich_text_Nn8VfX",
+    "rich_text_p9mY4z",
+    "rich_text_eWty3x",
+    "rich_text_f7ctkY",
+    "rich_text_6LXYQF",
+    "rich_text_QKDVtr",
+    "rich_text_Giy4ya",
+    "rich_text_jhkyVe",
+    "rich_text_WmCxtA",
+    "faq_mUrKEg",
+    "1742280180663d39ae"
+  ]
+}

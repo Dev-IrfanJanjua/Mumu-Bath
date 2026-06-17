@@ -1,0 +1,292 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_dCnyfn": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_LAWd8J": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>Our Story</strong>",
+            "heading_tag": "h1"
+          }
+        },
+        "liquid_xry3a6": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<h1><strong>Our Story</strong></h1>"
+          }
+        },
+        "richtext_mxKpMw": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Hi, I'm Sasha Chou, the founder of Mumu Bath. As a small, female-founded company, we’ve been on an exciting journey to create bath and body products that capture the essence of our Taiwanese heritage.</p><p>Mumu Bath was established in 2020 when my baby developed eczema at 6 months old. Faced with the challenge of finding soaps gentle enough for her, I decided to create products rooted in simplicity for the entire family.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LAWd8J",
+        "liquid_xry3a6",
+        "richtext_mxKpMw"
+      ],
+      "settings": {
+        "mblp-class": "",
+        "separate_section_with_border": true,
+        "image": "shopify://shop_images/1by1by1_1.jpg",
+        "reveal_on_scroll": true,
+        "image_position": "start",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "rich_text_KWL3XG": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_7468Ht": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our Taiwanese roots influence our creations. We source tea and floral ingredients from my family’s farm in Alishan, crafting our products with exquisite ingredients to make the daily shower feel like a getaway, a moment to cherish amidst our busy lives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_7468Ht"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "multiple_media_with_text_DcLXtk": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_6gBWw6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pexels-photo-7.jpg",
+            "rotation": 0
+          }
+        },
+        "image_HtBkMf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Earth_SeaSoap.jpg",
+            "rotation": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_6gBWw6",
+        "image_HtBkMf"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": false,
+        "separate_section_with_border": false,
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "<strong>Quality is our hallmark</strong>",
+        "content": "<p>All of our creations are made using high-quality organic, all-natural ingredients, carefully selected to cater to even the most sensitive skin. Mumu Bath products are 100% vegan, free from parabens and sulfates, never tested on animals, and ethically sourced, ensuring they’re kind to your skin and the planet. Crafted in New York with small batches, our sustainable packaging minimizes environmental impact.</p><p>Our name, Mū-Mū, represents a harmonious blend of the Mandarin words for ‘bath’ and ‘tree.’ We promise products that are clean and natural, staying true to our promise of providing you with the best. From our family to yours, we extend an invitation to enjoy our soaps just as much as we do.</p>",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "solid",
+        "background": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "multi_column_RQ6Kyf": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_giKtec": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/2_1d58ec32-715c-4674-8847-f5eee171eb79.jpg",
+            "title": "",
+            "heading_tag": "h3",
+            "content": "",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_haUjeb": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Quality Is Our Hallmark",
+            "heading_tag": "h3",
+            "content": "<p>All of our creations are made using high-quality organic, all-natural ingredients, carefully selected to cater to even the most sensitive skin. Mumu Bath products are 100% vegan, free from parabens and sulfates, never tested on animals, and ethically sourced, ensuring they’re kind to your skin and the planet. Handcrafted in New York in small batches, our products feature sustainable packaging designed to minimize our environmental impact.</p><p>Our name, Mū-Mū, represents a harmonious blend of the Mandarin words for ‘bath’ and ‘tree.’ We promise products that are clean and natural, staying true to our promise of providing you with the best. From our family to yours, we extend an invitation to enjoy our soaps just as much as we do.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_giKtec",
+        "image_with_text_haUjeb"
+      ],
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": false,
+        "columns_per_row": 2,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "slideshow_ExgxN8": {
+      "type": "slideshow",
+      "blocks": {
+        "image_YiQkw8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_11_cf01e970-6b8e-4c20-9f9f-41792b642be7.png",
+            "mobile_image": "shopify://shop_images/our_mission_cae0d94d-0e10-488c-8ae3-734668868eb2.png",
+            "subheading": "",
+            "title": "<h2>Our Mission</h2>\n<p style=\"font-size: 16px\">Empower your self-care rituals with Mumu Bath. We celebrate our Taiwanese roots, offering a touch of natural luxury with bath and body products inspired by the lush landscapes and traditions of Taiwan. Our mission is to provide top-quality, organic, all-natural products that transform daily routines into cherished moments.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 600,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_YiQkw8"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "multi_column_RpPKhC": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_gNAMMa": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/5.jpg",
+            "title": "",
+            "heading_tag": "h3",
+            "content": "",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_agwbHi": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Our Commitment</strong>",
+            "heading_tag": "h3",
+            "content": "<p>We are committed to crafting sustainable, eco-friendly products that are not only beneficial to your skin but also to our planet. <strong>At Mumu Bath, we believe in redefining self-care by making it a playful, fun, and luxurious experience. </strong>Our aim is to offer high-quality, organic solutions that cater to even the most sensitive skin, ensuring everyone can revel in the joy of pampering themselves.</p><p>Discover our <a href=\"/collections\" title=\"All collections\">beauty products online</a> or visit us in person at our Brooklyn, <a href=\"/pages/our-brooklyn-store\" title=\"<b>Mumu Bath Retail Shop is located in Dumbo, Brooklyn</b>\">New York shop</a>.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_gNAMMa",
+        "image_with_text_agwbHi"
+      ],
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": false,
+        "columns_per_row": 2,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "1742280928212d5065": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_dh8gmg": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_maNrC6": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_dh8gmg",
+        "targetbay_product_reviews_site_reviews_maNrC6"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_dCnyfn",
+    "main",
+    "rich_text_KWL3XG",
+    "multiple_media_with_text_DcLXtk",
+    "multi_column_RQ6Kyf",
+    "slideshow_ExgxN8",
+    "multi_column_RpPKhC",
+    "1742280928212d5065"
+  ]
+}

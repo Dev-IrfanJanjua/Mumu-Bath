@@ -1,0 +1,146 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+BUTTON COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+Generate a button (or link styled as a button). It supports wide range of attributes that can be used to customize
+the appearance and functionality of the button.
+
+********************************************
+Supported variables
+********************************************
+
+* content: the content of the button
+* href: an optional link to set. If href is provided, then an "a" tag is generated, otherwise a "button"
+* size: can be "sm". If none is set, the default "base" size is used.
+* background: an optional background color to use that override the default
+* text_color: an optional text color to use that override the default
+* style: "solid", "outline" or "link". If none is set "solid" is assumed
+* stretch: if passed to true, a full width button is generated
+* subdued: when using the "outline" mode, this reduced the importance of the button
+* type: when href is empty, can be either "button" or "submit" (default to button if none is set)
+* is: if set, add the attribute for allowing custom elements
+* name: when the button is a real button, allow to set the name attribute that is submitted
+* icon: the name of an optional icon to render along the button
+* disabled: if set to true, the button is disabled
+* form: the form ID that this button is linked to
+* external: if set to true and that a href is passed, it opens into a new window
+* aria_controls: the ID of the element controlled
+* block: an optional block to output theme editor attributes
+{%- endcomment -%}
+
+{% liquid
+  capture class_attribute
+    if style == 'link'
+      echo 'link'
+    else
+      echo 'button'
+
+      if size != blank and size != 'base'
+        echo ' button-' | append: size
+      endif
+
+      if style == 'outline'
+        echo ' button--outline'
+      endif
+
+      if subdued
+        echo ' button--subdued'
+      endif
+
+      if stretch
+        echo ' w-full'
+      endif
+    endif
+  endcapture
+
+  capture style_attribute
+    if style != 'link'
+      if background != blank and background != 'rgba(0,0,0,0)'
+        echo '--button-background: ' | append: background.rgb | append: ';'
+        echo '--button-outline-color: ' | append: background.rgb | append: ';'
+      endif
+
+      if text_color != blank and text_color != 'rgba(0,0,0,0)'
+        echo '--button-text-color: ' | append: text_color.rgb | append: ';'
+      endif
+    endif
+  endcapture
+
+  capture attributes
+    if class_attribute != blank
+      echo 'class="' | append: class_attribute | append: '"'
+    endif
+
+    if style_attribute != blank
+      echo 'style="' | append: style_attribute | append: '"'
+    endif
+
+    if aria_controls
+      echo 'aria-controls="' | append: aria_controls | append: '"'
+    endif
+
+    if disabled
+      if href
+        echo 'role="link" aria-disabled="true"'
+      else
+        echo 'disabled'
+      endif
+    endif
+
+    if name
+      echo 'name="' | append: name | append: '"'
+    endif
+
+    if form
+      echo 'form="' | append: form | append: '"'
+    endif
+
+    if is
+      echo 'is="' | append: is | append: '"'
+    endif
+
+    if href
+      echo 'href="' | append: href | append: '"'
+    endif
+
+    if external and href != blank
+      echo 'target="_blank"'
+    endif
+  endcapture
+%}
+
+{%- capture button_content -%}
+  {% if icon != blank %}
+    <div class="text-with-icon">
+      {%- render 'icon' with icon -%}
+      {{- content -}}
+    </div>
+  {%- else -%}
+    {{- content -}}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if href != blank -%}
+  <a {{ attributes }} {{ block.shopify_attributes }}>
+    {{- button_content -}}
+  </a>
+{% elsif button_text or btn_icon %}
+  <button type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
+ 
+   <div class=add-btn>
+    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.32533 6.35857H5.61875C5.05141 6.35857 4.66802 6.35916 4.37478 6.38501C4.08825 6.41026 3.956 6.45544 3.87286 6.50321C3.65183 6.63022 3.47959 6.83133 3.38475 7.07315C3.34908 7.16409 3.322 7.30497 3.33325 7.60115C3.34476 7.90424 3.39179 8.29639 3.4622 8.8766L4.08362 13.9966C4.13995 14.4608 4.17799 14.7703 4.22508 15.008C4.27052 15.2372 4.3153 15.3474 4.36008 15.4213C4.47417 15.6096 4.63896 15.7594 4.83435 15.8528C4.91104 15.8894 5.02267 15.9215 5.24901 15.9395C5.48361 15.9582 5.78634 15.9586 6.24016 15.9586H12.7606C13.2144 15.9586 13.5172 15.9582 13.7518 15.9395C13.9782 15.9215 14.0898 15.8894 14.1665 15.8528C14.3619 15.7594 14.5267 15.6095 14.6407 15.4212C14.6855 15.3473 14.7303 15.2371 14.7758 15.0079C14.8229 14.7702 14.8608 14.4607 14.9171 13.9965L15.5379 8.87641C15.6083 8.2962 15.6553 7.90408 15.6667 7.60101C15.678 7.30487 15.6509 7.16401 15.6152 7.07307C15.5204 6.83127 15.3481 6.63018 15.1271 6.5032C15.044 6.45543 14.9117 6.41026 14.6252 6.38501C14.332 6.35916 13.9486 6.35857 13.3813 6.35857H12.6751L12.3766 8.5128C12.3246 8.88775 11.9876 9.14823 11.6239 9.09466C11.2601 9.04117 11.0073 8.69383 11.0593 8.31888L11.331 6.35857H7.66945L7.94116 8.31888C7.99314 8.69383 7.74041 9.04117 7.37663 9.09466C7.01288 9.14823 6.67588 8.88775 6.62392 8.5128L6.32533 6.35857ZM7.48167 4.98713H11.5188C11.6315 3.76904 10.7014 2.70152 9.5002 2.70152C8.29909 2.70152 7.369 3.76904 7.48167 4.98713ZM12.8532 4.98713H13.3813H13.4103C13.9414 4.98712 14.3819 4.98711 14.7386 5.01855C15.1084 5.05114 15.4553 5.12166 15.775 5.3053C16.2613 5.58468 16.6401 6.02707 16.8489 6.55901C16.986 6.90867 17.0108 7.27225 16.9964 7.65451C16.9824 8.02319 16.9277 8.47376 16.8619 9.01694L16.8583 9.04647L16.2375 14.1665L16.2344 14.1921C16.1819 14.624 16.138 14.9865 16.0795 15.2822C16.0181 15.5921 15.9318 15.8797 15.7694 16.1477C15.5184 16.5619 15.1559 16.8918 14.726 17.0971C14.4478 17.23 14.1602 17.2825 13.8543 17.3069C13.5623 17.3302 13.2078 17.3301 12.7856 17.3301H12.7606H6.24016H6.21514C5.79286 17.3301 5.43848 17.3302 5.14656 17.3069C4.84063 17.2825 4.55305 17.23 4.27494 17.0971C3.84508 16.8919 3.48253 16.562 3.23154 16.1479C3.06915 15.8799 2.98281 15.5924 2.92139 15.2825C2.86279 14.9868 2.8188 14.6244 2.7664 14.1925L2.76329 14.1669L2.14187 9.04684L2.13829 9.01731C2.07236 8.47412 2.01766 8.02347 2.00365 7.6548C1.98913 7.27249 2.01396 6.9089 2.1511 6.55921C2.35974 6.0272 2.73866 5.58475 3.22495 5.30534C3.54458 5.12168 3.89155 5.05115 4.2614 5.01855C4.6181 4.98711 5.05874 4.98712 5.58985 4.98713H5.61875H6.14729C6.03612 3.02367 7.55311 1.33008 9.5002 1.33008C11.4473 1.33008 12.9643 3.02367 12.8532 4.98713Z" fill="black"/>
+    </svg>
+    <span>Add</span>
+   </div>
+  </button>
+{%- else -%}
+  <button type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
+    {{- button_content -}}
+  </button>
+{%- endif -%}
+
+
+
+

@@ -1,0 +1,407 @@
+{% comment %} Botanicals / Ingredients Grid Section {% endcomment %}
+
+<style>
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.section_bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  .section-{{ section.id }} .botanicals-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Header ── */
+  .section-{{ section.id }} .botanicals-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 550px;
+  }
+
+  .section-{{ section.id }} .botanicals-title.title_title {
+    color: {{ section.settings.title_color }};
+    text-align: center;
+    font-family: "Mona Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0 0 16px;
+  }
+
+  .section-{{ section.id }} .botanicals-subtitle {
+    color: {{ section.settings.subtitle_color }};
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+  }
+
+  /* ── Cards Grid ── */
+  .section-{{ section.id }} .botanicals-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: {{ section.settings.card_gap }}px;
+    width: 100%;
+  }
+
+  .section-{{ section.id }} .botanicals-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 calc(20% - {{ section.settings.card_gap }}px);
+    max-width: 208px;
+  }
+
+  /* ── Image pill ── */
+  .section-{{ section.id }} .botanicals-card__image-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: {{ section.settings.image_placeholder_bg }};
+  }
+
+  .section-{{ section.id }} .botanicals-card__image-wrap img,
+  .section-{{ section.id }} .botanicals-card__image-wrap svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  @media (hover:hover){
+
+    .section-{{ section.id }} .botanicals-card__image-wrap:hover img{
+            transform: scale(1.03);
+        }
+
+    }
+
+  /* ── Card text ── */
+  .section-{{ section.id }} .botanicals-card__title {
+    color: {{ section.settings.card_title_color }};
+    text-align: center;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: capitalize;
+    margin: 0 0 12px;
+  }
+
+  .section-{{ section.id }} .botanicals-card__desc {
+    color: {{ section.settings.card_desc_color }};
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .botanicals-title.title_title {
+      font-size: 30px;
+    }
+
+    .section-{{ section.id }} .botanicals-grid {
+      gap: 24px 12px;
+    }
+
+    .section-{{ section.id }} .botanicals-card {
+      flex: 0 0 calc(50% - 6px);
+      max-width: none;
+    }
+
+    .section-{{ section.id }} .botanicals-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .section-{{ section.id }} .botanicals-card__image-wrap {
+        aspect-ratio: 1;
+        max-width: 90px;
+    }
+
+    .section-{{ section.id }} .botanicals-card__title {
+        font-size: 16px;
+    }
+
+  }
+</style>
+
+<section class="section-{{ section.id }} fade-in-section" id="shopify-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="botanicals-wrapper">
+
+      <!-- Header -->
+      {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+        <div class="botanicals-header">
+          {%- if section.settings.title != blank -%}
+            <h2 class="botanicals-title title_title fade-in-left">{{ section.settings.title |replace: '<p>', '' |replace: '</p>', '' }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subtitle != blank -%}
+            <p class="botanicals-subtitle fade-in-left">{{ section.settings.subtitle }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <!-- Cards -->
+      {%- if section.blocks.size > 0 -%}
+        <div class="botanicals-grid">
+          {%- for block in section.blocks -%}
+            <div class="botanicals-card fade-in-item" {{ block.shopify_attributes }}>
+
+              <div class="botanicals-card__image-wrap">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: block.settings.title | escape
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag }}
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.title != blank -%}
+                <p class="botanicals-card__title">{{ block.settings.title }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="botanicals-card__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Botanicals Grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Content"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Powered By Skin-Loving Botanicals</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Most soaps focus only on cleansing. Kiss Me Sunshine is made to refresh your skin while helping maintain softness, moisture, and comfort."
+    },
+    {
+      "type": "header",
+      "content": "Card Layout"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap Between Cards",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Colors – Section"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background",
+      "default": "#F5F3EE"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Header"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#1A2744"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#1A2744"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#1A2744"
+    },
+    {
+      "type": "color",
+      "id": "card_desc_color",
+      "label": "Card Description Color",
+      "default": "#1A2744"
+    },
+    {
+      "type": "color",
+      "id": "image_placeholder_bg",
+      "label": "Image Placeholder Background",
+      "default": "#E8E4DA"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Name",
+          "default": "Organic Olive Oil"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Paprika brings antioxidant-rich care for a fresh, radiant glow."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Botanicals Grid",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Olive Oil",
+            "description": "Paprika brings antioxidant-rich care for a fresh, radiant glow."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Coconut Oil",
+            "description": "Creates a rich cleanse while keeping skin moisturized."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Orange Essential Oil",
+            "description": "A bright citrus scent that makes your shower feel fresh."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Paprika",
+            "description": "Antioxidants and Vitamin C to support a healthy glow."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sustainable Palm Oil",
+            "description": "Helps create a creamy lather and a longer-lasting bar."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

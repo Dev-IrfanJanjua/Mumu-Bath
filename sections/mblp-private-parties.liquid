@@ -1,0 +1,649 @@
+<!-- sections/mblp-private-parties.liquid -->
+<div
+  class="mblp-private-parties-main"
+  style="--padding-top-desktop: {{ section.settings.padding_top_desktop }}px; --padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px; --padding-top-mobile: {{ section.settings.padding_top_mobile }}px; --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px; {% if section.settings.background_color != blank %}--bg-color: {{ section.settings.background_color }};{% endif %} {% if section.settings.background_image_desktop != blank %}--bg-image-desktop: url('{{ section.settings.background_image_desktop | image_url: width: 1920 }}');{% endif %} {% if section.settings.background_image_mobile != blank %}--bg-image-mobile: url('{{ section.settings.background_image_mobile | image_url: width: 768 }}');{% endif %}"
+>
+  <div>
+    <div class="mblp-private-parties-wrapper">
+      <div class="mblp-private-parties-content">
+        <!-- Main Heading -->
+        {% if section.settings.main_heading != blank %}
+          <div class="mblp-private-parties-heading">
+            <!-- Desktop: Show main heading -->
+            <div class="mblp-private-parties-desktop-heading">
+              <h2>{{ section.settings.main_heading }}</h2>
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Subheading/Description -->
+        {% if section.settings.subheading != blank %}
+          <div class="mblp-private-parties-subheading">
+            <p>{{ section.settings.subheading }}</p>
+          </div>
+        {% endif %}
+
+        <!-- List Items desktop -->
+        {% if section.settings.show_list %}
+          <div class="mblp-private-parties-list-desktop mblp-private-parties-list">
+            <ul>
+              {% if section.settings.list_item_1 != blank %}
+                <li>{{ section.settings.list_item_1 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_2 != blank %}
+                <li>{{ section.settings.list_item_2 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_3 != blank %}
+                <li>{{ section.settings.list_item_3 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_4 != blank %}
+                <li>{{ section.settings.list_item_4 }}</li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- Button -->
+        {% if section.settings.button_text != blank %}
+          <div class="mblp-private-parties-button-container">
+            <a href="{{ section.settings.button_link }}" class="mblp-private-parties-button">
+              {{ section.settings.button_text }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
+                <path d="M24.3503 20.6833L22.1669 22.7667V13.3333C22.1669 12.8913 21.9913 12.4674 21.6788 12.1548C21.3662 11.8423 20.9423 11.6667 20.5003 11.6667C20.0582 11.6667 19.6343 11.8423 19.3218 12.1548C19.0092 12.4674 18.8336 12.8913 18.8336 13.3333V22.65L16.6836 20.4833C16.3698 20.1695 15.9441 19.9932 15.5003 19.9932C15.0564 19.9932 14.6308 20.1695 14.3169 20.4833C14.0031 20.7972 13.8268 21.2228 13.8268 21.6667C13.8268 22.1105 14.0031 22.5362 14.3169 22.85L19.3169 27.85C19.4754 28.0017 19.6623 28.1207 19.8669 28.2C20.0664 28.2882 20.2822 28.3337 20.5003 28.3337C20.7184 28.3337 20.9341 28.2882 21.1336 28.2C21.2323 28.1619 21.3228 28.1053 21.4003 28.0333C21.493 27.9934 21.5777 27.9369 21.6503 27.8667L26.6503 23.1C26.9707 22.795 27.1569 22.3752 27.1679 21.9329C27.1788 21.4906 27.0136 21.0621 26.7086 20.7417C26.4036 20.4212 25.9838 20.235 25.5415 20.2241C25.0992 20.2131 24.6707 20.3783 24.3503 20.6833Z" fill="#FBDD3F"/>
+                <path d="M20.5 3.33333C17.2037 3.33333 13.9814 4.31081 11.2405 6.14217C8.49972 7.97353 6.36352 10.5765 5.10206 13.6219C3.8406 16.6674 3.51054 20.0185 4.15363 23.2515C4.79671 26.4845 6.38406 29.4542 8.71494 31.7851C11.0458 34.116 14.0155 35.7033 17.2485 36.3464C20.4816 36.9895 23.8327 36.6595 26.8781 35.398C29.9235 34.1365 32.5265 32.0003 34.3579 29.2595C36.1892 26.5187 37.1667 23.2964 37.1667 20C37.1667 17.8113 36.7356 15.644 35.898 13.6219C35.0605 11.5998 33.8328 9.76253 32.2852 8.21488C30.7375 6.66724 28.9002 5.43958 26.8781 4.602C24.856 3.76442 22.6887 3.33333 20.5 3.33333ZM20.5 33.3333C17.863 33.3333 15.2851 32.5513 13.0924 31.0863C10.8998 29.6212 9.19082 27.5388 8.18165 25.1024C7.17249 22.6661 6.90844 19.9852 7.42291 17.3988C7.93738 14.8124 9.20726 12.4366 11.072 10.5719C12.9367 8.7072 15.3124 7.43733 17.8988 6.92286C20.4853 6.40839 23.1661 6.67243 25.6025 7.6816C28.0388 8.69077 30.1212 10.3997 31.5863 12.5924C33.0514 14.785 33.8334 17.3629 33.8334 20C33.8334 23.5362 32.4286 26.9276 29.9281 29.4281C27.4277 31.9286 24.0363 33.3333 20.5 33.3333Z" fill="#FBDD3F"/>
+              </svg>
+            </a>
+          </div>
+        {% endif %}
+
+
+          <!-- List Items for mobile -->
+        {% if section.settings.show_list %}
+          <div class="mblp-private-parties-list-mobile mblp-private-parties-list">
+            <ul>
+              {% if section.settings.list_item_1 != blank %}
+                <li>{{ section.settings.list_item_1 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_2 != blank %}
+                <li>{{ section.settings.list_item_2 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_3 != blank %}
+                <li>{{ section.settings.list_item_3 }}</li>
+              {% endif %}
+              {% if section.settings.list_item_4 != blank %}
+                <li>{{ section.settings.list_item_4 }}</li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="mblp-private-parties-decorations">
+        <!-- Top Left Flower -->
+        {% if section.settings.top_left_flower != blank %}
+          <div class="mblp-private-parties-decoration mblp-private-parties-decoration-top-left">
+            {{ section.settings.top_left_flower | image_url: width: 200 | image_tag }}
+          </div>
+        {% endif %}
+
+        <!-- Top Right Flower -->
+        {% if section.settings.top_right_flower != blank %}
+          <div class="mblp-private-parties-decoration mblp-private-parties-decoration-top-right">
+            {{ section.settings.top_right_flower | image_url: width: 200 | image_tag }}
+          </div>
+        {% endif %}
+
+        <!-- Bottom Left Flower -->
+        {% if section.settings.bottom_left_flower != blank %}
+          <div class="mblp-private-parties-decoration mblp-private-parties-decoration-bottom-left">
+            {{ section.settings.bottom_left_flower | image_url: width: 200 | image_tag }}
+          </div>
+        {% endif %}
+
+        <!-- Bottom Right Flower -->
+        {% if section.settings.bottom_right_flower != blank %}
+          <div class="mblp-private-parties-decoration mblp-private-parties-decoration-bottom-right">
+            {{ section.settings.bottom_right_flower | image_url: width: 300 | image_tag }}
+          </div>
+        {% endif %}
+
+        <!-- Center Right Large Flower -->
+        {% if section.settings.center_right_flower != blank %}
+          <div class="mblp-private-parties-decoration mblp-private-parties-decoration-center-right">
+            {{ section.settings.center_right_flower | image_url: width: 400 | image_tag }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Main Container */
+.mblp-private-parties-main {
+  background-image: var(--bg-image-desktop, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--padding-top-desktop, 80px);
+  padding-bottom: var(--padding-bottom-desktop, 80px);
+}
+
+/* Wrapper */
+.mblp-private-parties-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Content Section */
+.mblp-private-parties-content {
+  display: flex;
+  font-family: 'Plus Jakarta Sans';
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0px;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    /* padding: 50px 0px; */
+    min-height: 620px;
+}
+
+/* Heading Styles */
+.mblp-private-parties-heading h2 {
+  color: var(--col-light-black, #232121);
+  font-family: 'Plus Jakarta Sans Bold' !important;
+  font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    margin: 0;
+    padding-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+/* Subheading */
+.mblp-private-parties-subheading p {
+  color: var(--col-black, #232121);
+      font-family: 'Plus Jakarta Sans Medium' !important;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+  margin: 0;
+}
+
+/* List Styles */
+.mblp-private-parties-list ul {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mblp-private-parties-list {
+    padding: 16px 0 50px;
+}
+
+.mblp-private-parties-list li {
+  color: var(--col-black, #232121);
+  font-family: 'Plus Jakarta Sans Medium' !important;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: -0.18px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.mblp-private-parties-list li::before {
+  content: '•';
+  color: var(--col-black, #232121);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Button Styles */
+.mblp-private-parties-button-container {
+      width: 100%;
+}
+
+.mblp-private-parties-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background-color: #232121;
+    color: #FBDD3F !important;
+    font-family: 'Plus Jakarta Sans' !important;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    max-width: 450px;
+    width: 100%;
+}
+
+.mblp-private-parties-button:hover {
+  background-color: #333 !important;
+  transform: translateY(-2px);
+}
+
+.mblp-private-parties-button-icon {
+  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.mblp-private-parties-button:hover .mblp-private-parties-button-icon {
+  transform: translateX(4px);
+}
+
+/* Decorative Elements */
+.mblp-private-parties-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mblp-private-parties-decoration {
+  position: absolute;
+}
+
+/* Top Left Flower */
+.mblp-private-parties-decoration-top-left {
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  max-width: 120px;
+}
+
+/* Top Right Flower */
+.mblp-private-parties-decoration-top-right {
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  max-width: 120px;
+}
+
+/* Bottom Left Flower */
+.mblp-private-parties-decoration-bottom-left {
+  bottom: 40px;
+  left: 150px;
+  z-index: 1;
+  max-width: 140px;
+}
+
+/* Bottom Right Flower */
+.mblp-private-parties-decoration-bottom-right {
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  max-width: 350px;
+}
+
+/* Center Right Large Flower */
+.mblp-private-parties-decoration-center-right {
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  z-index: 1;
+  max-width: 280px;
+}
+
+.mblp-private-parties-decoration img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+ .mblp-private-parties-list-desktop {
+  display: block !important;
+  }
+  .mblp-private-parties-list-mobile {
+  display: none !important;
+  }
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .mblp-private-parties-content {
+            min-height: 550px;
+        max-width: 700px;
+  }
+  .mblp-private-parties-main {
+    background-position: right;
+}
+
+  .mblp-private-parties-heading h2 {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 36px;
+  }
+
+  .mblp-private-parties-subheading p {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 20px;
+  }
+  .mblp-private-parties-button {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 20px;
+    max-width: 350px;
+}
+
+}
+
+@media (max-width: 768px) {
+  .mblp-private-parties-main {
+    padding-top: var(--padding-top-mobile, 60px) !important;
+    padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+    background-image: var(--bg-image-mobile, var(--bg-image-desktop, none));
+  }
+
+  .mblp-private-parties-wrapper {
+    padding: 0 32px;
+  }
+
+  .mblp-private-parties-content {
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+    max-width: 600px;
+    gap: 28px;
+            min-height: unset;
+  }
+
+  .mblp-private-parties-heading h2 {
+      font-family: 'Plus Jakarta Sans';
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0.56px;
+        padding-bottom: 0px;
+        max-width: 600px;
+  }
+
+  .mblp-private-parties-subheading p {
+      font-family: 'Plus Jakarta Sans';
+    font-size: 18px;
+    text-align: center;
+    line-height
+  }
+
+  .mblp-private-parties-list {
+    padding: 0px;
+    text-align: left;
+    max-width: 300px;
+  }
+
+  .mblp-private-parties-list-desktop {
+  display: none !important;
+  }
+  .mblp-private-parties-list-mobile {
+  display: block !important;
+  }
+
+  .mblp-private-parties-list li {
+    font-size: 16px;
+    letter-spacing: -0.16px;
+  }
+
+  .mblp-private-parties-button {
+      font-family: 'Plus Jakarta Sans';
+           font-size: 18px;
+        padding: 16px 20px;
+        width: 100%;
+        max-width: 100%;
+        height: 55px;
+  }
+
+  /* Mobile Flower Adjustments */
+  .mblp-private-parties-decoration-top-left {
+    max-width: 80px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .mblp-private-parties-decoration-top-right {
+    max-width: 80px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .mblp-private-parties-decoration-bottom-left {
+    max-width: 90px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .mblp-private-parties-decoration-center-right {
+    display: none; /* Hide on mobile for better layout */
+  }
+
+  .mblp-private-parties-decoration-bottom-right {
+    max-width: 180px;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .mblp-private-parties-heading h2 {
+    font-size: 28px;
+    max-width: 330px;
+  }
+
+  .mblp-private-parties-subheading p {
+    max-width: 315px;
+  }
+
+  /* Extra Small Mobile Flower Adjustments */
+  .mblp-private-parties-decoration-top-left,
+  .mblp-private-parties-decoration-top-right {
+    max-width: 60px;
+  }
+
+  .mblp-private-parties-decoration-bottom-left {
+    max-width: 70px;
+  }
+
+  .mblp-private-parties-decoration-bottom-right {
+    max-width: 120px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Private Parties",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color (overrides gradient)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "Background image - Desktop",
+      "info": "Recommended size: 1920px width or larger. Overrides gradient and color."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image - Mobile",
+      "info": "Recommended size: 768px width. Falls back to desktop image if not set."
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main heading",
+      "default": "Bath Bomb Workshop Parties in NYC — Fun for Kids, Teens & Adults!"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading/Description",
+      "default": "<p>Create your own bath bombs & skincare in just 90 minutes!</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_list",
+      "label": "Show list items",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "list_item_1",
+      "label": "List item 1",
+      "default": "Birthday parties"
+    },
+    {
+      "type": "text",
+      "id": "list_item_2",
+      "label": "List item 2",
+      "default": "Bachelor celebrations"
+    },
+    {
+      "type": "text",
+      "id": "list_item_3",
+      "label": "List item 3",
+      "default": "Team-building activities"
+    },
+    {
+      "type": "text",
+      "id": "list_item_4",
+      "label": "List item 4",
+      "default": "Family gatherings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Book Your Party Today"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Decorative Flower Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_left_flower",
+      "label": "Top Left Flower"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_right_flower",
+      "label": "Top Right Flower"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_left_flower",
+      "label": "Bottom Left Flower"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_right_flower",
+      "label": "Bottom Right Flower (Large)"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_right_flower",
+      "label": "Center Right Flower (Medium)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Private Parties",
+      "settings": {
+        "main_heading": "Bath Bomb Workshop Parties in NYC — Fun for Kids, Teens & Adults!",
+        "subheading": "<p>Create your own bath bombs & skincare in just 90 minutes!</p>",
+        "button_text": "Book Your Party Today",
+        "show_list": true,
+        "list_item_1": "Birthday parties",
+        "list_item_2": "Bachelor celebrations",
+        "list_item_3": "Team-building activities",
+        "list_item_4": "Family gatherings"
+      }
+    }
+  ]
+}
+{% endschema %}

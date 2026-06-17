@@ -1,0 +1,526 @@
+{% comment %} {%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+MEGA MENU COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+Render the mega-menu. The mega-menu is a kind of menu optimized for showing a large number of items into several
+columns.
+
+********************************************
+Supported variables
+********************************************
+
+* link: the link from which we need to render the mega-menu. The link must always be a second level link, but it can
+        also be empty (no links), which is the case if the merchant only want to show images, for instance.
+* block: the block containing all the information about the menu to render
+{%- endcomment -%}
+
+<div class="mega-menu {% if block.settings.images_position == 'left' %}mega-menu--reverse{% endif %}" {{ block.shopify_attributes }}>
+  {%- if link.levels > 0 -%}
+    <ul class="mega-menu__linklist unstyled-list">
+      {%- for sub_link in link.links -%}
+        <li class="v-stack justify-items-start gap-5">
+          <a href="{{ sub_link.url }}" class="h6">{{ sub_link.title }}</a>
+
+          {%- if sub_link.links.size > 0 -%}
+            <ul class="v-stack gap-2.5 unstyled-list">
+              {%- for sub_sub_link in sub_link.links -%}
+                <li>
+                  <a href="{{ sub_sub_link.url }}" class="link-faded">{{ sub_sub_link.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+  {%- capture mega_menu_content -%}
+    {%- render 'mega-menu-images', context: 'menu', block: block -%}
+  {%- endcapture -%}
+
+  {%- if mega_menu_content != blank -%}
+    <div class="mega-menu__promo">
+      {{- mega_menu_content -}}
+    </div>
+  {%- endif -%}
+</div> {% endcomment %}
+
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+MEGA MENU COMPONENT  — handle-matched dynamic promo
+----------------------------------------------------------------------------------------------------------------------
+
+3-column layout:
+  LEFT   — Section heading + all child links as tab triggers (first active by default)
+  MIDDLE — Sub-links of the currently active child link
+  RIGHT  — Promo image, title, button text & link pulled from whichever block whose
+           `menu_item_handle` matches the currently active child link's handle
+
+The RIGHT column is therefore fully dynamic: selecting "Facial Skincare" on the left
+shows the promo block the merchant configured for that handle. No static data.
+
+********************************************
+Variables passed in
+********************************************
+* link  — second-level navigation link
+* block — the mega-menu block (carries shopify_attributes + settings for THIS menu)
+
+********************************************
+How blocks work
+********************************************
+In the header section schema you define a block type "mega_menu_item_promo".
+The merchant adds ONE such block per nav child they want a promo for, sets the
+`menu_item_handle` to match the nav link handle (e.g. "facial-skincare"), then fills
+in image, promo_title, button_text, button_link.
+
+At render time we loop all blocks of that type and index them by handle into a Liquid
+object so the JS can switch the right promo when a tab is clicked.
+
+Each promo block is rendered hidden by default; only the one matching the first
+active tab gets `is-active`. JS swaps classes on tab click (no page reload needed).
+{%- endcomment -%}
+
+{%- liquid
+  assign menu_id = 'mega-menu-' | append: block.id
+
+  comment
+    Build a lookup: handle → block so we can match sub_link.handle → promo block.
+    Liquid can't build a real hash, so we render each promo panel hidden and let JS
+    use data-handle attributes to swap visibility — zero extra HTTP requests.
+  endcomment
+-%}
+
+<div class="mega-menu mega-menu--tabbed cs-mega" {{ block.shopify_attributes }} id="{{ menu_id }}">
+
+  {%- comment -%}════════════════════════════════════════════════════════════
+    LEFT COLUMN — heading + sidebar tab list
+  ════════════════════════════════════════════════════════════{%- endcomment -%}
+  {%- if link.levels > 0 -%}
+    <div class="mega-menu__sidebar">
+      <p class="mega-menu__sidebar-heading h6">{{ link.title }}</p>
+
+      <ul class="mega-menu__sidebar-list unstyled-list" role="tablist" aria-label="{{ link.title }}">
+        {%- for sub_link in link.links -%}
+          {%- assign tab_id   = menu_id | append: '-tab-'   | append: forloop.index -%}
+          {%- assign panel_id = menu_id | append: '-panel-' | append: forloop.index -%}
+          <li role="presentation">
+            <button
+              class="mega-menu__sidebar-item{% if forloop.first %} is-active{% endif %}"
+              role="tab"
+              id="{{ tab_id }}"
+              aria-controls="{{ panel_id }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              data-mega-tab="{{ menu_id }}"
+              data-link-handle="{{ sub_link.handle }}"
+            >
+              {% comment %} {%- if sub_link.object.image -%}
+                <span class="mega-menu__sidebar-icon" aria-hidden="true">
+                  {{- sub_link.object.image | image_url: width: 40 | image_tag: loading: 'lazy', widths: '40', class: 'mega-menu__sidebar-icon-img' -}}
+                </span>
+              {%- endif -%} {% endcomment %}
+               {%- assign side_image = blank -%}
+
+              {%- for promo_block in section.blocks -%}
+                {%- if promo_block.type == 'mega_menu_item_promo'
+                  and promo_block.settings.menu_item_handle == sub_link.handle
+                -%}
+                  {%- assign side_image = promo_block.settings.side_image -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if side_image != blank -%}
+                <span class="mega-menu__sidebar-icon" aria-hidden="true">
+                  {{- side_image | image_url: width: 40 | image_tag:
+                    loading: 'lazy',
+                    widths: '40',
+                    class: 'mega-menu__sidebar-icon-img'
+                  -}}
+                </span>
+              {%- endif -%}
+              <span>{{ sub_link.title }}</span>
+              <span class="mega-menu__sidebar-arrow" aria-hidden="true">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="0 0 9 17" fill="none">
+                      <path d="M1.00002 16.2588C1.00002 13.0373 3.25828 10.2155 7.77344 7.79066C3.25828 5.77218 1.00002 3.17525 1.00002 -0.000128644" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                   </svg>
+              </span>
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}════════════════════════════════════════════════════════════
+    MIDDLE COLUMN — tabpanels (sub-links + CTA button)
+    Button text & link come from the matched promo block, NOT hardcoded.
+  ════════════════════════════════════════════════════════════{%- endcomment -%}
+  {%- if link.levels > 0 -%}
+    <div class="mega-menu__panels">
+      {%- for sub_link in link.links -%}
+        {%- assign tab_id   = menu_id | append: '-tab-'   | append: forloop.index -%}
+        {%- assign panel_id = menu_id | append: '-panel-' | append: forloop.index -%}
+
+        {%- comment -%} Find the promo block whose handle matches this sub_link {%- endcomment -%}
+        {%- assign matched_block = nil -%}
+        {%- for promo_block in section.blocks -%}
+          {%- if promo_block.type == 'mega_menu_item_promo'
+              and promo_block.settings.menu_item_handle == sub_link.handle -%}
+            {%- assign matched_block = promo_block -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- comment -%} Resolve CTA from matched block or fall back to sub_link itself {%- endcomment -%}
+        {%- if matched_block != nil and matched_block.settings.button_text != blank -%}
+          {%- assign cta_text = matched_block.settings.button_text -%}
+          {%- assign cta_url  = matched_block.settings.button_link | default: sub_link.url -%}
+        {%- else -%}
+          {%- assign cta_text = 'Shop ' | append: sub_link.title -%}
+          {%- assign cta_url  = sub_link.url -%}
+        {%- endif -%}
+
+        <div
+          class="mega-menu__panel{% if forloop.first %} is-active{% endif %}"
+          role="tabpanel"
+          id="{{ panel_id }}"
+          aria-labelledby="{{ tab_id }}"
+          {% unless forloop.first %}hidden{% endunless %}
+        >
+          <div class="mega-parent">
+            <h3 class="mega-menu__panel-heading">
+              {{ sub_link.title }}
+            </h3>
+            {%- if sub_link.links.size > 0 -%}
+              <ul class="mega-menu__panel-list unstyled-list">
+                {%- for sub_sub_link in sub_link.links -%}
+                  <li>
+                    <a href="{{ sub_sub_link.url }}" class="mega-menu__panel-link">{{ sub_sub_link.title }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+
+          <a href="{{ cta_url }}" class="mega-menu__panel-cta button button--secondary">
+            {{ cta_text }}
+          </a>
+        </div>
+
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}════════════════════════════════════════════════════════════
+    RIGHT COLUMN — promo panels, one per mega_menu_item_promo block.
+    All rendered in DOM; JS shows/hides based on active tab's data-link-handle.
+    First sub_link's matching block is shown on load.
+  ════════════════════════════════════════════════════════════{%- endcomment -%}
+
+
+  <div class="mega-menu__promo" aria-live="polite">
+
+    {%- comment -%}
+      We need to know which handle is "first" so we can pre-activate the right promo.
+    {%- endcomment -%}
+    {%- assign first_handle = link.links.first.handle -%}
+
+    {%- comment -%}
+      Render one promo-panel per block that belongs to this mega menu.
+      We scope by checking that the block's menu_item_handle appears somewhere in
+      this link's children — this matters when multiple mega menus exist on the page.
+    {%- endcomment -%}
+    {%- for promo_block in section.blocks -%}
+      {%- if promo_block.type != 'mega_menu_item_promo' -%}{%- continue -%}{%- endif -%}
+
+      {%- assign block_handle = promo_block.settings.menu_item_handle -%}
+
+      {%- comment -%} Only render if this handle belongs to our current link's children {%- endcomment -%}
+      {%- assign handle_belongs = false -%}
+      {%- for sub_link in link.links -%}
+        {%- if sub_link.handle == block_handle -%}
+          {%- assign handle_belongs = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless handle_belongs -%}{%- continue -%}{%- endunless -%}
+
+      {%- assign is_first_promo = false -%}
+      {%- if block_handle == first_handle -%}{%- assign is_first_promo = true -%}{%- endif -%}
+
+      <div
+        class="mega-menu__promo-panel{% if is_first_promo %} is-active{% endif %}"
+        data-promo-handle="{{ block_handle }}"
+        {% unless is_first_promo %}hidden{% endunless %}
+        {{ promo_block.shopify_attributes }}
+      >
+        {%- comment -%} Promo image card {%- endcomment -%}
+        {%- if promo_block.settings.promo_image != blank -%}
+          <a
+            href="{{ promo_block.settings.promo_link | default: '#' }}"
+            class="mega-menu__promo-card"
+            {% if promo_block.settings.promo_link == blank %}aria-disabled="true" tabindex="-1"{% endif %}
+          >
+            {{- promo_block.settings.promo_image | image_url: width: 600 | image_tag:
+                loading: 'lazy',
+                widths: '300,400,500,600',
+                class: 'mega-menu__promo-img',
+                alt: promo_block.settings.promo_title -}}
+            {%- if promo_block.settings.promo_title != blank -%}
+              <span class="mega-menu__promo-label">{{ promo_block.settings.promo_title }}</span>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+
+        {%- comment -%} Second promo image (optional) {%- endcomment -%}
+        {%- if promo_block.settings.promo_image_2 != blank -%}
+          <a
+            href="{{ promo_block.settings.promo_link_2 | default: '#' }}"
+            class="mega-menu__promo-card"
+            {% if promo_block.settings.promo_link_2 == blank %}aria-disabled="true" tabindex="-1"{% endif %}
+          >
+            {{- promo_block.settings.promo_image_2 | image_url: width: 600 | image_tag:
+                loading: 'lazy',
+                widths: '300,400,500,600',
+                class: 'mega-menu__promo-img',
+                alt: promo_block.settings.promo_title_2 -}}
+            {%- if promo_block.settings.promo_title_2 != blank -%}
+              <span class="mega-menu__promo-label">{{ promo_block.settings.promo_title_2 }}</span>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+
+      </div>
+
+    {%- endfor -%}
+
+  </div>{%- comment -%}/.mega-menu__promo{%- endcomment -%}
+
+  <div
+  class="mega-menu__promo-panel{% if is_first_promo %} is-active{% endif %}"
+  data-promo-handle="{{ block_handle }}"
+  data-debug-block-handle="{{ block_handle }}"
+  data-debug-first-handle="{{ first_handle }}"
+  {% unless is_first_promo %}hidden{% endunless %}
+  {{ promo_block.shopify_attributes }}
+>
+
+  <!-- DEBUG -->
+  <div style="padding:10px;background:#fff3cd;color:#000;font-size:12px;border:1px solid #ccc;">
+    Block Handle: {{ block_handle }}<br>
+    First Handle: {{ first_handle }}<br>
+    Is First Promo: {{ is_first_promo }}<br>
+
+    Child Links:
+    <ul>
+      {%- for sub_link in link.links -%}
+        <li>
+          {{ sub_link.title }}
+          |
+          Handle: {{ sub_link.handle }}
+          |
+          Match: {% if sub_link.handle == block_handle %}YES{% else %}NO{% endif %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+</div>
+{%- comment -%}/.mega-menu--tabbed{%- endcomment -%}
+
+{%- comment -%}════════════════════════════════════════════════════════════
+  JAVASCRIPT — Tab switching + promo panel syncing
+  Fully vanilla, no deps, safe for multiple mega menus per page.
+════════════════════════════════════════════════════════════{%- endcomment -%}
+{% comment %} <script>
+(function () {
+  'use strict';
+
+  function initMegaMenu(menuId) {
+    var container = document.getElementById(menuId);
+    if (!container) return;
+
+    var tabs = Array.from(container.querySelectorAll('[data-mega-tab="' + menuId + '"]'));
+    if (!tabs.length) return;
+
+    function activateTab(tab) {
+      var panelId    = tab.getAttribute('aria-controls');
+      var panel      = document.getElementById(panelId);
+      var linkHandle = tab.getAttribute('data-link-handle');
+      if (!panel) return;
+
+      // ── Deactivate all tabs + panels
+      tabs.forEach(function (t) {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) { p.classList.remove('is-active'); p.hidden = true; }
+      });
+
+      // ── Deactivate all promo panels inside this menu
+      container.querySelectorAll('.mega-menu__promo-panel').forEach(function (pp) {
+        pp.classList.remove('is-active');
+        pp.hidden = true;
+      });
+
+      // ── Activate the clicked tab + its middle panel
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+      panel.classList.add('is-active');
+      panel.hidden = false;
+
+      // ── Activate the matching promo panel by handle
+      if (linkHandle) {
+        var promoPanel = container.querySelector(
+          '.mega-menu__promo-panel[data-promo-handle="' + linkHandle + '"]'
+        );
+        if (promoPanel) {
+          promoPanel.classList.add('is-active');
+          promoPanel.hidden = false;
+        }
+      }
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { activateTab(tab); });
+
+      // Keyboard arrow navigation
+      tab.addEventListener('keydown', function (e) {
+        var dir = 0;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') dir = 1;
+        if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  dir = -1;
+        if (!dir) return;
+        e.preventDefault();
+        var idx  = tabs.indexOf(tab);
+        var next = tabs[(idx + dir + tabs.length) % tabs.length];
+        if (next) { next.focus(); activateTab(next); }
+      });
+    });
+  }
+
+  function bootAll() {
+    document.querySelectorAll('.mega-menu--tabbed').forEach(function (el) {
+      if (el.id) initMegaMenu(el.id);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootAll);
+  } else {
+    bootAll();
+  }
+
+  // Shopify Theme Editor live-reload support
+  document.addEventListener('shopify:section:load', bootAll);
+})();
+</script> {% endcomment %}
+
+<script>
+(function () {
+  'use strict';
+
+  function initMegaMenu(menuId) {
+    var container = document.getElementById(menuId);
+    if (!container) return;
+
+    var tabs = Array.from(container.querySelectorAll('[data-mega-tab="' + menuId + '"]'));
+    if (!tabs.length) return;
+
+    function activateTab(tab) {
+      var panelId    = tab.getAttribute('aria-controls');
+      var panel      = document.getElementById(panelId);
+      var linkHandle = tab.getAttribute('data-link-handle');
+
+      if (!panel) return;
+
+      // Deactivate all tabs + panels
+      tabs.forEach(function (t) {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) {
+          p.classList.remove('is-active');
+          p.hidden = true;
+        }
+      });
+
+      // Deactivate all promo panels
+      container.querySelectorAll('.mega-menu__promo-panel').forEach(function (pp) {
+        pp.classList.remove('is-active');
+        pp.hidden = true;
+      });
+
+      // Activate current tab
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+
+      panel.classList.add('is-active');
+      panel.hidden = false;
+
+      // Activate matching promo panel
+      if (linkHandle) {
+        var promoPanel = container.querySelector(
+          '.mega-menu__promo-panel[data-promo-handle="' + linkHandle + '"]'
+        );
+
+        if (promoPanel) {
+          promoPanel.classList.add('is-active');
+          promoPanel.hidden = false;
+        }
+      }
+    }
+
+    tabs.forEach(function (tab) {
+
+      // Hover instead of click
+      tab.addEventListener('mouseenter', function () {
+        activateTab(tab);
+      });
+
+      // Keyboard navigation still works
+      tab.addEventListener('keydown', function (e) {
+        var dir = 0;
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') dir = 1;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') dir = -1;
+
+        if (!dir) return;
+
+        e.preventDefault();
+
+        var idx = tabs.indexOf(tab);
+        var next = tabs[(idx + dir + tabs.length) % tabs.length];
+
+        if (next) {
+          next.focus();
+          activateTab(next);
+        }
+      });
+    });
+
+    // Activate first tab by default
+    activateTab(tabs[0]);
+  }
+
+  function bootAll() {
+    document.querySelectorAll('.mega-menu--tabbed').forEach(function (el) {
+      if (el.id) {
+        initMegaMenu(el.id);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootAll);
+  } else {
+    bootAll();
+  }
+
+  // Shopify Theme Editor support
+  document.addEventListener('shopify:section:load', bootAll);
+})();
+</script>

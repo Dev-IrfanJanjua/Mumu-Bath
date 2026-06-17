@@ -1,0 +1,559 @@
+{% comment %}
+  Shop By Categories Section
+  - Section heading (globally styled — no inline styles on heading)
+  - Blocks: each block = one collection card (image + label)
+  - First block = large card (stretches to match height of right grid)
+  - Remaining blocks = 2-column grid on the right
+  - Text: absolute over image on desktop, below image on mobile
+  - Optional mobile image per block; falls back to desktop image
+  - Padding top/bottom settings for desktop & mobile
+  - Background colour setting
+{% endcomment %}
+
+{%- liquid
+  assign total_blocks = section.blocks.size
+-%}
+
+<section
+  class="sbc-section fade-in-section"
+  id="shopify-section-{{ section.id }}"
+  style="
+    --sbc-bg: {{ section.settings.bg_color }};
+    --sbc-pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --sbc-pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --sbc-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --sbc-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --sbc-label-bg: {{ section.settings.label_bg_color }};
+    --sbc-label-color: {{ section.settings.label_text_color }};
+    --sbc-gap: {{ section.settings.card_gap }}px;
+    --sbc-radius: {{ section.settings.card_radius }}px;
+  "
+  aria-label="{{ section.settings.section_aria_label | escape }}"
+>
+  <div class="sbc-section__page-width page-width">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hair__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if total_blocks > 0 -%}
+      <div class="sbc-section__layout">
+
+        {%- comment -%} ── LARGE CARD (first block) ── {%- endcomment -%}
+        {%- assign first_block = section.blocks[0] -%}
+        {%- if first_block -%}
+          <div class="sbc-section__large-card fade-in-left" {{ first_block.shopify_attributes }}>
+            <a
+              class="sbc-card"
+              href="{{ first_block.settings.collection_url | default: '#' }}"
+              aria-label="{{ first_block.settings.label | escape }}"
+            >
+              {%- comment -%} Desktop image {%- endcomment -%}
+              {%- if first_block.settings.image != blank -%}
+                {{
+                  first_block.settings.image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: first_block.settings.image_alt ,
+                    width: 900,
+                    height: 1100,
+                    class: 'sbc-card__img sbc-card__img--desktop',
+                    sizes: '(max-width: 749px) 100vw, 40vw',
+                    widths: '400, 600, 750, 900'
+                }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'sbc-card__img sbc-card__img--placeholder' }}
+              {%- endif -%}
+
+              {%- comment -%} Mobile image (optional) {%- endcomment -%}
+              {%- if first_block.settings.image_mobile != blank -%}
+                {{
+                  first_block.settings.image_mobile
+                  | image_url: width: 750
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: first_block.settings.image_alt ,
+                    width: 750,
+                    height: 560,
+                    class: 'sbc-card__img sbc-card__img--mobile',
+                    sizes: '100vw',
+                    widths: '400, 600, 750'
+                }}
+              {%- endif -%}
+
+              <span class="sbc-card__label">{{ first_block.settings.label  }}</span>
+            </a>
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} ── GRID CARDS (remaining blocks) ── {%- endcomment -%}
+        {%- if total_blocks > 1 -%}
+          <div class="sbc-section__grid fade-in-right">
+            {%- for block in section.blocks offset: 1 -%}
+              <div class="sbc-section__grid-item" {{ block.shopify_attributes }}>
+                <a
+                  class="sbc-card"
+                  href="{{ block.settings.collection_url | default: '#' }}"
+                  aria-label="{{ block.settings.label | escape }}"
+                >
+                  {%- comment -%} Desktop image {%- endcomment -%}
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: block.settings.image_alt ,
+                        width: 600,
+                        height: 500,
+                        class: 'sbc-card__img sbc-card__img--desktop',
+                        sizes: '(max-width: 749px) 100vw, 28vw',
+                        widths: '300, 450, 600'
+                    }}
+                  {%- else -%}
+                    {{ 'collection-2' | placeholder_svg_tag: 'sbc-card__img sbc-card__img--placeholder' }}
+                  {%- endif -%}
+
+                  {%- comment -%} Mobile image (optional) {%- endcomment -%}
+                  {%- if block.settings.image_mobile != blank -%}
+                    {{
+                      block.settings.image_mobile
+                      | image_url: width: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: block.settings.image_alt ,
+                        width: 600,
+                        height: 400,
+                        class: 'sbc-card__img sbc-card__img--mobile',
+                        sizes: '50vw',
+                        widths: '300, 450, 600'
+                    }}
+                  {%- endif -%}
+
+                  <span class="sbc-card__label">{{ block.settings.label  }}</span>
+                </a>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<style>
+  /* ── Section shell ── */
+  .sbc-section {
+    background-color: var(--sbc-bg, #f9f5f0);
+    padding-top: var(--sbc-pt-mobile, 40px);
+    padding-bottom: var(--sbc-pb-mobile, 40px);
+  }
+
+  @media (min-width: 750px) {
+    .sbc-section {
+      padding-top: var(--sbc-pt-desktop, 64px);
+      padding-bottom: var(--sbc-pb-desktop, 64px);
+    }
+  }
+
+  /* ── Heading — no inline styles; inherits theme globals ── */
+  .sbc-section .hair__heading  {
+    text-align: center;
+    margin-block-end: 48px;
+  }
+
+  /* ── Two-part layout: large card + right grid ── */
+  .sbc-section__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (min-width: 750px) {
+    .sbc-section__layout {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  /* ── Large card — takes ~42% width, stretches full height ── */
+  .sbc-section__large-card {
+    flex: 0 0 42%;
+  }
+
+  .sbc-section__large-card .sbc-card__img--desktop {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Right grid ── */
+  .sbc-section__grid {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sbc-gap, 12px);
+  }
+
+  /* ── Card base ── */
+  .sbc-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--sbc-radius, 4px);
+    text-decoration: none;
+    height: 100%;
+    background: #e8e0d8;
+  }
+
+  /* ── Images ── */
+  .sbc-card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--sbc-radius, 4px);
+  }
+
+  .sbc-card__img--placeholder {
+    aspect-ratio: 4 / 3;
+    background: #ddd6cc;
+  }
+
+  /* Mobile image hidden by default (desktop shows) */
+  .sbc-card__img--mobile {
+    display: none;
+  }
+
+  /* ── Label — absolute on desktop ── */
+  .sbc-card__label {
+    position: absolute;
+    top: 24px;
+    right: auto;
+    color: #000;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width:100%;
+    text-align:center;
+  }
+  .sbc-card__label p {
+     margin:0px;
+  }
+
+
+  {% comment %} animation {% endcomment %}
+
+/* ── Smooth hover base transition ── */
+.sbc-card {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Image smooth zoom layer */
+.sbc-card__img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Subtle overlay sheen */
+.sbc-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.12) 40%,
+    rgba(255,255,255,0) 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+/* ── Hover effect ── */
+.sbc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* Zoom image slightly on hover */
+.sbc-card:hover .sbc-card__img {
+  transform: scale(1.06);
+}
+
+/* Shine sweep animation */
+.sbc-card:hover::after {
+  transform: translateX(120%);
+}
+
+/* Optional: label micro animation */
+.sbc-card__label {
+  transition: transform 0.4s ease, letter-spacing 0.4s ease;
+}
+
+.sbc-card:hover .sbc-card__label {
+  transform: translateY(-2px);
+  letter-spacing: 0.5px;
+}
+
+  /* ── Mobile layout overrides ── */
+  @media (max-width: 749px) {
+    .sbc-section__grid {
+      grid-template-columns: 1fr 1fr;
+      gap:20px 10px;
+    }
+
+    /* Show mobile image, hide desktop image — only when mobile image exists */
+    .sbc-card:has(.sbc-card__img--mobile) .sbc-card__img--desktop {
+      display: none;
+    }
+
+    .sbc-card__img--mobile {
+      display: block;
+    }
+
+    /* Card: stack image then label below */
+    .sbc-card {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      background: transparent;
+    }
+
+    .sbc-card__img {
+      height: auto;
+      aspect-ratio: auto;
+      flex-shrink: 0;
+      border-radius: 10px;
+    }
+
+    /* Label below image on mobile */
+    .sbc-card__label {
+        position: static;
+        padding: 8px 0 0 0;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        transform:unset;
+        margin-left:4px;
+    
+    }
+    .sbc-card {
+      border-radius:10px;
+    }
+    .sbc-card__label p, .sbc-card__label {
+        text-align: left;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Shop By Categories",
+  "tag": "section",
+  "class": "section-shop-by-categories",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop By Categories"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top — Desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom — Desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top — Mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom — Mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#f9f5f0"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Card Label Text Colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "label_bg_color",
+      "label": "Card Label Background (desktop, optional)",
+      "default": "rgba(255,255,255,0)"
+    },
+    {
+      "type": "header",
+      "content": "Card Style"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap Between Cards (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card Border Radius (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "section_aria_label",
+      "label": "Section Aria Label",
+      "default": "Shop by product categories"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_card",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image (optional)",
+          "info": "If left blank, the desktop image is used on mobile."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "Category image"
+        },
+        {
+          "type": "richtext",
+          "id": "label",
+          "label": "Category Label",
+        },
+        {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Collection URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop By Categories",
+      "settings": {
+        "heading": "Shop By Categories",
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#f9f5f0",
+        "label_text_color": "#1a1a1a",
+        "card_gap": 12,
+        "card_radius": 4
+      },
+      "blocks": [
+        {
+          "type": "category_card",
+          "settings": {
+            "label": "<p>Soaps</p>",
+            "image_alt": "Collection of natural soap bars"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "label": "<p>Body Butter & Body Creams</p>",
+            "image_alt": "Body butter and cream products"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "label": "<p>Face</p>",
+            "image_alt": "Face care products"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "label": "<p>Candles & Fragrance</p>",
+            "image_alt": "Candles and fragrance collection"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "label": "<p>Accessories</p>",
+            "image_alt": "Bath and body accessories"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_10.png",
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "sm",
+        "background": "#000000",
+        "text_color": "#1c1c1c",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "slideshow_8AqcGQ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_PEm39A": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_61.png",
+            "mobile_image": "shopify://shop_images/homepage.png",
+            "subheading": "",
+            "title": "<strong>Naturally radiant, Never greasy </strong>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 520,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "outline",
+            "button_1_background": "#1c1c1c",
+            "button_1_text_color": "#1c1c1c",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#1c1c1c",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0), rgba(4, 4, 4, 0) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_PEm39A"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "1742280158f0411691": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KEFhWn": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_pQf6z9": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KEFhWn",
+        "targetbay_product_reviews_site_reviews_pQf6z9"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_8AqcGQ",
+    "main",
+    "1742280158f0411691"
+  ]
+}

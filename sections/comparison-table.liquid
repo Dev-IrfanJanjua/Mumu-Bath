@@ -1,0 +1,618 @@
+{% comment %} Comparison Table Section {% endcomment %}
+
+<style>
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.section_bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  .section-{{ section.id }} .page-width{
+    padding-inline: 80px;
+    }
+
+  .section-{{ section.id }} .comparison-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: start;
+    gap: 48px;
+  }
+
+  /* ── Left Column ── */
+  .section-{{ section.id }} .comparison-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 32px;
+  }
+
+  .section-{{ section.id }} .comparison-title.title_title {
+    color: {{ section.settings.title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  .section-{{ section.id }} .comparison-subtitle {
+    color: {{ section.settings.subtitle_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    margin: 0;
+  }
+
+  .section-{{ section.id }} .comparison-subtitle.comparison-subtitle--desktop {
+        max-width: 421px;
+    }
+
+  /* hide subtitle in left col on mobile — shown below table instead */
+  .section-{{ section.id }} .comparison-subtitle--mobile {
+    display: none;
+  }
+
+  /* ── Right Column – Table ── */
+  .section-{{ section.id }} .comparison-table-wrap {
+    width: 100%;
+  }
+
+  .section-{{ section.id }} .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-radius: 8px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  /* Column widths: feature label | brand col | others col */
+  .section-{{ section.id }} .comparison-table col.col-feature {
+    width: 45%;
+  }
+  .section-{{ section.id }} .comparison-table col.col-brand {
+    width: 27.5%;
+  }
+  .section-{{ section.id }} .comparison-table col.col-others {
+    width: 27.5%;
+    background: #fff;
+  }
+
+  /* ── Header row ── */
+  .section-{{ section.id }} .comparison-table thead tr {
+    background-color: {{ section.settings.brand_col_color }};
+  }
+
+  .section-{{ section.id }} .comparison-table th {
+    padding: 13.398px 22px;
+    height: 66.992px;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+
+  .section-{{ section.id }} .comparison-table th.th-feature {
+    background-color: {{ section.settings.brand_col_color }};
+    color: {{ section.settings.header_text_color }};
+    font-family: Lora, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+    text-align: left;
+    opacity: 1;
+  }
+
+  .section-{{ section.id }} .comparison-table th.th-brand {
+    background-color: {{ section.settings.brand_col_color }};
+    text-align: center;
+    vertical-align: middle;
+    padding: 13.398px 22px;
+    opacity: 1;
+  }
+
+  .section-{{ section.id }} .comparison-table th.th-brand img,
+  .section-{{ section.id }} .comparison-table th.th-brand svg {
+    max-height: 32px;
+    width: auto;
+    display: inline-block;
+  }
+
+  .section-{{ section.id }} .comparison-table th.th-brand .th-brand-text {
+    color: {{ section.settings.header_text_color }};
+    font-family: Lora, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: capitalize;
+    text-align: center;
+    opacity: 1;
+  }
+
+  .section-{{ section.id }} .comparison-table th.th-others {
+    background-color: #fff;
+    color: {{ section.settings.others_text_color }};
+    font-family: Lora, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: capitalize;
+    text-align: center;
+    opacity: 1;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} .comparison-table tbody tr:last-child td.td-others {
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}
+
+  /* ── Body rows ── */
+  .section-{{ section.id }} .comparison-table tbody tr td{
+    border: none;
+    }
+
+  .section-{{ section.id }} .comparison-table thead tr th,
+  .section-{{ section.id }} .comparison-table tbody tr:not(:last-child) td {
+    border: none;
+    border-bottom: 1px solid {{ section.settings.row_divider_color }};
+  }
+
+  .section-{{ section.id }} .comparison-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .section-{{ section.id }} .comparison-table td {
+    padding: 13.398px 22px;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+
+  /* Feature label cell */
+  .section-{{ section.id }} .comparison-table td.td-feature {
+    background-color: {{ section.settings.brand_col_color }};
+    color: {{ section.settings.feature_text_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  /* Brand check cell */
+  .section-{{ section.id }} .comparison-table td.td-brand {
+    background-color: {{ section.settings.brand_col_color }};
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* Others cell */
+  .section-{{ section.id }} .comparison-table td.td-others {
+    background-color: transparent;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* ── Icons ── */
+  .section-{{ section.id }} .ct-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-top: 7px;
+  }
+
+  .section-{{ section.id }} .ct-icon svg {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    display: block;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .page-width{
+        padding-inline: 16px;
+    }
+
+    .section-{{ section.id }} .comparison-wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .section-{{ section.id }} .comparison-title.title_title {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    /* Hide desktop subtitle, show mobile one below table */
+    .section-{{ section.id }} .comparison-subtitle--desktop {
+      display: none;
+    }
+
+    .section-{{ section.id }} .comparison-subtitle--mobile {
+        display: block;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .section-{{ section.id }} .comparison-table th,
+    .section-{{ section.id }} .comparison-table td {
+      padding: 10px 12px;
+    }
+
+    .section-{{ section.id }} .comparison-table th.th-feature{
+        font-size: 16px;
+    }
+
+    .section-{{ section.id }} .comparison-table td.td-feature {
+      font-size: 14px;
+    }
+
+    .section-{{ section.id }} .comparison-table th.th-brand .th-brand-text,
+    .section-{{ section.id }} .comparison-table th.th-others {
+      font-size: 14px;
+    }
+
+    .section-{{ section.id }} .comparison-table col.col-feature {
+        width: 56%;
+    }
+
+    .section-{{ section.id }} .comparison-table col.col-others,
+    .section-{{ section.id }} .comparison-table col.col-brand {
+        width: 22%;
+    }
+
+    .section-{{ section.id }} .comparison-table th.th-brand {
+        padding: 0;
+    }
+
+  }
+</style>
+
+<section class="section-{{ section.id }} fade-in-section" id="shopify-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="comparison-wrapper">
+
+      <!-- Left -->
+      <div class="comparison-left">
+        <div>
+          {%- if section.settings.title != blank -%}
+            <h2 class="comparison-title title_title fade-in-left">{{ section.settings.title }}</h2>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.subtitle != blank -%}
+          <p class="comparison-subtitle comparison-subtitle--desktop fade-in-left">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+
+      <!-- Right: table + mobile subtitle -->
+      <div class="comparison-table-wrap">
+        <table class="comparison-table" role="table">
+          <colgroup>
+            <col class="col-feature">
+            <col class="col-brand">
+            <col class="col-others">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="th-feature" scope="col">{{ section.settings.col_features_label }}</th>
+              <th class="th-brand" scope="col">
+                {%- if section.settings.brand_logo != blank -%}
+                  {{
+                    section.settings.brand_logo
+                    | image_url: width: 300
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: section.settings.brand_name | escape
+                  }}
+                {%- else -%}
+                  <span class="th-brand-text">{{ section.settings.brand_name }}</span>
+                {%- endif -%}
+              </th>
+              <th class="th-others" scope="col">{{ section.settings.col_others_label }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'row' -%}
+                <tr class="fade-in-item" {{ block.shopify_attributes }}>
+                  <td class="td-feature">{{ block.settings.feature_label }}</td>
+                  <td class="td-brand">
+                    {%- if block.settings.brand_has_feature -%}
+                      <span class="ct-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1218 15.6557 10.039 15.6004 9.96938 15.5306L7.71938 13.2806C7.57865 13.1399 7.49959 12.949 7.49959 12.75C7.49959 12.551 7.57865 12.3601 7.71938 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44903 11.9996 8.6399 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.2891 9.14969 15.3718 9.09442 15.4628 9.0567C15.5539 9.01899 15.6515 8.99958 15.75 8.99958C15.8486 8.99958 15.9461 9.01899 16.0372 9.0567C16.1282 9.09442 16.2109 9.14969 16.2806 9.21937C16.3503 9.28906 16.4056 9.37178 16.4433 9.46283C16.481 9.55387 16.5004 9.65145 16.5004 9.75C16.5004 9.84855 16.481 9.94613 16.4433 10.0372C16.4056 10.1282 16.3503 10.2109 16.2806 10.2806Z" fill="black"/>
+                        </svg>
+                      </span>
+                    {%- else -%}
+                      <span class="ct-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M22.4831 14.7188L21.3581 5.71875C21.2896 5.17489 21.0249 4.67475 20.6137 4.31224C20.2025 3.94974 19.6732 3.74981 19.125 3.75H3C2.60218 3.75 2.22064 3.90804 1.93934 4.18934C1.65804 4.47064 1.5 4.85218 1.5 5.25V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H7.03687L10.5787 22.0856C10.6411 22.2102 10.7369 22.315 10.8555 22.3882C10.9741 22.4614 11.1107 22.5001 11.25 22.5C12.2446 22.5 13.1984 22.1049 13.9017 21.4016C14.6049 20.6984 15 19.7446 15 18.75V17.25H20.25C20.5693 17.2501 20.8849 17.1823 21.176 17.051C21.467 16.9197 21.7268 16.728 21.938 16.4885C22.1492 16.2491 22.3071 15.9675 22.4011 15.6623C22.4951 15.3572 22.523 15.0355 22.4831 14.7188ZM6.75 13.5H3V5.25H6.75V13.5ZM20.8125 15.4959C20.7426 15.5763 20.6561 15.6407 20.5591 15.6845C20.462 15.7284 20.3565 15.7507 20.25 15.75H14.25C14.0511 15.75 13.8603 15.829 13.7197 15.9697C13.579 16.1103 13.5 16.3011 13.5 16.5V18.75C13.5001 19.2702 13.32 19.7744 12.9903 20.1767C12.6606 20.5791 12.2016 20.8548 11.6916 20.9569L8.25 14.0728V5.25H19.125C19.3077 5.24994 19.4842 5.31658 19.6212 5.43742C19.7583 5.55825 19.8465 5.72496 19.8694 5.90625L20.9944 14.9062C21.0084 15.0118 20.9994 15.1192 20.9681 15.221C20.9367 15.3228 20.8836 15.4166 20.8125 15.4959Z" fill="black"/>
+                        </svg>
+                      </span>
+                    {%- endif -%}
+                  </td>
+                  <td class="td-others">
+                    {%- if block.settings.others_has_feature -%}
+                      <span class="ct-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1218 15.6557 10.039 15.6004 9.96938 15.5306L7.71938 13.2806C7.57865 13.1399 7.49959 12.949 7.49959 12.75C7.49959 12.551 7.57865 12.3601 7.71938 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44903 11.9996 8.6399 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.2891 9.14969 15.3718 9.09442 15.4628 9.0567C15.5539 9.01899 15.6515 8.99958 15.75 8.99958C15.8486 8.99958 15.9461 9.01899 16.0372 9.0567C16.1282 9.09442 16.2109 9.14969 16.2806 9.21937C16.3503 9.28906 16.4056 9.37178 16.4433 9.46283C16.481 9.55387 16.5004 9.65145 16.5004 9.75C16.5004 9.84855 16.481 9.94613 16.4433 10.0372C16.4056 10.1282 16.3503 10.2109 16.2806 10.2806Z" fill="black"/>
+                        </svg>
+                      </span>
+                    {%- else -%}
+                      <span class="ct-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M22.4831 14.7188L21.3581 5.71875C21.2896 5.17489 21.0249 4.67475 20.6137 4.31224C20.2025 3.94974 19.6732 3.74981 19.125 3.75H3C2.60218 3.75 2.22064 3.90804 1.93934 4.18934C1.65804 4.47064 1.5 4.85218 1.5 5.25V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H7.03687L10.5787 22.0856C10.6411 22.2102 10.7369 22.315 10.8555 22.3882C10.9741 22.4614 11.1107 22.5001 11.25 22.5C12.2446 22.5 13.1984 22.1049 13.9017 21.4016C14.6049 20.6984 15 19.7446 15 18.75V17.25H20.25C20.5693 17.2501 20.8849 17.1823 21.176 17.051C21.467 16.9197 21.7268 16.728 21.938 16.4885C22.1492 16.2491 22.3071 15.9675 22.4011 15.6623C22.4951 15.3572 22.523 15.0355 22.4831 14.7188ZM6.75 13.5H3V5.25H6.75V13.5ZM20.8125 15.4959C20.7426 15.5763 20.6561 15.6407 20.5591 15.6845C20.462 15.7284 20.3565 15.7507 20.25 15.75H14.25C14.0511 15.75 13.8603 15.829 13.7197 15.9697C13.579 16.1103 13.5 16.3011 13.5 16.5V18.75C13.5001 19.2702 13.32 19.7744 12.9903 20.1767C12.6606 20.5791 12.2016 20.8548 11.6916 20.9569L8.25 14.0728V5.25H19.125C19.3077 5.24994 19.4842 5.31658 19.6212 5.43742C19.7583 5.55825 19.8465 5.72496 19.8694 5.90625L20.9944 14.9062C21.0084 15.0118 20.9994 15.1192 20.9681 15.221C20.9367 15.3228 20.8836 15.4166 20.8125 15.4959Z" fill="black"/>
+                        </svg>
+                      </span>
+                    {%- endif -%}
+                  </td>
+                </tr>
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <!-- Subtitle below table on mobile -->
+        {%- if section.settings.subtitle != blank -%}
+          <p class="comparison-subtitle comparison-subtitle--mobile fade-in-left">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Column"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why Switch From Ordinary Soap?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Most soaps strip your skin and leave it feeling dry. Kiss Me Sunshine is crafted to gently cleanse while nourishing your skin."
+    },
+    {
+      "type": "header",
+      "content": "Table Header"
+    },
+    {
+      "type": "text",
+      "id": "col_features_label",
+      "label": "Features Column Label",
+      "default": "Features"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo (optional)",
+      "info": "If set, shows logo instead of brand name text in the header"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name (fallback if no logo)",
+      "default": "mumu bath"
+    },
+    {
+      "type": "text",
+      "id": "col_others_label",
+      "label": "Others Column Label",
+      "default": "Others"
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Colors – Section"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background",
+      "default": "#F5F3EE"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Text"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Table"
+    },
+    {
+      "type": "color",
+      "id": "brand_col_color",
+      "label": "Brand Column Background",
+      "default": "#FBDD40"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Header Text Color (Features & Brand)",
+      "default": "#001116"
+    },
+    {
+      "type": "color",
+      "id": "others_text_color",
+      "label": "Others Header Text Color",
+      "default": "#001116"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature Label Text Color",
+      "default": "#101010"
+    },
+    {
+      "type": "color_background",
+      "id": "row_divider_color",
+      "label": "Row Divider Color",
+      "default": "#00000066"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_label",
+          "label": "Feature Label",
+          "default": "Gentle, Non-Stripping"
+        },
+        {
+          "type": "checkbox",
+          "id": "brand_has_feature",
+          "label": "Brand has this feature",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "others_has_feature",
+          "label": "Others have this feature",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Gentle, Non-Stripping",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Face + Body Friendly",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Citrus Essential Oils",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Cleanses + Nourishes",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Handmade, Plant-Based",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_label": "Suitable For Sensitive Skin",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

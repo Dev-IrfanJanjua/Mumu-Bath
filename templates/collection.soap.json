@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_64frpH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6xebYE": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/short_banner_1_2.jpg",
+            "mobile_image": "shopify://shop_images/short_banner_1.jpg",
+            "subheading": "",
+            "title": "<h1>Luxurious Asian-Inspired Bath Soaps</h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "link",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "image_G9pn8F": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/short_banner_1_2.jpg",
+            "mobile_image": "shopify://shop_images/short_banner_1.jpg",
+            "subheading": "",
+            "title": "<h1>Luxurious Asian-Inspired Bath Soaps</h1>\n<p style=\"font-size:16px;\">\n  At Mumu Bath, we handcraft our soaps in New York City (in our Brooklyn store), infusing them with the essence of our Taiwanese heritage. Our unique formulations transform ordinary bath and shower routines into extraordinary sensory experiences.\n</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "link",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6xebYE",
+        "image_G9pn8F"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_hYW86B": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_FytkEb": {
+          "type": "subheading",
+          "settings": {
+            "text": "MUMU BATH WHERE HERITAGE MEETS LUXURY"
+          }
+        },
+        "richtext_AAwXXf": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Handcrafted Asian-Inspired Soaps by Mumu Bath</h2><p>At Mumu Bath, we handcraft our soaps in New York City (<strong>In </strong><a href=\"https://www.mumubath.com/pages/our-brooklyn-store\" title=\"Mumu Bath Brooklyn Store\"><strong>our Brooklyn Store</strong></a>) infusing them with the essence of our Taiwanese heritage. Our unique formulations transform ordinary bath and shower routines into extraordinary sensory experiences.</p><h3>Natural Ingredients</h3><p>Each bar in our range combines the finest natural ingredients: essential oils, botanicals, minerals, and salts sourced from around the world. We pay special homage to our roots by incorporating distinctive Asian scents, creating an aromatic journey that bridges East and West.</p><h3>More Than Just Cleansing</h3><p>Our artisanal process ensures that every soap delivers more than just cleansing. The carefully selected essential oils offer refreshing and healing properties, while natural minerals rejuvenate your skin.</p><h3>Eco-Friendly Luxury</h3><p>True to our commitment to sustainability, our bar soaps are our most eco-friendly offering. Whenever possible, Whenever possible, we sell them with minimal packaging, minimizing waste while showcasing the natural beauty of each handcrafted bar.</p><h3>Experience Mumu Bath Taiwanese Inspired Soap Range</h3><p>With Mumu Bath, you're not just choosing a premium product – you're embracing a piece of Taiwan cultural heritage and supporting environmental consciousness.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FytkEb",
+        "richtext_AAwXXf"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_YBPEqU": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_YgUn4M": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "MUMU BATH WHERE HERITAGE MEETS LUXURY"
+          }
+        },
+        "richtext_xczdeX": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Handcrafted Asian-Inspired <strong>Bath<br/>Soaps </strong>by Mumu Bath</h2><p>Indulge in handcrafted soaps made<br/>with gentle, skin-loving botanicals. Each bar is thoughtfully designed to nourish, cleanse, and elevate your daily ritual.</p><p>Whether you're winding down or tarting fresh, our <strong>bathing soap</strong> collection offers<br/>the perfect blend of purity and purpose. No harsh chemicals - just beautiful, intentional skincare.</p><h2>Features That Make a Difference</h2><ul><li><strong>Plant-Based & Ultra-Mild </strong>– Our <strong>bathing soap </strong>is crafted with gentle botanicals. It soothes sensitive skin without causing dryness or irritation.<br/></li><li><strong>Deep Moisture, Zero Residue </strong>– Made with organic olive and coconut oils. It hydrates deeply while keeping pores clear.<br/></li><li><strong>Handcrafted Bath Staples </strong>\t– Our <strong>bath soaps </strong>are made in small batches. This ensures freshness, purity, and exceptional care in every bar.<br/></li><li><strong>Scented with Purpose  </strong>– Infused with rosemary and lavender essential oils. Each bar\tcalms your skin and uplifts your senses.<br/></li><li><strong>Barrier-Boosting Ingredients </strong>\t– Contains organic dill to relieve irritation. It helps restore and strengthen the skin's natural barrier.</li></ul><h2>Benefits of Using Our Soaps</h2><ul><li><strong>Naturally Nourishing  </strong>– Crafted with plant-based oils that hydrate without stripping your skin, perfect for daily use on sensitive skin.<br/></li><li><strong>Inspired by Heritage </strong>\t– Rooted in traditional <strong>Asian soap</strong> rituals, each \tbar blends cultural care with modern simplicity.<br/></li><li><strong>No Harsh Chemicals </strong>– Free from sulfates, parabens, and synthetic fragrances to keep your skin balanced and irritation-free.<br/></li><li><strong>Eco-Friendly Choice  </strong>– Plastic-free and biodegradable, making your skincare routine kind to the planet.<br/></li><li><strong>Trusted Ingredients </strong>– Our <strong>organic soap bars</strong> are made with high-quality botanicals and time-tested methods for clean, conscious skincare.<br/></li><li><strong>Artisan-Made in Small Batches </strong>\t– Handcrafted with intention to ensure premium quality and a noticeable difference in every wash.</li></ul><h2>How to Use Our Soaps</h2><ul><li><strong>Lather & Cleanse </strong>\t– Wet the bar and work into a rich lather. Massage gently onto damp skin, then rinse thoroughly for a fresh, clean feel.<br/></li><li><strong>Hydrate & Nourish </strong>– After cleansing, use our Lightweight Body Butter. It seals in moisture and complements the benefits of our <strong>organic soap</strong>. <br/></li><li><strong>Target Trouble Spots </strong>\t– Apply our Wonder Balm to dry or irritated areas. It works well after using soothing bars like our <strong>Asian soap</strong> blends.<br/></li><li><strong>Store with Care </strong>– Keep your soap on a well-draining dish. This prevents melting and extends the life of your bar.<br/></li><li><strong>Use Daily </strong>– Gentle enough for everyday use. Enjoy soft, balanced skin with\teach wash.</li></ul><h2>Why Shop From Us</h2><ul><li><strong>Rooted in Tradition </strong>– Inspired by time-honored rituals, our <strong>Asian \tsoap</strong> formulas combine cultural wisdom with modern purity. Each bar is a reflection of gentle, holistic care.<br/></li><li><strong>Sustainable & Ethical </strong>\t– We focus on eco-friendly practices from packaging to production. It’s skincare that feels good and does good.<br/></li><li><strong>Truly Clean Ingredients </strong>– We use only safe, natural, and skin-loving elements. Our <strong>organic \tsoap bars</strong> are free from synthetic additives and harsh chemicals.<br/></li><li><strong>Loved by Sensitive Skin </strong>– Our soaps are ultra-gentle, and dermatologist trusted. Customers with dry, reactive, or eczema-prone skin come back for a reason.</li></ul><h2>Your Daily Ritual, Elevated</h2><p>Each bar is made to bring comfort, calm, and care to your everyday routine. From soothing scents to skin-loving ingredients, our soaps are crafted with purpose. Free from harsh chemicals and full of nourishing botanicals, they support healthier, happier skin. Thoughtful formulas inspired by tradition and nature. Feel the difference from the first wash. Add a touch of intention to your self-care today.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_YgUn4M",
+        "richtext_xczdeX"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_cJLX3B": {
+      "type": "faq",
+      "blocks": {
+        "question_qYHpjy": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store my soap to make it last longer?",
+            "answer": "<p>Use a well-draining soap dish to keep the bar dry between uses, helping it last longer.</p>"
+          }
+        },
+        "question_G6EyWj": {
+          "type": "question",
+          "settings": {
+            "question": "Is your bathing soap safe for sensitive skin or eczema?",
+            "answer": "<p>Yes, our <strong>bathing soap</strong> is formulated to be ultra-mild and is loved by customers with sensitive skin, eczema,<br/>or dry patches.</p>"
+          }
+        },
+        "question_ANjwAz": {
+          "type": "question",
+          "settings": {
+            "question": "Are your soaps exfoliating?",
+            "answer": "<p>Some of our bars include natural exfoliants like oatmeal or botanicals. Check each product description for details.</p>"
+          }
+        },
+        "question_beBiAf": {
+          "type": "question",
+          "settings": {
+            "question": "Are your soaps suitable for oily or acne-prone skin?",
+            "answer": "<p>Yes, many of our bars include ingredients like tea tree oil and charcoal that help balance oil and soothe breakouts.</p>"
+          }
+        },
+        "question_Kwf7bt": {
+          "type": "question",
+          "settings": {
+            "question": "Do your bath soaps contain synthetic fragrances or colors?",
+            "answer": "<p>No. All of our bath soaps are free from synthetic additives - we use only essential oils and natural plant-based colorants.</p>"
+          }
+        },
+        "question_UbbH7a": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a shelf life for unopened soaps?",
+            "answer": "<p>Unopened, stored in a cool, dry place, your soap can last up to 18 months.</p>"
+          }
+        },
+        "question_qhnhUG": {
+          "type": "question",
+          "settings": {
+            "question": "Can I travel with your soap bars?",
+            "answer": "<p>Yes, they are perfect for travel - no TSA restrictions and no mess.</p>"
+          }
+        },
+        "question_b6pe6T": {
+          "type": "question",
+          "settings": {
+            "question": "Is your organic soap certified by any regulatory body?",
+            "answer": "<p>We use certified organic ingredients, though the final organic soap bar is handcrafted in small batches and not currently third-party certified.</p>"
+          }
+        },
+        "question_XbLVmr": {
+          "type": "question",
+          "settings": {
+            "question": "Do your soaps work in hard water?",
+            "answer": "<p>Yes, our soaps lather well in both soft and hard water conditions.</p>"
+          }
+        },
+        "question_9iYHqR": {
+          "type": "question",
+          "settings": {
+            "question": "Do your soaps work in hard water?",
+            "answer": "<p>No, our natural colors wash clean and don’t leave residue or staining.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_qYHpjy",
+        "question_G6EyWj",
+        "question_ANjwAz",
+        "question_beBiAf",
+        "question_Kwf7bt",
+        "question_UbbH7a",
+        "question_qhnhUG",
+        "question_b6pe6T",
+        "question_XbLVmr",
+        "question_9iYHqR"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "1742280635ff457430": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_mHXkyt": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_T68QYz": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_mHXkyt",
+        "targetbay_product_reviews_site_reviews_T68QYz"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_64frpH",
+    "main",
+    "rich_text_hYW86B",
+    "rich_text_YBPEqU",
+    "faq_cJLX3B",
+    "1742280635ff457430"
+  ]
+}

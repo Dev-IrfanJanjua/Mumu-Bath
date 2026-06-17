@@ -1,0 +1,305 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_64frpH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6xebYE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Olive_Oil_Soaps_-_banner.png",
+            "mobile_image": "shopify://shop_images/olive_oil_-mobile.png",
+            "subheading": "",
+            "title": "<h1>Natural Olive Oil Soaps</h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6xebYE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "large",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_yc7baL": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_m3JDM8": {
+          "type": "subheading",
+          "settings": {
+            "text": "MUMU BATH WHERE OLIVE OIL MEETS LUXURY"
+          }
+        },
+        "heading_x7BnnX": {
+          "type": "heading",
+          "settings": {
+            "text": "Nature's Secret for Radiant Skin is found with Olive Oil Soaps",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_4yphFz": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Gentle, pure, and deeply moisturizing - our soaps are<br/>crafted to care for even the most sensitive skin. Rich in vitamins and<br/>antioxidants, they cleanse without stripping your skin’s natural moisture.</p><p>Made in small batches with high-quality plant-based<br/>ingredients, each bar is a celebration of simple, clean skincare. Discover the<br/>timeless benefits of olive oil and give your skin the love it deserves.</p><h2>Why Choose Olive Oil Soap?</h2><p><strong>Deep Moisturization</strong>: Olive oil closely mimics your skin's natural lipids, penetrating deeply to combat dehydration.</p><p><strong>Gentle Cleansing</strong>: Our soaps cleanse without stripping, leaving your skin soft and supple.</p><p><strong>Rich in Antioxidants</strong>: Olive oil helps fight free radicals, promoting healthier and younger-looking skin.</p><p><strong>Suitable for All Skin Types</strong>: From dry and mature to combination and oily, our soaps cater to every skin need.</p><p><strong>Ancient Wisdom, Modern Care</strong>: Used by ancient civilizations, olive oil continues to be a skincare powerhouse.</p><h2>Olive Oil Soap Collection by Mumu Bath</h2><p>Explore our range of handcrafted <strong>olive<br/>oil soap bars</strong>, each designed to address<br/>specific skin concerns:</p><p><a href=\"/products/eczema-soap\" target=\"_blank\" title=\"Morning Dew Eczema Relief Soap\"><strong>Morning Dew Eczema Relief Soap</strong></a>: Soothe irritated skin and find relief from eczema.</p><p><a href=\"/products/kiss-me-sunshine\" target=\"_blank\" title=\"Kiss Me Sunshine Soap Bar\"><strong>Kiss Me Sunshine Soap Bar</strong></a>: Brighten your day and your skin with this uplifting blend.</p><p><a href=\"/products/walk-in-the-woods-mens-bar\" target=\"_blank\" title=\"Walk in The Woods Soap Bar\"><strong>Walk in The Woods Soap Bar</strong></a>: Experience nature's freshness with every wash.</p><p><a href=\"/products/lavender-oasis\" target=\"_blank\" title=\"Lavender Oasis Organic Soap\"><strong>Lavender Oasis Organic Soap</strong></a>: Relax and rejuvenate with the calming scent of lavender.</p><p><a href=\"/products/all-in-one-body-shampoo-bar\" target=\"_blank\" title=\"All-In-One Body & Shampoo Bar\"><strong>All-In-One Body & Shampoo Bar</strong></a>: Simplify your routine with this multi-tasking marvel.</p><p><a href=\"/products/super-simple-baby-bar\" target=\"_blank\" title=\"Super Simple Baby Bar Soap\"><strong>Super Simple Baby Bar Soap</strong></a>: Gentle enough for the most delicate skin.</p><p><a href=\"/products/signature-hydrating-facial\" target=\"_blank\" title=\"Signature Hydrating Facial Soap Bar\"><strong>Signature Hydrating Facial Soap Bar</strong></a>: Give your face the nourishment it deserves.</p><p><a href=\"/products/french-clay-facial-soap\" target=\"_blank\" title=\"French Clay Facial Soap\"><strong>French Clay Facial Soap</strong></a>: Detoxify and clarify with the power of French clay.</p><p></p><h2>How to Use for Best Results</h2><p>Enjoy the full benefits of our nourishing olive oil soap<br/>with just a few mindful steps. Gentle, effective, and ideal for daily use.</p><p><strong>Lather Gently with Warm Water</strong> – Wet your hands and create a rich lather before <a>applying</a> to your skin. This activates the natural oils<br/>and prepares the soap for cleansing.</p><p><strong>Massage onto Damp Skin</strong> – Apply to face and body in circular motions. For <strong>olive oil soap for </strong><a><strong>face</strong></a><strong>,</strong> be especially gentle to avoid over-cleansing.</p><p><strong>Rinse Thoroughly</strong> – Use lukewarm water to wash away the lather completely.<br/>Pat skin dry to lock in moisture.</p><p><strong>Follow with Rejuvenating Face Cream</strong> – After cleansing, apply our Rejuvenating Face Cream to nourish and hydrate. This seals in the softness <a>from </a>the soap.</p><p><strong>Store on a Draining Soap Dish</strong> – Keep your bar dry between uses. This helps extend the life of your handcrafted soap naturally.</p><h2>The Mumu Bath Difference</h2><p>At Mumu Bath, we craft our <strong>olive soaps</strong> with a base of olive and coconut oils. Our commitment to quality ensures that each bar is:</p><ul><li>Organic</li><li>Biodegradable</li><li>Cruelty-free</li><li>Made in the USA</li></ul><h2>Your Skin Deserves the Pure Power of Olive Oil</h2><p>Experience the transformative power of olive oil soap <strong>bars</strong>. Your skin will thank you for choosing Mumu Bath's natural, nourishing, and eco-friendly products.</p><p>Shop our Olive Oil Soap collection now and unveil your skin's natural radiance!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_m3JDM8",
+        "heading_x7BnnX",
+        "richtext_4yphFz"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_bahWN3": {
+      "type": "faq",
+      "blocks": {
+        "question_bey379": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How long does one olive oil soap bar last?</strong>",
+            "answer": "<p>Each <strong>olive oil soap bar</strong> typically lasts 3-4 weeks with daily use. Store it on a well-draining soap dish to extend its life.</p>"
+          }
+        },
+        "question_jhX9qj": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is there any added fragrance in your soaps?</strong>",
+            "answer": "<p>Our soaps are naturally scented or gently infused with<br/>essential oils. We never use artificial fragrances.</p>"
+          }
+        },
+        "question_X9CfNc": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How do I incorporate olive oil soap for face into myskincare routine?</strong>",
+            "answer": "<p>Use it in place of your facial cleanser - just lather, massage gently, and rinse. Follow with toner and moisturizer for best results.</p>"
+          }
+        },
+        "question_J4KdcQ": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How do I store the soap between uses?</strong>",
+            "answer": "<p>Use a well-draining soap dish to keep your bar dry between washes. This helps extend its life and preserve <a>texture</a>.</p>"
+          }
+        },
+        "question_zaGHAk": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Do you offer international shipping?</strong>",
+            "answer": "<p>Yes, we ship internationally from the U.S. Shipping fees and delivery times vary by location.</p>"
+          }
+        },
+        "question_ACyqwY": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Does your olive </strong><a><strong>soap</strong></a><strong> have added fragrance?</strong>",
+            "answer": "<p>We keep our <strong>olive soap</strong> naturally scented or lightly infused with essential oils. You won’t find any synthetic fragrances or<br/>overpowering scents here.</p>"
+          }
+        },
+        "question_3RHxdH": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>What’s your return policy for soap products?</strong>",
+            "answer": "<p>Due to hygiene reasons, we don’t accept returns on used soaps. However, if your item arrives damaged or incorrect, we’ll gladly make it right.</p>"
+          }
+        },
+        "question_dzEGRJ": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Will olive oil soap for face clog pores?</strong>",
+            "answer": "<p>No, our soap is non-comedogenic and free from pore-clogging ingredients. It’s ideal for sensitive, dry, or acne-prone skin.</p>"
+          }
+        },
+        "question_razK6Q": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Who do I contact if there’s a problem with my order?</strong>",
+            "answer": "<p>Please email us at <a href=\"mailto:hello@mumubath.com\">hello@mumubath.com</a> and our team will assist you promptly. We’re here to help with any issue!</p>"
+          }
+        },
+        "question_wKxpH4": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Will the soap melt or lose shape in humid climates?</strong>",
+            "answer": "<p>Our soaps are solid and long-lasting but should be kept out of standing water. Proper storage will prevent softening.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_bey379",
+        "question_jhX9qj",
+        "question_X9CfNc",
+        "question_J4KdcQ",
+        "question_zaGHAk",
+        "question_ACyqwY",
+        "question_3RHxdH",
+        "question_dzEGRJ",
+        "question_razK6Q",
+        "question_wKxpH4"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "slideshow_BBkd9z": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3EnMH4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Clay_Soaps_-_Banner.png",
+            "mobile_image": "shopify://shop_images/Clay_Soaps_-_Mumu_Bath.png",
+            "subheading": "",
+            "title": "<h3>Natural Clay Soap Range<h3>\n<br>\n</h3>\n</h3><p style=\"font-size: 16px\">Try our Clay Soaps today and experience softer, healthier skin! </p><p>\n<br>\n</p><p>Nourish and moisturize your skin.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "Shop Now →",
+            "button_1_link": "shopify://collections/clay-soaps",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#ffffff",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "#1c1c1c",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_3EnMH4"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "17422805515733928f": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_fijR6Q": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_kxDfqG": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_fijR6Q",
+        "targetbay_product_reviews_site_reviews_kxDfqG"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_64frpH",
+    "main",
+    "rich_text_yc7baL",
+    "faq_bahWN3",
+    "slideshow_BBkd9z",
+    "17422805515733928f"
+  ]
+}

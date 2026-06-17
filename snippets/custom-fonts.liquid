@@ -1,0 +1,689 @@
+<style>
+    
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-Bold.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-Bold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-BoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-BoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-ExtraBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-ExtraBold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-ExtraBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-ExtraBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-ExtraLight.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-ExtraLight.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-ExtraLightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-ExtraLightItalic.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-Italic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-Italic.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-Light.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-Light.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-LightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-LightItalic.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-Medium.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-Medium.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-Regular.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-Regular.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-MediumItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-MediumItalic.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-SemiBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-SemiBold.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url({{ 'PlusJakartaSans-SemiBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'PlusJakartaSans-SemiBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+{% comment %} mono-1 {% endcomment %}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Black.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Black.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-BlackItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-BlackItalic.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-BoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-BoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Bold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Bold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-ExtraBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-ExtraBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-ExtraBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-ExtraBold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-ExtraLightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-ExtraLightItalic.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-ExtraLight.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-ExtraLight.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Italic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Italic.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Light.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Light.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-LightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-LightItalic.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Medium.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Medium.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-MediumItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-MediumItalic.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-ExtraLightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-ExtraLightItalic.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-Regular.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-Regular.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-SemiBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-SemiBold.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Condensed';
+    src: url({{ 'MonaSansCondensed-SemiBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansCondensed-SemiBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Black.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Black.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-BlackItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-BlackItalic.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Bold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Bold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+{% comment %} mono_2 {% endcomment %}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-BoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-BoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-ExtraBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-ExtraBold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-ExtraBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-ExtraBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-ExtraLight.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-ExtraLight.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-ExtraLightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-ExtraLightItalic.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Italic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Italic.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Light.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Light.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-LightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-LightItalic.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Medium.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Medium.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-MediumItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-MediumItalic.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-Regular.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-Regular.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-SemiBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-SemiBold.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans Expanded';
+    src: url({{ 'MonaSansExpanded-SemiBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansExpanded-SemiBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Black.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Black.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-BlackItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-BlackItalic.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+{% comment %} mono_3 {% endcomment %}
+
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-BoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-BoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Bold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Bold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-ExtraBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-ExtraBold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-ExtraBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-ExtraBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-ExtraLight.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-ExtraLight.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-ExtraLightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-ExtraLightItalic.woff' | file_url }}) format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Italic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Italic.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Light.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Light.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-LightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-LightItalic.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Medium.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Medium.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-MediumItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-MediumItalic.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-Regular.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-Regular.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-SemiBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-SemiBold.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiCondensed';
+    src: url({{ 'MonaSansSemiCondensed-SemiBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiCondensed-SemiBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-Black.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-Black.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-BlackItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-BlackItalic.woff' | file_url }}) format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-Bold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-Bold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-BoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-BoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-ExtraBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-ExtraBold.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans SemiExpanded';
+    src: url({{ 'MonaSansSemiExpanded-ExtraBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSansSemiExpanded-ExtraBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-LightItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-LightItalic.woff' | file_url }}) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-Medium.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-Medium.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-MediumItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-MediumItalic.woff' | file_url }}) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-Regular.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-Regular.woff' | file_url }}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-SemiBold.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-SemiBold.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url({{ 'MonaSans-SemiBoldItalic.woff2' | file_url }}) format('woff2'),
+         url({{ 'MonaSans-SemiBoldItalic.woff' | file_url }}) format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+</style>

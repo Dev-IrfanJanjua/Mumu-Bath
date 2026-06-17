@@ -1,0 +1,109 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+FREE SHIPPING BAR
+----------------------------------------------------------------------------------------------------------------------
+
+Renders the free shipping bar component. It is used on cart page and cart drawer to render the remaining amount before
+being eligible for free shipping.
+{%- endcomment -%}
+
+{% comment %} {%- liquid
+  assign calculated_total_price = 0
+
+  for line_item in cart.items
+    if line_item.requires_shipping
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endif
+  endfor
+
+  # We have to remove the cart level discount from the calculated amount
+
+  assign total_cart_discount = 0
+
+  for discount_application in cart.cart_level_discount_applications
+    assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
+  endfor
+
+  assign calculated_total_price = calculated_total_price | minus: total_cart_discount
+-%}
+
+{%- if cart.requires_shipping -%}
+  <free-shipping-bar class="free-shipping-bar" threshold="{{ settings.cart_free_shipping_threshold }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}">
+    {%- comment -%}The span below is the placeholder where the content will be inserted in JS{%- endcomment -%}
+    <span class="text-subdued">&nbsp;</span>
+  </free-shipping-bar>
+{%- endif -%} {% endcomment %}
+
+{%- liquid
+  assign calculated_total_price = 0
+
+  for line_item in cart.items
+    if line_item.requires_shipping
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endif
+  endfor
+
+  assign total_cart_discount = 0
+
+  for discount_application in cart.cart_level_discount_applications
+    assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
+  endfor
+
+  assign calculated_total_price = calculated_total_price | minus: total_cart_discount
+
+  assign threshold = settings.cart_free_shipping_threshold | times: 100
+
+  assign progress = calculated_total_price | times: 100 | divided_by: threshold
+
+  if progress > 100
+    assign progress = 100
+  endif
+-%}
+
+{%- if cart.requires_shipping -%}
+  <free-shipping-bar
+    class="free-shipping-bar"
+    threshold="{{ settings.cart_free_shipping_threshold }}"
+    total-price="{{ calculated_total_price }}"
+    reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}"
+    unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}"
+  >
+
+    <span class="free-shipping-bar__text text-subdued">
+      {%- if progress >= 100 -%}
+        🎉 You got free shipping!
+      {%- else -%}
+        Add {{ threshold | minus: calculated_total_price | money }} more for free shipping
+      {%- endif -%}
+    </span>
+
+    <div class="free-shipping-bar__track">
+      <div
+        class="free-shipping-bar__fill"
+        style="width: {{ progress }}%;"
+      ></div>
+    </div>
+
+  </free-shipping-bar>
+{%- endif -%}
+
+{% style %}
+
+.free-shipping-bar__track {
+    width: 100%;
+    height: 5px;
+    overflow: hidden;
+    margin-top: 12px;
+    border-radius: 70px;
+    background: #F7F7F7;
+}
+
+.free-shipping-bar__fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.7s ease;
+    border-radius: 50px;
+    background: #0A180A;
+}
+
+{% endstyle %}

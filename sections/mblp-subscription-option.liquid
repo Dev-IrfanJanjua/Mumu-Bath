@@ -1,0 +1,816 @@
+<!-- Section: MBLP Subscription Option -->
+<div
+  class="mblp-subscription-option-main"
+  style="padding-top: {{ section.settings.padding_top_desktop }}px; padding-bottom: {{ section.settings.padding_bottom_desktop }}px;"
+>
+  <div class="container">
+    <div class="mblp-subscription-option-wrapper">
+      <div class="mblp-subscription-option-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-subscription-option-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Subscription Cards Container -->
+        <div class="mblp-subscription-option-cards-container">
+          <!-- Card 1 -->
+          <div class="mblp-subscription-option-card">
+            <!-- Card Header -->
+            {% if section.settings.card1_discount != blank %}
+              <div class="mblp-subscription-option-card-header">
+                <span
+                  >Save <strong>{{ section.settings.card1_discount }}%</strong> on These Items</span
+                >
+              </div>
+            {% endif %}
+
+            <!-- Card Body -->
+            <div class="mblp-subscription-option-card-body">
+              <!-- Product List -->
+              <div class="mblp-subscription-option-product-list-bg">
+                <div class="mblp-subscription-option-product-list">
+                  {% if section.settings.card1_product1 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product1 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product2 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product2 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product3 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product3 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product4 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product4 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product5 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product5 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product6 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product6 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product7 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product7 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_product8 != blank %}
+                    <div class="mblp-subscription-option-product-item">
+                      <span>{{ section.settings.card1_product8 }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Features List -->
+              <div class="mblp-subscription-option-features-list-bg">
+                <div class="mblp-subscription-option-features-list">
+                  {% if section.settings.card1_feature1 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature1 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature2 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature2 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature3 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature3 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature4 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature4 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature5 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature5 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature6 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature6 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature7 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature7 }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.card1_feature8 != blank %}
+                    <div class="mblp-subscription-option-feature-item">
+                      <span>{{ section.settings.card1_feature8 }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- View Products Button -->
+              {% if section.settings.card1_button_text != blank %}
+                <div class="mblp-subscription-option-button">
+                  <a href="{{ section.settings.card1_button_link | default: '#' }}">
+                    {{ section.settings.card1_button_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="mblp-subscription-option-card">
+            <!-- Card Header -->
+            {% if section.settings.card2_discount != blank %}
+              <div class="mblp-subscription-option-card-header">
+                <span
+                  >Save <strong>{{ section.settings.card2_discount }}%</strong> on These Items</span
+                >
+              </div>
+            {% endif %}
+
+            <!-- Card Body -->
+            <div class="mblp-subscription-option-card-body">
+              <!-- Product List -->
+              <div class="mblp-subscription-option-product-list">
+                {% if section.settings.card2_product1 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product1 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product2 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product2 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product3 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product3 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product4 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product4 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product5 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product5 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product6 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product6 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product7 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product7 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_product8 != blank %}
+                  <div class="mblp-subscription-option-product-item">
+                    <span>{{ section.settings.card2_product8 }}</span>
+                  </div>
+                {% endif %}
+              </div>
+
+              <!-- Features List -->
+              <div class="mblp-subscription-option-features-list">
+                {% if section.settings.card2_feature1 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature1 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature2 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature2 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature3 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature3 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature4 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature4 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature5 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature5 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature6 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature6 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature7 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature7 }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.card2_feature8 != blank %}
+                  <div class="mblp-subscription-option-feature-item">
+                    <span>{{ section.settings.card2_feature8 }}</span>
+                  </div>
+                {% endif %}
+              </div>
+
+              <!-- View Products Button -->
+              {% if section.settings.card2_button_text != blank %}
+                <div class="mblp-subscription-option-button">
+                  <a href="{{ section.settings.card2_button_link | default: '#' }}">
+                    {{ section.settings.card2_button_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+              /* Mobile First Approach */
+              .mblp-subscription-option-main {
+                background-color: --col-white;
+                padding-top: {{ section.settings.padding_top_mobile }}px !important;
+                padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+              }
+
+              .mblp-subscription-option-wrapper {
+                max-width: 100%;
+                margin: 0 auto;
+              }
+
+              .mblp-subscription-option-sub-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+              }
+
+              .mblp-subscription-option-title h2 {
+                text-align: center;
+                color: var(--col-light-black);
+                margin: 0;
+                font-family: var(--fs-lora) !important;
+                font-size: 36px !important;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+              .mblp-subscription-option-cards-container {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+              }
+
+              .mblp-subscription-option-card {
+                background: var(--col-white);
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border: 3px solid var(--col-light-black);
+              }
+
+              .mblp-subscription-option-card-header {
+                background-color: var(--col-light-black);
+                color: var(--col-yellow);
+                text-align: center;
+                display: flex;
+                width: 400px;
+                padding: 16px 20px 16px 32px;
+                align-items: center;
+                gap: 10px;
+              }
+
+
+              .mblp-subscription-option-card-header span {
+                font-family: 'Inter Semi Bold' !important;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+              }
+             .mblp-subscription-option-card-header strong {
+                font-size: 40px;
+             }
+
+              .mblp-subscription-option-card-body {
+                /* padding: 1.5rem; */
+                display: flex;
+                flex-direction: column;
+                /* gap: 1.5rem; */
+              }
+
+              .mblp-subscription-option-product-list {
+                display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+              min-height: 260px;
+              padding: 32px;
+              background: var(--col-offwhite);
+                border-bottom: 1px solid var(--col-light-black);
+
+              }
+
+              .mblp-subscription-option-product-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              }
+
+              .mblp-subscription-option-product-item::before {
+                content: "♡";
+                color: var(--col-black);
+              font-size: 24px;
+              }
+
+              .mblp-subscription-option-product-item span {
+                color: var(--col-black);
+              text-align: center;
+              font-family: 'Inter Medium' !important;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              }
+
+            .mblp-subscription-option-features-list {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              /* border-top: 1px solid #e5e5e5; */
+              padding: 32px;
+          }
+
+              .mblp-subscription-option-feature-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              }
+
+              .mblp-subscription-option-feature-item::before {
+                content: "✓";
+                color: var(--col-black);
+              font-size: 24px;
+              }
+
+              .mblp-subscription-option-feature-item span {
+                color: var(--col-black);
+              text-align: center;
+              font-family: 'Inter Medium' !important;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              }
+
+        .mblp-subscription-option-button {
+            /* margin-top: auto; */
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+        }
+
+          .mblp-subscription-option-button a {
+            display: flex;
+            font-family: 'Inter Medium' !important;
+            background-color: var(--col-light-black);
+            color: var(--col-white);
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            padding: 12px 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            max-width: 320px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+      @media (min-width: 1024px) {
+                .mblp-subscription-option-cards-container {
+                  gap: 80px;
+                  justify-content: center;
+                }
+              }
+
+              /* Desktop Styles */
+              @media (min-width: 769px) {
+                .mblp-subscription-option-main {
+                  padding-top: {{ section.settings.padding_top_desktop }}px;
+                  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+                }
+
+                .mblp-subscription-option-cards-container {
+                  flex-direction: row;
+                  gap: 2rem;
+                }
+
+                .mblp-subscription-option-card {
+                  /* flex: 1; */
+                  display: flex;
+                  flex-direction: column;
+                }
+
+                .mblp-subscription-option-card-body {
+                  flex: 1;
+                }
+
+                .mblp-subscription-option-title h2 {
+                  font-size: 2.5rem;
+                }
+              }
+
+
+
+          @media (max-width: 768px) {
+                .mblp-subscription-option-cards-container {
+                  flex-direction: column;
+                  align-items: center;
+                }
+            .mblp-subscription-option-feature-item span {
+      font-size: 14px;
+  }
+                .mblp-subscription-option-title h2 {
+        font-size: 28px !important;
+    }
+    .mblp-subscription-option-card-header {
+        justify-content: center;
+        width: auto;
+    }
+    .mblp-subscription-option-card-header strong {
+        font-size: 32px;
+    }
+    .mblp-subscription-option-card-header span {
+        font-size: 18px;
+        }
+        .mblp-subscription-option-sub-wrapper {
+        gap: 20px;
+    }
+            .mblp-subscription-option-card {
+          max-width: 350px;
+      }
+      .mblp-subscription-option-product-list {
+        gap: 0;
+        padding: 20px;
+                min-height: auto;
+          }
+          .mblp-subscription-option-features-list {
+        gap: 0;
+        padding: 20px;
+    }
+    .mblp-subscription-option-button a {
+        max-width: 300px;
+      font-size: 16px;
+    }
+          }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Subscription Option",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Subscription Options"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Card 1 Settings"
+    },
+    {
+      "type": "text",
+      "id": "card1_discount",
+      "label": "Card 1 Discount Percentage",
+      "default": "5"
+    },
+    {
+      "type": "text",
+      "id": "card1_product1",
+      "label": "Card 1 Product 1",
+      "default": "Body Oil"
+    },
+    {
+      "type": "text",
+      "id": "card1_product2",
+      "label": "Card 1 Product 2",
+      "default": "Body Butter"
+    },
+    {
+      "type": "text",
+      "id": "card1_product3",
+      "label": "Card 1 Product 3",
+      "default": "Hand Wash"
+    },
+    {
+      "type": "text",
+      "id": "card1_product4",
+      "label": "Card 1 Product 4",
+      "default": "Hand Lotion"
+    },
+    {
+      "type": "text",
+      "id": "card1_product5",
+      "label": "Card 1 Product 5"
+    },
+    {
+      "type": "text",
+      "id": "card1_product6",
+      "label": "Card 1 Product 6"
+    },
+    {
+      "type": "text",
+      "id": "card1_product7",
+      "label": "Card 1 Product 7"
+    },
+    {
+      "type": "text",
+      "id": "card1_product8",
+      "label": "Card 1 Product 8"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature1",
+      "label": "Card 1 Feature 1",
+      "default": "Flexible delivery every 2-3 months"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature2",
+      "label": "Card 1 Feature 2",
+      "default": "Pause or cancel anytime"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature3",
+      "label": "Card 1 Feature 3",
+      "default": "Free Sample"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature4",
+      "label": "Card 1 Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature5",
+      "label": "Card 1 Feature 5"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature6",
+      "label": "Card 1 Feature 6"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature7",
+      "label": "Card 1 Feature 7"
+    },
+    {
+      "type": "text",
+      "id": "card1_feature8",
+      "label": "Card 1 Feature 8"
+    },
+    {
+      "type": "text",
+      "id": "card1_button_text",
+      "label": "Card 1 Button Text",
+      "default": "View Products"
+    },
+    {
+      "type": "url",
+      "id": "card1_button_link",
+      "label": "Card 1 Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Card 2 Settings"
+    },
+    {
+      "type": "text",
+      "id": "card2_discount",
+      "label": "Card 2 Discount Percentage",
+      "default": "8"
+    },
+    {
+      "type": "text",
+      "id": "card2_product1",
+      "label": "Card 2 Product 1",
+      "default": "Avocado Oil Soap"
+    },
+    {
+      "type": "text",
+      "id": "card2_product2",
+      "label": "Card 2 Product 2",
+      "default": "Olive Oil Soap"
+    },
+    {
+      "type": "text",
+      "id": "card2_product3",
+      "label": "Card 2 Product 3",
+      "default": "Body Scrub"
+    },
+    {
+      "type": "text",
+      "id": "card2_product4",
+      "label": "Card 2 Product 4"
+    },
+    {
+      "type": "text",
+      "id": "card2_product5",
+      "label": "Card 2 Product 5"
+    },
+    {
+      "type": "text",
+      "id": "card2_product6",
+      "label": "Card 2 Product 6"
+    },
+    {
+      "type": "text",
+      "id": "card2_product7",
+      "label": "Card 2 Product 7"
+    },
+    {
+      "type": "text",
+      "id": "card2_product8",
+      "label": "Card 2 Product 8"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature1",
+      "label": "Card 2 Feature 1",
+      "default": "Flexible delivery every 2-3 months"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature2",
+      "label": "Card 2 Feature 2",
+      "default": "Pause or cancel anytime"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature3",
+      "label": "Card 2 Feature 3",
+      "default": "Free Sample"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature4",
+      "label": "Card 2 Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature5",
+      "label": "Card 2 Feature 5"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature6",
+      "label": "Card 2 Feature 6"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature7",
+      "label": "Card 2 Feature 7"
+    },
+    {
+      "type": "text",
+      "id": "card2_feature8",
+      "label": "Card 2 Feature 8"
+    },
+    {
+      "type": "text",
+      "id": "card2_button_text",
+      "label": "Card 2 Button Text",
+      "default": "View Products"
+    },
+    {
+      "type": "url",
+      "id": "card2_button_link",
+      "label": "Card 2 Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Subscription Option",
+      "settings": {
+        "section_title": "Subscription Options",
+        "card1_discount": "5",
+        "card1_product1": "Body Oil",
+        "card1_product2": "Body Butter",
+        "card1_product3": "Hand Wash",
+        "card1_product4": "Hand Lotion",
+        "card1_feature1": "Flexible delivery every 2-3 months",
+        "card1_feature2": "Pause or cancel anytime",
+        "card1_feature3": "Free Sample",
+        "card1_button_text": "View Products",
+        "card2_discount": "8",
+        "card2_product1": "Avocado Oil Soap",
+        "card2_product2": "Olive Oil Soap",
+        "card2_product3": "Body Scrub",
+        "card2_feature1": "Flexible delivery every 2-3 months",
+        "card2_feature2": "Pause or cancel anytime",
+        "card2_feature3": "Free Sample",
+        "card2_button_text": "View Products"
+      }
+    }
+  ]
+}
+{% endschema %}

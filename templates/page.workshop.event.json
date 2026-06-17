@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "tabs_VTmnDV": {
+      "type": "tabs",
+      "blocks": {
+        "tab_etJYdf": {
+          "type": "tab",
+          "settings": {
+            "title": "Tab 1",
+            "content": "<p>Use this text to share information about your brand with your customers.</p>",
+            "page": "",
+            "open_on_mobile": false
+          }
+        },
+        "tab_mPPDc3": {
+          "type": "tab",
+          "settings": {
+            "title": "Tab 2",
+            "content": "<p>Describe a product, share announcements, or welcome customers to your store.</p>",
+            "page": "",
+            "open_on_mobile": false
+          }
+        },
+        "tab_EDMLhK": {
+          "type": "tab",
+          "settings": {
+            "title": "Tab 3",
+            "content": "<p>Share information about your shipping rates, return policy or contact information.</p>",
+            "page": "",
+            "open_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "tab_etJYdf",
+        "tab_mPPDc3",
+        "tab_EDMLhK"
+      ],
+      "disabled": true,
+      "name": "t:sections.tabs.presets.tab.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "subheading": "Subheading",
+        "title": "Heading",
+        "text_alignment": "center"
+      }
+    },
+    "featured_product_KXi3hx": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_ekEkpc": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title_TNKkha": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_tpEf8E": {
+          "type": "badges",
+          "disabled": true,
+          "settings": {}
+        },
+        "price_WMDTkw": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_aV6KVy": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_4p48yP": {
+          "type": "payment_terms",
+          "disabled": true,
+          "settings": {}
+        },
+        "separator_qQPN6W": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "description_DF78aM": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "variant_picker_6tWFVG": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_WjxEMx": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_Qda9jc": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor_ekEkpc",
+        "title_TNKkha",
+        "badges_tpEf8E",
+        "price_WMDTkw",
+        "rating_aV6KVy",
+        "payment_terms_4p48yP",
+        "separator_qQPN6W",
+        "description_DF78aM",
+        "variant_picker_6tWFVG",
+        "quantity_selector_WjxEMx",
+        "buy_buttons_Qda9jc"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "ceramics-workshop",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tabs_VTmnDV",
+    "featured_product_KXi3hx",
+    "174228070476985170"
+  ]
+}

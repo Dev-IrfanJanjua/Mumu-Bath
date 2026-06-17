@@ -1,0 +1,799 @@
+<!-- Section: MBLP Plan Your Party -->
+<div id="{{ section.settings.plan-your-party-id }}"  class="{{ section.settings.plan-your-party-class }} mblp-plan-your-party-main">
+  <div class="container">
+    <div class="mblp-plan-your-party-wrapper">
+      <div class="mblp-plan-your-party-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-plan-your-party-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Section Subtitle -->
+        {% if section.settings.section_subtitle != blank %}
+          <div class="mblp-plan-your-party-subtitle">
+            <p>{{ section.settings.section_subtitle }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Steps Container -->
+        <div class="mblp-plan-your-party-steps-container">
+          <!-- Steps Layout (Mobile: Column, Desktop: Row) -->
+          <div class="mblp-plan-your-party-steps">
+            <!-- Step 1 -->
+            {% if section.settings.step1_image != blank
+              or section.settings.step1_number != blank
+              or section.settings.step1_title != blank
+              or section.settings.step1_description != blank
+            %}
+              <div class="mblp-plan-your-party-step">
+                {% if section.settings.step1_image != blank %}
+                  <div class="mblp-plan-your-party-step-image mblp-plan-your-party-step-image-card-1">
+                    {{ section.settings.step1_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                <div class="mblp-plan-your-party-main-step">
+                  {% if section.settings.step1_number != blank %}
+                    <div class="mblp-plan-your-party-step-number">
+                      <span>{{ section.settings.step1_number }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step1_title != blank %}
+                    <div class="mblp-plan-your-party-step-title">
+                      <h3>{{ section.settings.step1_title }}</h3>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step1_description != blank %}
+                    <div class="mblp-plan-your-party-step-description">
+                      <p>{{ section.settings.step1_description }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            <!-- Step 2 -->
+            {% if section.settings.step2_image != blank
+              or section.settings.step2_number != blank
+              or section.settings.step2_title != blank
+              or section.settings.step2_description != blank
+              or section.settings.step2_link_text != blank
+            %}
+              <div class="mblp-plan-your-party-step">
+                {% if section.settings.step2_image != blank %}
+                  <div class="mblp-plan-your-party-step-image">
+                    {{ section.settings.step2_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                <div class="mblp-plan-your-party-main-step">
+                  {% if section.settings.step2_number != blank %}
+                    <div class="mblp-plan-your-party-step-number">
+                      <span>{{ section.settings.step2_number }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step2_title != blank %}
+                    <div class="mblp-plan-your-party-step-title">
+                      <h3>{{ section.settings.step2_title }}</h3>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step2_description != blank %}
+                    <div class="mblp-plan-your-party-step-description">
+                      <p>{{ section.settings.step2_description }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+
+                {% if section.settings.step2_link_text != blank %}
+                  <div class="mblp-plan-your-party-step-link">
+                    {% if section.settings.step2_link_image != blank %}
+                      <img src="{{ section.settings.step2_link_image | image_url: width: 24 }}" alt="Link icon">
+                    {% endif %}
+                    <a href="{{ section.settings.step2_link_url | default: '#' }}">
+                      {{ section.settings.step2_link_text }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <!-- Step 3 -->
+            {% if section.settings.step3_image != blank
+              or section.settings.step3_number != blank
+              or section.settings.step3_title != blank
+              or section.settings.step3_description != blank
+            %}
+              <div class="mblp-plan-your-party-step">
+                {% if section.settings.step3_image != blank %}
+                  <div class="mblp-plan-your-party-step-image">
+                    {{ section.settings.step3_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                <div class="mblp-plan-your-party-main-step">
+                  {% if section.settings.step3_number != blank %}
+                    <div class="mblp-plan-your-party-step-number">
+                      <span>{{ section.settings.step3_number }}</span>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step3_title != blank %}
+                    <div class="mblp-plan-your-party-step-title">
+                      <h3>{{ section.settings.step3_title }}</h3>
+                    </div>
+                  {% endif %}
+
+                  {% if section.settings.step3_description != blank %}
+                    <div class="mblp-plan-your-party-step-description">
+                      <p>{{ section.settings.step3_description }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- Info Section -->
+          {% if section.settings.info_icon != blank or section.settings.info_content != blank %}
+            <div class="mblp-plan-your-party-info-section">
+              <div class="mblp-plan-your-party-info-wrapper">
+                {% if section.settings.info_icon != blank %}
+                  <div class="mblp-plan-your-party-info-icon">
+                    {{ section.settings.info_icon | image_url: width: 48 | image_tag }}
+                  </div>
+                {% endif %}
+                {% if section.settings.info_content != blank %}
+                  <div class="mblp-plan-your-party-info-content">
+                    {{ section.settings.info_content }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Button Section -->
+          {% if section.settings.button_text != blank %}
+            <div class="mblp-plan-your-party-button-section">
+              <a href="{{ section.settings.button_url | default: '#' }}" class="mblp-plan-your-party-button">
+                {{ section.settings.button_text }}
+              </a>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base styles - Mobile First */
+  .mblp-plan-your-party-main {
+    background-color: #FFF;
+    padding-top: {{ section.settings.padding_top_mobile-1 }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile-1 }}px;
+  }
+
+  .mblp-plan-your-party-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    max-width: 612px;
+  }
+
+  .mblp-plan-your-party-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mblp-plan-your-party-title h2 {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Dm Sans Bold' !important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 10px;
+    color: var(--col-light-black);
+  }
+
+  .mblp-plan-your-party-subtitle p {
+    color: var(--col-light-black);
+    text-align: center;
+    font-family: 'Dm Sans Bold' !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 53px;
+  }
+
+  .mblp-plan-your-party-steps-container {
+    width: 100%;
+    gap: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Steps Layout */
+  .mblp-plan-your-party-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mblp-plan-your-party-main-step {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mblp-plan-your-party-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 30px 40px;
+    background: #FFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    height: 100%;
+    min-height: 390px;
+    min-width: 290px;
+    border-radius: 20px;
+    background: #F8F6EE 100%;
+  }
+
+  .mblp-plan-your-party-step-image {
+    max-width: 200px;
+    border-radius: 10px;
+    background: transparent;
+    height: auto;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .mblp-plan-your-party-step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mblp-plan-your-party-step-number span {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .mblp-plan-your-party-step-title h3 {
+    color: var(--col-light-black);
+    margin: 0;
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .mblp-plan-your-party-step-description p {
+    color: var(--col-light-black);
+    letter-spacing: -0.14px;
+    margin: 0;
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    max-width: 280px;
+    line-height: normal;
+    letter-spacing: -0.2px;
+  }
+
+  .mblp-plan-your-party-step-link {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    text-decoration: underline;
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-underline-offset: 4px;
+  }
+
+  .mblp-plan-your-party-step-link img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  /* Info Section Styles */
+  .mblp-plan-your-party-info-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mblp-plan-your-party-info-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFF8D3;
+    border-radius: 10px;
+    padding: 16px 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .mblp-plan-your-party-info-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+  .mblp-plan-your-party-info-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mblp-plan-your-party-info-content {
+    flex: 1;
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  .mblp-plan-your-party-info-content p {
+    margin: 0;
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.16px;
+  }
+
+  /* Button Section Styles */
+  .mblp-plan-your-party-button-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background: #FBDD3F;
+     height: 61px;
+     padding: 16px 20px;
+  }
+
+  .mblp-plan-your-party-button {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-family: 'Dm Sans Medium' !important;
+    color: #232121;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .mblp-plan-your-party-button:hover {
+    background: #E5C43A;
+  }
+
+  /* Mobile specific adjustments */
+  @media (max-width: 768px) {
+     .mblp-plan-your-party-main .container {
+    padding: 0 32px;
+}
+    .mblp-plan-your-party-title h2 {
+      font-size: 28px;
+      max-width: 330px;
+              padding: 0px 0 20px;
+    }
+    .mblp-plan-your-party-button-section {
+    border-radius: 6px;
+    padding: 12px 28px;
+}
+
+    .mblp-plan-your-party-wrapper {
+      max-width: 700px;
+    }
+
+    .mblp-plan-your-party-info-content p {
+      font-size: 14px;
+    }
+
+    .mblp-plan-your-party-info-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mblp-plan-your-party-subtitle p {
+      font-size: 16px;
+      padding-bottom: 24px;
+    }
+
+    .mblp-plan-your-party-step {
+      gap: 12px;
+      max-width: 300px;
+    }
+
+    .mblp-plan-your-party-steps {
+    gap: 20px;
+}
+    .mblp-plan-your-party-steps-container {
+        gap: 20px;
+    }
+
+    .mblp-plan-your-party-step-number span {
+      font-size: 18px;
+    }
+
+    .mblp-plan-your-party-step-title h3 {
+      font-size: 16px;
+    }
+
+    .mblp-plan-your-party-step-image {
+      margin: 0 auto;
+    }
+
+    .mblp-plan-your-party-step-description p {
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .mblp-plan-your-party-step-link a {
+      font-size: 16px;
+    }
+
+    /* Button mobile styles */
+    .mblp-plan-your-party-button {
+              font-size: 18px;
+        max-width: 100%;
+          text-align: center;
+    }
+
+    .mblp-plan-your-party-info-wrapper {
+              padding: 14px 12px;
+    }
+
+    .mblp-plan-your-party-info-content {
+      font-size: 14px;
+    }
+  }
+
+  /* Tablet and Desktop Styles */
+  @media (min-width: 769px) {
+    .mblp-plan-your-party-main {
+      padding-top: {{ section.settings.padding_top_desktop-1 }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop-1 }}px;
+    }
+
+    .mblp-plan-your-party-button {
+      font-size: 20px;
+    }
+
+    /* Change to row layout for desktop */
+    .mblp-plan-your-party-steps {
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+      padding-top: 22px;
+    }
+
+    .mblp-plan-your-party-title h2 {
+      font-size: 36px;
+    }
+
+    .mblp-plan-your-party-subtitle p {
+      font-size: 18px;
+    }
+
+    .mblp-plan-your-party-step {
+      padding: 30px 20px;
+      margin: 0;
+    }
+
+    .mblp-plan-your-party-step-image {
+      align-self: center;
+    }
+
+    .mblp-plan-your-party-step-title h3 {
+      font-size: 18px;
+    }
+
+    .mblp-plan-your-party-step-description p {
+      font-size: 20px;
+      max-width: 250px;
+    }
+
+    .mblp-plan-your-party-step-link a {
+      font-size: 16px;
+    }
+
+    .mblp-plan-your-party-info-wrapper {
+      padding: 20px;
+    }
+
+    .mblp-plan-your-party-info-content {
+      font-size: 15px;
+    }
+  }
+
+  /* Large Desktop Styles */
+  @media (min-width: 1100px) {
+    .mblp-plan-your-party-step {
+      padding: 30px 40px;
+    }
+
+    .mblp-plan-your-party-title h2 {
+      font-size: 40px;
+    }
+
+    .mblp-plan-your-party-subtitle p {
+      font-size: 20px;
+    }
+
+    .mblp-plan-your-party-step-title h3 {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.2px;
+      font-family: 'Dm Sans Medium' !important;
+    }
+
+    .mblp-plan-your-party-info-content {
+      font-size: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Plan Your Party",
+  "settings": [
+     {
+      "type": "text",
+      "id": "plan-your-party-id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "plan-your-party-class",
+      "label": "Add Class"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "How To Plan Your Party?"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Follow these simple steps to create the perfect celebration."
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop-1",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop-1",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile-1",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile-1",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Step 1 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step1_image",
+      "label": "Step 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "step1_number",
+      "label": "Step 1 Number",
+      "default": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Choose Your Theme"
+    },
+    {
+      "type": "textarea",
+      "id": "step1_description",
+      "label": "Step 1 Description",
+      "default": "Select a fun theme that matches your child's interests and age group."
+    },
+    {
+      "type": "header",
+      "content": "Step 2 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_image",
+      "label": "Step 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "step2_number",
+      "label": "Step 2 Number",
+      "default": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Book Your Party"
+    },
+    {
+      "type": "textarea",
+      "id": "step2_description",
+      "label": "Step 2 Description",
+      "default": "Schedule your party date and let us handle all the planning details."
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_link_image",
+      "label": "Step 2 Link Icon"
+    },
+    {
+      "type": "text",
+      "id": "step2_link_text",
+      "label": "Step 2 Link Text",
+      "default": "Learn more about booking"
+    },
+    {
+      "type": "url",
+      "id": "step2_link_url",
+      "label": "Step 2 Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Step 3 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step3_image",
+      "label": "Step 3 Image"
+    },
+    {
+      "type": "text",
+      "id": "step3_number",
+      "label": "Step 3 Number",
+      "default": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Enjoy Your Celebration"
+    },
+    {
+      "type": "textarea",
+      "id": "step3_description",
+      "label": "Step 3 Description",
+      "default": "Relax and enjoy the perfect party while we take care of everything."
+    },
+    {
+      "type": "header",
+      "content": "Info Section Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "info_icon",
+      "label": "Info Icon"
+    },
+    {
+      "type": "richtext",
+      "id": "info_content",
+      "label": "Info Content",
+      "default": "<p>Each party should be organized for a specific age group, as the activities and approach will vary.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Start Planning"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Plan Your Party",
+      "settings": {
+        "section_title": "How To Plan Your Party?",
+        "section_subtitle": "Follow these simple steps to create the perfect celebration.",
+        "step1_number": "Step 1",
+        "step1_title": "Choose Your Theme",
+        "step1_description": "Select a fun theme that matches your child's interests and age group.",
+        "step2_number": "Step 2",
+        "step2_title": "Book Your Party",
+        "step2_description": "Schedule your party date and let us handle all the planning details.",
+        "step2_link_text": "Learn more about booking",
+        "step3_number": "Step 3",
+        "step3_title": "Enjoy Your Celebration",
+        "step3_description": "Relax and enjoy the perfect party while we take care of everything.",
+        "button_text": "Start Planning"
+      }
+    }
+  ]
+}
+{% endschema %}

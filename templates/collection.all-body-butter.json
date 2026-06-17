@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_GkMBKa": {
+      "type": "slideshow",
+      "blocks": {
+        "image_khBqkE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_14.png",
+            "mobile_image": "shopify://shop_images/homepage-bodybutter.png",
+            "subheading": "",
+            "title": "<h1>Body Butters</h1>\n<br>\n<p>\nDiscover the ultimate solution for dry, thirsty skin with Mumu Bath's exquisite Body Butter range. Our unique formula combines the rich nourishment of a butter with the lightweight feel of a lotion, leaving your skin soft and smooth without any greasy residue.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 440,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_khBqkE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_A8a4fy": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_8jqU46": {
+          "type": "subheading",
+          "settings": {
+            "text": "OUR BODY BUTTER PRODUCT RANGE"
+          }
+        },
+        "heading_3FriWc": {
+          "type": "heading",
+          "settings": {
+            "text": "Indulge Your Skin with Mumu Bath's Luxurious Body Butters",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_jLHtiP": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Quench your skin's thirst with Mumu Bath's sublime Body Butter collection. Our innovative formula strikes the perfect balance between deep hydration and feather-light application. Experience the luxurious nourishment of a butter coupled with the effortless glide of a lotion, transforming dry, parched skin into a silky-smooth canvas without a trace of greasiness.</p><p>Key Features:</p><ul><li>Enriched with super-nourishing avocado oil</li><li>Deeply moisturizes for up to 96 hours</li><li>Absorbs quickly and cleanly into the skin</li><li>Available in convenient 2 oz and 4 oz / 120 ml sizes</li><li>Suitable for a variety of skin types</li></ul><h3>Why Choose Mumu Bath Body Butters?<br/></h3><p>Our body butters are designed to provide intense hydration and long-lasting moisture. The star ingredient, avocado oil, penetrates deeply into your skin, continuing to nourish throughout the day. Perfect for those moments when your skin needs extra TLC, our body butters leave you feeling pampered and refreshed.</p><h3>Explore Our Body Butters Collection:</h3><p>Indulge in our product range of delightful scents, each crafted to provide a unique sensory experience:</p><ul><li><a href=\"/products/lush-lightweight-body-butter\" target=\"_blank\" title=\"Lush Lightweight Body Butter\"><strong>Lush Lightweight Body Butter</strong></a></li><li><a href=\"/products/pink-grapefruit-body-butter\" target=\"_blank\" title=\"Pink Grapefruit Lightweight Body Butter\"><strong>Pink Grapefruit Lightweight Body Butter</strong></a></li><li><a href=\"/products/osmanthus-flower-lightweight-body-butter\" target=\"_blank\" title=\"Osmanthus Flower Lightweight Body Butter\"><strong>Osmanthus Flower Lightweight Body Butter</strong></a></li><li><a href=\"/products/bliss-lightweight-body-butter\" target=\"_blank\" title=\"Bliss Lightweight Body Butter\"><strong>Bliss Lightweight Body Butter</strong></a></li><li><a href=\"/products/rose-garden-lightweight-body-butter\" target=\"_blank\" title=\"Rose Garden Lightweight Body Butter\"><strong>Rose Garden Lightweight Body Butter</strong></a></li><li><a href=\"/products/coconut-lime-lightweight-body-butter\" target=\"_blank\" title=\"Coconut Lime Lightweight Body Butter\"><strong>Coconut Lime Lightweight Body Butter</strong></a></li></ul><h3>How to Use Body Butter:</h3><p>For best results, massage a generous amount all over your body after showering or bathing. Let the rich, creamy texture melt into your skin, leaving it irresistibly soft and smooth.</p><p>Check out our: <a href=\"https://www.mumubath.com/blogs/mumu-bath/ultimate-self-care-body-butter-routine\" target=\"_blank\" title=\"https://www.mumubath.com/blogs/mumu-bath/ultimate-self-care-body-butter-routine\">Step-by-Step Self-Care Routine Using Body Butter</a></p><p>Experience the difference with Mumu Bath Body Butters – where luxury meets efficiency in skincare. Your skin deserves this daily dose of nourishment and love.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8jqU46",
+        "heading_3FriWc",
+        "richtext_jLHtiP"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "17422799633c262f8c": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_yqCenx": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_tPxyqy": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_yqCenx",
+        "targetbay_product_reviews_site_reviews_tPxyqy"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_GkMBKa",
+    "main",
+    "rich_text_A8a4fy",
+    "17422799633c262f8c"
+  ]
+}

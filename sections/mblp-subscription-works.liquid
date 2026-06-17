@@ -1,0 +1,818 @@
+<!-- Section: MBLP Subscription Works -->
+<div class="mblp-subscription-works-main">
+  <div class="container">
+    <div class="mblp-subscription-works-wrapper">
+      <div class="mblp-subscription-works-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-subscription-works-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Section Subtitle -->
+        {% if section.settings.section_subtitle != blank %}
+          <div class="mblp-subscription-works-subtitle">
+            <p>{{ section.settings.section_subtitle }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Steps Container -->
+        <div class="mblp-subscription-works-steps-container">
+          <!-- Mobile Splide Slider -->
+          <div class="splide mblp-steps-slider" id="mblp-steps-slider">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <!-- Step 1 -->
+                <li class="splide__slide">
+                  <div class="mblp-subscription-works-step">
+                    {% if section.settings.step1_image != blank %}
+                      <div class="mblp-subscription-works-step-image">
+                        {{ section.settings.step1_image | image_url: width: 1500 | image_tag }}
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step1_number != blank %}
+                      <div class="mblp-subscription-works-step-number">
+                        <span>{{ section.settings.step1_number }}</span>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step1_title != blank %}
+                      <div class="mblp-subscription-works-step-title">
+                        <h3>{{ section.settings.step1_title }}</h3>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step1_description != blank %}
+                      <div class="mblp-subscription-works-step-description">
+                        <p>{{ section.settings.step1_description }}</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                </li>
+
+                <!-- Step 2 -->
+                <li class="splide__slide">
+                  <div class="mblp-subscription-works-step">
+                    {% if section.settings.step2_image != blank %}
+                      <div class="mblp-subscription-works-step-image">
+                        {{ section.settings.step2_image | image_url: width: 1500 | image_tag }}
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step2_number != blank %}
+                      <div class="mblp-subscription-works-step-number">
+                        <span>{{ section.settings.step2_number }}</span>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step2_title != blank %}
+                      <div class="mblp-subscription-works-step-title">
+                        <h3>{{ section.settings.step2_title }}</h3>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step2_description != blank %}
+                      <div class="mblp-subscription-works-step-description">
+                        <p>{{ section.settings.step2_description }}</p>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step2_link_text != blank %}
+                      <div class="mblp-subscription-works-step-link">
+                        {% if section.settings.step2_link_image != blank %}
+                          <img src="{{ section.settings.step2_link_image | image_url: width: 24 }}" alt="Link icon">
+                        {% endif %}
+                        <a href="{{ section.settings.step2_link_url | default: '#' }}">
+                          {{ section.settings.step2_link_text }}
+                        </a>
+                      </div>
+                    {% endif %}
+                  </div>
+                </li>
+
+                <!-- Step 3 -->
+                <li class="splide__slide">
+                  <div class="mblp-subscription-works-step">
+                    {% if section.settings.step3_image != blank %}
+                      <div class="mblp-subscription-works-step-image">
+                        {{ section.settings.step3_image | image_url: width: 1500 | image_tag }}
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step3_number != blank %}
+                      <div class="mblp-subscription-works-step-number">
+                        <span>{{ section.settings.step3_number }}</span>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step3_title != blank %}
+                      <div class="mblp-subscription-works-step-title">
+                        <h3>{{ section.settings.step3_title }}</h3>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.step3_description != blank %}
+                      <div class="mblp-subscription-works-step-description">
+                        <p>{{ section.settings.step3_description }}</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Desktop Non-Slider Layout -->
+          <div class="mblp-desktop-steps">
+            <!-- Step 1 -->
+            <div class="mblp-subscription-works-step">
+              {% if section.settings.step1_image != blank %}
+                <div class="mblp-subscription-works-step-image">
+                  {{ section.settings.step1_image | image_url: width: 1500 | image_tag }}
+                </div>
+              {% endif %}
+
+              {% if section.settings.step1_number != blank %}
+                <div class="mblp-subscription-works-step-number">
+                  <span>{{ section.settings.step1_number }}</span>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step1_title != blank %}
+                <div class="mblp-subscription-works-step-title">
+                  <h3>{{ section.settings.step1_title }}</h3>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step1_description != blank %}
+                <div class="mblp-subscription-works-step-description">
+                  <p>{{ section.settings.step1_description }}</p>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Step 2 -->
+            <div class="mblp-subscription-works-step">
+              {% if section.settings.step2_image != blank %}
+                <div class="mblp-subscription-works-step-image">
+                  {{ section.settings.step2_image | image_url: width: 1500 | image_tag }}
+                </div>
+              {% endif %}
+
+              {% if section.settings.step2_number != blank %}
+                <div class="mblp-subscription-works-step-number">
+                  <span>{{ section.settings.step2_number }}</span>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step2_title != blank %}
+                <div class="mblp-subscription-works-step-title">
+                  <h3>{{ section.settings.step2_title }}</h3>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step2_description != blank %}
+                <div class="mblp-subscription-works-step-description">
+                  <p>{{ section.settings.step2_description }}</p>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step2_link_text != blank %}
+                <div class="mblp-subscription-works-step-link">
+                  {% if section.settings.step2_link_image != blank %}
+                    <img src="{{ section.settings.step2_link_image | image_url: width: 24 }}" alt="Link icon">
+                  {% endif %}
+                  <a href="{{ section.settings.step2_link_url | default: '#' }}">
+                    {{ section.settings.step2_link_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Step 3 -->
+            <div class="mblp-subscription-works-step">
+              {% if section.settings.step3_image != blank %}
+                <div class="mblp-subscription-works-step-image">
+                  {{ section.settings.step3_image | image_url: width: 1500 | image_tag }}
+                </div>
+              {% endif %}
+
+              {% if section.settings.step3_number != blank %}
+                <div class="mblp-subscription-works-step-number">
+                  <span>{{ section.settings.step3_number }}</span>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step3_title != blank %}
+                <div class="mblp-subscription-works-step-title">
+                  <h3>{{ section.settings.step3_title }}</h3>
+                </div>
+              {% endif %}
+
+              {% if section.settings.step3_description != blank %}
+                <div class="mblp-subscription-works-step-description">
+                  <p>{{ section.settings.step3_description }}</p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load Splide CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<style>
+    /* Base styles - Mobile First */
+    .mblp-subscription-works-main {
+      background-color: var(--col-offwhite);
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .mblp-subscription-works-wrapper {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .mblp-subscription-works-sub-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mblp-subscription-works-title h2 {
+      font-size: 42px;
+      text-align: center;
+      font-family: var(--fs-lora) !important;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      padding-bottom: 20px;
+      color: var(--col-light-black);
+    }
+
+    .mblp-subscription-works-subtitle p {
+      color: var(--col-light-black);
+      text-align: center;
+      font-family: var(--fs-lora) !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      padding-bottom: 40px;
+    }
+
+    .mblp-subscription-works-steps-container {
+      width: 100%;
+    }
+
+    /* Mobile Slider Styles */
+    .mblp-steps-slider {
+      display: block;
+      width: 100%;
+    }
+
+    .mblp-desktop-steps {
+      display: none;
+    }
+
+    .mblp-subscription-works-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      padding: 24px 24px 32px 24px;
+      background: var(--col-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 0;
+      height: auto;
+      min-height: 500px;
+    }
+
+    .mblp-subscription-works-step-image {
+      max-width: 290px;
+      border-radius: 10px;
+      background: var(--col-offwhite);
+      padding: 25px;
+      height: 320px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .mblp-subscription-works-step-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .mblp-subscription-works-step-number span {
+      color: var(--col-light-black);
+      font-family: 'Inter Bold' !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .mblp-subscription-works-step-title h3 {
+      color: var(--col-light-black);
+      margin: 0;
+      font-family: 'Inter Bold' !important;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .mblp-subscription-works-step-description p {
+      color: var(--col-light-black);
+      margin: 0;
+      font-family: 'Inter Medium' !important;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      max-width: 280px;
+    }
+
+    .mblp-subscription-works-step-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: underline;
+      font-family: 'Inter Medium' !important;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      text-underline-offset: 4px;
+    }
+
+    .mblp-subscription-works-step-link img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    /* Custom Splide Pagination Styles */
+    .splide__pagination {
+      bottom: -50px !important;
+      padding: 0;
+      position: relative !important;
+    }
+
+    .splide__pagination__page {
+      width: 10px !important;
+      height: 10px !important;
+      border-radius: 50% !important;
+      background: #D1D5DB !important;
+      margin: 0 4px !important;
+      opacity: 1 !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      transform: none !important;
+    }
+
+    .splide__pagination__page.is-active {
+      background: var(--col-light-black) !important;
+      transform: scale(1.2) !important;
+    }
+
+    /* Hide splide arrows on mobile */
+    .splide__arrows {
+      display: none !important;
+    }
+
+    /* Splide track and list styles */
+    .splide__track {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .splide__list {
+      backface-visibility: hidden;
+      display: flex;
+      height: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .splide__slide {
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      list-style-type: none !important;
+      margin: 0;
+      position: relative;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    /* Mobile specific adjustments */
+    @media (max-width: 768px) {
+      .mblp-subscription-works-title h2 {
+        font-size: 28px;
+        max-width: 330px;
+        padding-bottom: 16px;
+      }
+
+      .mblp-subscription-works-subtitle p {
+        font-size: 16px;
+        padding-bottom: 24px;
+      }
+
+      .mblp-subscription-works-step {
+        gap: 15px;
+        max-width: none;
+        text-align: center;
+        min-height: 580px;
+        align-items: flex-start;
+      }
+      #mblp-steps-slider-list  li {
+      margin-right: 0px !important;
+  }
+
+      .mblp-subscription-works-step-number span {
+        font-size: 18px;
+      }
+
+      .mblp-subscription-works-step-title h3 {
+        font-size: 22px;
+                padding-bottom: 10px;
+      }
+
+      .mblp-subscription-works-step-image {
+        /* max-width: 250px;
+        height: 280px; */
+                margin: 0 auto;
+      }
+
+      .mblp-subscription-works-step-description p {
+        font-size: 16px;
+                text-align: left;
+      }
+
+      .mblp-subscription-works-step-link a {
+        font-size: 16px;
+      }
+
+      /* Add bottom padding for pagination */
+      .mblp-subscription-works-main {
+        padding-bottom: calc({{ section.settings.padding_bottom_mobile }}px + 60px);
+      }
+
+      /* Ensure Splide is visible and working */
+      .mblp-steps-slider {
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100%;
+        position: relative;
+      }
+
+      .splide__track {
+        overflow: hidden !important;
+        width: 100%;
+      }
+
+      .splide__list {
+        width: 100%;
+        transition-property: transform;
+      }
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 769px) {
+      .mblp-subscription-works-main {
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      }
+
+      /* Hide mobile slider, show desktop layout */
+      .mblp-steps-slider {
+        display: none !important;
+      }
+
+      .mblp-desktop-steps {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .mblp-subscription-works-title h2 {
+        font-size: 36px;
+      }
+
+      .mblp-subscription-works-subtitle p {
+        font-size: 18px;
+      }
+
+      .mblp-subscription-works-step {
+        max-width: 300px;
+        padding: 30px 20px;
+        align-items: flex-start;
+        text-align: left;
+        margin: 0;
+        min-height: auto;
+      }
+
+      .mblp-subscription-works-step-image {
+        align-self: center;
+      }
+
+      .mblp-subscription-works-step-title h3 {
+        font-size: 22px;
+      }
+
+      .mblp-subscription-works-step-description p {
+        font-size: 16px;
+        max-width: 250px;
+      }
+
+      .mblp-subscription-works-step-link a {
+        font-size: 16px;
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1024px) {
+      .mblp-desktop-steps {
+        gap: 50px;
+      }
+
+      .mblp-subscription-works-step {
+        max-width: 350px;
+        padding: 40px 30px;
+      }
+
+      .mblp-subscription-works-title h2 {
+        font-size: 36px;
+      }
+
+      .mblp-subscription-works-subtitle p {
+        font-size: 20px;
+      }
+
+      .mblp-subscription-works-step-title h3 {
+        font-size: 24px;
+      }
+    }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let splideInstance = null;
+
+    function initializeSplide() {
+      // Destroy existing instance if it exists
+      if (splideInstance) {
+        splideInstance.destroy();
+        splideInstance = null;
+      }
+
+      // Only initialize on mobile/tablet
+      if (window.innerWidth <= 768) {
+        const splideElement = document.getElementById('mblp-steps-slider');
+
+        if (splideElement && typeof Splide !== 'undefined') {
+          splideInstance = new Splide('#mblp-steps-slider', {
+            type: 'slide',
+            perPage: 1,
+            perMove: 1,
+            gap: '20px',
+            padding: { left: '20px', right: '20px' },
+            pagination: true,
+            arrows: false,
+            autoplay: false,
+            drag: true,
+            snap: true,
+            focus: 'center',
+            trimSpace: false,
+            classes: {
+              arrows: 'splide__arrows',
+              arrow : 'splide__arrow',
+              prev  : 'splide__arrow--prev',
+              next  : 'splide__arrow--next',
+            }
+          });
+
+          try {
+            splideInstance.mount();
+            console.log('Splide initialized successfully');
+          } catch (error) {
+            console.error('Error initializing Splide:', error);
+          }
+        }
+      }
+    }
+
+    // Wait for Splide library to load
+    function waitForSplide() {
+      if (typeof Splide !== 'undefined') {
+        initializeSplide();
+      } else {
+        setTimeout(waitForSplide, 100);
+      }
+    }
+
+    waitForSplide();
+
+    // Handle resize events
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        initializeSplide();
+      }, 250);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MBLP Subscription Works",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "How Subscription Works?"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Set it once. Relax every time."
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Step 1 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step1_image",
+      "label": "Step 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "step1_number",
+      "label": "Step 1 Number",
+      "default": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Select Subscription Plan"
+    },
+    {
+      "type": "textarea",
+      "id": "step1_description",
+      "label": "Step 1 Description",
+      "default": "Choose a product with a subscription option, add it to your cart, and check out."
+    },
+    {
+      "type": "header",
+      "content": "Step 2 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_image",
+      "label": "Step 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "step2_number",
+      "label": "Step 2 Number",
+      "default": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Manage Anytime"
+    },
+    {
+      "type": "textarea",
+      "id": "step2_description",
+      "label": "Step 2 Description",
+      "default": "Log into your account to edit shipment, or update your deliveries."
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_link_image",
+      "label": "Step 2 Link Icon"
+    },
+    {
+      "type": "text",
+      "id": "step2_link_text",
+      "label": "Step 2 Link Text",
+      "default": "Learn how it works"
+    },
+    {
+      "type": "url",
+      "id": "step2_link_url",
+      "label": "Step 2 Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Step 3 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step3_image",
+      "label": "Step 3 Image"
+    },
+    {
+      "type": "text",
+      "id": "step3_number",
+      "label": "Step 3 Number",
+      "default": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Receive Your Products"
+    },
+    {
+      "type": "textarea",
+      "id": "step3_description",
+      "label": "Step 3 Description",
+      "default": "Your products arrive on time — just relax and enjoy."
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Subscription Works",
+      "settings": {
+        "section_title": "How Subscription Works?",
+        "section_subtitle": "Set it once. Relax every time.",
+        "step1_number": "Step 1",
+        "step1_title": "Select Subscription Plan",
+        "step1_description": "Choose a product with a subscription option, add it to your cart, and check out.",
+        "step2_number": "Step 2",
+        "step2_title": "Manage Anytime",
+        "step2_description": "Log into your account to edit shipment, or update your deliveries.",
+        "step2_link_text": "Learn how it works",
+        "step3_number": "Step 3",
+        "step3_title": "Receive Your Products",
+        "step3_description": "Your products arrive on time — just relax and enjoy."
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,657 @@
+{% comment %}
+  Hero Section — Natural Care / Beauty Brand
+  Features: Rating + rich text, heading, description, CTA button (left) | Image (right)
+  Responsive, SEO-optimised, speed-conscious
+{% endcomment %}
+
+<section
+  class="hero-section fade-in-section"
+  id="shopify-section-{{ section.id }}"
+  style="
+    --hero-bg: {{ section.settings.bg_color }};
+    --hero-pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --hero-pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --hero-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --hero-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hero-btn-bg: {{ section.settings.button_bg_color }};
+    --hero-btn-color: {{ section.settings.button_text_color }};
+    --hero-btn-hover-bg: {{ section.settings.button_hover_bg_color }};
+    --hero-btn-hover-color: {{ section.settings.button_hover_text_color }};
+    --hero-heading-color: {{ section.settings.heading_color }};
+    --hero-desc-color: {{ section.settings.description_color }};
+  "
+  aria-label="{{ section.settings.section_aria_label | escape }}"
+>
+  <div class="page-width">
+    <div class="hero-rel">
+    <div class="hero-section__grid">
+
+      {%- comment -%} ── LEFT COLUMN ── {%- endcomment -%}
+      <div class="hero-section__content fade-in-left">
+
+        {%- comment -%} Rating Row {%- endcomment -%}
+        {%- if section.settings.show_rating -%}
+          <div class="hero-section__rating" aria-label="{{ section.settings.rating_aria_label | escape }}">
+            {%- assign rating_alt = section.settings.rating_image_alt | escape -%}
+
+                {%- if section.settings.rating_image != blank -%}
+                {{
+                    section.settings.rating_image
+                    | image_url: width: 120
+                    | image_tag:
+                    loading: 'eager',
+                    fetchpriority: 'high',
+                    alt: rating_alt,
+                    width: 120,
+                    height: 20,
+                    class: 'hero-section__rating-img'
+                }}
+                {%- else -%}
+                <span class="hero-section__rating-stars" aria-hidden="true">★★★★★</span>
+            {%- endif -%}
+
+            {%- if section.settings.rating_richtext != blank -%}
+              <div class="hero-section__rating-text rte">
+                {{ section.settings.rating_richtext }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} Heading {%- endcomment -%}
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="hero-section__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+
+        {%- comment -%} Description {%- endcomment -%}
+        {%- if section.settings.description != blank -%}
+          <p class="hero-section__description">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+
+        {%- comment -%} CTA Button {%- endcomment -%}
+        {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
+          <a
+            class="hero-section__btn"
+            href="{{ section.settings.button_url }}"
+            {% if section.settings.button_open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+            aria-label="{{ section.settings.button_label | escape }}"
+          >
+            {{- section.settings.button_label | escape -}}
+          </a>
+        {%- endif -%}
+
+      </div>
+      {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
+
+      {%- comment -%} ── RIGHT COLUMN — Hero Image ── {%- endcomment -%}
+      <div class="hero-section__media">
+        {%- if section.settings.hero_image != blank -%}
+          {{
+            section.settings.hero_image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'eager',
+              fetchpriority: 'high',
+              preload: true,
+              alt: section.settings.hero_image_alt ,
+              width: section.settings.hero_image_width,
+              height: section.settings.hero_image_height,
+              class: 'hero-section__img',
+              sizes: '(max-width: 749px) 100vw, 50vw',
+              widths: '400, 600, 750, 900'
+          }}
+        {%- else -%}
+          {{ 'collection-1' | placeholder_svg_tag: 'hero-section__img hero-section__img--placeholder' }}
+        {%- endif -%}
+      </div>
+      {%- comment -%} ── END RIGHT COLUMN ── {%- endcomment -%}
+
+    </div>
+    {%- if section.settings.desktop_banner_image != blank -%}
+      <div class="hero-section__desktop-banner">
+        {{
+          section.settings.desktop_banner_image
+          | image_url: width: 2000
+          | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            preload: true,
+            alt: section.settings.desktop_banner_image_alt,
+            widths: '1200,1500,1800,2000',
+            class: 'hero-section__desktop-banner-image'
+        }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  </div>
+</section>
+
+<style>
+ 
+
+  /* ── Section shell ── */
+  .hero-section {
+    background-color: var(--hero-bg, #f9f5f0);
+    padding-top: var(--hero-pt-mobile, 48px);
+    padding-bottom: var(--hero-pb-mobile, 48px);
+    overflow: hidden;
+  }
+
+  @media (min-width: 750px) {
+    .hero-section {
+      padding-top: var(--hero-pt-desktop, 80px);
+      padding-bottom: var(--hero-pb-desktop, 80px);
+    }
+  }
+
+  /* ── Two-column grid ── */
+  .hero-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 750px) {
+    .hero-section__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+  }
+
+  /* ── Content (left) ── */
+.hero-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    order: 2;
+    max-width: 615px;
+}
+
+  @media (min-width: 750px) {
+    .hero-section__content {
+      order: 1;
+    }
+  }
+
+  /* ── Rating ── */
+  .hero-section__rating {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+  }
+
+  .hero-section__rating-img {
+    display: block;
+    width: auto;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .hero-section__rating-stars {
+    color: #f5a623;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .hero-section__rating-text {
+   color: #101010;
+   text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%; /* 26.64px */
+    text-transform: capitalize;
+}
+
+  .hero-section__rating-text p {
+    margin: 0;
+  }
+
+  /* ── Heading ── */
+  .hero-section__heading {
+    color: #000;
+    font-family: "Mona Sans" !important;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 66px; /* 110% */
+    letter-spacing: -0.86px;
+    text-transform: capitalize;
+  }
+
+  /* ── Description ── */
+  .hero-section__description {
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    padding: 0 0 30px;
+    max-width:566px;
+  }
+
+  /* ── CTA Button — bgc + color transition only, no transform ── */
+  .hero-section__btn {
+    background-color: var(--hero-btn-bg, #d4a84b);
+    color: var(--hero-btn-color, #1a1a1a);
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%; /* 26.64px */
+    text-transform: capitalize;
+    display: flex;
+    width: 209.5px;
+    padding: 18px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.07px;
+    border-radius: 41px;
+    background: #FBDD3F !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+
+  }
+
+  .hero-section__btn:hover,
+  .hero-section__btn:focus-visible {
+    background-color: var(--hero-btn-hover-bg, #1a1a1a) !important;
+    color: var(--hero-btn-hover-color, #fff);
+    outline-offset: 3px;
+  }
+
+  /* ── Media (right) ── */
+  .hero-section__media {
+    order: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  @media (min-width: 750px) {
+    .hero-section__media {
+      order: 2;
+      display:none;
+    }
+  }
+
+  .hero-section__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .hero-section__img--placeholder {
+    aspect-ratio: 4 / 3;
+    background: #e8e0d8;
+  }
+
+.hero-rel {
+  position: relative;
+}
+
+
+
+.hero-section__desktop-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 750px) {
+
+.hero-section__content {
+    gap: 16px;
+    order: 1;
+    text-align:center;
+}
+
+.hero-section__grid {
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.hero-section__rating-img {
+    display: block;
+    width: 100px;
+    height: 15px;
+    object-fit: contain;
+}
+.hero-section__rating {
+    gap: 9px;
+    justify-content: center;
+}
+
+.hero-section__rating-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 148%; /* 20.72px */
+  text-transform: capitalize;
+
+}
+
+.hero-section__heading {
+   font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: 42px; /* 116.667% */
+letter-spacing: -0.86px;
+text-transform: capitalize;
+        max-width: 343px;
+        margin: 0 auto;
+
+}
+
+.hero-section__description {
+   font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
+padding: 0 0 8px;
+max-width: 316px;
+        text-align: center;
+        margin: 0 auto;
+        
+}
+
+.hero-section__btn {
+padding: 14.196px 23.66px;
+border-radius:32px;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 148%; /* 20.72px */
+text-transform: capitalize;
+width:100%;
+
+}
+
+.hero-section__desktop-banner-image {
+  display:none;
+}
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Hero — Natural Care",
+  "tag": "section",
+  "class": "section-hero-natural",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top — Desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom — Desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top — Mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom — Mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Colour",
+      "default": "#f9f5f0"
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Rating Row",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "rating_image",
+      "label": "Rating Stars Image (optional)",
+      "info": "Upload a stars/badge image. Leave blank to use ★★★★★ text fallback."
+    },
+    {
+      "type": "text",
+      "id": "rating_image_alt",
+      "label": "Rating Image Alt Text",
+      "default": "Five gold stars"
+    },
+    {
+      "type": "richtext",
+      "id": "rating_richtext",
+      "label": "Rating Label (Rich Text)",
+      "default": "<p>10,500+ 5-Star Reviews</p>"
+    },
+    {
+      "type": "text",
+      "id": "rating_aria_label",
+      "label": "Rating Row Aria Label",
+      "default": "Customer rating: 10,500+ five-star reviews"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Natural Care, Rooted In Taiwan"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York."
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Colour",
+      "default": "#555555"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_open_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#d4a84b"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_banner_image",
+      "label": "Desktop Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "desktop_banner_image_alt",
+      "label": "Desktop Banner Image Alt",
+      "default": "Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt",
+      "label": "Hero Image Alt Text",
+      "default": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals"
+    },
+    {
+      "type": "number",
+      "id": "hero_image_width",
+      "label": "Image intrinsic width (px)",
+      "default": 900,
+      "info": "Set to the actual pixel width of your uploaded image for correct width/height attributes."
+    },
+    {
+      "type": "number",
+      "id": "hero_image_height",
+      "label": "Image intrinsic height (px)",
+      "default": 700,
+      "info": "Set to the actual pixel height of your uploaded image."
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "section_aria_label",
+      "label": "Section Aria Label",
+      "default": "Hero banner — Natural Care, Rooted In Taiwan"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero — Natural Care",
+      "settings": {
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "bg_color": "#f9f5f0",
+        "show_rating": true,
+        "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
+        "rating_image_alt": "Five gold stars",
+        "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+        "heading": "Natural Care, Rooted In Taiwan",
+        "heading_tag": "h1",
+        "heading_color": "#1a1a1a",
+        "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
+        "description_color": "#555555",
+        "button_label": "Shop Now",
+        "button_url": "/collections/all",
+        "button_open_new_tab": false,
+        "button_bg_color": "#d4a84b",
+        "button_text_color": "#1a1a1a",
+        "button_hover_bg_color": "#1a1a1a",
+        "button_hover_text_color": "#ffffff",
+        "hero_image_alt": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals",
+        "hero_image_width": 900,
+        "hero_image_height": 700,
+        "section_aria_label": "Hero banner — Natural Care, Rooted In Taiwan"
+      }
+    }
+  ]
+}
+{% endschema %}

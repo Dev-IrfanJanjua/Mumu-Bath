@@ -1,0 +1,178 @@
+<style>
+  .single-product-row-wrapper{
+
+      width: 100%;
+      margin: auto;
+  }
+
+  .single-product-row-wrapper .single-product-wrapper{
+
+      margin-bottom: 50px;
+  }
+  .single-product-row-wrapper .single-product-col-01{
+
+
+      background-color: #f8f6ee;
+  }
+
+  .single-product-wrapper .inner-wrapper{
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      width: 100%;
+  }
+
+  .single-product-wrapper .inner-wrapper .image-wrapper{
+
+      flex-basis: 50%;
+
+  }
+
+  .single-product-wrapper .inner-wrapper .image-wrapper .image-box{
+
+      width: 100%;
+      margin: auto;
+  }
+
+  .single-product-wrapper .inner-wrapper .image-wrapper .image-box img{
+
+      width: 100%;
+      margin: auto;
+  }
+
+  .single-product-wrapper .inner-wrapper .content-main-wrapper{
+
+      flex-basis: 50%;
+
+
+  }
+
+  .single-product-wrapper .inner-wrapper .content-main-wrapper .content-inner-wrapper{
+
+      padding: 0px 40px;;
+
+  }
+
+  .content-main-wrapper .title-wrapper h2{
+
+      font-size: 40px;
+      color: #232121;
+      margin: 0;
+      padding: 10px 0px;
+    line-height: 50px;
+  }
+
+  .content-main-wrapper .des-wrapper p{
+
+      font-size: 16px;
+      line-height: 30px;
+      color: #232121;
+      letter-spacing: 0.01rem;
+  }
+
+  .content-main-wrapper .button-wrapper{
+
+      padding: 12px 30px;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+  }
+
+  .content-main-wrapper .button-wrapper a{
+
+  text-decoration: none;
+  color: #000;
+  }
+
+
+@media(max-width: 768px){
+
+  .single-product-col-01.single-product-wrapper .inner-wrapper:nth-of-type(2){
+
+    flex-direction: column-reverse;
+    
+  } 
+
+
+  .single-product-col-01.single-product-wrapper .inner-wrapper:nth-of-type(1){
+
+    flex-direction: column;
+    } 
+
+  .inner-wrapper{
+
+    padding-bottom: 50px;
+  }
+  
+}
+
+
+
+  
+</style>
+
+
+
+{% if product.metafields.custom.image_with_text_section == true %}
+  <section class="single-product-section product-main-wrapper">
+    <div class="single-product-row-wrapper">
+      <div class="single-product-col-01 single-product-wrapper ">
+        <div class="inner-wrapper">
+          {% if product.metafields.custom.first_image != blank %}
+            <div class="image-wrapper">
+              <div class="image-box">
+                <img src="{{ product.metafields.custom.first_image }}" alt="mumubath">
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="content-main-wrapper">
+            <div class="content-inner-wrapper">
+              {% if product.metafields.custom.fist_image_title != blank %}
+                <div class="title-wrapper">
+                  <h2>{{ product.metafields.custom.fist_image_title }}</h2>
+                </div>
+              {% endif %}
+
+              {% if product.metafields.custom.first_image_description != blank %}
+                <div class="des-wrapper">
+                  <p>{{ product.metafields.custom.first_image_description }}</p>
+                </div>
+              {% endif %}
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-wrapper">
+          <div class="content-main-wrapper">
+            <div class="content-inner-wrapper">
+              {% if product.metafields.custom.second_image_title != blank %}
+                <div class="title-wrapper">
+                  <h2>{{ product.metafields.custom.second_image_title }}</h2>
+                </div>
+              {% endif %}
+
+              {% if product.metafields.custom.second_image_description != blank %}
+                <div class="des-wrapper">
+                  <p>{{ product.metafields.custom.second_image_description }}</p>
+                </div>
+              {% endif %}
+            
+            </div>
+          </div>
+
+          {% if product.metafields.custom.second_image != blank %}
+            <div class="image-wrapper">
+              <div class="image-box">
+                <img src="{{ product.metafields.custom.second_image }}" alt="mumubath">
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

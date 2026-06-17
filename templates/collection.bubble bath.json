@@ -1,0 +1,378 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_10.png",
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "sm",
+        "background": "#000000",
+        "text_color": "#1c1c1c",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "slideshow_8AqcGQ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_gfC7RJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_2_fdc7ed2c-81d9-42d4-ba63-834fa1899a83.png",
+            "mobile_image": "shopify://shop_images/mobile-bubble_bath.png",
+            "subheading": "",
+            "title": "<h1>Bubble Bath</h1><br><p>Turn every soak into a sensory escape with our handcrafted bath bombs and bubble bars. Each product is designed to deliver a gentle, foaming bubble bath that soothes skin and lifts your mood.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 1200,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_gfC7RJ"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_R6pygD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jBdTem": {
+          "type": "heading",
+          "settings": {
+            "text": "Relax Naturally with Bubbles & Bombs",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_VByAYY": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Discover the joy of bath time with our artisanal collection of bubble bars and bath bombs, made to pamper your skin and calm your senses. We use skin-loving ingredients like essential oils and botanicals for a soothing soak that feels as good as it smells. Whether you need stress relief or a little sparkle, we’ve got something special for every bath ritual.</p><p><br/>Our formulas are designed to be gentle on all skin types, especially sensitive ones. Each product in this range offers a non toxic bubble bath experience, free from harsh chemicals and synthetic fragrances. Enjoy clean, conscious bathing with bubbles that truly care for your skin.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jBdTem",
+        "richtext_VByAYY"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_DyLi7P": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_y9aXFf": {
+          "type": "heading",
+          "settings": {
+            "text": "Benefits for Skin & Mind",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_waV6LG": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Soaking in a warm bath should feel like a retreat for your skin and soul. Our bubble bombs and bars are crafted to nourish, relax, and uplift - naturally.</p><ul><li><strong>Deep Relaxation</strong> – The calming scents and fizzing bubbles melt away stress and promote mental clarity. A warm foaming bubble bath helps reset your mood after a long day.</li><li><strong>Soft, Hydrated Skin</strong> – Made with shea butter and oils, each bomb delivers intense moisture. Your skin feels silky smooth and refreshed after every use.</li><li><strong>Aromatherapy Boost</strong> – Infused with natural essential oils, our bombs enhance your bath with scent therapy. From calming lavender to energizing citrus, every bath supports your emotional wellness.</li><li><strong>Gentle for All Ages</strong> – Our formulas are kid-safe, non-toxic, and sensitive-skin friendly. Even our bubble bath liquid is free from synthetic dyes and sulfates.</li><li><strong>Fun & Colorful Experience</strong> – Watch your tub transform with swirls of color and sparkle. Bath time becomes a joyful, sensory escape.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_y9aXFf",
+        "richtext_waV6LG"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_9wVFaj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HqhWem": {
+          "type": "heading",
+          "settings": {
+            "text": "How to Use for Best Results",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_bpeCRB": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Turn your bath into a spa-like experience with just a few simple steps. Follow these tips to enjoy every fizzy, fragrant moment.</p><ul><li><strong>Start with Warm Water</strong> – Fill your tub with warm (not hot) water for optimal fizz and fragrance. This helps activate the ingredients and soothe your skin.</li><li><strong>Drop and Swirl</strong> – Add your bath bomb or bar once the tub is full. Let it fully dissolve and swirl the water to mix evenly.</li><li><strong>Soak for 15–20 Minutes</strong> – Relax in the tub while the oils and butters hydrate your skin. A calm soak helps absorb all the nourishing goodness.</li><li><strong>Use a Non Toxic Bubble Bath</strong> – Pair with our non toxic bubble bath for extra bubbles without irritation. It’s safe for kids, gentle on skin, and free of harmful chemicals.</li><li><strong>Rinse and Pat Dry</strong> – After soaking, rinse lightly and pat your skin dry. There’s no need to scrub - let the oils keep working post-bath.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HqhWem",
+        "richtext_bpeCRB"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_CGgURU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ewHb3D": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Shop From Us",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_XTWngx": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>We believe bath time should be joyful, safe, and skin-loving. Our products are crafted with care for the whole family.</p><ul><li><strong>Clean Ingredients Always</strong> – We use only natural, non-toxic ingredients that are gentle on skin. No parabens, no sulfates - just pure bath-time bliss.</li><li><strong>Made for All Ages</strong> – Whether it’s a playful soak for kids or a relaxing soak for adults, our products suit everyone. They’re dermatologist-tested and parent-approved.</li><li><strong>Rich, Skin-Loving Formulas</strong> – Our bubble bath liquid is packed with nourishing oils and gentle cleansers. It foams beautifully while softening and hydrating your skin.</li><li><strong>Eco-Friendly & Cruelty-Free</strong> – We care about the planet as much as your skin. That’s why our packaging is recyclable and our products are never tested on animals.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ewHb3D",
+        "richtext_XTWngx"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_4YNHMp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dAnxrm": {
+          "type": "heading",
+          "settings": {
+            "text": "Wrap Up Your Day with a Blissful Soak",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_x6XYbj": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Turn your bath into a moment of joy with our gentle and fun bubbles and bombs. Each soak soothes the skin and calms the senses. Made with clean ingredients, they're safe for kids and perfect for adults too. From fizzy bombs to foamy delights, there’s something for everyone. Shop now and make every bath a happy ritual.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dAnxrm",
+        "richtext_x6XYbj"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_mtiB8i": {
+      "type": "faq",
+      "blocks": {
+        "question_3HXDwy": {
+          "type": "question",
+          "settings": {
+            "question": "Is the foaming bubble bath safe for daily use?",
+            "answer": "<p>Yes! Our foaming bubble bath is mild enough for daily use and leaves skin feeling soft and hydrated after every soak.</p>"
+          }
+        },
+        "question_HMaJ6n": {
+          "type": "question",
+          "settings": {
+            "question": "How long does the fizz last in your bath bombs?",
+            "answer": "<p>Our bath bombs typically fizz for 3–5 minutes, depending on the size, releasing skin-loving ingredients throughout.</p>"
+          }
+        },
+        "question_AJ6yTh": {
+          "type": "question",
+          "settings": {
+            "question": "Can I mix the bubble bath and bath bombs together?",
+            "answer": "<p>Yes! You can use them together for an ultra-relaxing, bubbly soak with extra skin benefits.</p>"
+          }
+        },
+        "question_rbTV7i": {
+          "type": "question",
+          "settings": {
+            "question": "How much bubble bath liquid should I use per bath?",
+            "answer": "<p>A little goes a long way - just 2-3 tablespoons under running water create a luxurious lather.</p>"
+          }
+        },
+        "question_kYVYnW": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are usually processed within 2–3 business days, with shipping times depending on your location.</p>"
+          }
+        },
+        "question_e3yrrF": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use the bubble bath liquid in a jetted tub?",
+            "answer": "<p>Yes, but we recommend starting with a small amount to prevent excessive bubbles from forming in jets.</p>"
+          }
+        },
+        "question_t9xiLr": {
+          "type": "question",
+          "settings": {
+            "question": "What if my product arrives damaged?",
+            "answer": "<p>If your item arrives damaged, please contact us with a photo, and we’ll replace or refund it right away.</p>"
+          }
+        },
+        "question_CtDm73": {
+          "type": "question",
+          "settings": {
+            "question": "What age group can use your non toxic bubble bath?",
+            "answer": "<p>Our bubble bath is safe for toddlers, children, and adults alike - no harmful additives here.</p>"
+          }
+        },
+        "question_BDchem": {
+          "type": "question",
+          "settings": {
+            "question": "How do I store unused bath bombs?",
+            "answer": "<p>Keep them in a dry, airtight container away from humidity to maintain freshness.</p>"
+          }
+        },
+        "question_bP6Qwk": {
+          "type": "question",
+          "settings": {
+            "question": "Are your bath products handmade?",
+            "answer": "<p>Yes, every bomb and bubble is handmade in small batches to ensure quality and care.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_3HXDwy",
+        "question_HMaJ6n",
+        "question_AJ6yTh",
+        "question_rbTV7i",
+        "question_kYVYnW",
+        "question_e3yrrF",
+        "question_t9xiLr",
+        "question_CtDm73",
+        "question_BDchem",
+        "question_bP6Qwk"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "17422802020859b09a": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_JezEeH": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_q87RTd": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_JezEeH",
+        "targetbay_product_reviews_site_reviews_q87RTd"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_8AqcGQ",
+    "main",
+    "rich_text_R6pygD",
+    "rich_text_DyLi7P",
+    "rich_text_9wVFaj",
+    "rich_text_CGgURU",
+    "rich_text_4YNHMp",
+    "faq_mtiB8i",
+    "17422802020859b09a"
+  ]
+}

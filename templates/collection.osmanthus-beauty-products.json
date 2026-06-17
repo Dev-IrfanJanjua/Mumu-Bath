@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_64frpH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6xebYE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Osmanthus_Products_9cbf6065-141e-4c00-b480-9f2aeafa65db.png",
+            "mobile_image": "shopify://shop_images/Osmanthus_Products_9cbf6065-141e-4c00-b480-9f2aeafa65db.jpg",
+            "subheading": "",
+            "title": "<h1>Osmanthus Beauty Products</h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6xebYE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_hYW86B": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_FytkEb": {
+          "type": "subheading",
+          "settings": {
+            "text": "FRAGRANT OSMANTHUS FLOWER SCENTED PRODUCTS"
+          }
+        },
+        "richtext_AAwXXf": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Experience the Natural Elegance of Osmanthus<br/></h2><p>Discover the luxurious benefits of Osmanthus-infused beauty products, crafted to nurture and elevate your skin care routine. From body oils to lightweight butters, the natural essence of Osmanthus flower is celebrated for its delicate fragrance and skin-soothing properties. Each product in this collection is designed to hydrate, rejuvenate, and leave your skin with a natural glow. Whether you're treating yourself to a roll-on perfume oil or indulging in the deeply nourishing body butter, this range allows you to embrace the beauty and benefits of one of nature's most precious flowers.</p><h3></h3><h3>Osmanthus Beauty Collection Tailored for Every Skin Type<br/></h3><p>The Osmanthus Beauty Products collection is suitable for all skin types, offering a balance of hydration and nourishment without any harsh additives. With products like the Osmanthus Flower Body Oil, your skin can enjoy the added benefits of antioxidants and rich hydration, leaving it smooth and revitalized. Our Founder’s Box also makes for the perfect gift, giving you a taste of everything this delicate flower can offer, all while pampering your skin with the cleanest ingredients. Dive into a skin care experience rooted in nature and refined for modern beauty routines.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FytkEb",
+        "richtext_AAwXXf"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "17422805740a213c00": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_E3rxbe": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_cVqVFb": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_E3rxbe",
+        "targetbay_product_reviews_site_reviews_cVqVFb"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_64frpH",
+    "main",
+    "rich_text_hYW86B",
+    "17422805740a213c00"
+  ]
+}

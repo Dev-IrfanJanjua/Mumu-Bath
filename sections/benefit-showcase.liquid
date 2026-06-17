@@ -1,0 +1,412 @@
+{% style %}
+.section-{{ section.id }} {
+  background: {{ section.settings.bg_color }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .benefits-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.section-{{ section.id }} .benefits-image {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.section-{{ section.id }} .benefits-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.section-{{ section.id }} .benefits-content {
+  width: 100%;
+}
+
+.section-{{ section.id }} .benefits-tag {
+    color: {{ section.settings.tag_color }};
+    display: inline-block;
+    margin-bottom: 16px;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section-{{ section.id }} .benefits-heading {
+    margin: 0 ;
+    color: {{ section.settings.heading_color }};
+    font-family: "Mona Sans" !important;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+}
+
+.section-{{ section.id }} .benefits-subtitle {
+    color: {{ section.settings.text_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 16px 0 0;
+}
+
+.section-{{ section.id }} .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 60px;
+    margin-top: 40px;
+}
+
+.section-{{ section.id }} .benefits-item-icon {
+    margin-bottom: 12px;
+    max-width: 50px;
+    width: 100%;
+    height: 50px;
+}
+
+.section-{{ section.id }} .benefits-item-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.section-{{ section.id }} .benefits-item-title {
+    border-top: 1px dashed {{ section.settings.card_border_color }};
+    color: {{ section.settings.card_heading_color }};
+    margin: 0 ;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: capitalize;
+    padding-top: 12px;
+}
+
+.section-{{ section.id }} .benefits-item-text {
+    color: {{ section.settings.card_text_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 8px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .benefits-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-{{ section.id }} .benefits-heading {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .section-{{ section.id }} .benefits-grid {
+    gap: 24px 18px;
+  }
+
+.section-{{ section.id }} .benefits-image {
+    aspect-ratio: 1;
+}
+
+.section-{{ section.id }} .benefits-subtitle {
+    font-size: 14px;
+}
+
+.section-{{ section.id }} .benefits-item-title {
+    font-size: 16px;
+    min-height: var(--height);
+}
+
+}
+{% endstyle %}
+
+<section class="benefits-showcase section-{{ section.id }} fade-in-section">
+  <div class="page-width">
+    <div class="benefits-layout">
+
+      {% if section.settings.image != blank %}
+        <div class="benefits-image">
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'lazy',
+              alt: 'image'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="benefits-content">
+
+        {% if section.settings.tag != blank %}
+          <div class="benefits-tag">
+            {{ section.settings.tag }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="benefits-heading fade-in-left">
+            {{
+              section.settings.heading
+              | replace: '<p>', ''
+              | replace: '</p>', ''
+            }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="benefits-subtitle fade-in-left">
+            {{ section.settings.subtitle | replace: '<p>', '' | replace: '</p>', '' }}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="benefits-grid">
+            {% for block in section.blocks %}
+              <div class="benefits-item fade-in-item" {{ block.shopify_attributes }}>
+
+                {% if block.settings.icon != blank %}
+                  <div class="benefits-item-icon">
+                    {{
+                      block.settings.icon
+                      | image_url: width: 100
+                      | image_tag:
+                        widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+                        loading: 'lazy',
+                        alt: 'image'
+                    }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="benefits-item-title" style="--height: {{ block.settings.title_height }}px">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="benefits-item-text">
+                    {{ block.settings.text | replace: '<p>', '' | replace: '</p>', '' }}
+                  </div>
+                {% endif %}
+
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits Showcase",
+  "tag": "section",
+  "class": "shopify-section-benefits-showcase",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "Benefits"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>A Daily Soap Bar That Does More Than Cleanse</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Describe your product benefits here.</p>"
+    },
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F4F1"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Subtitle Color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "card_heading_color",
+      "label": "Card Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card Text Color",
+      "default": "#555555"
+    },
+    {
+      "type": "color_background",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#E5E5E5"
+    },
+
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Add benefit description here.</p>"
+        },
+        {
+          "type": "range",
+          "id": "title_height",
+          "label": "Title Height Mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Showcase",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

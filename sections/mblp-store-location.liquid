@@ -1,0 +1,513 @@
+<!-- Section: MBLP Store Location -->
+<div class="{{ section.settings.store-location-id }} mblp-store-location-main">
+  <div class="container">
+    <div class="mblp-store-location-wrapper">
+      <div class="mblp-store-location-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-store-location-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Section Subtitle -->
+        {% if section.settings.section_subtitle != blank %}
+          <div class="mblp-store-location-subtitle">
+            <p>{{ section.settings.section_subtitle }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Location Content Container -->
+        <div class="mblp-store-location-container">
+          <!-- Map Image -->
+          {% if section.settings.map_image != blank %}
+            <div class="mblp-store-location-map">
+              <div class="mblp-store-location-map-image">
+                {{ section.settings.map_image | image_url: width: 800 | image_tag }}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Location Details -->
+          <div class="mblp-store-location-details">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'location_item' %}
+                  <div class="mblp-store-location-item">
+                    {% if block.settings.icon_type != blank %}
+                      <div class="mblp-store-location-icon {{ block.settings.icon_type }}">
+                        {% case block.settings.icon_type %}
+                          {% when 'address' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M42 20C42 34 24 46 24 46C24 46 6 34 6 20C6 15.2261 7.89642 10.6477 11.2721 7.27208C14.6477 3.89642 19.2261 2 24 2C28.7739 2 33.3523 3.89642 36.7279 7.27208C40.1036 10.6477 42 15.2261 42 20Z" fill="#EA4234" stroke="#B31512" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M24 26C27.3137 26 30 23.3137 30 20C30 16.6863 27.3137 14 24 14C20.6863 14 18 16.6863 18 20C18 23.3137 20.6863 26 24 26Z" fill="#970D0A"/>
+                                </svg>
+                                                        {% when 'subway' %}
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <g clip-path="url(#clip0_158_1174)">
+                                    <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#FF6319"/>
+                                    <path d="M33 16.381V12H16.5V36H21.4202L21.3705 26H31.5587V21.8095H21.3705V16.381H33Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_158_1174">
+                                    <rect width="48" height="48" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                          {% when 'subway-ac' %}
+                            <div class="subway-icons">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <g clip-path="url(#clip0_158_1168)">
+                                    <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#0039A6"/>
+                                    <path d="M34.5 36L26.6133 12H21.3867L13.5 36H18.3533L19.66 31.3809H28.34L29.6467 36H34.5ZM27.08 27.1905H20.92L24 16.7619L27.08 27.1905Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_158_1168">
+                                    <rect width="48" height="48" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <g clip-path="url(#clip0_158_1169)">
+                                    <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#0039A6"/>
+                                    <path d="M34.5 29.4091L30.15 27.429C29.1191 30.6807 27.2017 32.3068 24.3983 32.3068C22.2074 32.3068 20.5157 31.4375 19.3233 29.6989C18.26 28.1858 17.7283 26.2858 17.7283 24C17.7283 21.7142 18.26 19.7983 19.3233 18.2528C20.5157 16.5142 22.2074 15.6449 24.3983 15.6449C25.7517 15.6449 26.9117 16.0636 27.8783 16.9006C28.845 17.7375 29.425 18.8324 29.6183 20.1847L34.21 19.0256C33.63 16.4818 32.4782 14.55 30.7542 13.2301C29.0301 11.9102 26.9117 11.25 24.3983 11.25C20.8541 11.25 18.0024 12.5216 15.8433 15.0653C13.781 17.4478 12.75 20.4261 12.75 24C12.75 27.6381 13.7167 30.6165 15.65 32.9347C17.7767 35.4784 20.6926 36.75 24.3983 36.75C29.1674 36.75 32.5343 34.3029 34.5 29.4091Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_158_1169">
+                                    <rect width="48" height="48" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                            </div>
+                        {% endcase %}
+                      </div>
+                    {% endif %}
+
+                    <div class="mblp-store-location-info">
+                      {% if block.settings.location_text != blank %}
+                        <p>{{ block.settings.location_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base styles - Mobile First */
+  .mblp-store-location-main {
+    background-color: #FFF;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    position: relative;
+  }
+
+
+  .mblp-store-location-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .mblp-store-location-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Section Title */
+  .mblp-store-location-title h2 {
+    color: var(--col-light-black);
+    text-align: center;
+    font-family: 'Dm Sans Bold' !important;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  /* Section Subtitle */
+  .mblp-store-location-subtitle {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .mblp-store-location-subtitle p {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 18px;
+        font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  /* Main Container */
+  .mblp-store-location-container {
+        width: 100%;
+    {% comment %} max-width: 900px; {% endcomment %}
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 40px 24px;
+    border-radius: 20px;
+    background:  #F8F6EE 100%;
+  }
+
+  /* Map Image */
+  {% comment %} .mblp-store-location-map {
+    width: 100%;
+    max-width: 400px;
+  } {% endcomment %}
+
+  .mblp-store-location-map-image {
+    width: 100%;
+    height: 250px;
+    max-width: 420px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .mblp-store-location-map-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    {% comment %} object-position: center; {% endcomment %}
+  }
+
+  /* Location Details */
+  .mblp-store-location-details {
+    width: 100%;
+    max-width: 510px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* Location Item */
+  .mblp-store-location-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0;
+  }
+
+  /* Location Icon */
+  .mblp-store-location-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    max-width: 106px;
+    position: relative;
+  }
+
+ 
+  /* Subway A & C Icons (Blue) */
+  .mblp-store-location-icon.subway-ac .subway-icons {
+    display: flex;
+    gap: 10px;
+    padding-left: 10px;
+  }
+
+
+
+  /* Location Info Text */
+  .mblp-store-location-info p {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    margin: 0;
+    white-space: nowrap;
+    padding: 8px 10px;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+
+    .mblp-store-location-title h2 {
+      font-size: 28px;
+    }
+    .mblp-store-location-subtitle {
+    margin-bottom: 20px;
+}
+.mblp-store-location-main .container {
+    padding: 0 32px;
+}
+
+    .mblp-store-location-subtitle p {
+      font-size: 14px;
+    }
+
+    .mblp-store-location-container {
+            gap: 20px;
+    flex-direction: column;
+
+}
+
+
+    .mblp-store-location-map {
+      max-width: 100%;
+    }
+
+    .mblp-store-location-map-image {
+      height: 100%;
+      max-width: 100%;
+    }
+
+    .mblp-store-location-details {
+      max-width: fit-content;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .mblp-store-location-item {
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .mblp-store-location-icon {
+      width: 26px !important;
+      height: 26px !important;
+    }
+    .subway-icons svg {
+    width: 26px;
+    height: 26px;
+    }
+
+    .mblp-store-location-icon.subway-ac .subway-a,
+    .mblp-store-location-icon.subway-ac .subway-c {
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+    }
+
+    .mblp-store-location-info p {
+      font-size: 14px;
+      padding: 0px;
+    }
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .mblp-store-location-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-store-location-title h2 {
+      font-size: 36px;
+    }
+    {% comment %} .mblp-store-location-map-image {
+    height: auto;
+} {% endcomment %}
+
+    .mblp-store-location-container {
+      flex-direction: row;
+    }
+    {% comment %} .mblp-store-location-icon svg {
+    width: 40px;
+    height: 40px; 
+} {% endcomment %}
+
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1124px) {
+    .mblp-store-location-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+     .mblp-store-location-icon {
+    width: 48px;
+    height: 48px;
+     }
+     
+    .mblp-store-location-title h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      max-width: unset;
+    }
+
+    .mblp-store-location-subtitle p {
+      font-size: 24px;
+    }
+
+    .mblp-store-location-container {
+      flex-direction: row;
+      align-items: center;
+      {% comment %} max-width: 900px; {% endcomment %}
+    }
+
+    .mblp-store-location-item {
+      gap: 60px;
+    }
+
+    .mblp-store-location-info p {
+      font-size: 24px;
+    }
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1200px) {
+    .mblp-store-location-container {
+      max-width: 1000px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Store Location",
+  "settings": [
+    {
+      "type": "text",
+      "id": "store-location-id",
+      "label": "ID"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Location"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Right by the subway for quick and easy access."
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location_item",
+      "name": "Location Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Icon Type",
+          "options": [
+            {
+              "value": "address",
+              "label": "Address (Red Pin)"
+            },
+            {
+              "value": "subway",
+              "label": "Subway F (Orange)"
+            },
+            {
+              "value": "subway-ac",
+              "label": "Subway A & C (Blue)"
+            }
+          ],
+          "default": "address"
+        },
+        {
+          "type": "text",
+          "id": "location_text",
+          "label": "Location Text",
+          "default": "72 Jay St, Brooklyn, NY 11201"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Store Location",
+      "settings": {
+        "section_title": "Location",
+        "section_subtitle": "Right by the subway for quick and easy access."
+      },
+      "blocks": [
+        {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "address",
+            "location_text": "72 Jay St, Brooklyn, NY 11201"
+          }
+        },
+        {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway",
+            "location_text": "York St- 3 Min Walk"
+          }
+        },
+        {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway-ac",
+            "location_text": "High St- 10 Min Walk"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

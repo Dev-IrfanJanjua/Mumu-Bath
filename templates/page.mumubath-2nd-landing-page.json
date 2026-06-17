@@ -1,0 +1,576 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "mblp_private_parties_mi8BEk": {
+      "type": "mblp-private-parties",
+      "name": "MBLP Private Parties",
+      "settings": {
+        "padding_top_desktop": 76,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 0,
+        "background_color": "#f5f5f5",
+        "main_heading": "Private Parties in NYC — Fun for Kids, Teens & Adults!",
+        "subheading": "<p>We've got everything covered — all you need to do is show up!</p>",
+        "show_list": true,
+        "list_item_1": "Birthday parties",
+        "list_item_2": "Bachelor celebrations",
+        "list_item_3": "Team-building activities",
+        "list_item_4": "Family gatherings",
+        "button_text": "Book Your Party Today",
+        "button_link": ""
+      }
+    },
+    "mblp_workshop_party_9Bq3UK": {
+      "type": "mblp-workshop-party",
+      "name": "MBLP Workshop party",
+      "settings": {
+        "section_title": "Workshop Party Categories",
+        "section_subtitle": "Pick your theme and get ready to party!",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 70,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "step1_image": "shopify://shop_images/Group_2_ea971195-9e42-4b1b-aa10-504b868919d7.png",
+        "step1_number": "1. Birthday Party",
+        "step1_title": "",
+        "step1_description": "Celebrate with a fun handcrafted workshop and make unforgettable memories with friends — perfect for all ages!",
+        "step2_image": "shopify://shop_images/Group_32953.png",
+        "step2_number": "2. Celebration",
+        "step2_title": "",
+        "step2_description": "Whether it's a graduation, promotion, or just because — turn your moment into a hands-on celebration!",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_image": "shopify://shop_images/Group_3.png",
+        "step3_number": "3. Customized by yourself",
+        "step3_title": "",
+        "step3_description": "Got a unique idea? Let’s bring it to life and co-create your perfect party!"
+      }
+    },
+    "mblp_age_groups_Cg6n7w": {
+      "type": "mblp-age-groups",
+      "name": "MBLP Age Groups",
+      "settings": {
+        "age-group-id": "group-capacity",
+        "age-group-class": "",
+        "section_title": "Participant Info: Age Groups & Capacity",
+        "section_subtitle": "",
+        "padding_top_desktop-1": 80,
+        "padding_bottom_desktop-1": 80,
+        "padding_top_mobile-1": 50,
+        "padding_bottom_mobile-1": 50,
+        "step1_image": "shopify://shop_images/Frame_140_1.png",
+        "step1_number": "Children",
+        "step1_title": "Ages 8–13",
+        "step1_description": "👤 Min: 8 Max: 16",
+        "step2_image": "shopify://shop_images/Frame_140.png",
+        "step2_number": "Adults",
+        "step2_title": "Ages 14 and up",
+        "step2_description": "👤 Min: 8 Max: 16",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_number": "",
+        "step3_title": "",
+        "step3_description": "",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p><strong>Each party should be organized for a specific age group,</strong> as the teaching content and approach will vary.</p>",
+        "button_text": "Get Started",
+        "button_url": ""
+      }
+    },
+    "mblp_age_groups_QnyJ8R": {
+      "type": "mblp-age-groups",
+      "name": "MBLP Age Groups",
+      "settings": {
+        "age-group-id": "time-slots",
+        "age-group-class": "",
+        "section_title": "Time Slots Reservation",
+        "section_subtitle": "",
+        "padding_top_desktop-1": 80,
+        "padding_bottom_desktop-1": 80,
+        "padding_top_mobile-1": 50,
+        "padding_bottom_mobile-1": 50,
+        "step1_image": "shopify://shop_images/Frame_140_2.png",
+        "step1_number": "Party Duration",
+        "step1_title": "1.5hrs (90mins)",
+        "step1_description": "",
+        "step2_image": "shopify://shop_images/Frame_140_3.png",
+        "step2_number": "Time Slots",
+        "step2_title": "Weekdays after 7 p.m.",
+        "step2_description": "Fri–Sun before 12 p.m.",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_number": "",
+        "step3_title": "",
+        "step3_description": "",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p>We recommend booking at least <strong>2–4 weeks</strong> in advance to secure your preferred date.</p>",
+        "button_text": "Get Started",
+        "button_url": ""
+      }
+    },
+    "mblp_make_2_products_gkfLRr": {
+      "type": "mblp-make-2-products",
+      "blocks": {
+        "product_item_dQW6gQ": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/9b1a3ac2-62f0-472f-bb36-576d9b695df0.png",
+            "title": "Face Mist"
+          }
+        },
+        "product_item_pqYdCG": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/6efeeb59-75d6-43c7-a52b-e293dc247650.png",
+            "title": "Bath Bomb"
+          }
+        },
+        "product_item_YUeDiy": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/5c0ee578-8f4e-4c08-b252-2846f943ddf9.png",
+            "title": "Body Scrub"
+          }
+        },
+        "product_item_y8Eztg": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/2a6086c3-15f0-494b-964a-2d6307ecd501_1_1.png",
+            "title": "Lip Balm"
+          }
+        },
+        "product_item_mYRMFB": {
+          "type": "product_item",
+          "settings": {
+            "title": "Surprise"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_dQW6gQ",
+        "product_item_pqYdCG",
+        "product_item_YUeDiy",
+        "product_item_y8Eztg",
+        "product_item_mYRMFB"
+      ],
+      "name": "MBLP Make 2 Products",
+      "settings": {
+        "section_title": "Party Workshop — Make 2 Products",
+        "section_subtitle": "Pick your favorites — get hands-on, make two, and take them home with you!",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_party_slider_LGU7TR": {
+      "type": "mblp-party-slider",
+      "blocks": {
+        "card_HD6QB8": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/Rectangle_33.png",
+            "card_type": "• Birthday Party",
+            "card_content": "Wonderful choice! It's a perfect place for kids to celebrate their birthdays while parents relax with a coffee."
+          }
+        },
+        "card_qzdi9a": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/Rectangle_33.png",
+            "card_type": "• Birthday Party",
+            "card_content": "The children love the hands-on, creative experience of making their own products!"
+          }
+        }
+      },
+      "block_order": [
+        "card_HD6QB8",
+        "card_qzdi9a"
+      ],
+      "name": "MBLP Party Slider",
+      "settings": {
+        "party-slider-id": "",
+        "section_title": "From Our Guests: Real Party Moments",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "rich_text_DV6GrE": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_8M4ahh": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_hebpfM": {
+          "type": "heading",
+          "settings": {
+            "text": "Reserve your private party now – secure your spot today!",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_D4i48V": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8M4ahh",
+        "heading_hebpfM",
+        "richtext_D4i48V"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "reserve-your-party-now",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "mblp_gift_form_GdQECG": {
+      "type": "mblp-gift-form",
+      "blocks": {
+        "textfield_NxmWUy": {
+          "type": "textfield",
+          "settings": {
+            "title": "Name",
+            "placeholder": "First Name & Last Name",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "email_PH9jKr": {
+          "type": "email",
+          "settings": {
+            "title": "Email",
+            "placeholder": "Example@email.com",
+            "width": "half"
+          }
+        },
+        "radio_zxN69e": {
+          "type": "radio",
+          "settings": {
+            "title": "Party Theme",
+            "required": false,
+            "width": "full",
+            "option_list": "Birthday Party, Celebration, ________"
+          }
+        },
+        "phone_number_H8Jqqi": {
+          "type": "phone_number",
+          "settings": {
+            "title": "Phone Number",
+            "placeholder": "+1 (000) 123-4567",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "dropdown_MAcNNA": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Number of Guests",
+            "placeholder": "Please select an option",
+            "required": true,
+            "width": "half",
+            "option_list": "Group Size, 5, 10."
+          }
+        },
+        "date_MJqPQq": {
+          "type": "date",
+          "settings": {
+            "title": "Preferred Date",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "dropdown_eKbBXP": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Workshop Product Choice - Pick 2 Products",
+            "placeholder": "Please select an option",
+            "required": true,
+            "width": "half",
+            "option_list": "Choose Product 1, Choose Product 2."
+          }
+        },
+        "dropdown_DLTtjP": {
+          "type": "dropdown",
+          "settings": {
+            "title": "2nd Products",
+            "placeholder": "Please select an option",
+            "required": true,
+            "width": "half",
+            "option_list": "Choose Product 2, Choose Product 3."
+          }
+        },
+        "textarea_JcrQzU": {
+          "type": "textarea",
+          "settings": {
+            "title": "Additional Details",
+            "placeholder": "Message",
+            "required": false,
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "textfield_NxmWUy",
+        "email_PH9jKr",
+        "radio_zxN69e",
+        "phone_number_H8Jqqi",
+        "dropdown_MAcNNA",
+        "date_MJqPQq",
+        "dropdown_eKbBXP",
+        "dropdown_DLTtjP",
+        "textarea_JcrQzU"
+      ],
+      "name": "MBLP Gift Form",
+      "settings": {
+        "mblp-gift-form-id": "save-your-spot",
+        "form_position": "center",
+        "heading": "",
+        "text": "",
+        "text_position": "left center",
+        "text_size": 100,
+        "text_color": "#666666",
+        "button_label_color": "#ffffff",
+        "button_background_color": "#283144",
+        "button_radius": 0,
+        "base_width": 70,
+        "max_width": "",
+        "inner_padding": 60,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "system_ui_n4",
+        "recaptcha_icon_image": "shopify://shop_images/bell.png",
+        "recaptcha_text": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."
+      }
+    },
+    "mblp_faqs_9Ac7cj": {
+      "type": "mblp-faqs",
+      "blocks": {
+        "faq_item_Pbqfcq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we bring our own food or drinks?",
+            "answer": "Yes, you're welcome to bring your own food and drinks for your event. We have refrigeration available if needed."
+          }
+        },
+        "faq_item_JTM9FJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we decorate the space before the party?",
+            "answer": "Absolutely! You can arrive 30 minutes early to set up decorations. We provide tables and basic party supplies."
+          }
+        },
+        "faq_item_m9XEbf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can participants leave their coats and belongings?",
+            "answer": "We have a designated area with hooks and storage space for coats, bags, and personal belongings."
+          }
+        },
+        "faq_item_cR8Vg9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where should we place birthday gifts or other gifts?",
+            "answer": "We have a special gift table set up in a safe area where all presents can be displayed and kept secure during the event."
+          }
+        },
+        "faq_item_CM4ajD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does payment work?",
+            "answer": "We accept cash, credit cards, and digital payments. A 50% deposit is required to book, with the balance due on the day of your event."
+          }
+        },
+        "faq_item_cL8YxL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the guest limit?",
+            "answer": "Our standard party package accommodates up to 12 children. For larger groups, please contact us to discuss additional options and pricing."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Pbqfcq",
+        "faq_item_JTM9FJ",
+        "faq_item_m9XEbf",
+        "faq_item_cR8Vg9",
+        "faq_item_CM4ajD",
+        "faq_item_cL8YxL"
+      ],
+      "name": "MBLP FAQs",
+      "settings": {
+        "faqs-id": "",
+        "section_title": "Frequently Asked Questions",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_store_location_X4XzAA": {
+      "type": "mblp-store-location",
+      "blocks": {
+        "location_item_yD8YJA": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "address",
+            "location_text": "72 Jay St, Brooklyn, NY 11201"
+          }
+        },
+        "location_item_EiFGWG": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway",
+            "location_text": "York St- 3 Min Walk"
+          }
+        },
+        "location_item_pJq3hR": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway-ac",
+            "location_text": "High St- 10 Min Walk"
+          }
+        }
+      },
+      "block_order": [
+        "location_item_yD8YJA",
+        "location_item_EiFGWG",
+        "location_item_pJq3hR"
+      ],
+      "name": "MBLP Location",
+      "settings": {
+        "store-location-id": "",
+        "section_title": "Location",
+        "section_subtitle": "Right by the subway for quick and easy access.",
+        "map_image": "shopify://shop_images/Rectangle_33_2.png",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_floating_buttons_kNXQ4J": {
+      "type": "mblp-floating-buttons",
+      "blocks": {
+        "floating_button_4Ahe9f": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Users.png",
+            "icon_text": "Group Capacity",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#group-capacity"
+          }
+        },
+        "floating_button_DraYWh": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Clock.png",
+            "icon_text": "Time Slots",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#time-slots"
+          }
+        },
+        "floating_button_Mt9HpG": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Edit_3.png",
+            "icon_text": "Save Your Spot",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#save-your-spot"
+          }
+        }
+      },
+      "block_order": [
+        "floating_button_4Ahe9f",
+        "floating_button_DraYWh",
+        "floating_button_Mt9HpG"
+      ],
+      "name": "MBLP Floating Buttons",
+      "settings": {
+        "mobile_bottom_position": 80,
+        "mobile_text_size": 12,
+        "mobile_border_radius": 20,
+        "hide_on_checkout": true
+      }
+    },
+    "custom_liquid_GGeLYN": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom_liquid.presets.custom_liquid.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<h1></h1>",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "174228070476985170",
+    "mblp_private_parties_mi8BEk",
+    "mblp_workshop_party_9Bq3UK",
+    "mblp_age_groups_Cg6n7w",
+    "mblp_age_groups_QnyJ8R",
+    "mblp_make_2_products_gkfLRr",
+    "mblp_party_slider_LGU7TR",
+    "rich_text_DV6GrE",
+    "mblp_gift_form_GdQECG",
+    "mblp_faqs_9Ac7cj",
+    "mblp_store_location_X4XzAA",
+    "mblp_floating_buttons_kNXQ4J",
+    "custom_liquid_GGeLYN"
+  ]
+}

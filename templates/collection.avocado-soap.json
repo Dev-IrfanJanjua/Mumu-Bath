@@ -1,0 +1,305 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_64frpH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6xebYE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Avocado_Oil_Soaps_-_banner.png",
+            "mobile_image": "shopify://shop_images/avocado-mobile_9a7f3bb4-2abf-4a36-b667-5968aa73a50f.png",
+            "subheading": "",
+            "title": "<h1>All Natural Avocado Soaps</h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6xebYE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "large",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_gcMpbN": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_qNTHT3": {
+          "type": "subheading",
+          "settings": {
+            "text": "MUMU BATH WHERE AVOCADO MEETS LUXURY"
+          }
+        },
+        "heading_gxFG7j": {
+          "type": "heading",
+          "settings": {
+            "text": "Avocado Soaps Collection by Mumu Bath",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_efx6yy": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our avocado oil soaps are crafted to deeply hydrate, calm, and restore balance to your skin. Packed with vitamins and antioxidants, they’re perfect for all skin types - even the most <a>sensitive</a>.</p><p>Gentle yet effective, each bar is made with love using our signature <strong>soap avocado</strong> blend. Experience the lush, creamy lather that leaves your skin soft, refreshed, and glowing.</p><h2>Why Choose Our Avocado Soap?</h2><p>Our range of avocado soaps are meticulously handcrafted using a blend of olive and coconut oils, enriched with the luxurious addition of avocado oil. This unique combination offers:</p><ul><li><strong>Deep Hydration for Dry Skin</strong>: The natural oils work together to moisturize and soothe even the driest skin types.</li><li><strong>Gentle Cleansing</strong>: Experience a pleasant, foaming lather that cleanses effectively without stripping your skin of its natural oils.</li><li><strong>Skin Protection</strong>: Avocado oil helps create a protective barrier, minimizing irritation and inflammation.</li><li><strong>Antimicrobial Properties</strong>: Thanks to the lauric acid in avocado oil, our soaps offer natural antimicrobial benefits.</li><li><strong>Potential Acne Prevention</strong>: By keeping your skin properly protected and reducing irritation, our avocado soaps may help prevent breakouts.</li></ul><h2>Our Avocado Oil Infused Soaps</h2><p>Explore our diverse range of avocado oil-enriched soaps, each offering a unique sensory experience:</p><p><a href=\"https://www.mumubath.com/products/mt-ali-taiwanese-tea-soap\" target=\"_blank\" title=\"mt ali taiwanese tea soap with avocado iol\">Mt. Ali Taiwanese Tea Soap</a></p><p><a href=\"/products/orange-eucalyptus-soap\" target=\"_blank\" title=\"Yuzu Eucalyptus Soap\">Yuzu Eucalyptus Soap</a></p><p><a href=\"/products/earth-sea-soap\" target=\"_blank\" title=\"Earth & Sea Soap\">Earth & Sea Soap</a></p><p><a href=\"/products/rose-pink-clay-soap\" target=\"_blank\" title=\"Rose Pink Clay Soap\">Rose Pink Clay Soap</a></p><p><a href=\"/products/mango-turmeric-soap\" target=\"_blank\" title=\"Mango Turmeric Soap\">Mango Turmeric Soap</a></p><p><a href=\"/products/goji-berry-soap\" target=\"_blank\" title=\"Goji Berry Jujube Soap\">Goji Berry Jujube Soap</a></p><p><a href=\"/products/new-yorker-soap\" target=\"_blank\" title=\"New Yorker Soap\">New Yorker Soap</a></p><p><a href=\"/products/cherry-blossom-soap\" target=\"_blank\" title=\"Cherry Blossom Soap\">Cherry Blossom Soap</a></p><p><a href=\"/products/central-park-soap\" target=\"_blank\" title=\"Central Park Soap\">Central Park Soap</a></p><p><a href=\"/products/city-cafe-coffee-soap\" target=\"_blank\" title=\"City Cafe Coffee Soap\">City Cafe Coffee Soap</a></p><p><a href=\"/products/matcha-soap\" target=\"_blank\" title=\"Matcha Soap Bar\">Matcha Soap Bar</a></p><p><a href=\"/products/honeysuckle-soap\" target=\"_blank\" title=\"Honeysuckle Soap\">Honeysuckle Soap</a></p><p><a href=\"/products/brooklyn-bridge\" target=\"_blank\" title=\"Brooklyn Bridge Soap\">Brooklyn Bridge Soap</a></p><p><a href=\"/products/rainbow-soap\" target=\"_blank\" title=\"Rainbow Soap\">Rainbow Soap</a></p><p><a href=\"/products/yellow-cab-soap\" target=\"_blank\" title=\"Yellow Cab Soap\">Yellow Cab Soap</a></p><p><a href=\"/products/dumbo-soap\" target=\"_blank\" title=\"Dumbo soap\">Dumbo Soap</a></p><p><a href=\"/products/big-apple-soap\" target=\"_blank\" title=\"Big Apple Soap\">Big Apple Soap</a></p><p><a href=\"/products/coconut-pineapple-soap\" target=\"_blank\" title=\"Coconut & Pineapple Soap Bar\">Coconut & Pineapple Soap Bar</a></p><h2>Nourish Your Skin Naturally with Our Avocado Soap</h2><p>Each soap bar in our collection combines the nourishing properties of avocado oil with unique ingredients and fragrances, offering a luxurious bathing experience while caring for your skin.</p><p>Treat your skin to the natural goodness of avocado with Mumu Bath's Avocado Soaps Collection. Experience the difference that handcrafted, oil-rich soaps can make for your skin's health and appearance.</p><p></p><h2>How to Use Your <strong>Avocado Oil Soap</strong></h2><p> </p><p>Gentle and effective, our <strong>avocado oil soaps</strong> are easy<br/>to incorporate into your daily skincare. Follow these simple steps for the best<br/>results.</p><p><strong>1. Wet and Lather</strong><br/>– Rub the bar between your hands or on a loofah to create a rich lather. Apply<br/>to damp skin in circular motions.</p><p><strong>2. Cleanse Gently</strong><br/>– Let the creamy lather sit for a few seconds to nourish the skin. Then rinse<br/>thoroughly with warm water.</p><p><strong>3. Use on Face and Body</strong><br/>– Our <strong>soap avocado </strong>formula is safe for both facial and full-body cleansing.<br/>Use morning or night for soft, balanced skin.</p><p><strong>4. Store Properly</strong><br/>– Keep your bar dry between uses to make it last longer. Use a draining soap<br/>dish to prevent softening.</p><p> </p><h2>Why Shop from Us</h2><p><strong> </strong>We believe in creating skin-loving products with simple, safe,<br/>and effective ingredients. Our soaps are handcrafted to bring you nourishing<br/>care with a clean conscience.</p><p><strong>Clean, Natural Ingredients</strong> – We use only plant-based oils, essential oils, and natural<br/>additives - no synthetic nasties, ever. Your skin deserves the gentle touch of<br/>pure ingredients.</p><p><strong>Handcrafted with Care</strong> – Every bar is artisan-made in small batches to ensure<br/>freshness and quality. You’ll feel the difference from the first use.</p><p><strong>Versatile Skincare Options</strong> – From soothing bars to our hydrating <strong>avocado body wash</strong>,<br/>we offer products for every skin type. We’re here for your whole skincare<br/>routine.</p><p><strong>Eco-Friendly Packaging</strong> – Our soaps are wrapped in recyclable, minimal packaging.<br/>It’s our way of loving the planet while caring for your skin.</p><p><strong>Trusted by Families</strong> – Mumu Bath is a brand built on family values and honest<br/>craftsmanship. We create products we proudly use on our own loved ones.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_qNTHT3",
+        "heading_gxFG7j",
+        "richtext_efx6yy"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_8iKycK": {
+      "type": "faq",
+      "blocks": {
+        "question_fP99RK": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is your avocado body wash safe for sensitive skin?</strong>",
+            "answer": "<p>Yes! Our <strong>avocado body wash</strong> is made with gentle, natural ingredients that are perfect for sensitive or dry skin. We leave out<br/>harsh chemicals and synthetic fragrances.</p>"
+          }
+        },
+        "question_ANpwrx": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Do you use any preservatives in your soaps?</strong>",
+            "answer": "<p>No, our bars are preservative-free. We rely on natural oils and proper curing methods to keep them fresh and effective.</p>"
+          }
+        },
+        "question_x6r4Ux": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is your soap avocado suitable for acne-prone skin?</strong>",
+            "answer": "<p>Yes, the natural oils in our <strong>soap avocado</strong> help soothe inflammation and balance oil levels. It’s gentle and nourishing without<br/>clogging pores.</p>"
+          }
+        },
+        "question_3BqetC": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is Mumu Bath’s soap vegan and cruelty-free?</strong>",
+            "answer": "<p>Yes, our soaps are 100% vegan and never tested on animals. We believe in ethical, conscious skincare.</p>"
+          }
+        },
+        "question_ryrFLt": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How should I store my soap?</strong>",
+            "answer": "<p>To extend its life, keep it on a well-draining soap dish. Avoid letting it sit in water to prevent it from melting quickly.</p>"
+          }
+        },
+        "question_8cnP9p": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How long is the shelf life of your soap?</strong>",
+            "answer": "<p>Our bars are best used within 12 months. Store in a cool, dry place for maximum freshness.</p>"
+          }
+        },
+        "question_nfnVpj": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>What is your return policy on avocado soaps?</strong>",
+            "answer": "<p>We accept returns within 30 days on unused, unopened items. Just contact us and we’ll guide you through the process.</p>"
+          }
+        },
+        "question_Lrdw8P": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How long does shipping usually take?</strong>",
+            "answer": "<p>Orders typically ship within 2–3 business days. Delivery times vary based on your location and chosen shipping method.</p>"
+          }
+        },
+        "question_VccPfV": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I use the avocado body wash daily?</strong>",
+            "answer": "<p>Absolutely. Our body wash is gentle enough for everyday use, keeping your skin soft, clean, and refreshed. It's ideal for all skin types.</p>"
+          }
+        },
+        "question_nKHeaL": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Are Mumu Bath soaps handmade?</strong>",
+            "answer": "<p>Yes, all our soaps are lovingly handcrafted in small batches to ensure top quality and freshness.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_fP99RK",
+        "question_ANpwrx",
+        "question_x6r4Ux",
+        "question_3BqetC",
+        "question_ryrFLt",
+        "question_8cnP9p",
+        "question_nfnVpj",
+        "question_Lrdw8P",
+        "question_VccPfV",
+        "question_nKHeaL"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "slideshow_BBkd9z": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3EnMH4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Olive_Oil_Soaps_-_banner.png",
+            "mobile_image": "shopify://shop_images/Olive_Oil_Soaps_-_Mumu_Bath_f1f5d27b-d54e-4c22-8a77-84cf8d156e4f.png",
+            "subheading": "",
+            "title": "<h3>Olive Oil Soap Range<h3>\n<br>\n</h3>\n</h3><p style=\"font-size: 16px\">Try our Olive Oil Soaps today and experience softer, healthier skin! </p><p>\n<br>\n</p><p>Nourish and moisturize your skin.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "Shop Now →",
+            "button_1_link": "shopify://collections/olive-oil-soap",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#ffffff",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "#1c1c1c",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_3EnMH4"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "1742280119caf49d0f": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_xapKmP": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_EiLqHM": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_xapKmP",
+        "targetbay_product_reviews_site_reviews_EiLqHM"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_64frpH",
+    "main",
+    "rich_text_gcMpbN",
+    "faq_8iKycK",
+    "slideshow_BBkd9z",
+    "1742280119caf49d0f"
+  ]
+}

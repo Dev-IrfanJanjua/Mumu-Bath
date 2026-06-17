@@ -1,0 +1,577 @@
+{{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<section
+  class="rev-section fade-in-section section-{{ section.id }}"
+  id="rev-section-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    --rev-pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --rev-pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --rev-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --rev-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+
+    {%- comment -%} ── TOP BADGE: rating image + label ── {%- endcomment -%}
+    <div class="rev-section__badge fade-in-left">
+      {%- if section.settings.badge_rating_image != blank -%}
+        {{
+          section.settings.badge_rating_image
+          | image_url: width: 160
+          | image_tag:
+            loading: 'lazy',
+            alt: section.settings.badge_rating_image_alt ,
+            width: 160,
+            height: 28,
+            class: 'rev-section__badge-img'
+        }}
+      {%- else -%}
+        <span class="rev-section__badge-stars" aria-hidden="true">★★★★★</span>
+      {%- endif -%}
+
+      {%- if section.settings.badge_text != blank -%}
+        <p class="rev-section__badge-text">{{ section.settings.badge_text | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── HEADING ── {%- endcomment -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hair__heading rev-section__heading fade-in-left">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- comment -%} ── SWIPER ── {%- endcomment -%}
+    <div class="swiper rev-swiper fade-in-up">
+      <div class="swiper-wrapper">
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'review' -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="rev-card">
+
+                {%- comment -%} Product / lifestyle image {%- endcomment -%}
+                <div class="rev-card__image-wrap">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: block.settings.image_alt ,
+                        width: 600,
+                        height: 600,
+                        class: 'rev-card__image',
+                        widths: '300,450,600',
+                        sizes: '(max-width: 749px) 80vw, 25vw'
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'rev-card__image rev-card__image--placeholder' }}
+                  {%- endif -%}
+                </div>
+
+                {%- comment -%} Content below image {%- endcomment -%}
+                <div class="rev-card__content">
+
+                  {%- comment -%} Stars image per block {%- endcomment -%}
+                  <div class="rev-card__stars">
+                    {%- if block.settings.rating_image != blank -%}
+                      {{
+                        block.settings.rating_image
+                        | image_url: width: 120
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: 'Five stars',
+                          width: 120,
+                          height: 20,
+                          class: 'rev-card__stars-img'
+                      }}
+                    {%- elsif section.settings.default_rating_image != blank -%}
+                      {{
+                        section.settings.default_rating_image
+                        | image_url: width: 120
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: 'Five stars',
+                          width: 120,
+                          height: 20,
+                          class: 'rev-card__stars-img'
+                      }}
+                    {%- else -%}
+                      <span class="rev-card__stars-fallback" aria-label="5 stars">★★★★★</span>
+                    {%- endif -%}
+                  </div>
+
+                  {%- comment -%} Review text {%- endcomment -%}
+                  {%- if block.settings.review_text != blank -%}
+                    <p class="rev-card__text">{{ block.settings.review_text | escape }}</p>
+                  {%- endif -%}
+
+                  {%- comment -%} Client name + verified icon {%- endcomment -%}
+                  <div class="rev-card__client">
+                    {%- if block.settings.client_name != blank -%}
+                      <span class="rev-card__client-name">{{ block.settings.client_name | escape }}</span>
+                    {%- endif -%}
+
+                    {%- if block.settings.verified_icon != blank -%}
+                      {{
+                        block.settings.verified_icon
+                        | image_url: width: 24
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: 'Verified buyer',
+                          width: 24,
+                          height: 24,
+                          class: 'rev-card__verified-icon'
+                      }}
+                    {%- elsif section.settings.default_verified_icon != blank -%}
+                      {{
+                        section.settings.default_verified_icon
+                        | image_url: width: 24
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: 'Verified buyer',
+                          width: 24,
+                          height: 24,
+                          class: 'rev-card__verified-icon'
+                      }}
+                    {%- else -%}
+                      <span class="rev-card__verified-fallback" aria-label="Verified buyer">✔</span>
+                    {%- endif -%}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+
+      <div class="rev-swiper-pagination swiper-pagination hair-swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Section ── */
+  .rev-section {
+    padding-top: var(--rev-pt-mobile, 48px);
+    padding-bottom: var(--rev-pb-mobile, 48px);
+  }
+  @media (min-width: 750px) {
+    .rev-section {
+      padding-top: var(--rev-pt-desktop, 72px);
+      padding-bottom: var(--rev-pb-desktop, 72px);
+    }
+  }
+
+  /* ── Badge ── */
+  .rev-section__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-block-end: 12px;
+  }
+  .rev-section__badge-img {
+    display: block;
+    height: 1.25rem;
+    width: auto;
+  }
+  .rev-section__badge-stars {
+    color: #f5a623;
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+  .rev-section__badge-text {
+    color: #101010;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  /* ── Heading — uses global hair__heading, only margin override ── */
+  .rev-section__heading {
+    margin: 0 0 58px !important;
+    text-align: center;
+  }
+
+  /* ── Swiper ── */
+  .rev-swiper { overflow: hidden; }
+  .rev-swiper .swiper-slide { height: auto; }
+
+  /* ── Card ── */
+  .rev-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  /* Image */
+  .rev-card__image-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f0ebe4;
+    flex-shrink: 0;
+    border-radius:12px;
+  }
+  .rev-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rev-card__image--placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #e8e0d8;
+  }
+
+  /* Content */
+.rev-card__content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    flex: 1;
+    border-radius: 12px;
+    background: #F8F6EE;
+    margin: 12px 0 0;
+}
+  /* Stars */
+  .rev-card__stars { display: flex; justify-content: center; }
+  .rev-card__stars-img { height: 1.125rem; width: auto; display: block; }
+  .rev-card__stars-fallback { color: #f5a623; font-size: 1rem; line-height: 1; }
+
+  /* Review text */
+  .rev-card__text {
+    color: #000;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing:0px;
+    margin: 0;
+  }
+
+  /* Client row */
+  .rev-card__client {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: auto;
+  }
+  .rev-card__client-name {
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px;
+  }
+  .rev-card__verified-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+  .rev-card__verified-fallback {
+    color: #4a90e2;
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+
+  /* ── Pagination ── */
+  .section-{{ section.id }} .rev-swiper-pagination {
+    margin-top: 32px;
+    position: static !important;
+    display: flex;
+    justify-content: center;
+}
+
+.section-{{ section.id }} .rev-swiper-pagination span.swiper-pagination-bullet {
+    border-radius: 4px;
+    border: 1px solid #142E2A;
+    background: transparent;
+    opacity: 1;
+}
+
+.section-{{ section.id }} .rev-swiper-pagination span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    max-width: 26px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #142E2A;
+    background: #142E2A;
+}
+
+
+  @media (max-width: 750px) {
+    .rev-section      .page-width {
+        padding-right: 0;
+    }
+    .rev-section__heading {
+    margin: 0 auto 28px !important;
+    text-align: center;
+    padding-right:16px;
+    max-width:295px;
+  }
+  .rev-section__badge-img {
+    display: block;
+    height: 16px;
+    width: 94px;
+}
+
+.rev-section__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-block-end: 12px;
+    padding-right: 16px;
+}
+
+.rev-section__badge-text {
+  
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+
+
+  }
+</style>
+
+<script>
+(function () {
+  function waitForSwiper(cb) {
+    if (typeof Swiper !== 'undefined') { cb(); return; }
+    var t = setInterval(function () {
+      if (typeof Swiper !== 'undefined') { clearInterval(t); cb(); }
+    }, 50);
+  }
+
+  waitForSwiper(function () {
+    var el = document.querySelector('#rev-section-{{ section.id }} .rev-swiper');
+    if (!el) return;
+
+    new Swiper(el, {
+      slidesPerView: 1.1,
+      spaceBetween: 12,
+      speed: 1000,
+      pagination: {
+        el: el.querySelector('.rev-swiper-pagination'),
+        clickable: true
+      },
+      breakpoints: {
+        480: { slidesPerView: 2,  spaceBetween: 14 },
+        750: { slidesPerView: 3,  spaceBetween: 16 },
+        990: { slidesPerView: 4,  spaceBetween: 12 }
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Swiper",
+  "tag": "section",
+  "class": "section-reviews-swiper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top — Desktop (px)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom — Desktop (px)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top — Mobile (px)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom — Mobile (px)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Top Badge"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_rating_image",
+      "label": "Stars / Badge Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_rating_image_alt",
+      "label": "Badge Image Alt",
+      "default": "Five gold stars"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Label",
+      "default": "10,500+ 5-Star Reviews"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Amazing Reviews For Mumu Bath"
+    },
+    {
+      "type": "header",
+      "content": "Defaults (applied to all cards)"
+    },
+    {
+      "type": "image_picker",
+      "id": "default_rating_image",
+      "label": "Default Stars Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "default_verified_icon",
+      "label": "Default Verified Icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product / Lifestyle Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "Product image"
+        },
+        {
+          "type": "image_picker",
+          "id": "rating_image",
+          "label": "Stars Image (overrides section default)"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly."
+        },
+        {
+          "type": "text",
+          "id": "client_name",
+          "label": "Client Name",
+          "default": "Emily R."
+        },
+        {
+          "type": "image_picker",
+          "id": "verified_icon",
+          "label": "Verified Icon (overrides section default)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Swiper",
+      "settings": {
+        "badge_text": "10,500+ 5-Star Reviews",
+        "heading": "Amazing Reviews For Mumu Bath",
+        "bg_color": "#ffffff"
+      },
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "image_alt": "Person relaxing in bath"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "image_alt": "Osmanthus Flower candle product"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "image_alt": "Person in bath lifestyle shot"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

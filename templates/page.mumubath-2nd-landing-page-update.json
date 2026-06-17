@@ -1,0 +1,996 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "mblp_private_parties_mi8BEk": {
+      "type": "mblp-private-parties",
+      "name": "MBLP Private Parties",
+      "settings": {
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "background_color": "",
+        "background_image_desktop": "shopify://shop_images/desktop-workshop.png",
+        "background_image_mobile": "shopify://shop_images/Frame_370436_3e5f2c51-8436-448d-bcfe-5aed4da8c9b1.png",
+        "main_heading": "Book Your Birthday Party in NYC – Fun DIY Skincare Activities",
+        "subheading": "<p>Create your own bath bombs & skincare in just 90 minutes - Fun for Kids, Teens & Adults!</p>",
+        "show_list": true,
+        "list_item_1": "Birthday parties",
+        "list_item_2": "Bachelor celebrations",
+        "list_item_3": "Team-building activities",
+        "list_item_4": "Family gatherings",
+        "button_text": "Book Your Party Today",
+        "button_link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page-update#save-your-spot"
+      }
+    },
+    "mblp_image_with_text_bath_bomb_wfBxY6": {
+      "type": "mblp-image-with-text-bath-bomb",
+      "name": "MBLP Image with Text Bath Bomb",
+      "settings": {
+        "bath-bomb-id": "",
+        "bath-bomb-class": "",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "main_title": "DIY skincare workshop",
+        "subtitle_icon": "shopify://shop_images/Frame_1.png",
+        "subtitle": "Make 2 Products in 90 Minutes!",
+        "description": "<p>In this 90-minute workshop, You'll make your own <strong>bath bomb plus one skincare item</strong> (either a body scrub or face mist)—two handcrafted items you'll get to take home.</p>",
+        "main_image": "shopify://shop_images/Frame_32976.png",
+        "product1_image": "shopify://shop_images/body_scrub-workshop.png",
+        "product1_title": "Body Scrub",
+        "product2_image": "shopify://shop_images/body_butter-workshop.png",
+        "product2_title": "Body Butter",
+        "product3_image": "shopify://shop_images/bath_bomb-workshop.png",
+        "product3_title": "Bath Bomb",
+        "product4_image": "shopify://shop_images/face_mist-workshop.png",
+        "product4_title": "Face Mist",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p>All tools and materials will be provided, so no preparation is needed!</p>",
+        "button_text": "Book Now for $65 Per Person",
+        "button_text_1": "-Includes all materials & tools",
+        "button_url": "https://www.mumubath.com/pages/mumubath-2nd-landing-page-update#save-your-spot"
+      }
+    },
+    "mblp_age_groups_THg9Kq": {
+      "type": "mblp-age-groups",
+      "name": "MBLP Age Groups",
+      "settings": {
+        "age-group-id": "group-capacity",
+        "age-group-class": "age-groups",
+        "section_title": "Participant Info: Age Groups & Capacity",
+        "section_subtitle": "",
+        "padding_top_desktop-1": 80,
+        "padding_bottom_desktop-1": 80,
+        "padding_top_mobile-1": 40,
+        "padding_bottom_mobile-1": 40,
+        "step1_image": "shopify://shop_images/IMG_1641_1.png",
+        "step1_number": "Children",
+        "step1_title": "Ages 6–13",
+        "step1_description": "👤 Min: 8 Max: 16",
+        "step2_image": "shopify://shop_images/IMG_9722_1.png",
+        "step2_number": "Adults",
+        "step2_title": "Ages 14 and up",
+        "step2_description": "👤 Min: 8 Max: 16",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_number": "",
+        "step3_title": "",
+        "step3_description": "",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p><strong>Each party should be organized for a specific age group,</strong> as the teaching content and approach will vary.</p>",
+        "button_text": "",
+        "button_url": ""
+      }
+    },
+    "multi_column_GBVmEq": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_cAtFwD": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Fun & Creative Experience</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Our bath bomb making class turns anygathering into a joyful hands-on experience. Everyone gets to mix, mold, anddesign their own bath bombs while enjoying quality time together.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_xEKejc": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Personalized & Memorable</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Each guest can customize scents, colors, and stylesto match their personality. It’s the perfect way to create keepsakes that areboth beautiful and useful.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_iKrXYN": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Relaxing & Therapeutic Activity</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Our bath bomb making workshop is more thancrafting - it’s self-care in action. The soothing scents and colors make it acalming escape from the everyday rush.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_LKVqwM": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Perfect for Any Occasion</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Whether it’s a birthday, bridal shower, or teamevent, our private sessions are designed to fit your vibe. Every group leaveswith smiles, laughter, and beautiful handmade creations.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_hzhPmq": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Hassle-Free Hosting</strong>",
+            "heading_tag": "h4",
+            "content": "<p>We bring all materials and handle the setup andcleanup. You simply enjoy the experience while we take care of every detail.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_cAtFwD",
+        "image_with_text_xEKejc",
+        "image_with_text_iKrXYN",
+        "image_with_text_LKVqwM",
+        "image_with_text_hzhPmq"
+      ],
+      "custom_css": [
+        ".multi-column__item {padding: 20px; display: flex; flex-direction: column; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background: #fcf3c5 50%;}"
+      ],
+      "name": "t:sections.multi_column.presets.multi_column.name",
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "columns_per_row": 3,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "",
+        "title": "<strong>Why Host a Private Bath Bomb Party</strong>",
+        "content": ""
+      }
+    },
+    "mblp_workshop_party_9Bq3UK": {
+      "type": "mblp-workshop-party",
+      "name": "MBLP Workshop party",
+      "settings": {
+        "section_title": "BathBomb Workshop PartyCategories",
+        "section_subtitle": "Pick your theme and get ready to party!",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 70,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "step1_image": "shopify://shop_images/Group_2_ea971195-9e42-4b1b-aa10-504b868919d7.png",
+        "step1_number": "1. Birthday Party",
+        "step1_title": "",
+        "step1_description": "Celebrate with a fun handcrafted workshop and make unforgettable memories with friends — perfect for all ages!",
+        "step2_image": "shopify://shop_images/Group_32953.png",
+        "step2_number": "2. Team Building",
+        "step2_title": "",
+        "step2_description": "Strengthen team bonds through creative hands-on workshops that bring everyone together.",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_image": "shopify://shop_images/Group_3.png",
+        "step3_number": "3. We also do...",
+        "step3_title": "",
+        "step3_description": "From bachelor parties to family gatherings and networking events, we tailor the bath bomb making class to your unique occasion."
+      }
+    },
+    "mblp_plan_your_party_VeMJwh": {
+      "type": "mblp-plan-your-party",
+      "name": "MBLP Plan Your Party",
+      "settings": {
+        "plan-your-party-id": "",
+        "plan-your-party-class": "",
+        "section_title": "Plan Your Party Time",
+        "section_subtitle": "",
+        "padding_top_desktop-1": 80,
+        "padding_bottom_desktop-1": 80,
+        "padding_top_mobile-1": 40,
+        "padding_bottom_mobile-1": 40,
+        "step1_image": "shopify://shop_images/Frame_140_4.png",
+        "step1_number": "Party Duration",
+        "step1_title": "1.5hrs (90mins)",
+        "step1_description": "",
+        "step2_image": "shopify://shop_images/Frame_140_5.png",
+        "step2_number": "Time Slots",
+        "step2_title": "Weekdays after 7 p.m.",
+        "step2_description": "Fri–Sun before 12 p.m. or between 2-5 p.m.",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_number": "",
+        "step3_title": "",
+        "step3_description": "",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p>We recommend booking at least 2–4 weeks in advance to secure your preferred date.</p>",
+        "button_text": "Pick Your Time & Book for $65 Per Person",
+        "button_url": "https://www.mumubath.com/pages/mumubath-2nd-landing-page-update#save-your-spot"
+      }
+    },
+    "mblp_age_groups_QnyJ8R": {
+      "type": "mblp-age-groups",
+      "disabled": true,
+      "name": "MBLP Age Groups",
+      "settings": {
+        "age-group-id": "time-slots",
+        "age-group-class": "",
+        "section_title": "Plan Your Party Time",
+        "section_subtitle": "",
+        "padding_top_desktop-1": 80,
+        "padding_bottom_desktop-1": 80,
+        "padding_top_mobile-1": 40,
+        "padding_bottom_mobile-1": 40,
+        "step1_image": "shopify://shop_images/Frame_140_4.png",
+        "step1_number": "Party Duration",
+        "step1_title": "1.5hrs (90mins)",
+        "step1_description": "",
+        "step2_image": "shopify://shop_images/Frame_140_5.png",
+        "step2_number": "Time Slots",
+        "step2_title": "Weekdays after 7 p.m.",
+        "step2_description": "Fri–Sun before 12 p.m.",
+        "step2_link_text": "",
+        "step2_link_url": "",
+        "step3_number": "",
+        "step3_title": "",
+        "step3_description": "",
+        "info_icon": "shopify://shop_images/bell.png",
+        "info_content": "<p>We recommend booking at least <strong>2–4 weeks</strong> in advance to secure your preferred date.</p>",
+        "button_text": "Pick Your Time & Book for $65 Per Person",
+        "button_url": ""
+      }
+    },
+    "mblp_make_2_products_gkfLRr": {
+      "type": "mblp-make-2-products",
+      "blocks": {
+        "product_item_dQW6gQ": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/9b1a3ac2-62f0-472f-bb36-576d9b695df0.png",
+            "title": "Face Mist"
+          }
+        },
+        "product_item_pqYdCG": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/6efeeb59-75d6-43c7-a52b-e293dc247650.png",
+            "title": "Bath Bomb"
+          }
+        },
+        "product_item_YUeDiy": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/5c0ee578-8f4e-4c08-b252-2846f943ddf9.png",
+            "title": "Body Scrub"
+          }
+        },
+        "product_item_y8Eztg": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/2a6086c3-15f0-494b-964a-2d6307ecd501_1_1.png",
+            "title": "Lip Balm"
+          }
+        },
+        "product_item_mYRMFB": {
+          "type": "product_item",
+          "settings": {
+            "title": "Surprise"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_dQW6gQ",
+        "product_item_pqYdCG",
+        "product_item_YUeDiy",
+        "product_item_y8Eztg",
+        "product_item_mYRMFB"
+      ],
+      "disabled": true,
+      "name": "MBLP Make 2 Products",
+      "settings": {
+        "section_title": "Party Workshop — Make 2 Products",
+        "section_subtitle": "Pick your favorites — get hands-on, make two, and take them home with you!",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_party_slider_LGU7TR": {
+      "type": "mblp-party-slider",
+      "blocks": {
+        "card_HD6QB8": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/Rectangle_33.png",
+            "card_type": "• Birthday Party",
+            "card_content": "Wonderful choice! It's a perfect place for kids to celebrate their birthdays while parents relax with a coffee."
+          }
+        },
+        "card_qzdi9a": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/Rectangle_33.png",
+            "card_type": "• Birthday Party",
+            "card_content": "The children love the hands-on, creative experience of making their own products!"
+          }
+        }
+      },
+      "block_order": [
+        "card_HD6QB8",
+        "card_qzdi9a"
+      ],
+      "disabled": true,
+      "name": "MBLP Party Slider",
+      "settings": {
+        "party-slider-id": "",
+        "section_title": "From Our Guests: Real Party Moments",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "rich_text_DV6GrE": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_8M4ahh": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_hebpfM": {
+          "type": "heading",
+          "settings": {
+            "text": "Reserve your private party now – secure your spot today!",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_D4i48V": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8M4ahh",
+        "heading_hebpfM",
+        "richtext_D4i48V"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "reserve-your-party-now",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "mblp_gift_form_GdQECG": {
+      "type": "mblp-gift-form",
+      "blocks": {
+        "info_text_neLtGn": {
+          "type": "info_text",
+          "settings": {
+            "heading": "<h1><strong>Plan Your Bath Bomb Party</strong></h1>",
+            "text": "",
+            "width": "full"
+          }
+        },
+        "textfield_NxmWUy": {
+          "type": "textfield",
+          "settings": {
+            "title": "Name",
+            "placeholder": "First Name & Last Name",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "email_PH9jKr": {
+          "type": "email",
+          "settings": {
+            "title": "Email",
+            "placeholder": "Example@email.com",
+            "width": "half"
+          }
+        },
+        "radio_zxN69e": {
+          "type": "radio",
+          "settings": {
+            "title": "Party Theme",
+            "required": false,
+            "width": "full",
+            "option_list": "Birthday Party,Team Building"
+          }
+        },
+        "textfield_theme_custom": {
+          "type": "textfield",
+          "settings": {
+            "title": "Other Party Theme (if applicable)",
+            "placeholder": "Describe your party theme",
+            "required": false,
+            "width": "full"
+          }
+        },
+        "textfield_9MT9M3": {
+          "type": "textfield",
+          "settings": {
+            "title": "Phone Number",
+            "placeholder": "1230000000",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "phone_number_H8Jqqi": {
+          "type": "phone_number",
+          "disabled": true,
+          "settings": {
+            "title": "Phone Number",
+            "placeholder": "+1 (000) 123-4567",
+            "required": false,
+            "width": "full"
+          }
+        },
+        "dropdown_MAcNNA": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Number of Guests",
+            "placeholder": "Group Size",
+            "required": true,
+            "width": "half",
+            "option_list": "5,6,7,8, 9, 10, 11, 12, 13, 14, 15, 16"
+          }
+        },
+        "dropdown_eKbBXP": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Group Age Category",
+            "placeholder": "Ages 6–13 or 14+",
+            "required": true,
+            "width": "half",
+            "option_list": "Age 6, Age 7, Age 8, Age 9, Age 10, Age 11, Age 12, Age 13, Ages 14 and up"
+          }
+        },
+        "date_MJqPQq": {
+          "type": "date",
+          "settings": {
+            "title": "Preferred Date",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "dropdown_YLGKPp": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Preferred Time",
+            "placeholder": "12pm-7pm",
+            "required": true,
+            "width": "half",
+            "option_list": "10:00am-11:30am, 2:00pm-3:30pm, 3:00pm-4:30pm, 4:00pm-5:30pm, 7:00pm-8:30pm"
+          }
+        },
+        "dropdown_product_set": {
+          "type": "dropdown",
+          "settings": {
+            "title": "DIY Product Set",
+            "placeholder": "Please select a product set",
+            "required": true,
+            "width": "full",
+            "option_list": "Bath Bomb + Body Scrub (Most popular), Bath Bomb + Body Butter, Body Scrub + Body Butter, Bath Bomb + Face Mist, Body Scrub + Face Mist, Body Butter + Face Mist"
+          }
+        },
+        "dropdown_DLTtjP": {
+          "type": "dropdown",
+          "disabled": true,
+          "settings": {
+            "title": "2nd Products",
+            "placeholder": "Please select an option",
+            "required": true,
+            "width": "half",
+            "option_list": "Choose Product 2, Choose Product 3."
+          }
+        },
+        "textarea_JcrQzU": {
+          "type": "textarea",
+          "settings": {
+            "title": "Additional Details",
+            "placeholder": "Message",
+            "required": false,
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "info_text_neLtGn",
+        "textfield_NxmWUy",
+        "email_PH9jKr",
+        "radio_zxN69e",
+        "textfield_theme_custom",
+        "textfield_9MT9M3",
+        "phone_number_H8Jqqi",
+        "dropdown_MAcNNA",
+        "dropdown_eKbBXP",
+        "date_MJqPQq",
+        "dropdown_YLGKPp",
+        "dropdown_product_set",
+        "dropdown_DLTtjP",
+        "textarea_JcrQzU"
+      ],
+      "name": "MBLP Gift Form",
+      "settings": {
+        "mblp-gift-form-id": "save-your-spot",
+        "form_position": "center",
+        "heading": "",
+        "text": "",
+        "text_position": "left center",
+        "text_size": 100,
+        "text_color": "#666666",
+        "button_label_color": "#ffffff",
+        "button_background_color": "#283144",
+        "button_radius": 0,
+        "base_width": 62,
+        "max_width": "",
+        "inner_padding": 80,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "system_ui_n4",
+        "recaptcha_icon_image": "shopify://shop_images/bell.png",
+        "recaptcha_text": "A 50% deposit is required to confirm your booking, with the remaining 50% due before the day of the party. A one-time $45 cleaning fee also applies."
+      }
+    },
+    "multi_column_rNMHQK": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_3hV8bw": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>All-Inclusive Setup</strong>",
+            "heading_tag": "h4",
+            "content": "<p>We bring everything you need - from ingredients totools - so you can simply enjoy.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_x8LTNF": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Experienced Hosts</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Our team guides every bath bomb workshop partywith fun, creativity, and care.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_BU4qVX": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Customizable Themes</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Each party is tailored to your occasion, style, andfavorite scents.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_P8h6Ea": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Premium Ingredients</strong>",
+            "heading_tag": "h4",
+            "content": "<p>We use natural, skin-loving materials to ensuresafe and beautiful results.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_8kwAGF": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "<strong>Memorable Moments</strong>",
+            "heading_tag": "h4",
+            "content": "<p>Every guest leaves withhandmade bath bombs and happy memories</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_3hV8bw",
+        "image_with_text_x8LTNF",
+        "image_with_text_BU4qVX",
+        "image_with_text_P8h6Ea",
+        "image_with_text_8kwAGF"
+      ],
+      "custom_css": [
+        ".multi-column__item {padding: 30px; display: flex; flex-direction: column; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background: #fcf3c5 50%;}"
+      ],
+      "name": "t:sections.multi_column.presets.multi_column.name",
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "columns_per_row": 3,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "",
+        "title": "<strong>WhyChoose Mumu Bath for Your Party</strong>",
+        "content": ""
+      }
+    },
+    "mblp_images_slider_party_bxUhnz": {
+      "type": "mblp-images-slider-party",
+      "blocks": {
+        "image_rThQFC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_299.png"
+          }
+        },
+        "image_6WEeQE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_300.png"
+          }
+        },
+        "image_TaE4gW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_301.png"
+          }
+        },
+        "image_6gVEUG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_302.png"
+          }
+        },
+        "image_WB8Brm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_300.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_rThQFC",
+        "image_6WEeQE",
+        "image_TaE4gW",
+        "image_6gVEUG",
+        "image_WB8Brm"
+      ],
+      "name": "MBLP Images Slider Party",
+      "settings": {
+        "section_title": "Party Highlights",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_faqs_9Ac7cj": {
+      "type": "mblp-faqs",
+      "blocks": {
+        "faq_item_Pbqfcq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we bring our own food or drinks?",
+            "answer": "For hygiene reasons, no food is permitted in the workshop space."
+          }
+        },
+        "faq_item_JTM9FJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we decorate the space before the party?",
+            "answer": "Absolutely! If you’d like to decorate and personalize your party, please arrive 30 minutes before the workshop."
+          }
+        },
+        "faq_item_m9XEbf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can participants leave their coats and belongings?",
+            "answer": "We have a sofa area where you can leave coats, bags, and personal belongings."
+          }
+        },
+        "faq_item_cR8Vg9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where should we place birthday gifts or other gifts?",
+            "answer": "You can place the gifts in the bathtub."
+          }
+        },
+        "faq_item_CM4ajD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does payment work?",
+            "answer": "We accept cash, credit cards, and digital payments. A 50% deposit is required to book, with the balance due before the day of your event."
+          }
+        },
+        "faq_item_cL8YxL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the guest limit?",
+            "answer": "Group size: minimum 8, maximum 16.\nAge groups: ages 6–13 and 14+ (14 and over)."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Pbqfcq",
+        "faq_item_JTM9FJ",
+        "faq_item_m9XEbf",
+        "faq_item_cR8Vg9",
+        "faq_item_CM4ajD",
+        "faq_item_cL8YxL"
+      ],
+      "disabled": true,
+      "name": "MBLP FAQs",
+      "settings": {
+        "faqs-id": "",
+        "section_title": "Frequently Asked Questions",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_faqs_CR6TgB": {
+      "type": "mblp-faqs",
+      "blocks": {
+        "faq_item_YQHfr8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does a bath bomb making workshop usually last?",
+            "answer": "Each bath bomb making workshop runs about 1.5 to 2 hours. It includes hands-on creation, drying time, and plenty of time for laughter and photos."
+          }
+        },
+        "faq_item_jA8iY6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you require a deposit for private party bookings?",
+            "answer": "Yes, a small deposit secures your date and materials. The remaining balance is due closer to the event."
+          }
+        },
+        "faq_item_CjLpPP": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is included in a bath bomb workshop party package?",
+            "answer": "Each bath bomb workshop party includes all supplies, instruction, and materials for every guest. We also handle setup and cleanup, so you can simply enjoy."
+          }
+        },
+        "faq_item_qrrn7d": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you provide refreshments, or should we bring our own?",
+            "answer": "We focus on the bath bomb experience, but you’re welcome to bring snacks or drinks. We’ll make sure there’s space for your setup."
+          }
+        },
+        "faq_item_Vz3LPx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if someone in the group has sensitive skin?",
+            "answer": "No worries! We use gentle, natural ingredients suitable for all skin types. If anyone has allergies, just let us know beforehand."
+          }
+        },
+        "faq_item_DFRg9C": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can a bath bomb workshop party be customized for specialevents?",
+            "answer": "Yes, your bath bomb workshop party can be tailored for birthdays, bridal showers, or team-building events. We’ll match the theme, colors, and scents to suit your occasion."
+          }
+        },
+        "faq_item_VMMcFy": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What happens if I need to reschedule my party?",
+            "answer": "We understand plans can change. Just contact us as early as possible, and we’ll help you find a new date that works."
+          }
+        },
+        "faq_item_WjRWCq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should participants wear?",
+            "answer": "We recommend comfortable clothing you don’t mind getting a little powder on. Aprons are provided for extra protection."
+          }
+        },
+        "faq_item_GKEUTm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do guests take home what they make in the bath bomb makingclass?",
+            "answer": "Yes! Every participant in our bath bomb making class gets to take home their custom-made bath bombs. It’s a beautiful keepsake that’s both personal and practical."
+          }
+        },
+        "faq_item_WU38p3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can guests share tools and materials?",
+            "answer": "We provide enough materials for each participant, but some tools may be shared to keep the setup organized. Everything is sanitized between uses."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_YQHfr8",
+        "faq_item_jA8iY6",
+        "faq_item_CjLpPP",
+        "faq_item_qrrn7d",
+        "faq_item_Vz3LPx",
+        "faq_item_DFRg9C",
+        "faq_item_VMMcFy",
+        "faq_item_WjRWCq",
+        "faq_item_GKEUTm",
+        "faq_item_WU38p3"
+      ],
+      "name": "MBLP FAQs",
+      "settings": {
+        "faqs-id": "",
+        "section_title": "Frequently Asked Questions",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_store_location_X4XzAA": {
+      "type": "mblp-store-location",
+      "blocks": {
+        "location_item_yD8YJA": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "address",
+            "location_text": "72 Jay St, Brooklyn, NY 11201"
+          }
+        },
+        "location_item_EiFGWG": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway",
+            "location_text": "York St- 3 Min Walk"
+          }
+        },
+        "location_item_pJq3hR": {
+          "type": "location_item",
+          "settings": {
+            "icon_type": "subway-ac",
+            "location_text": "High St- 10 Min Walk"
+          }
+        }
+      },
+      "block_order": [
+        "location_item_yD8YJA",
+        "location_item_EiFGWG",
+        "location_item_pJq3hR"
+      ],
+      "name": "MBLP Location",
+      "settings": {
+        "store-location-id": "",
+        "section_title": "Location",
+        "section_subtitle": "Right by the subway for quick and easy access.",
+        "map_image": "shopify://shop_images/Rectangle_33_2.png",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "mblp_floating_buttons_kNXQ4J": {
+      "type": "mblp-floating-buttons",
+      "blocks": {
+        "floating_button_4Ahe9f": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Users.png",
+            "icon_text": "Group Capacity",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#group-capacity"
+          }
+        },
+        "floating_button_DraYWh": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Clock.png",
+            "icon_text": "Time Slots",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#time-slots"
+          }
+        },
+        "floating_button_Mt9HpG": {
+          "type": "floating_button",
+          "settings": {
+            "icon_image": "shopify://shop_images/Edit_3.png",
+            "icon_text": "Save Your Spot",
+            "link": "https://www.mumubath.com/pages/mumubath-2nd-landing-page#save-your-spot"
+          }
+        }
+      },
+      "block_order": [
+        "floating_button_4Ahe9f",
+        "floating_button_DraYWh",
+        "floating_button_Mt9HpG"
+      ],
+      "disabled": true,
+      "name": "MBLP Floating Buttons",
+      "settings": {
+        "mobile_bottom_position": 80,
+        "mobile_text_size": 12,
+        "mobile_border_radius": 20,
+        "hide_on_checkout": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "174228070476985170",
+    "mblp_private_parties_mi8BEk",
+    "mblp_image_with_text_bath_bomb_wfBxY6",
+    "mblp_age_groups_THg9Kq",
+    "multi_column_GBVmEq",
+    "mblp_workshop_party_9Bq3UK",
+    "mblp_plan_your_party_VeMJwh",
+    "mblp_age_groups_QnyJ8R",
+    "mblp_make_2_products_gkfLRr",
+    "mblp_party_slider_LGU7TR",
+    "rich_text_DV6GrE",
+    "mblp_gift_form_GdQECG",
+    "multi_column_rNMHQK",
+    "mblp_images_slider_party_bxUhnz",
+    "mblp_faqs_9Ac7cj",
+    "mblp_faqs_CR6TgB",
+    "mblp_store_location_X4XzAA",
+    "mblp_floating_buttons_kNXQ4J"
+  ]
+}

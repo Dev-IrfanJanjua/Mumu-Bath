@@ -1,0 +1,321 @@
+<section
+  id="image-grid-{{ section.id }}"
+  class="image-grid-section fade-in-section"
+  style="
+    --bg: {{ section.settings.bg_color }};
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+    <div class="image-grid-wrapper">
+
+      {% for block in section.blocks %}
+
+        <a
+          href="{{ block.settings.link }}"
+          class="image-grid-card {% if block.settings.full_width %}full-width{% endif %} fade-in-left"
+          id="card-{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+
+          <div class="image-grid-media fade-in-up">
+
+            {% if block.settings.desktop_image != blank %}
+              <picture>
+                {% if block.settings.mobile_image != blank %}
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="{{ block.settings.mobile_image | image_url: width: 800 }}"
+                  >
+                {% endif %}
+
+                {{
+                  block.settings.desktop_image
+                  | image_url: width: 1800
+                  | image_tag:
+                  loading: 'lazy',
+                  widths: '550,750,900,1200,1500,1800',
+                  sizes: '(max-width: 767px) 100vw, 50vw',
+                  alt: block.settings.desktop_image.alt
+                }}
+              </picture>
+            {% endif %}
+
+            <div class="image-grid-overlay">
+              <h3>{{ block.settings.heading | replace: '<p>', '' | replace: '</p>', '' }}</h3>
+
+              <span class="mobile-btn">
+                {{ block.settings.button_text }}
+              </span>
+            </div>
+
+          </div>
+
+        </a>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+.image-grid-section{
+  background:var(--bg);
+  padding-top:var(--pt-desktop);
+  padding-bottom:var(--pb-desktop);
+}
+
+.image-grid-wrapper{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.image-grid-card{
+  display:block;
+  overflow:hidden;
+  border-radius:20px;
+  position:relative;
+}
+
+.image-grid-card.full-width{
+  grid-column:1 / -1;
+}
+
+.image-grid-media{
+  position:relative;
+  overflow:hidden;
+  height:100%;
+}
+
+.image-grid-media img{
+  width:100%;
+  display:block;
+  transition:transform .7s ease;
+  height:100%;
+}
+
+.image-grid-card:hover img{
+  transform:scale(1.08);
+}
+
+.image-grid-overlay{
+  position:absolute;
+  left:36px;
+  bottom:48px;
+  z-index:2;
+}
+
+#card-3  .image-grid-overlay h3{
+color: #000;
+font-family: "Mona Sans";
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: 44px; /* 122.222% */
+letter-spacing: -1.5px;
+
+}    
+.image-grid-overlay h3{
+    color:#FFF;
+    font-family: "Mona Sans";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44px; /* 122.222% */
+    letter-spacing: -1.5px;
+    margin:0;
+}
+
+.mobile-btn{
+  display:none;
+}
+
+@media screen and (max-width:767px){
+
+  .image-grid-section{
+    padding-top:var(--pt-mobile);
+    padding-bottom:var(--pb-mobile);
+  }
+
+  .image-grid-wrapper{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .image-grid-overlay{
+    left:16px;
+    bottom:16px;
+  }
+
+  .image-grid-overlay h3{
+    margin-bottom:24px;
+  }
+
+  .mobile-btn{
+
+    display: flex;
+    max-width: 268.805px;
+    padding: 18px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.07px;
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%; /* 26.64px */
+    text-transform: capitalize;
+    border-radius: 41px;
+    background: var(--Yellow, #FBDD40);
+  }
+  .mobile-btn {
+      transition: background-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+
+  }
+
+  .mobile-btn:hover,
+  .mobile-btn:focus-visible {
+    background-color: var(--hero-btn-hover-bg, #1a1a1a) !important;
+    color: var(--hero-btn-hover-color, #fff);
+    outline-offset: 3px;
+  }
+
+  .image-grid-media img {
+    width: 100%;
+    display: block;
+    transition: transform .7s ease;
+    height: 100%;
+    object-fit: cover;
+}
+.image-grid-media {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-height: 530px;
+}
+
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Image Grid Cards",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 24
+    }
+  ],
+  "blocks":[
+    {
+      "type":"card",
+      "name":"Card",
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"desktop_image",
+          "label":"Desktop Image"
+        },
+        {
+          "type":"image_picker",
+          "id":"mobile_image",
+          "label":"Mobile Image"
+        },
+        {
+          "type":"richtext",
+          "id":"heading",
+          "label":"Heading"
+        },
+        {
+          "type":"url",
+          "id":"link",
+          "label":"Link"
+        },
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Mobile Button Text",
+          "default":"Shop Now"
+        },
+        {
+          "type":"checkbox",
+          "id":"full_width",
+          "label":"Full Width Card",
+          "default":false
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Image Grid Cards",
+      "blocks":[
+        {
+          "type":"card",
+          "settings":{
+          }
+        },
+        {
+          "type":"card",
+          "settings":{
+          }
+        },
+        {
+          "type":"card",
+          "settings":{
+            "full_width":true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

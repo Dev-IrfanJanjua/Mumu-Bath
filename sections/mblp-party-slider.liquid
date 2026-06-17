@@ -1,0 +1,687 @@
+<!-- Section: MBLP Party Slider -->
+<div class="{{ section.settings.party-slider-id }} mblp-party-slider-main">
+  <div class="container">
+    <div class="mblp-party-slider-wrapper">
+      <div class="mblp-party-slider-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-party-slider-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Cards Slider Container -->
+        <div class="mblp-party-slider-container">
+          <!-- Navigation Arrow Left -->
+          <button class="mblp-party-slider-arrow mblp-party-slider-prev" id="mblp-party-prev-{{ section.id }}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- Splide Slider -->
+          <div class="splide mblp-party-cards-slider-{{ section.id }}" id="mblp-party-cards-slider-{{ section.id }}">
+            <div class="splide__track">
+              <ul class="splide__list">
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'card' %}
+                      <li class="splide__slide">
+                        <div class="mblp-party-slider-card">
+                          {% if block.settings.card_image != blank %}
+                            <div class="mblp-party-slider-card-image">
+                              {{ block.settings.card_image | image_url: width: 800 | image_tag }}
+                            </div>
+                          {% endif %}
+
+                          <div class="mblp-party-slider-card-content">
+                            {% if block.settings.card_type != blank %}
+                              <div class="mblp-party-slider-card-type">
+                                <h3>{{ block.settings.card_type }}</h3>
+                              </div>
+                            {% endif %}
+
+                            {% if block.settings.card_content != blank %}
+                              <div class="mblp-party-slider-card-text">
+                                <p>"{{ block.settings.card_content }}"</p>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </li>
+                  {% endcase %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Navigation Arrow Right -->
+          <button class="mblp-party-slider-arrow mblp-party-slider-next" id="mblp-party-next-{{ section.id }}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load Splide CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<style>
+  /* Base styles - Mobile First */
+  .mblp-party-slider-main {
+    background-color: #FFF8D3;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    position: relative;
+    overflow: hidden; /* Prevent horizontal scroll */
+  }
+
+  .mblp-faqs-main .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .mblp-party-slider-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .mblp-party-slider-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mblp-party-slider-title h2 {
+    color: var(--col-light-black);
+    text-align: center;
+    font-family: var(--fs-lora) !important;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .mblp-party-slider-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    {% comment %} padding: 0 80px; /* Space for arrows */ {% endcomment %}
+  }
+
+  /* Splide Slider Styles */
+  .mblp-party-cards-slider-{{ section.id }} {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mblp-party-slider-card {
+    background: #FFF;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    min-height: 510px;
+    margin: 0 auto;
+    padding: 30px;
+    height: auto;
+  }
+
+  .mblp-party-slider-card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    overflow: hidden;
+    border-radius: 9px;
+  }
+
+  .mblp-party-slider-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Changed from contain to cover */
+    object-position: center;
+  }
+
+  .mblp-party-slider-card-content {
+    padding-top: 20px;
+    text-align: center; /* Center the content */
+  }
+
+  .mblp-party-slider-card-type {
+    margin-bottom: 20px;
+  }
+
+  .mblp-party-slider-card-type h3 {
+    color: var(--col-light-black);
+    font-family: var(--fs-lora) !important;
+    font-size: 24px;
+        font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    letter-spacing: -0.24px;
+  }
+
+
+  .mblp-party-slider-card-text p {
+    color: var(--col-light-black);
+    font-family: 'Inter Medium' !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 160%;
+    margin: 0;
+    text-align: left;
+  }
+
+  /* Navigation Arrows - Always Visible */
+  .mblp-party-slider-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #FFF;
+    border: 2px solid #E5E7EB;
+    color: var(--col-light-black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  .mblp-party-slider-prev {
+    left: 10px;
+  }
+
+  .mblp-party-slider-next {
+    right: 10px;
+  }
+
+  .mblp-party-slider-arrow:hover {
+    background: var(--col-light-black);
+    color: #FFF;
+    border-color: var(--col-light-black);
+    transform: translateY(-50%) translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .mblp-party-slider-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #F3F4F6;
+    color: #9CA3AF;
+  }
+
+  .mblp-party-slider-arrow:disabled:hover {
+    transform: translateY(-50%);
+    background: #F3F4F6;
+    color: #9CA3AF;
+    border-color: #E5E7EB;
+  }
+
+  /* Hide default Splide pagination and arrows */
+  .mblp-faqs-main .splide__pagination {
+    display: none !important;
+  }
+
+  .mblp-faqs-main .splide__arrows {
+    display: none !important;
+  }
+
+  /* Splide track and list styles */
+  .mblp-faqs-main .splide__track {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mblp-faqs-main .splide__list {
+    backface-visibility: hidden;
+    display: flex;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .mblp-faqs-main .splide__slide {
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    list-style-type: none !important;
+    margin: 0;
+    position: relative;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mobile specific adjustments */
+  @media (max-width: 768px) {
+    .mblp-faqs-main .container {
+      padding: 0 15px;
+    }
+
+    .mblp-party-slider-container {
+      {% comment %} padding: 0 60px; /* Adjust for smaller arrows */ {% endcomment %}
+    }
+
+    .mblp-party-slider-title h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .mblp-party-slider-card {
+      max-width: 300px;
+      padding: 20px;
+      min-height: unset;
+    }
+
+    .mblp-party-slider-card-image {
+      height: 180px; /* Smaller height for mobile */
+    }
+
+    .mblp-party-slider-card-type h3 {
+      font-size: 18px;
+    }
+
+    .mblp-party-slider-card-text p {
+      font-size: 14px;
+    }
+
+    .mblp-party-slider-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .mblp-party-slider-prev {
+      left: 120px;
+    }
+
+    .mblp-party-slider-next {
+      right: 120px;
+    }
+
+    /* Very small screens */
+    @media (max-width: 480px) {
+      .mblp-party-slider-container {
+        {% comment %} padding: 0 50px; {% endcomment %}
+      }
+       .mblp-party-slider-prev {
+      left: 0px;
+    }
+
+    .mblp-party-slider-next {
+      right: 0px;
+    }
+
+      .mblp-party-slider-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      .mblp-party-slider-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .mblp-party-slider-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-party-slider-container {
+      {% comment %} padding: 0 80px; {% endcomment %}
+    }
+
+    .mblp-party-slider-title h2 {
+      font-size: 32px;
+    }
+
+    .mblp-party-slider-card {
+      max-width: 340px; /* Adjusted for 2 cards */
+    }
+
+    .mblp-party-slider-card-image {
+      height: 220px;
+    }
+
+    .mblp-party-slider-prev {
+      left: 15px;
+    }
+
+    .mblp-party-slider-next {
+      right: 15px;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
+    .mblp-party-slider-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-party-slider-container {
+      padding: 0 100px;
+    }
+
+    .mblp-party-slider-title h2 {
+      font-size: 36px;
+      margin-bottom: 60px;
+      max-width: unset;
+    }
+
+    .mblp-party-slider-card {
+      max-width: 440px; /* Adjusted for 2 cards */
+              min-height: 530px;
+    }
+
+    .mblp-party-slider-card-image {
+              height: 288px;
+        align-self: stretch;
+    }
+
+    .mblp-party-slider-card-content {
+      padding-top: 30px;
+    }
+
+    .mblp-party-slider-card-type h3 {
+      font-size: 24px;
+    }
+
+    .mblp-party-slider-card-text p {
+      font-size: 16px;
+    }
+
+    .mblp-party-slider-prev {
+      left: 25px;
+    }
+
+    .mblp-party-slider-next {
+      right: 25px;
+    }
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1200px) {
+     .mblp-party-slider-container {
+      padding: 0px;
+    }
+    
+
+    .mblp-party-slider-prev {
+      left: -50px;
+    }
+
+    .mblp-party-slider-next {
+      right: -50px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let splideInstance = null;
+
+    function initializeSplide() {
+      // Destroy existing instance if it exists
+      if (splideInstance) {
+        splideInstance.destroy();
+        splideInstance = null;
+      }
+
+      const splideElement = document.getElementById('mblp-party-cards-slider-{{ section.id }}');
+      const prevButton = document.getElementById('mblp-party-prev-{{ section.id }}');
+      const nextButton = document.getElementById('mblp-party-next-{{ section.id }}');
+
+      if (splideElement && typeof Splide !== 'undefined') {
+        let perPage = 1;
+        let gap = '20px';
+
+        // Adjust settings based on screen size - FIXED
+        if (window.innerWidth >= 769) { // Changed from 1024 to 769
+          perPage = 2;
+          gap = '30px';
+        }
+
+        splideInstance = new Splide('#mblp-party-cards-slider-{{ section.id }}', {
+          type: 'slide',
+          perPage: perPage,
+          perMove: 1,
+          gap: gap,
+          pagination: false,
+          arrows: false,
+          autoplay: false,
+          drag: true,
+          snap: true,
+          focus: 0, // Changed from 'center' to 0
+          trimSpace: false,
+          fixedWidth: false,
+          fixedHeight: false,
+          breakpoints: {
+            768: {
+              perPage: 1,
+              gap: '20px'
+            }
+          }
+        });
+
+        try {
+          splideInstance.mount();
+
+          // Custom arrow navigation
+          if (prevButton && nextButton) {
+            prevButton.addEventListener('click', function(e) {
+              e.preventDefault();
+              splideInstance.go('<');
+            });
+
+            nextButton.addEventListener('click', function(e) {
+              e.preventDefault();
+              splideInstance.go('>');
+            });
+
+            // Update arrow states
+            splideInstance.on('moved', function() {
+              updateArrowStates();
+            });
+
+            splideInstance.on('mounted', function() {
+              updateArrowStates();
+            });
+
+            function updateArrowStates() {
+              const isFirst = splideInstance.index === 0;
+              const isLast = splideInstance.index >= splideInstance.Components.Controller.getEnd();
+
+              prevButton.disabled = isFirst;
+              nextButton.disabled = isLast;
+
+              // Force visibility
+              prevButton.style.display = 'flex';
+              nextButton.style.display = 'flex';
+            }
+
+            // Initial arrow state
+            setTimeout(updateArrowStates, 100);
+          }
+
+          console.log('Party Cards Slider initialized successfully');
+        } catch (error) {
+          console.error('Error initializing Party Cards Slider:', error);
+        }
+      }
+    }
+
+    // Wait for Splide library to load
+    function waitForSplide() {
+      if (typeof Splide !== 'undefined') {
+        initializeSplide();
+      } else {
+        setTimeout(waitForSplide, 100);
+      }
+    }
+
+    waitForSplide();
+
+    // Handle resize events
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        initializeSplide();
+      }, 250);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MBLP Party Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "party-slider-id",
+      "label": "ID"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "From Our Guests: Real Party Moments"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "card_type",
+          "label": "Card Type Title",
+          "default": " • Birthday Party"
+        },
+        {
+          "type": "textarea",
+          "id": "card_content",
+          "label": "Card Content",
+          "default": "Wonderful choice! It's a perfect place for kids to celebrate their birthdays while parents relax with a coffee."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Party Slider",
+      "settings": {
+        "section_title": "From Our Guests: Real Party Moments"
+      },
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "card_type": " • Birthday Party",
+            "card_content": "Wonderful choice! It's a perfect place for kids to celebrate their birthdays while parents relax with a coffee."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "card_type": " • Birthday Party",
+            "card_content": "The children love the hands-on, creative experience of making their own products!"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "card_type": "Kids Workshop",
+            "card_content": "Amazing experience for the whole family. The kids were engaged and learning while having so much fun!"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "card_type": "Family Event",
+            "card_content": "Perfect venue for creating lasting memories. The staff was incredibly helpful and the kids absolutely loved it!"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

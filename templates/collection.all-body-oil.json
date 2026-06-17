@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_URpK8r": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RgWjEM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/All_Body_Oil-2.jpg",
+            "mobile_image": "shopify://shop_images/main_abnner_4_1.jpg",
+            "subheading": "Body Oils",
+            "title": "<h1>Nourish Your Skin with Our Luxurious Body Oils</h1>\n<br>\n<p>\nIndulge your skin with our luxurious body oils, crafted to deliver deep hydration and a radiant glow. Each oil is enriched with natural ingredients, leaving your skin soft, nourished, and beautifully scented after every use.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_RgWjEM"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_qtXnGh": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_bcVUUp": {
+          "type": "subheading",
+          "settings": {
+            "text": ""
+          }
+        },
+        "heading_wkDkmj": {
+          "type": "heading",
+          "settings": {
+            "text": "",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_dTP4Pg": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Pamper Your Skin with Our Premium Body Oils</h2><p></p><p>Mumu Bath's collection of <strong>body oils</strong> is designed to provide deep hydration, nourishment, and a natural glow to your skin. Each oil is crafted with a blend of natural, high-quality ingredients to leave your skin feeling soft, smooth, and rejuvenated. Whether you prefer the delicate floral notes of Osmanthus or the uplifting scent of Sweet Citrus, our body oils are the perfect addition to your skincare routine.</p><h3>Osmanthus Flower Body Oil: Hydrate & Soothe</h3><p>Infused with real <strong>Osmanthus flowers</strong>, this body oil provides gentle hydration and soothing nourishment for all skin types. The lightweight, fast-absorbing formula softens your skin while leaving behind a subtle, elegant floral fragrance. Perfect for daily use after a shower or bath, this oil helps lock in moisture, ensuring your skin stays hydrated all day long.</p><h3>Sweet Citrus Body Oil: Brighten & Revitalize</h3><p>Invigorate your skin with the refreshing scent of <strong>Sweet Citrus</strong>. This revitalizing body oil is enriched with essential oils and botanicals that provide a burst of hydration while uplifting your senses. Its lightweight texture absorbs quickly, leaving your skin feeling refreshed, moisturized, and glowing without any greasy residue. Ideal for those seeking a fresh, zesty scent and silky-smooth skin.</p><h3>Perfect for Daily Use</h3><p>Whether you're looking to hydrate dry skin or indulge in a luxurious skincare ritual, our body oils are designed for daily use. Apply to damp skin after bathing for the best results and enjoy soft, supple skin that feels nourished and pampered.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_bcVUUp",
+        "heading_wkDkmj",
+        "richtext_dTP4Pg"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "1742280031f07e97f0": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_ci4y4Q": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_4QbhMY": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_ci4y4Q",
+        "targetbay_product_reviews_site_reviews_4QbhMY"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_URpK8r",
+    "main",
+    "rich_text_qtXnGh",
+    "1742280031f07e97f0"
+  ]
+}

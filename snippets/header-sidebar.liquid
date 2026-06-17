@@ -1,0 +1,1013 @@
+{% comment %} {%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+HEADER SIDEBAR COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+This snippet the navigation sidebar for the header. It is used for both the mobile menu and for the desktop menu when
+the merchant configures the drawer mode.
+
+********************************************
+Supported variables
+********************************************
+
+* menu: the menu to render
+* show_dividers: whether dividers are shown for the collapsible
+{%- endcomment -%}
+
+{%- comment -%}
+IMPLEMENTATION NOTE: while being a drawer, the sidebar has a completely different structure for the content. We are
+therefore using a different structure for the Shadow DOM template
+{%- endcomment -%}
+<template id="header-sidebar-template">
+  <div part="base">
+    <div part="overlay"></div>
+
+    <div part="content">
+      <header part="header">
+        <button type="button" is="dialog-close-button" part="close-button tap-area" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+          {%- render 'icon' with 'close', width: 16 -%}
+        </button>
+      </header>
+
+      <div part="panel-list">
+        <slot name="main-panel"></slot>
+
+        {%- if menu.levels > 0 -%}
+          <slot name="collapsible-panel"></slot>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</template>
+
+<header-sidebar id="sidebar-menu" class="header-sidebar drawer drawer--sm" template="header-sidebar-template" open-from="left">
+  {%- comment -%}We are using a Shadow DOM where each panel has a slot, so we can directly render each level individually{%- endcomment -%}
+
+  {%- comment -%}Panel 1 is the first level{%- endcomment -%}
+  <div class="header-sidebar__main-panel" slot="main-panel">
+    <div class="header-sidebar__scroller">
+      <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links.size > 0 -%}
+              <button type="button" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}" aria-controls="header-panel-{{ forloop.index }}" aria-expanded="false">
+                {{- link.title -}}
+                {%- render 'icon' with 'chevron-right', width: 12, direction_aware: true -%}
+              </button>
+            {%- else -%}
+              <a href="{{ link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                {{- link.title -}}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- liquid
+      if section.settings.show_country_selector and localization.available_countries.size > 1
+        assign show_country_selector = true
+      endif
+
+      if section.settings.show_locale_selector and localization.available_languages.size > 1
+        assign show_locale_selector = true
+      endif
+    -%}
+
+    {%- if shop.customer_accounts_enabled or show_country_selector or show_locale_selector -%}
+      <div class="header-sidebar__footer">
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{{ routes.account_url }}" class="text-with-icon smallcaps sm:hidden">
+            {%- render 'icon' with 'account', width: 20 -%}
+            {{- 'header.general.account' | t -}}
+          </a>
+        {%- endif -%}
+
+        {%- if show_country_selector or show_locale_selector -%}
+          <div class="localization-selectors">
+            {%- if show_country_selector -%}
+              {%- render 'localization-selector', type: 'country', placement: 'top-start', show_country_name: section.settings.show_country_name, show_country_flag: section.settings.show_country_flag, id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+
+            {%- if show_country_selector and show_locale_selector -%}
+              <span class="localization-selectors__separator" aria-hidden="true"></span>
+            {%- endif -%}
+
+            {%- if show_locale_selector -%}
+              {%- render 'localization-selector', type: 'locale', placement: 'top-start', id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%}Panel 2 holds all the second levels{%- endcomment -%}
+  {%- if menu.levels > 0 -%}
+    <header-sidebar-collapsible-panel class="header-sidebar__collapsible-panel" slot="collapsible-panel">
+      <div class="header-sidebar__scroller second">
+        {%- for link in menu.links -%}
+          {%- if link.links.size > 0 -%}
+            <div id="header-panel-{{ forloop.index }}" class="header-sidebar__sub-panel" hidden>
+              <button type="button" class="header-sidebar__back-button link-faded {% if show_dividers %}is-divided{% endif %} text-with-icon {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %} md:hidden" data-action="close-panel">
+                {%- render 'icon' with 'chevron-left', width: 12, direction_aware: true -%}
+                {{- link.title -}}
+              </button>
+
+              <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+                {%- for sub_link in link.links -%}
+                  <li>
+                    {%- if sub_link.links.size > 0 -%}
+                      <details is="accordion-disclosure" class="group">
+                        <summary class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                          {{- sub_link.title -}}
+                          {% comment %} <span class="animated-plus group-expanded:rotate" aria-hidden="true"></span> {% endcomment %}
+                           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="9" viewBox="0 0 17 9" fill="none">
+                          <path d="M-2.96076e-07 1.00002C3.22144 1.00002 6.04325 3.25828 8.46813 7.77344C10.4866 3.25828 13.0835 1.00002 16.2589 1.00002" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                          </svg>
+                        </summary>
+
+                        <div class="header-sidebar__nested-linklist">
+                          {%- for sub_sub_link in sub_link.links -%}
+                            <a href="{{ sub_sub_link.url }}" class="link-faded-reverse">{{ sub_sub_link.title }}</a>
+                          {%- endfor -%}
+                        </div>
+                      </details>
+                    {%- else -%}
+                      <a href="{{ sub_link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                        {{- sub_link.title -}}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+              {%- liquid
+                assign link_title_downcase = link.title | strip | downcase
+                assign mega_menu_block = ''
+
+                for block in section.blocks
+                  assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+                  if menu_item_downcase == link_title_downcase
+                    assign mega_menu_block = block
+                    break
+                  endif
+
+                endfor
+              -%}
+
+              {%- capture mega_menu_content -%}
+                {%- render 'mega-menu-images', context: 'sidebar', block: mega_menu_block -%}
+              {%- endcapture -%}
+
+              {%- if mega_menu_content != blank -%}
+                <div class="header-sidebar__promo scroll-area bleed md:unbleed">
+                  {{- mega_menu_content -}}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </header-sidebar-collapsible-panel>
+  {%- endif -%}
+</header-sidebar> {% endcomment %}
+
+
+
+
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+HEADER SIDEBAR COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+Mobile sidebar navigation. Second-level panels use accordion-disclosure.
+When an accordion opens, its matched mega_menu_item_promo block data is shown
+below the nested links: promo images (with absolute title labels) + CTA button.
+Matching is done by comparing sub_link.handle to block.settings.menu_item_handle.
+
+********************************************
+Supported variables
+********************************************
+
+* menu: the menu to render
+* show_dividers: whether dividers are shown for the collapsible
+{%- endcomment -%}
+
+{% comment %} <template id="header-sidebar-template">
+  <div part="base">
+    <div part="overlay"></div>
+
+    <div part="content">
+      <header part="header">
+        <button type="button" is="dialog-close-button" part="close-button tap-area" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+          {%- render 'icon' with 'close', width: 16 -%}
+        </button>
+      </header>
+
+      <div part="panel-list">
+        <slot name="main-panel"></slot>
+
+        {%- if menu.levels > 0 -%}
+          <slot name="collapsible-panel"></slot>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</template>
+
+<header-sidebar id="sidebar-menu" class="header-sidebar drawer drawer--sm" template="header-sidebar-template" open-from="left">
+
+  {%- comment -%}Panel 1 — top-level links{%- endcomment -%}
+  <div class="header-sidebar__main-panel" slot="main-panel">
+    <div class="header-sidebar__scroller">
+      <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links.size > 0 -%}
+              <button type="button" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}" aria-controls="header-panel-{{ forloop.index }}" aria-expanded="false">
+                {{- link.title -}}
+                {%- render 'icon' with 'chevron-right', width: 12, direction_aware: true -%}
+              </button>
+            {%- else -%}
+              <a href="{{ link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                {{- link.title -}}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- liquid
+      if section.settings.show_country_selector and localization.available_countries.size > 1
+        assign show_country_selector = true
+      endif
+      if section.settings.show_locale_selector and localization.available_languages.size > 1
+        assign show_locale_selector = true
+      endif
+    -%}
+
+    {%- if shop.customer_accounts_enabled or show_country_selector or show_locale_selector -%}
+      <div class="header-sidebar__footer">
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{{ routes.account_url }}" class="text-with-icon smallcaps sm:hidden">
+            {%- render 'icon' with 'account', width: 20 -%}
+            {{- 'header.general.account' | t -}}
+          </a>
+        {%- endif -%}
+
+        {%- if show_country_selector or show_locale_selector -%}
+          <div class="localization-selectors">
+            {%- if show_country_selector -%}
+              {%- render 'localization-selector', type: 'country', placement: 'top-start', show_country_name: section.settings.show_country_name, show_country_flag: section.settings.show_country_flag, id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+            {%- if show_country_selector and show_locale_selector -%}
+              <span class="localization-selectors__separator" aria-hidden="true"></span>
+            {%- endif -%}
+            {%- if show_locale_selector -%}
+              {%- render 'localization-selector', type: 'locale', placement: 'top-start', id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%}Panel 2 — second level with accordions{%- endcomment -%}
+  {%- if menu.levels > 0 -%}
+    <header-sidebar-collapsible-panel class="header-sidebar__collapsible-panel" slot="collapsible-panel">
+      <div class="header-sidebar__scroller second">
+
+        {%- for link in menu.links -%}
+          {%- if link.links.size > 0 -%}
+
+            <div id="header-panel-{{ forloop.index }}" class="header-sidebar__sub-panel" hidden>
+
+              {%- comment -%} Back button {%- endcomment -%}
+              <button type="button" class="header-sidebar__back-button link-faded {% if show_dividers %}is-divided{% endif %} text-with-icon {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %} md:hidden" data-action="close-panel">
+                {%- render 'icon' with 'chevron-left', width: 12, direction_aware: true -%}
+                {{- link.title -}}
+              </button>
+
+              {%- comment -%} "Shop All" header label (matches desktop heading style) {%- endcomment -%}
+
+              {%- comment -%}
+                Accordion list — each item that has children becomes a <details>.
+                We embed the promo block data as data-attributes on the <details>
+                element itself so the JS observer can read them without extra fetches.
+              {%- endcomment -%}
+              <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+                {%- for sub_link in link.links -%}
+                  <li>
+                    {%- if sub_link.links.size > 0 -%}
+
+                      {%- comment -%} Look up matching promo block by handle {%- endcomment -%}
+                      {%- assign matched_promo = nil -%}
+                      {%- for promo_block in section.blocks -%}
+                        {%- if promo_block.type == 'mega_menu_item_promo'
+                            and promo_block.settings.menu_item_handle == sub_link.handle -%}
+                          {%- assign matched_promo = promo_block -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- comment -%} Resolve CTA values {%- endcomment -%}
+                      {%- if matched_promo != nil and matched_promo.settings.button_text != blank -%}
+                        {%- assign sb_cta_text = matched_promo.settings.button_text -%}
+                        {%- assign sb_cta_url  = matched_promo.settings.button_link | default: sub_link.url -%}
+                      {%- else -%}
+                        {%- assign sb_cta_text = 'Shop ' | append: sub_link.title -%}
+                        {%- assign sb_cta_url  = sub_link.url -%}
+                      {%- endif -%}
+
+                      {%- comment -%}
+                        Pass promo image URLs via data-attrs so the observer JS can
+                        inject them without any extra server round-trips.
+                      {%- endcomment -%}
+                      {%- comment -%} Resolve side image from matched block {%- endcomment -%}
+                      {%- assign side_image = nil -%}
+                      {%- if matched_promo != nil and matched_promo.settings.side_image != blank -%}
+                        {%- assign side_image = matched_promo.settings.side_image -%}
+                      {%- endif -%}
+
+                      <details
+                        is="accordion-disclosure"
+                        class="group header-sidebar__accordion"
+                        data-link-handle="{{ sub_link.handle }}"
+                        data-cta-text="{{ sb_cta_text | escape }}"
+                        data-cta-url="{{ sb_cta_url | escape }}"
+                        {%- if matched_promo != nil -%}
+                          {%- if matched_promo.settings.promo_image != blank %}
+                            data-img1-src="{{ matched_promo.settings.promo_image | image_url: width: 600 }}"
+                            data-img1-alt="{{ matched_promo.settings.promo_title | escape }}"
+                            data-img1-label="{{ matched_promo.settings.promo_title | escape }}"
+                            data-img1-link="{{ matched_promo.settings.promo_link | default: '#' | escape }}"
+                          {%- endif -%}
+                          {%- if matched_promo.settings.promo_image_2 != blank %}
+                            data-img2-src="{{ matched_promo.settings.promo_image_2 | image_url: width: 600 }}"
+                            data-img2-alt="{{ matched_promo.settings.promo_title_2 | escape }}"
+                            data-img2-label="{{ matched_promo.settings.promo_title_2 | escape }}"
+                            data-img2-link="{{ matched_promo.settings.promo_link_2 | default: '#' | escape }}"
+                          {%- endif -%}
+                        {%- endif -%}
+                      >
+                        <summary class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                          <div class="meaga-row">
+                          {%- if side_image != blank -%}
+                            <span class="mega-menu__sidebar-icon" aria-hidden="true">
+                              {{- side_image | image_url: width: 40 | image_tag:
+                                loading: 'lazy',
+                                widths: '40',
+                                class: 'mega-menu__sidebar-icon-img'
+                              -}}
+                            </span>
+                          {%- endif -%}
+                          {{- sub_link.title -}}
+                        </div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="9" viewBox="0 0 17 9" fill="none">
+                            <path d="M-2.96076e-07 1.00002C3.22144 1.00002 6.04325 3.25828 8.46813 7.77344C10.4866 3.25828 13.0835 1.00002 16.2589 1.00002" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                          </svg>
+                        </summary>
+
+                        {%- comment -%} Nested child links {%- endcomment -%}
+                        <div class="header-sidebar__nested-linklist">
+                          {%- for sub_sub_link in sub_link.links -%}
+                            <a href="{{ sub_sub_link.url }}" class="link-faded-reverse">{{ sub_sub_link.title }}</a>
+                          {%- endfor -%}
+                        </div>
+
+                       
+
+                      </details>
+
+                    {%- else -%}
+                      <a href="{{ sub_link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                        {{- sub_link.title -}}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+                {%- comment -%}
+                          Promo slot — rendered once per accordion, populated/swapped by JS
+                          when the <details> opens. Kept inside <details> so it collapses
+                          with the accordion automatically.
+                {%- endcomment -%}
+                        {%- if matched_promo != nil -%}
+                          <div class="header-sidebar__accordion-promo" data-promo-slot>
+                            {%- if matched_promo.settings.promo_image != blank -%}
+                              <a href="{{ matched_promo.settings.promo_link | default: '#' }}" class="sidebar-promo-card">
+                                <img
+                                  src="{{ matched_promo.settings.promo_image | image_url: width: 600 }}"
+                                  alt="{{ matched_promo.settings.promo_title | escape }}"
+                                  width="600"
+                                  height="400"
+                                  loading="lazy"
+                                  class="sidebar-promo-card__img"
+                                >
+                                {%- if matched_promo.settings.promo_title != blank -%}
+                                  <span class="sidebar-promo-card__label">{{ matched_promo.settings.promo_title }}</span>
+                                {%- endif -%}
+                              </a>
+                            {%- endif -%}
+
+                            {%- if matched_promo.settings.promo_image_2 != blank -%}
+                              <a href="{{ matched_promo.settings.promo_link_2 | default: '#' }}" class="sidebar-promo-card">
+                                <img
+                                  src="{{ matched_promo.settings.promo_image_2 | image_url: width: 600 }}"
+                                  alt="{{ matched_promo.settings.promo_title_2 | escape }}"
+                                  width="600"
+                                  height="400"
+                                  loading="lazy"
+                                  class="sidebar-promo-card__img"
+                                >
+                                {%- if matched_promo.settings.promo_title_2 != blank -%}
+                                  <span class="sidebar-promo-card__label">{{ matched_promo.settings.promo_title_2 }}</span>
+                                {%- endif -%}
+                              </a>
+                            {%- endif -%}
+
+                            {%- comment -%} CTA button {%- endcomment -%}
+                            <a href="{{ sb_cta_url }}" class="sidebar-promo__cta button">
+                              {{ sb_cta_text }}
+                            </a>
+                          </div>
+                        {%- endif -%}
+
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+    </header-sidebar-collapsible-panel>
+  {%- endif -%}
+
+</header-sidebar>
+
+{%- comment -%}
+  MutationObserver — watches for <details open> changes inside the sidebar.
+  When a details opens: its [data-promo-slot] is already rendered in the DOM
+  (inside the details element), so it shows automatically with CSS.
+  We close all other open details in the same panel to enforce single-open behaviour.
+{%- endcomment -%}
+<script>
+(function () {
+  'use strict';
+
+  function initSidebarAccordionPromo() {
+    var sidebar = document.getElementById('sidebar-menu');
+    if (!sidebar) return;
+
+    // ── Enforce single-open per sub-panel: close siblings when one opens ──
+    sidebar.addEventListener('toggle', function (e) {
+      var details = e.target;
+      if (!details || details.tagName !== 'DETAILS') return;
+      if (!details.open) return;
+
+      // Find sibling <details> in the same <ul> and close them
+      var parentList = details.closest('ul');
+      if (!parentList) return;
+
+      parentList.querySelectorAll('details[open]').forEach(function (sibling) {
+        if (sibling !== details) {
+          sibling.removeAttribute('open');
+          sibling.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }, true); // capture phase so it fires before accordion-disclosure's own handler
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarAccordionPromo);
+  } else {
+    initSidebarAccordionPromo();
+  }
+
+  document.addEventListener('shopify:section:load', initSidebarAccordionPromo);
+})();
+</script> {% endcomment %}
+
+
+
+
+
+
+
+
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+HEADER SIDEBAR COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+Structure:
+- Panel 2 has accordion list (sub_links with children)
+- Accordion andar SIRF nested links hain
+- Jo bhi accordion open ho, uska matched promo block ka content
+  ul ke BAAD, sub-panel ke bottom mein show hota hai
+- JS MutationObserver track karta hai kaunsa details[open] hai
+  aur us handle ka promo div show karta hai, baaki hide
+{%- endcomment -%}
+
+<template id="header-sidebar-template">
+  <div part="base">
+    <div part="overlay"></div>
+    <div part="content">
+      <header part="header">
+        <button type="button" is="dialog-close-button" part="close-button tap-area" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+          {%- render 'icon' with 'close', width: 16 -%}
+        </button>
+      </header>
+      <div part="panel-list">
+        <slot name="main-panel"></slot>
+        {%- if menu.levels > 0 -%}
+          <slot name="collapsible-panel"></slot>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</template>
+
+<header-sidebar id="sidebar-menu" class="header-sidebar drawer drawer--sm" template="header-sidebar-template" open-from="left">
+
+  {%- comment -%}Panel 1 — top-level links{%- endcomment -%}
+  <div class="header-sidebar__main-panel" slot="main-panel">
+    <div class="header-sidebar__scroller">
+      <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links.size > 0 -%}
+              <button type="button" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}" aria-controls="header-panel-{{ forloop.index }}" aria-expanded="false">
+                {{- link.title -}}
+                {%- render 'icon' with 'chevron-right', width: 12, direction_aware: true -%}
+              </button>
+            {%- else -%}
+              <a href="{{ link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                {{- link.title -}}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- liquid
+      if section.settings.show_country_selector and localization.available_countries.size > 1
+        assign show_country_selector = true
+      endif
+      if section.settings.show_locale_selector and localization.available_languages.size > 1
+        assign show_locale_selector = true
+      endif
+    -%}
+
+    {%- if shop.customer_accounts_enabled or show_country_selector or show_locale_selector -%}
+      <div class="header-sidebar__footer">
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{{ routes.account_url }}" class="text-with-icon smallcaps sm:hidden">
+            {%- render 'icon' with 'account', width: 20 -%}
+            {{- 'header.general.account' | t -}}
+          </a>
+        {%- endif -%}
+        {%- if show_country_selector or show_locale_selector -%}
+          <div class="localization-selectors">
+            {%- if show_country_selector -%}
+              {%- render 'localization-selector', type: 'country', placement: 'top-start', show_country_name: section.settings.show_country_name, show_country_flag: section.settings.show_country_flag, id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+            {%- if show_country_selector and show_locale_selector -%}
+              <span class="localization-selectors__separator" aria-hidden="true"></span>
+            {%- endif -%}
+            {%- if show_locale_selector -%}
+              {%- render 'localization-selector', type: 'locale', placement: 'top-start', id_prefix: 'header-sidebar' -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%}Panel 2 — second level with accordions{%- endcomment -%}
+  {%- if menu.levels > 0 -%}
+    <header-sidebar-collapsible-panel class="header-sidebar__collapsible-panel" slot="collapsible-panel">
+      <div class="header-sidebar__scroller second">
+
+        {%- for link in menu.links -%}
+          {%- if link.links.size > 0 -%}
+
+            <div id="header-panel-{{ forloop.index }}" class="header-sidebar__sub-panel" hidden>
+
+              {%- comment -%} Back button {%- endcomment -%}
+              <button type="button" class="header-sidebar__back-button link-faded {% if show_dividers %}is-divided{% endif %} text-with-icon {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %} md:hidden" data-action="close-panel">
+                {%- render 'icon' with 'chevron-left', width: 12, direction_aware: true -%}
+                {{- link.title -}}
+              </button>
+
+              {%- comment -%}
+                ACCORDION LIST — sirf links andar, koi promo nahi
+              {%- endcomment -%}
+              <ul class="header-sidebar__linklist second {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+                {%- for sub_link in link.links -%}
+                  <li>
+                    {%- if sub_link.links.size > 0 -%}
+
+                      {%- comment -%} Match promo block by handle {%- endcomment -%}
+                      {%- assign matched_promo = nil -%}
+                      {%- for promo_block in section.blocks -%}
+                        {%- if promo_block.type == 'mega_menu_item_promo'
+                            and promo_block.settings.menu_item_handle == sub_link.handle -%}
+                          {%- assign matched_promo = promo_block -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- comment -%} Side icon image {%- endcomment -%}
+                      {%- assign side_image = nil -%}
+                      {%- if matched_promo != nil and matched_promo.settings.side_image != blank -%}
+                        {%- assign side_image = matched_promo.settings.side_image -%}
+                      {%- endif -%}
+
+                      {%- comment -%}
+                        data-link-handle is used by JS to match this accordion
+                        to its promo panel below the ul
+                      {%- endcomment -%}
+                      <details
+                        is="accordion-disclosure"
+                        class="group header-sidebar__accordion"
+                        data-link-handle="{{ sub_link.handle }}"
+                      >
+                        <summary class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                          <div class="mega-row">
+                            {%- if side_image != blank -%}
+                              <span class="mega-menu__sidebar-icon" aria-hidden="true">
+                                {{- side_image | image_url: width: 40 | image_tag:
+                                  loading: 'lazy',
+                                  widths: '40',
+                                  class: 'mega-menu__sidebar-icon-img'
+                                -}}
+                              </span>
+                            {%- endif -%}
+                            {{- sub_link.title -}}
+                          </div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="9" viewBox="0 0 17 9" fill="none">
+                            <path d="M-2.96076e-07 1.00002C3.22144 1.00002 6.04325 3.25828 8.46813 7.77344C10.4866 3.25828 13.0835 1.00002 16.2589 1.00002" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                          </svg>
+                        </summary>
+
+                        {%- comment -%} SIRF nested links — koi promo nahi andar {%- endcomment -%}
+                        <div class="header-sidebar__nested-linklist">
+                          {%- for sub_sub_link in sub_link.links -%}
+                            <a href="{{ sub_sub_link.url }}" class="link-faded-reverse">{{ sub_sub_link.title }}</a>
+                          {%- endfor -%}
+                        </div>
+
+                      </details>
+
+                    {%- else -%}
+                      <a href="{{ sub_link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                        {{- sub_link.title -}}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+              {%- comment -%}
+                ═══════════════════════════════════════════════════════
+                PROMO PANELS — ul ke BAAD, sub-panel ke andar neeche
+                Har sub_link ka aik panel, data-promo-handle se match
+                JS inhe toggle karta hai based on open accordion
+                ═══════════════════════════════════════════════════════
+              {%- endcomment -%}
+              <div class="header-sidebar__promo-area">
+                {%- for sub_link in link.links -%}
+                  {%- if sub_link.links.size > 0 -%}
+
+                    {%- assign matched_promo = nil -%}
+                    {%- for promo_block in section.blocks -%}
+                      {%- if promo_block.type == 'mega_menu_item_promo'
+                          and promo_block.settings.menu_item_handle == sub_link.handle -%}
+                        {%- assign matched_promo = promo_block -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+
+                    {%- if matched_promo != nil -%}
+                      {%- comment -%} CTA values {%- endcomment -%}
+                      {%- if matched_promo.settings.button_text != blank -%}
+                        {%- assign sb_cta_text = matched_promo.settings.button_text -%}
+                        {%- assign sb_cta_url  = matched_promo.settings.button_link | default: sub_link.url -%}
+                      {%- else -%}
+                        {%- assign sb_cta_text = 'Shop ' | append: sub_link.title -%}
+                        {%- assign sb_cta_url  = sub_link.url -%}
+                      {%- endif -%}
+
+                      {%- comment -%}
+                        data-promo-handle must match the accordion's data-link-handle
+                        JS shows/hides these panels via this attribute
+                        Default hidden — JS shows the one whose accordion is open
+                      {%- endcomment -%}
+                      <div
+                        class="header-sidebar__promo-panel"
+                        data-promo-handle="{{ sub_link.handle }}"
+                        hidden
+                      >
+                        {%- if matched_promo.settings.promo_image != blank -%}
+                          <a href="{{ matched_promo.settings.promo_link | default: '#' }}" class="sidebar-promo-card">
+                            <img
+                              src="{{ matched_promo.settings.promo_image | image_url: width: 600 }}"
+                              alt="{{ matched_promo.settings.promo_title | escape }}"
+                              width="600"
+                              height="400"
+                              loading="lazy"
+                              class="sidebar-promo-card__img"
+                            >
+                            {%- if matched_promo.settings.promo_title != blank -%}
+                              <span class="sidebar-promo-card__label">{{ matched_promo.settings.promo_title }}</span>
+                            {%- endif -%}
+                          </a>
+                        {%- endif -%}
+
+                        {%- if matched_promo.settings.promo_image_2 != blank -%}
+                          <a href="{{ matched_promo.settings.promo_link_2 | default: '#' }}" class="sidebar-promo-card">
+                            <img
+                              src="{{ matched_promo.settings.promo_image_2 | image_url: width: 600 }}"
+                              alt="{{ matched_promo.settings.promo_title_2 | escape }}"
+                              width="600"
+                              height="400"
+                              loading="lazy"
+                              class="sidebar-promo-card__img"
+                            >
+                            {%- if matched_promo.settings.promo_title_2 != blank -%}
+                              <span class="sidebar-promo-card__label">{{ matched_promo.settings.promo_title_2 }}</span>
+                            {%- endif -%}
+                          </a>
+                        {%- endif -%}
+
+                        <a href="{{ sb_cta_url }}" class="mega-menu__panel-cta">
+                          {{ sb_cta_text }}
+                        </a>
+                      </div>
+
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              {%- comment -%} /.header-sidebar__promo-area {%- endcomment -%}
+
+            </div>
+            {%- comment -%} /.header-sidebar__sub-panel {%- endcomment -%}
+
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+    </header-sidebar-collapsible-panel>
+  {%- endif -%}
+
+</header-sidebar>
+
+<script>
+(function () {
+  'use strict';
+
+  function initSidebarPromo() {
+    var sidebar = document.getElementById('sidebar-menu');
+    if (!sidebar) return;
+
+    // ── Single-open: jab ek details khule, baaki band karo ──────────────
+    sidebar.addEventListener('toggle', function (e) {
+      var details = e.target;
+      if (!details || details.tagName !== 'DETAILS') return;
+
+      var subPanel = details.closest('.header-sidebar__sub-panel');
+      if (!subPanel) return;
+
+      if (details.open) {
+        // Close all sibling accordions in same sub-panel
+        subPanel.querySelectorAll('details[open]').forEach(function (sib) {
+          if (sib !== details) {
+            sib.removeAttribute('open');
+            sib.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Show matching promo panel, hide others
+        var handle = details.getAttribute('data-link-handle');
+        showPromo(subPanel, handle);
+      } else {
+        // If closed and no other is open, hide all promos
+        var anyOpen = subPanel.querySelector('details[open]');
+        if (!anyOpen) hideAllPromos(subPanel);
+      }
+    }, true);
+
+    // ── Also respond when a new sub-panel becomes visible (back/forward) ─
+    // MutationObserver: watch sub-panel hidden attribute removal
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'hidden') {
+          var panel = mutation.target;
+          if (!panel.classList.contains('header-sidebar__sub-panel')) return;
+          if (!panel.hasAttribute('hidden')) {
+            // Panel just became visible — check if any accordion already open
+            var openDetails = panel.querySelector('details[open]');
+            if (openDetails) {
+              showPromo(panel, openDetails.getAttribute('data-link-handle'));
+            } else {
+              hideAllPromos(panel);
+            }
+          }
+        }
+      });
+    });
+
+    sidebar.querySelectorAll('.header-sidebar__sub-panel').forEach(function (panel) {
+      observer.observe(panel, { attributes: true });
+    });
+  }
+
+  function showPromo(subPanel, handle) {
+    var promoArea = subPanel.querySelector('.header-sidebar__promo-area');
+    if (!promoArea) return;
+
+    promoArea.querySelectorAll('.header-sidebar__promo-panel').forEach(function (panel) {
+      if (panel.getAttribute('data-promo-handle') === handle) {
+        panel.removeAttribute('hidden');
+        // Trigger animation by forcing reflow
+        panel.classList.remove('is-visible');
+        void panel.offsetWidth;
+        panel.classList.add('is-visible');
+      } else {
+        panel.setAttribute('hidden', '');
+        panel.classList.remove('is-visible');
+      }
+    });
+  }
+
+  function hideAllPromos(subPanel) {
+    var promoArea = subPanel.querySelector('.header-sidebar__promo-area');
+    if (!promoArea) return;
+    promoArea.querySelectorAll('.header-sidebar__promo-panel').forEach(function (p) {
+      p.setAttribute('hidden', '');
+      p.classList.remove('is-visible');
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarPromo);
+  } else {
+    initSidebarPromo();
+  }
+
+  document.addEventListener('shopify:section:load', initSidebarPromo);
+})();
+</script>
+
+
+<style>
+/* ==========================================================================
+   HEADER SIDEBAR — Promo area below accordion list
+   ========================================================================== */
+
+/* ── Accordion summary row layout ─────────────────────────────────────── */
+.mega-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mega-menu__sidebar-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-menu__sidebar-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Chevron rotation when accordion is open */
+.header-sidebar__accordion > summary svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.header-sidebar__accordion[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+/* ── Promo area container — sits below the <ul>, inside sub-panel ──────── */
+.header-sidebar__promo-area {
+  /* No padding/background by itself — panels carry their own */
+}
+
+/* ── Individual promo panel (one per sub_link) ─────────────────────────── */
+.header-sidebar__promo-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 16px 40px;
+    margin: 10px 0 4px;
+
+  /* Hidden state: no animation */
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Visible state triggered by JS adding .is-visible */
+.header-sidebar__promo-panel.is-visible {
+  animation: sidebarPromoIn 0.25s ease forwards;
+}
+
+@keyframes sidebarPromoIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Promo image card ──────────────────────────────────────────────────── */
+.sidebar-promo-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  text-decoration: none;
+  min-height: 110px;
+  background: #e8e8e8;
+}
+
+.sidebar-promo-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-promo-card:active .sidebar-promo-card__img {
+  transform: scale(1.03);
+}
+
+/* Absolute label top-left over image */
+.sidebar-promo-card__label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #000;
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* ── CTA button — full width pill ─────────────────────────────────────── */
+.sidebar-promo__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 4px;
+  border-radius: 100px;
+  background: #f5c518;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: center;
+}
+
+.sidebar-promo__cta:active {
+  background: #e6b800;
+}
+
+.header-sidebar__linklist.second    .header-sidebar__linklist-button {
+       border:0px;
+}
+
+
+.header-sidebar::part(content)::-webkit-scrollbar {
+  display: none;
+}
+.header-sidebar__promo-panel a.mega-menu__panel-cta {
+    width: 100%;
+    display: flex;
+}
+
+</style>

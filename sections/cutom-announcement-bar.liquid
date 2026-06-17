@@ -1,0 +1,297 @@
+{% liquid
+  assign message_blocks = section.blocks | where: 'type', 'message'
+%}
+
+{%- if message_blocks.size > 0 -%}
+<div
+  class="cs_announcement-bar"
+  id="cs_announcement-bar-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    --ann-text-color: {{ section.settings.text_color }};
+    --ann-pt: {{ section.settings.padding_y }}px;
+    --ann-pb: {{ section.settings.padding_y }}px;
+    --ann-font-size: {{ section.settings.font_size }}px;
+    --ann-speed: {{ section.settings.marquee_speed }}s;
+  "
+  role="region"
+  aria-label="Announcement"
+>
+
+  {%- comment -%} ── DESKTOP — static, centered ── {%- endcomment -%}
+  <div class="ann__desktop">
+    <div class="ann__desktop-inner">
+      {%- for block in message_blocks -%}
+        <span class="ann__item" {{ block.shopify_attributes }}>
+          {%- if section.settings.show_separator and forloop.first == false -%}
+            <span class="ann__sep" aria-hidden="true">{{ section.settings.separator }}</span>
+          {%- endif -%}
+          <span class="ann__rte rte">{{ block.settings.message }}</span>
+        </span>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- comment -%}
+    MOBILE — seamless CSS marquee.
+
+    The trick: render FOUR identical sets inside one flex track.
+    The keyframe moves the track left by exactly 25% (= one set).
+    When it snaps back to 0, sets 2-3-4 are still visible so
+    there is never a blank flash — completely seamless even with
+    a single short message.
+  {%- endcomment -%}
+  <div class="ann__mobile" aria-hidden="true">
+    <div class="ann__track">
+      {%- for n in (1..4) -%}
+        <div class="ann__set">
+          {%- for block in message_blocks -%}
+            <span class="ann__item">
+              <span class="ann__rte rte">{{ block.settings.message }}</span>
+              <span class="ann__sep" aria-hidden="true">{{ section.settings.separator }}</span>
+            </span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+</div>
+{%- endif -%}
+
+<style>
+  /* ── Shell ── */
+  .cs_announcement-bar {
+    width: 100%;
+    padding-top: var(--ann-pt, 10px);
+    padding-bottom: var(--ann-pb, 10px);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Shared text ── */
+  .cs_announcement-bar .ann__rte,
+  .cs_announcement-bar .ann__rte p,
+  .cs_announcement-bar .ann__rte a,
+  .cs_announcement-bar .ann__sep {
+    color: var(--ann-text-color, #fff);
+    font-size: var(--ann-font-size, 14px);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .cs_announcement-bar .ann__rte a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+  }
+  .cs_announcement-bar .ann__rte a:hover { opacity: 0.75; }
+
+  .ann__sep {
+    display: inline-block;
+    padding: 0 0.85em;
+    opacity: 0.5;
+  }
+
+  /* ─────────────────
+     DESKTOP — static
+  ───────────────── */
+  .ann__desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ann__desktop-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .ann__desktop .ann__item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  /* hide mobile on desktop */
+  .ann__mobile { display: none; }
+
+  /* ──────────────────────────────────────────────────────
+     MOBILE — CSS marquee
+     4 sets rendered. Keyframe shifts track by -25%
+     (exactly one set). Snap back to 0 is invisible
+     because sets 2/3/4 fill the gap.
+  ────────────────────────────────────────────────────── */
+  @media (max-width: 749px) {
+    .ann__desktop { display: none; }
+
+    .ann__mobile {
+      display: block;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .ann__track {
+      display: flex;
+      flex-wrap: nowrap;
+      width: max-content;
+      /* GPU layer — prevents paint during animation */
+      will-change: transform;
+      animation: ann-marquee var(--ann-speed, 18s) linear infinite;
+    }
+
+    .ann__set {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    .ann__mobile .ann__item {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+  }
+
+  /* ── Keyframe: move by 25% = exactly one of the four sets ── */
+  @keyframes ann-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+  }
+
+  {% comment %} /* ── Respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .ann__track { animation: none; }
+    .ann__mobile { display: none !important; }
+    .ann__desktop { display: flex !important; }
+  } {% endcomment %}
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "tag": "div",
+  "class": "shopify-section--cs_announcement-bar",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 10, "max": 24, "step": 1,
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Top & Bottom Padding (px)",
+      "min": 4, "max": 32, "step": 2,
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "Show Separator Between Messages (desktop)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator Character",
+      "default": "✦"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Marquee"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Scroll Speed (seconds for one loop)",
+      "min": 6, "max": 60, "step": 2,
+      "default": 18,
+      "info": "Lower = faster. Desktop is always static."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "message",
+          "label": "Message",
+          "default": "<p>Free shipping on orders over $50 — <a href='/collections/all'>Shop Now</a></p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "settings": {
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "font_size": 14,
+        "padding_y": 10,
+        "show_separator": true,
+        "separator": "✦",
+        "marquee_speed": 18
+      },
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "message": "<p>Free shipping on orders over $50 — <a href='/collections/all'>Shop Now</a></p>"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "message": "<p>New arrivals: Taiwanese Botanical Collection</p>"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "message": "<p>10,500+ five-star reviews ★★★★★</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

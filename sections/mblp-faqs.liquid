@@ -1,0 +1,481 @@
+<!-- Section: MBLP FAQs -->
+<div class="{{ section.settings.faqs-id }} mblp-faqs-main">
+  <div class="container">
+    <div class="mblp-faqs-wrapper">
+      <div class="mblp-faqs-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-faqs-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- FAQ Items Container -->
+        <div class="mblp-faqs-container">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'faq_item' %}
+                <div class="mblp-faqs-item" data-block-id="{{ block.id }}">
+                  <button class="mblp-faqs-question" aria-expanded="false" aria-controls="answer-{{ block.id }}">
+                    <span class="mblp-faqs-question-text">{{ block.settings.question }}</span>
+                    <span class="mblp-faqs-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mblp-faqs-plus">
+                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mblp-faqs-minus">
+                        <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                  
+                  <div class="mblp-faqs-answer" id="answer-{{ block.id }}">
+                    <div class="mblp-faqs-answer-content">
+                      {% if block.settings.answer != blank %}
+                        <p>{{ block.settings.answer }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base styles - Mobile First */
+  .mblp-faqs-main {
+    background-color: #FFF;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .mblp-faqs-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .mblp-faqs-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Section Title Styles */
+  .mblp-faqs-title h2 {
+    color: var(--col-light-black);
+    text-align: center;
+    font-family: 'Dm Sans Bold' !important;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.24px;
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  /* FAQ Container */
+  .mblp-faqs-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* FAQ Item */
+  .mblp-faqs-item {
+    border-bottom: 1px solid #E5E7EB;
+    margin-bottom: 0;
+  }
+
+  .mblp-faqs-item:last-child {
+    border-bottom: none;
+  }
+
+  /* FAQ Question Button */
+  .mblp-faqs-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+
+
+  /* Question Text */
+  .mblp-faqs-question-text {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0px;
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  /* FAQ Icon */
+  .mblp-faqs-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--col-light-black);
+    flex-shrink: 0;
+  }
+
+  .mblp-faqs-plus,
+  .mblp-faqs-minus {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  .mblp-faqs-minus {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .mblp-faqs-item.active .mblp-faqs-plus {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .mblp-faqs-item.active .mblp-faqs-minus {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  /* FAQ Answer */
+  .mblp-faqs-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mblp-faqs-answer-content {
+    padding: 0 0 20px 0;
+  }
+
+  .mblp-faqs-answer-content p {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Regular' !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0px;
+    margin: 0;
+  }
+
+  .mblp-faqs-item.active .mblp-faqs-answer {
+    max-height: 500px;
+  }
+
+  /* Mobile specific adjustments */
+  @media (max-width: 768px) {
+    .mblp-faqs-main .container {
+    padding: 0 32px;
+  }
+  .mblp-faqs-item.active .mblp-faqs-answer {
+    padding: 8px;
+}
+
+    .mblp-faqs-sub-wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+    .mblp-faqs-title h2 {
+      font-size: 28px;
+        margin-bottom: 20px;
+        letter-spacing: 0px;
+    }
+    .mblp-faqs-container {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .mblp-faqs-question {
+      padding: 8px;
+    }
+
+    .mblp-faqs-question-text {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .mblp-faqs-answer-content {
+      padding: 0 0 18px 0;
+    }
+
+    .mblp-faqs-answer-content p {
+      font-size: 14px;
+    }
+
+    .mblp-faqs-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .mblp-faqs-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 769px) and (max-width: 1099px) {
+    .mblp-faqs-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-faqs-title h2 {
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    .mblp-faqs-question {
+      padding: 22px 0;
+    }
+
+    .mblp-faqs-question-text {
+      font-size: 17px;
+    }
+
+    .mblp-faqs-answer-content {
+      padding: 0 0 22px 0;
+    }
+
+    .mblp-faqs-answer-content p {
+      font-size: 15px;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1100px) {
+    .mblp-faqs-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-faqs-title h2 {
+      font-size: 40px;
+      margin-bottom: 60px;
+      max-width: unset;
+    }
+
+    .mblp-faqs-question {
+      padding: 25px 0;
+    }
+
+    .mblp-faqs-question-text {
+      font-size: 18px;
+    }
+
+    .mblp-faqs-answer-content {
+      padding: 0 0 25px 0;
+    }
+
+    .mblp-faqs-answer-content p {
+      font-size: 16px;
+    }
+
+    .mblp-faqs-container {
+      max-width: 900px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.mblp-faqs-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.mblp-faqs-question');
+      const answer = item.querySelector('.mblp-faqs-answer');
+      
+      question.addEventListener('click', function() {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items (accordion behavior)
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.mblp-faqs-question').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.mblp-faqs-answer').style.maxHeight = '0';
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          // Close current item
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = '0';
+        } else {
+          // Open current item
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "MBLP FAQs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faqs-id",
+      "label": "Section ID"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Can we bring our own food or drinks?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Yes, you're welcome to bring your own food and drinks for your event. We have refrigeration available if needed."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP FAQs",
+      "settings": {
+        "section_title": "Frequently Asked Questions"
+      },
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we bring our own food or drinks?",
+            "answer": "Yes, you're welcome to bring your own food and drinks for your event. We have refrigeration available if needed."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can we decorate the space before the party?",
+            "answer": "Absolutely! You can arrive 30 minutes early to set up decorations. We provide tables and basic party supplies."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can participants leave their coats and belongings?",
+            "answer": "We have a designated area with hooks and storage space for coats, bags, and personal belongings."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where should we place birthday gifts or other gifts?",
+            "answer": "We have a special gift table set up in a safe area where all presents can be displayed and kept secure during the event."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does payment work?",
+            "answer": "We accept cash, credit cards, and digital payments. A 50% deposit is required to book, with the balance due on the day of your event."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the guest limit?",
+            "answer": "Our standard party package accommodates up to 12 children. For larger groups, please contact us to discuss additional options and pricing."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

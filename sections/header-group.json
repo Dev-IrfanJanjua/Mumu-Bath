@@ -1,0 +1,268 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_cC9tid": {
+          "type": "message",
+          "settings": {
+            "text": "Use code <strong>PRIDE6</strong> to enjoy 10% off sitewide and celebrate Pride Month. 🌈"
+          }
+        },
+        "message-1": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>★Use code FFF11 to enjoy 10% off all facial products.★ </strong>"
+          }
+        },
+        "message_zNjGG6": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>★ Enjoy free shipping on every purchase over $85 ★ </strong>"
+          }
+        }
+      },
+      "block_order": [
+        "message_cC9tid",
+        "message-1",
+        "message_zNjGG6"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 10,
+        "desktop_font_size": 13,
+        "mobile_font_size": 10,
+        "background": "#ffffff",
+        "text_color": "#232121"
+      }
+    },
+    "cutom_announcement_bar_Bh9xwd": {
+      "type": "cutom-announcement-bar",
+      "blocks": {
+        "message_XBwrHx": {
+          "type": "message",
+          "settings": {
+            "message": "<p>Handmade in New York · Taiwanese Farm Botanicals · Free Shipping Over $75</p>"
+          }
+        }
+      },
+      "block_order": [
+        "message_XBwrHx"
+      ],
+      "name": "Custom Announcement Bar",
+      "settings": {
+        "bg_color": "#242221",
+        "text_color": "#ffffff",
+        "font_size": 13,
+        "padding_y": 12,
+        "show_separator": false,
+        "separator": "",
+        "marquee_speed": 18
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_item_promo_dgzLeC": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "facial-skincare",
+            "side_image": "shopify://shop_images/image_2776.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_jcgqVU": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "body-skincare",
+            "side_image": "shopify://shop_images/image_2776_1.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_QFyKRX": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "bath-soap",
+            "side_image": "shopify://shop_images/image_2776_2.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_KTDkVL": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "hair-care",
+            "side_image": "shopify://shop_images/image_2776_3.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_r7f4qL": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "hand-care",
+            "side_image": "shopify://shop_images/image_2776_4.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_TbG39m": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "candles-fragrance",
+            "side_image": "shopify://shop_images/image_2776_5.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_aRFLtR": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "tools",
+            "side_image": "shopify://shop_images/image_2776_6.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_item_promo_HxKMzw": {
+          "type": "mega_menu_item_promo",
+          "settings": {
+            "menu_item_handle": "gift-shop",
+            "side_image": "shopify://shop_images/image_2776_7.png",
+            "button_text": "Shop Facial Skincare",
+            "button_link": "https://www.mumubath.com/collections/facial-skincare",
+            "promo_image": "shopify://shop_images/Frame_2147243482.png",
+            "promo_title": "Shop Best Seller",
+            "promo_link": "shopify://collections/face-body",
+            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
+            "promo_title_2": "Bundle & Save",
+            "promo_link_2": "shopify://collections/subscription-products"
+          }
+        },
+        "mega_menu_RRVpKP": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "shop all",
+            "images_position": "right",
+            "image_1_heading": "",
+            "image_1_text": "",
+            "image_1_link": "",
+            "image_2_heading": "",
+            "image_2_text": "",
+            "image_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_item_promo_dgzLeC",
+        "mega_menu_item_promo_jcgqVU",
+        "mega_menu_item_promo_QFyKRX",
+        "mega_menu_item_promo_KTDkVL",
+        "mega_menu_item_promo_r7f4qL",
+        "mega_menu_item_promo_TbG39m",
+        "mega_menu_item_promo_aRFLtR",
+        "mega_menu_item_promo_HxKMzw",
+        "mega_menu_RRVpKP"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "show_separation_border": false,
+        "reduce_padding": true,
+        "logo": "shopify://shop_images/Frame_2147243051.png",
+        "logo_max_width": 230,
+        "logo_mobile_max_width": 160,
+        "menu": "blinix-main-menu",
+        "sidebar_menu": "blinix-main-menu",
+        "menu_open_trigger": "hover",
+        "enable_search": true,
+        "sidebar_text_font": "heading",
+        "sidebar_show_dividers": false,
+        "layout": "logo_left_navigation_center",
+        "show_icons": true,
+        "show_country_selector": false,
+        "show_country_name": false,
+        "show_country_flag": false,
+        "show_locale_selector": false,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/Mumu_Bath_-_Logo_3.png"
+      }
+    },
+    "custom_liquid_C7xnyw": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom_liquid.presets.custom_liquid.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "cutom_announcement_bar_Bh9xwd",
+    "header",
+    "custom_liquid_C7xnyw"
+  ]
+}

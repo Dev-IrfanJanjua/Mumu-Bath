@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_YbNrfQ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_QUEDmD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_13.png",
+            "mobile_image": "shopify://shop_images/Frame_2608965.png",
+            "subheading": "",
+            "title": "<h1><b>Home Essentials</b></h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_QUEDmD"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_XBWc3A": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Rh6iQD": {
+          "type": "subheading",
+          "settings": {
+            "text": "MAKE YOUR ROOM SMELL AMAZING!"
+          }
+        },
+        "heading_gXanUr": {
+          "type": "heading",
+          "settings": {
+            "text": "Luxury Scented Candles and Home Fragrances",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_77kgLn": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Our candles can help you relax and make your home smell amazing after a busy day. They're perfect for creating a calm space to unwind or hang out with friends.</p><h2>Scented Candles We Offer:</h2><ol><li><a href=\"/products/candle\" title=\"Luxe Natural Scented Candle in Emerald Green Jar\"><strong>Green Jar Candle</strong></a></li></ol><ul><li>Looks super cool on your shelf</li><li>Makes your room smell great</li></ul><ol><li><a href=\"/products/luxe-natural-scented-candle-in-amber-jar\" title=\"Luxe Natural Scented Candle in Amber Jar\"><strong>Amber Jar Candle</strong></a></li></ol><ul><li>Gives off a warm, cozy light</li><li>Perfect for chilling in your room</li></ul><h3>Awesome Scented Smells include:</h3><ul><li>Tiger Lily Lychee: Smells like flowers and fruit</li><li>Ice Lemon Biscotti: Like fresh lemons and cookies</li><li>Cedar Sandalwood: Woodsy smell, like being in a forest</li><li>Jasmine Neroli: Fancy flower smell that'll make you feel special</li></ul><h3>Why Our Candles Are Special</h3><ul><li>Made from soy wax, which is better for the environment</li><li>Burns for a long time, so you get more for your money</li><li>Comes in pretty jars you can use for other stuff later</li><li>Smells so good, your friends will want to know where you got them</li></ul><h3>How to Get Your Scented Candle From Mumu Bath:</h3><ol><li>Pick your favorite smell</li><li>Choose green or amber jar</li><li>Add to cart</li><li>Check out and wait for your awesome candle to arrive!</li></ol><p>Get Your Cool Candle Now!</p><p>Click 'Add to Cart' to make your room the best-smelling place ever. Your friends will be jealous!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Rh6iQD",
+        "heading_gXanUr",
+        "richtext_77kgLn"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "17422802224c079dc4": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_t9DiKH": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_WmKgpk": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_t9DiKH",
+        "targetbay_product_reviews_site_reviews_WmKgpk"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_YbNrfQ",
+    "collection-banner",
+    "main",
+    "rich_text_XBWc3A",
+    "17422802224c079dc4"
+  ]
+}

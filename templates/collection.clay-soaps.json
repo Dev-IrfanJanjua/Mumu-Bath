@@ -1,0 +1,297 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "slideshow_64frpH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6xebYE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Clay_Soaps_-_Banner.png",
+            "mobile_image": "shopify://shop_images/Clay_Soaps_-_Mobile_Banner.png",
+            "subheading": "",
+            "title": "<h1>All Natural Clay Soaps</h1>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6xebYE"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "large",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_hYW86B": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_FytkEb": {
+          "type": "subheading",
+          "settings": {
+            "text": "MUMU BATH WHERE CLAY MEETS LUXURY"
+          }
+        },
+        "richtext_AAwXXf": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Discover the Natural Luxury of Clay Soap Bars</h2><p>Experience the pure touch of nature with our handcrafted soaps. Each bar is made with premium clays like French green, pink, and kaolin. These natural clays draw out impurities while keeping your skin soft and hydrated. Perfect for sensitive, oily, or acne-prone skin.</p><p>At Mumu Bath, we believe in simple, clean, and effective skincare. Our soaps are made with plant-based oils and natural ingredients. They are <a>cold-processed</a> in small batches for maximum benefits. A gentle way to care for your skin and the planet.</p><h2>Why Choose Our <strong>Clay Soap Bars</strong>?</h2><ol><li><strong>Mineral-Rich Formulas</strong>: Our clay soaps are packed with essential minerals and elements that work wonders for your skin.</li><li><strong>Detoxifying Power</strong>: Clay naturally draws out toxins and absorbs impurities, leaving your skin refreshed and revitalized.</li><li><strong>Gentle Cleansing</strong>: Experience a deep clean without harsh chemicals or synthetic additives.</li><li><strong>Skin-Softening Effects</strong>: Enjoy softer, more beautiful skin with regular use.</li><li><strong>Essential Oil Infusions</strong>: Our carefully selected essential oils refresh and tone your skin, enhancing the soap's benefits.</li><li><strong>All-Natural Colorants</strong>: The beautiful hues in our soaps come from natural sources like clays and dried powdered herbs.</li></ol><h3>Our Clay Varieties</h3><p>We use a range of micro-pulverized clays in our soaps, each offering unique benefits:</p><p><strong>French Green Clay</strong>: Known for its detoxifying properties</p><p><strong>Rose Pink Clay</strong>: Gentle and soothing for sensitive skin</p><p><strong>Kaolin Clay</strong>: Mild and suitable for all skin types</p><p></p><h2>The Art of Handcrafted Soap Making</h2><p>Our clay soaps are lovingly handcrafted using traditional methods. We take pride in the saponification process, where natural oils and lye combine to create gentle, nourishing soap. Each bar is carefully molded, cut, and cured for several weeks to ensure the highest quality.</p><p><strong>Experience the Difference</strong></p><p>Our clay soap products offer:</p><ul><li>Extra creamy lather for a luxurious bathing experience</li><li>Slicker texture, perfect for use as shaving soap</li><li>Variety in colors, shapes, sizes, and styles</li><li>A simple, natural way to replenish your skin</li></ul><p>Embrace the joy of natural skincare with our Clay Soap collection. Your skin deserves the best – treat it to the purifying power of clay and the nourishing benefits of handcrafted soap.</p><p>Shop our Clay Soap collection now and transform your daily cleansing routine into a spa-like experience!</p><h2>How to Use for Best Results</h2><p><strong> Cleanse Gently - </strong>Lather the <strong>soap clay</strong> with warm water between your<br/>hands. Massage the rich foam onto damp skin, then rinse thoroughly.</p><p><strong>Seal in Moisture - </strong>After drying, apply our Lightweight Body Butter or Body Oil.<br/>This helps lock in hydration and leaves your skin soft and nourished.</p><p><strong>Make It Last - </strong>To prolong the life of your bar, store it <a>on</a> a well-<a>draining</a> soap<br/>dish. Avoid leaving it in standing water between uses.</p><p> </p><h2>Why Shop <a>From</a> Us</h2><p><strong> </strong></p><p><strong>Natural & Thoughtful Ingredients<br/>- </strong>We use high-quality, skin-loving<br/>ingredients in every bar. No harsh chemicals - just clean, conscious care.</p><p><strong>Handcrafted with Purpose - </strong>Each <strong>soap clay</strong> bar is handmade in small batches. This ensures attention to detail and consistent quality.</p><p><strong>Sustainable Packaging - </strong>Our packaging is eco-friendly and minimal. It's better for your skin and the planet.</p><p><strong>Hydration You Can Feel - </strong>Pair our soaps with our body butters or oils for<br/>long-lasting softness. Your skin stays moisturized, smooth, and nourished all<br/>day.</p><p><strong>Trusted by Our Community - </strong>We’ve earned loyal customers who care about clean beauty. Their feedback continues to shape what we create next.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FytkEb",
+        "richtext_AAwXXf"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "slideshow_BBkd9z": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3EnMH4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Avocado_Oil_Soaps_-_banner.png",
+            "mobile_image": "shopify://shop_images/Avocado_Soaps_-_Mumu_Bath.png",
+            "subheading": "",
+            "title": "<h3>Avocado Soap Range<h3>\n<br>\n</h3>\n</h3><p style=\"font-size: 16px\">Try our Avocado Soap today and experience softer, healthier skin! </p><p>\n<br>\n</p><p>Nourish and moisturize your skin.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "Shop Now →",
+            "button_1_link": "shopify://collections/avocado-oil-soap",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#ffffff",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "#1c1c1c",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(NaN, NaN, NaN, 0), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_3EnMH4"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "17422802486cbefffb": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_pkrDgy": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_nwg68i": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_pkrDgy",
+        "targetbay_product_reviews_site_reviews_nwg68i"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "faq_en6jEw": {
+      "type": "faq",
+      "blocks": {
+        "question_kwLQN7": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>What types of clay are used in your soaps?</strong>",
+            "answer": "<p>We use a variety of natural clays including French green clay, kaolin clay, and rose clay. Each type offers unique benefits such as detoxifying, soothing, or balancing the skin.</p>"
+          }
+        },
+        "question_gfqTkk": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I use a clay soap bar daily on my face and body?</strong>",
+            "answer": "<p>Yes, our <strong>clay soap bar</strong> is gentle enough for daily use on both the face and body. It balances oil production while keeping your skin smooth and nourished.</p>"
+          }
+        },
+        "question_rPNTqR": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Are clay soaps suitable for children?</strong>",
+            "answer": "<p>Our soaps are made with gentle, natural ingredients and can be used on children. However, we recommend patch testing before full use, especially for sensitive skin.</p>"
+          }
+        },
+        "question_TFtYke": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How long does one soap bar last?</strong>",
+            "answer": "<p>When stored properly on a draining soap dish, one bar typically lasts 3 to 4 weeks with daily use. Keeping it dry between uses<br/>extends its life.</p>"
+          }
+        },
+        "question_ib9hxA": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Does soap clay bar help with acne-prone skin?</strong>",
+            "answer": "<p>Yes, <strong>soap clay</strong> bar can be beneficial for acne-prone skin. It cleans deeply, unclogs pores, and reduces excess oil without<br/>over-drying.</p>"
+          }
+        },
+        "question_3jydm6": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Do your soaps help with body odor?</strong>",
+            "answer": "<p>Clay is known for absorbing toxins and impurities, which can help neutralize body odor naturally. Our soaps also contain essential oils with antimicrobial properties.</p>"
+          }
+        },
+        "question_Dq6VND": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How do I store the soap for longer </strong><a><strong>use</strong></a><strong>?</strong>",
+            "answer": "<p>Use a well-<a>draining</a> soap dish and avoid letting the bar sit in the water. This helps prevent softening and<br/>makes your soap last longer.</p>"
+          }
+        },
+        "question_YRWDKK": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Are your clay soaps handmade?</strong>",
+            "answer": "<p>Yes, every bar in our collection is handcrafted in small batches. We prioritize natural, skin-safe ingredients with no synthetic additives.</p>"
+          }
+        },
+        "question_nCiDbw": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I travel with your soap bars?</strong>",
+            "answer": "<p>Yes, they’re compact and easy to travel with. Just store them in a dry container or reusable soap pouch.</p>"
+          }
+        },
+        "question_87KheG": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Do the soaps leave residue on the skin or shower?</strong>",
+            "answer": "<p>No, our soaps rinse clean without leaving a film on your skin or tiles. Just enjoy the refreshing feel and light scent.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_kwLQN7",
+        "question_gfqTkk",
+        "question_rPNTqR",
+        "question_TFtYke",
+        "question_ib9hxA",
+        "question_3jydm6",
+        "question_Dq6VND",
+        "question_YRWDKK",
+        "question_nCiDbw",
+        "question_87KheG"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "slideshow_64frpH",
+    "main",
+    "rich_text_hYW86B",
+    "faq_en6jEw",
+    "slideshow_BBkd9z",
+    "17422802486cbefffb"
+  ]
+}

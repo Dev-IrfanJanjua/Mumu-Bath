@@ -1,0 +1,495 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "settings": {
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "slideshow_HUkwYb": {
+      "type": "slideshow",
+      "blocks": {
+        "image_nijtat": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_136.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0), rgba(4, 4, 4, 0) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_nijtat"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#ffffff",
+        "controls_color": "#ffffff"
+      }
+    },
+    "slideshow_dxh6J4": {
+      "type": "slideshow",
+      "blocks": {
+        "image_tUtGwL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_120_03880301-946f-47a4-ab34-d6d13ae102d4.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0), rgba(4, 4, 4, 0) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_tUtGwL"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#ffffff",
+        "controls_color": "#ffffff"
+      }
+    },
+    "slideshow_gd8RbT": {
+      "type": "slideshow",
+      "blocks": {
+        "image_xrRkqp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_145.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(4, 4, 4, 0) 4%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_xrRkqp"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "slideshow_6Xqh9m": {
+      "type": "slideshow",
+      "blocks": {
+        "image_PgVjwF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_157.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 4%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_PgVjwF"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "multiple_media_with_text_R6rM7t": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_DfAkRM": {
+          "type": "image",
+          "settings": {
+            "rotation": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_DfAkRM"
+      ],
+      "disabled": true,
+      "name": "t:sections.multiple_media_with_text.presets.multiple_media_with_text.name",
+      "settings": {
+        "reveal_on_scroll": true,
+        "separate_section_with_border": true,
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "text_alignment": "center",
+        "subheading": "About",
+        "title": "Showcase your product",
+        "content": "<p>Write some content about your products, collections or brand. Use image or video to create an impactful layout.</p>",
+        "button_1_text": "jkjkjl",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "solid",
+        "background": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "slideshow_qiW4HR": {
+      "type": "slideshow",
+      "blocks": {
+        "image_QBrWJp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_130_1284f96f-ad8e-44ee-ad64-be157ae2f901.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0), rgba(4, 4, 4, 0) 4%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_QBrWJp"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "slideshow_wnaJgJ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_VzbBUH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_166.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(4, 4, 4, 0) 4%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_VzbBUH"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": false,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "contact_yDxdD3": {
+      "type": "contact",
+      "blocks": {
+        "text_tewexU": {
+          "type": "text",
+          "settings": {
+            "title": "Party Theme",
+            "use_long_text": false,
+            "required": false
+          }
+        },
+        "text_TFtY9t": {
+          "type": "text",
+          "settings": {
+            "title": "Phone Number",
+            "use_long_text": false,
+            "required": false
+          }
+        },
+        "text_bJimjQ": {
+          "type": "text",
+          "settings": {
+            "title": "Group or Host Name",
+            "use_long_text": false,
+            "required": false
+          }
+        },
+        "dropdown_LMPdpF": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Number of Guests",
+            "values": "8, 9, 10,11,12,13,14,15,16"
+          }
+        },
+        "dropdown_7emVXC": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Preferred Date",
+            "values": "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+          }
+        },
+        "dropdown_83Lm3a": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Preferred Time Slots",
+            "values": "Before 12p.m.,1 p.m.- 4 p.m.,4 p.m.- 7 p.m.,After 7 p.m."
+          }
+        }
+      },
+      "block_order": [
+        "text_tewexU",
+        "text_TFtY9t",
+        "text_bJimjQ",
+        "dropdown_LMPdpF",
+        "dropdown_7emVXC",
+        "dropdown_83Lm3a"
+      ],
+      "name": "t:sections.contact.presets.contact_form.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "subheading": "",
+        "title": "Book your private party now to reserve your spot.",
+        "content": ""
+      }
+    },
+    "faq_zmjdr7": {
+      "type": "faq",
+      "blocks": {
+        "question_RKhDrj": {
+          "type": "question",
+          "settings": {
+            "question": "Can we bring our own food or drinks?",
+            "answer": "<p>To keep the space clean and safe for everyone, we kindly ask that no outside food or drinks be brought into the venue. We've got everything set up for a fun and worry-free celebration!</p>"
+          }
+        },
+        "question_PYWQVE": {
+          "type": "question",
+          "settings": {
+            "question": "Can we decorate the space before the party?",
+            "answer": "<p>Absolutely! You’re welcome to bring your own decorations. Please arrive 20 minutes before the party starts to set everything up.</p>"
+          }
+        },
+        "question_Q9LThc": {
+          "type": "question",
+          "settings": {
+            "question": "Where can participants leave their coats and belongings?",
+            "answer": "<p>There’s a comfy sofa area where kids can place their coats and bags during the party.</p>"
+          }
+        },
+        "question_KJARnx": {
+          "type": "question",
+          "settings": {
+            "question": "Where should we place birthday gifts or other gifts?",
+            "answer": "<p>All gifts can be placed in our fun bathtub display area — it’s part of the experience!</p>"
+          }
+        },
+        "question_icrtD6": {
+          "type": "question",
+          "settings": {
+            "question": "How does payment work?",
+            "answer": "<p>We require a 50% deposit to confirm your booking, and the remaining 50% balance is due on the day of the party.</p>"
+          }
+        },
+        "question_Bzf9G6": {
+          "type": "question",
+          "settings": {
+            "question": "What’s the guest limit?",
+            "answer": "<p>Our workshops are best enjoyed with a group! Each session needs at least 8 guests, and we can host up to 16 people comfortably.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_RKhDrj",
+        "question_PYWQVE",
+        "question_Q9LThc",
+        "question_KJARnx",
+        "question_icrtD6",
+        "question_Bzf9G6"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_HUkwYb",
+    "slideshow_dxh6J4",
+    "slideshow_gd8RbT",
+    "slideshow_6Xqh9m",
+    "multiple_media_with_text_R6rM7t",
+    "174228070476985170",
+    "slideshow_qiW4HR",
+    "slideshow_wnaJgJ",
+    "contact_yDxdD3",
+    "faq_zmjdr7"
+  ]
+}

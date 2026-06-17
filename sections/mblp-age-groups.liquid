@@ -1,0 +1,1143 @@
+<!-- Section: MBLP Age Groups -->
+<div id="{{ section.settings.age-group-id }}"  class="{{ section.settings.age-group-class }} mblp-age-groups-main">
+  <div class="container">
+    <div class="mblp-age-groups-wrapper">
+      <div class="mblp-age-groups-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-age-groups-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Section Subtitle -->
+        {% if section.settings.section_subtitle != blank %}
+          <div class="mblp-age-groups-subtitle">
+            <p>{{ section.settings.section_subtitle }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Steps Container -->
+        <div class="mblp-age-groups-steps-container">
+          <!-- Mobile Splide Slider -->
+          <div class="splide mblp-steps-slider-{{ section.id }}" id="mblp-steps-slider-{{ section.id }}">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <!-- Step 1 -->
+                {% if section.settings.step1_image != blank
+                  or section.settings.step1_number != blank
+                  or section.settings.step1_title != blank
+                  or section.settings.step1_description != blank
+                %}
+                  <li class="splide__slide">
+                    <div class="mblp-age-groups-step">
+                      {% if section.settings.step1_image != blank %}
+                        <div class="mblp-age-groups-step-image mblp-age-groups-step-image-card-1">
+                          {{ section.settings.step1_image | image_url: width: 1500 | image_tag }}
+                        </div>
+                      {% endif %}
+
+                      <div class="mblp-age-groups-main-step">
+
+                      {% if section.settings.step1_number != blank %}
+                        <div class="mblp-age-groups-step-number">
+                          <span>{{ section.settings.step1_number }}</span>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step1_title != blank %}
+                        <div class="mblp-age-groups-step-title">
+                          <h3>{{ section.settings.step1_title }}</h3>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step1_description != blank %}
+                        <div class="mblp-age-groups-step-description">
+                          <p>{{ section.settings.step1_description }}</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                    </div>
+                  </li>
+                {% endif %}
+
+                <!-- Step 2 -->
+                {% if section.settings.step2_image != blank
+                  or section.settings.step2_number != blank
+                  or section.settings.step2_title != blank
+                  or section.settings.step2_description != blank
+                  or section.settings.step2_link_text != blank
+                %}
+                  <li class="splide__slide">
+                    <div class="mblp-age-groups-step">
+                      {% if section.settings.step2_image != blank %}
+                        <div class="mblp-age-groups-step-image">
+                          {{ section.settings.step2_image | image_url: width: 1500 | image_tag }}
+                        </div>
+                      {% endif %}
+
+                       <div class="mblp-age-groups-main-step">
+                      {% if section.settings.step2_number != blank %}
+                        <div class="mblp-age-groups-step-number">
+                          <span>{{ section.settings.step2_number }}</span>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step2_title != blank %}
+                        <div class="mblp-age-groups-step-title">
+                          <h3>{{ section.settings.step2_title }}</h3>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step2_description != blank %}
+                        <div class="mblp-age-groups-step-description">
+                          <p>{{ section.settings.step2_description }}</p>
+                        </div>
+                      {% endif %}
+                      </div>
+
+                      {% if section.settings.step2_link_text != blank %}
+                        <div class="mblp-age-groups-step-link">
+                          {% if section.settings.step2_link_image != blank %}
+                            <img src="{{ section.settings.step2_link_image | image_url: width: 24 }}" alt="Link icon">
+                          {% endif %}
+                          <a href="{{ section.settings.step2_link_url | default: '#' }}">
+                            {{ section.settings.step2_link_text }}
+                          </a>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </li>
+                {% endif %}
+
+                <!-- Step 3 -->
+                {% if section.settings.step3_image != blank
+                  or section.settings.step3_number != blank
+                  or section.settings.step3_title != blank
+                  or section.settings.step3_description != blank
+                %}
+                  <li class="splide__slide">
+                    <div class="mblp-age-groups-step">
+                      {% if section.settings.step3_image != blank %}
+                        <div class="mblp-age-groups-step-image">
+                          {{ section.settings.step3_image | image_url: width: 1500 | image_tag }}
+                        </div>
+                      {% endif %}
+
+                       <div class="mblp-age-groups-main-step">
+
+                      {% if section.settings.step3_number != blank %}
+                        <div class="mblp-age-groups-step-number">
+                          <span>{{ section.settings.step3_number }}</span>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step3_title != blank %}
+                        <div class="mblp-age-groups-step-title">
+                          <h3>{{ section.settings.step3_title }}</h3>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.step3_description != blank %}
+                        <div class="mblp-age-groups-step-description">
+                          <p>{{ section.settings.step3_description }}</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                    </div>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Desktop Non-Slider Layout -->
+          <div class="mblp-desktop-steps">
+            <!-- Step 1 -->
+            {% if section.settings.step1_image != blank
+              or section.settings.step1_number != blank
+              or section.settings.step1_title != blank
+              or section.settings.step1_description != blank
+            %}
+              <div class="mblp-age-groups-step">
+                {% if section.settings.step1_image != blank %}
+                  <div class="mblp-age-groups-step-image mblp-age-groups-step-image-card-1">
+                    {{ section.settings.step1_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                 <div class="mblp-age-groups-main-step">
+                {% if section.settings.step1_number != blank %}
+                  <div class="mblp-age-groups-step-number">
+                    <span>{{ section.settings.step1_number }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step1_title != blank %}
+                  <div class="mblp-age-groups-step-title">
+                    <h3>{{ section.settings.step1_title }}</h3>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step1_description != blank %}
+                  <div class="mblp-age-groups-step-description">
+                    <p>{{ section.settings.step1_description }}</p>
+                  </div>
+                {% endif %}
+              </div>
+              </div>
+            {% endif %}
+
+            <!-- Step 2 -->
+            {% if section.settings.step2_image != blank
+              or section.settings.step2_number != blank
+              or section.settings.step2_title != blank
+              or section.settings.step2_description != blank
+              or section.settings.step2_link_text != blank
+            %}
+              <div class="mblp-age-groups-step">
+                {% if section.settings.step2_image != blank %}
+                  <div class="mblp-age-groups-step-image">
+                    {{ section.settings.step2_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                 <div class="mblp-age-groups-main-step">
+                {% if section.settings.step2_number != blank %}
+                  <div class="mblp-age-groups-step-number">
+                    <span>{{ section.settings.step2_number }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step2_title != blank %}
+                  <div class="mblp-age-groups-step-title">
+                    <h3>{{ section.settings.step2_title }}</h3>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step2_description != blank %}
+                  <div class="mblp-age-groups-step-description">
+                    <p>{{ section.settings.step2_description }}</p>
+                  </div>
+                {% endif %}
+
+                </div>
+                {% if section.settings.step2_link_text != blank %}
+                  <div class="mblp-age-groups-step-link">
+                    {% if section.settings.step2_link_image != blank %}
+                      <img src="{{ section.settings.step2_link_image | image_url: width: 24 }}" alt="Link icon">
+                    {% endif %}
+                    <a href="{{ section.settings.step2_link_url | default: '#' }}">
+                      {{ section.settings.step2_link_text }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <!-- Step 3 -->
+            {% if section.settings.step3_image != blank
+              or section.settings.step3_number != blank
+              or section.settings.step3_title != blank
+              or section.settings.step3_description != blank
+            %}
+              <div class="mblp-age-groups-step">
+                {% if section.settings.step3_image != blank %}
+                  <div class="mblp-age-groups-step-image">
+                    {{ section.settings.step3_image | image_url: width: 1500 | image_tag }}
+                  </div>
+                {% endif %}
+
+                 <div class="mblp-age-groups-main-step">
+                {% if section.settings.step3_number != blank %}
+                  <div class="mblp-age-groups-step-number">
+                    <span>{{ section.settings.step3_number }}</span>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step3_title != blank %}
+                  <div class="mblp-age-groups-step-title">
+                    <h3>{{ section.settings.step3_title }}</h3>
+                  </div>
+                {% endif %}
+
+                {% if section.settings.step3_description != blank %}
+                  <div class="mblp-age-groups-step-description">
+                    <p>{{ section.settings.step3_description }}</p>
+                  </div>
+                {% endif %}
+              </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- Desktop Info Section -->
+          {% if section.settings.info_icon != blank or section.settings.info_content != blank %}
+            <div class="mblp-age-groups-info-section mblp-desktop-only">
+              <div class="mblp-age-groups-info-wrapper">
+                {% if section.settings.info_icon != blank %}
+                  <div class="mblp-age-groups-info-icon">
+                    {{ section.settings.info_icon | image_url: width: 48 | image_tag }}
+                  </div>
+                {% endif %}
+                {% if section.settings.info_content != blank %}
+                  <div class="mblp-age-groups-info-content">
+                    {{ section.settings.info_content }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+
+
+          <!-- Button Section -->
+          {% if section.settings.button_text != blank %}
+            <div class="mblp-age-groups-button-section">
+              <a href="{{ section.settings.button_url | default: '#' }}" class="mblp-age-groups-button">
+                {{ section.settings.button_text }}
+              </a>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load Splide CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<style>
+        /* Base styles - Mobile First */
+        .mblp-age-groups-main {
+          background-color: #FFF;
+          padding-top: {{ section.settings.padding_top_mobile-1 }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mobile-1 }}px;
+        }
+
+    .mblp-age-groups-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    max-width: 950px;
+     }
+
+
+        .mblp-age-groups-sub-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .mblp-age-groups-title h2 {
+          font-size: 36px;
+          text-align: center;
+          font-family: 'Dm Sans Bold' !important;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          padding: 10px;
+          color: var(--col-light-black);
+        }
+
+        .mblp-age-groups-subtitle p {
+          color: var(--col-light-black);
+          text-align: center;
+          font-family: 'Dm Sans Bold' !important;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          padding-bottom: 53px;
+        }
+
+        .mblp-age-groups-steps-container {
+          width: 100%;
+          gap: 36px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+              /* Mobile Slider Styles */
+        .mblp-steps-slider-{{ section.id }} {
+          display: block;
+          width: 100%;
+        }
+
+        .mblp-desktop-steps {
+          display: none;
+        }
+
+        /* Mobile/Desktop visibility classes */
+        .mblp-mobile-only {
+          display: block;
+        }
+
+        .mblp-desktop-only {
+          display: none;
+        }
+        .mblp-age-groups-main-step {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+        .mblp-age-groups-step {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 30px;
+    gap: 28px;
+          background:#FCF3C5 50%;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          margin: 0;
+          height: 100%;
+          min-height: 390px;
+          min-width: 290px;
+          border-radius: 20px;
+          background: #FCF3C5 50%;
+        }
+
+       /* .mblp-age-groups-step-image-card-1 {
+          display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .mblp-age-groups-step-image-card-1 img {
+        height: 150px !important;
+    } */
+
+        .mblp-age-groups-step-image {
+          max-width: 200px;
+          border-radius: 10px;
+          background: transparent;
+          /* padding: 25px; */
+          height: auto;
+          width: 100%;
+          flex-shrink: 0;
+        }
+
+        .mblp-age-groups-step-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .mblp-age-groups-step-number span {
+          color: var(--col-light-black);
+          font-family: 'Dm Sans Medium' !important;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+
+        .mblp-age-groups-step-title h3 {
+          color: var(--col-light-black);
+          margin: 0;
+          font-family: 'Dm Sans Medium' !important;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .mblp-age-groups-step-description p {
+          color: var(--col-light-black);
+         letter-spacing: -0.14px;
+          margin: 0;
+          font-family: 'Dm Sans Medium' !important;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          max-width: 280px;
+          line-height: normal;
+          letter-spacing: -0.2px;
+        }
+
+        .mblp-age-groups-step-link {
+          display: flex;
+          align-items: center;
+          gap: 0px;
+          text-decoration: underline;
+         font-family: 'Dm Sans Medium' !important;
+          font-size: 14px;
+          font-weight: 500;
+          transition: color 0.3s ease;
+          text-underline-offset: 4px;
+        }
+
+        .mblp-age-groups-step-link img {
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+        }
+
+        /* Info Section Styles */
+        .mblp-age-groups-info-section {
+          {% comment %} margin-top: 40px; {% endcomment %}
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .mblp-age-groups-info-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background:#F8F6EE;
+          border-radius: 10px;
+          padding: 16px 20px;
+          max-width: 100%;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .mblp-age-groups-info-icon {
+          flex-shrink: 0;
+          width: 36px;
+          height: 36px;
+        }
+
+        .mblp-age-groups-info-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .mblp-age-groups-info-content {
+          flex: 1;
+          color: var(--col-light-black);
+          font-family: 'Dm Sans Medium' !important;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%;
+        }
+
+        .mblp-age-groups-info-content p {
+          margin: 0;
+          color: var(--col-light-black);
+          font-family: 'Dm Sans Medium' !important;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 140%;
+          letter-spacing: -0.16px;
+        }
+
+        /* Button Section Styles */
+        .mblp-age-groups-button-section {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .mblp-age-groups-button {
+          border-radius: 10px;
+          background: #FBDD3F;
+          height: 61px;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          font-family: 'Dm Sans Medium' !important;
+          color: #232121;
+          padding: 16px 20px;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          width: 100%;
+        }
+
+        .mblp-age-groups-button:hover {
+          background: #E5C43A;
+        }
+
+        /* Custom Splide Pagination Styles */
+        .splide__pagination {
+          bottom: -10px !important;
+          padding: 0;
+          position: relative !important;
+        }
+
+        .splide__pagination__page {
+          width: 10px !important;
+          height: 10px !important;
+          border-radius: 50% !important;
+          background: #D1D5DB !important;
+          margin: 0 4px !important;
+          opacity: 1 !important;
+          transition: all 0.3s ease !important;
+          border: none !important;
+          transform: none !important;
+        }
+
+        .splide__pagination__page.is-active {
+          background: #FBDD3F !important;
+          transform: scale(1.2) !important;
+        }
+
+        /* Hide splide arrows on mobile */
+        .splide__arrows {
+          display: none !important;
+        }
+
+        /* Splide track and list styles */
+        .splide__track {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .splide__list {
+          backface-visibility: hidden;
+          display: flex;
+          height: 100%;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        .splide__slide {
+          backface-visibility: hidden;
+          box-sizing: border-box;
+          flex-shrink: 0;
+          list-style-type: none !important;
+          margin: 0;
+          position: relative;
+          width: 100%;
+          padding: 0 15px;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+          .mblp-age-groups-title h2 {
+            font-size: 28px;
+            max-width: 330px;
+          }
+
+          .mblp-age-groups-main-step {
+    gap: 10px;
+}
+
+          .mblp-age-groups-wrapper {
+    max-width: 700px;
+}
+
+          .mblp-age-groups-info-content p {
+      font-size: 14px; 
+        max-width: 260px;
+  }
+          .mblp-age-groups-info-icon {
+      width: 24px;
+      height: 24px;
+  }
+ .mblp-age-groups-title h2 {
+    font-size: 28px;
+    max-width: 330px;
+    padding: 0px 0 20px;
+}
+
+          .mblp-age-groups-subtitle p {
+            font-size: 16px;
+            padding-bottom: 24px;
+          }
+
+          .mblp-age-groups-step {
+            gap: 20px;
+        padding: 20px;
+        min-height: unset;
+          }
+
+          #mblp-steps-slider-{{ section.id }}-list  li {
+          margin-right: 0px !important;
+      }
+
+          .mblp-age-groups-step-number span {
+            font-size: 20px;
+        line-height: 160%;
+          }
+
+          .mblp-age-groups-step-title h3 {
+            font-size: 16px;
+            letter-spacing: -0.16px;
+          }
+
+          .mblp-age-groups-step-image {
+           max-width: 100%;
+                    margin: 0 auto;
+          }
+          .splide__pagination {
+    bottom: -20px !important;
+}
+
+          .mblp-age-groups-step-description p {
+            font-size: 16px;
+                    text-align: left;
+                    letter-spacing: -0.16px;
+          }
+
+          .mblp-age-groups-step-link a {
+            font-size: 16px;
+          }
+          /* Button mobile styles */
+          .mblp-age-groups-button {
+            font-size: 14px;
+            height: 50px;
+            padding: 12px 16px;
+            min-width: 180px;
+          }
+
+
+          .mblp-age-groups-info-wrapper {
+                    padding: 14px 12px;
+        {% comment %} max-width: 330px; {% endcomment %}
+        gap: 8px;
+          }
+
+          .mblp-age-groups-info-content {
+            font-size: 14px;
+          }
+
+          /* Ensure Splide is visible and working */
+          .mblp-steps-slider-{{ section.id }} {
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100%;
+            position: relative;
+          }
+
+          .splide__track {
+            overflow: hidden !important;
+            width: 100%;
+          }
+
+          .splide__list {
+            width: 100%;
+            transition-property: transform;
+          }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 769px) {
+          .mblp-age-groups-main {
+            padding-top: {{ section.settings.padding_top_desktop-1 }}px;
+            padding-bottom: {{ section.settings.padding_bottom_desktop-1 }}px;
+          }
+
+          .mblp-age-groups-wrapper {
+    max-width: 850px;
+}
+
+          /* Hide mobile slider, show desktop layout */
+          .mblp-steps-slider-{{ section.id }} {
+            display: none !important;
+          }
+
+          .mblp-age-groups-button {
+            font-size: 20px;
+          }
+
+          .mblp-desktop-steps {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            justify-content: center;
+            padding-top: 36px;
+          }
+
+          /* Show desktop info, hide mobile info */
+          .mblp-mobile-only {
+            display: none !important;
+          }
+
+          .mblp-desktop-only {
+            display: block;
+          }
+
+      
+
+          .mblp-age-groups-subtitle p {
+            font-size: 18px;
+          }
+
+          .mblp-age-groups-step {
+            /* max-width: 300px; */
+            padding: 30px 20px;
+            /* align-items: flex-start; */
+            /* text-align: left; */
+            margin: 0;
+            {% comment %} min-height: auto; {% endcomment %}
+          }
+
+          .mblp-age-groups-step-image {
+            align-self: center;
+            max-width: 400px;
+          }
+
+          .mblp-age-groups-step-title h3 {
+            font-size: 18px;
+          }
+
+          .mblp-age-groups-step-description p {
+            font-size: 20px;
+            max-width: 250px;
+          }
+
+          .mblp-age-groups-step-link a {
+            font-size: 16px;
+          }
+
+          /* Info section desktop styles */
+          .mblp-age-groups-info-section {
+            {% comment %} margin-top: 25px; {% endcomment %}
+          }
+
+          .mblp-age-groups-info-wrapper {
+            padding: 20px;
+          }
+
+          .mblp-age-groups-info-content {
+            font-size: 15px;
+          }
+        }
+
+        /* Large Desktop Styles */
+        @media (min-width: 1100px) {
+
+          .mblp-age-groups-step {
+            /* max-width: 350px; */
+            padding: 30px 40px;
+          }
+
+          .mblp-age-groups-title h2 {
+            font-size: 40px;
+          }
+
+          .mblp-age-groups-subtitle p {
+            font-size: 20px;
+          }
+
+          .mblp-age-groups-step-title h3 {
+                   font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: -0.2px;
+          font-family: 'Dm Sans Medium' !important;
+          }
+
+          /* Info section large desktop styles */
+          .mblp-age-groups-info-content {
+            font-size: 16px;
+          }
+        }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let splideInstance = null;
+
+    function initializeSplide() {
+      // Destroy existing instance if it exists
+      if (splideInstance) {
+        splideInstance.destroy();
+        splideInstance = null;
+      }
+
+      // Only initialize on mobile/tablet
+      if (window.innerWidth <= 768) {
+        const splideElement = document.getElementById('mblp-steps-slider-{{ section.id }}');
+
+        if (splideElement && typeof Splide !== 'undefined') {
+          splideInstance = new Splide('#mblp-steps-slider-{{ section.id }}', {
+            type: 'slide',
+            perPage: 2,
+            perMove: 1,
+            gap: '20px',
+            padding: { left: '20px', right: '20px' },
+            pagination: true,
+            arrows: false,
+            autoplay: false,
+            drag: true,
+            snap: true,
+            focus: '0',
+            trimSpace: false,
+             breakpoints: {
+              500: {
+                perPage: 1, 
+                focus: 'center', // Ensure center focus
+            trimSpace: false
+              }
+            },
+            classes: {
+              arrows: 'splide__arrows',
+              arrow : 'splide__arrow',
+              prev  : 'splide__arrow--prev',
+              next  : 'splide__arrow--next',
+            }
+          });
+
+          try {
+            splideInstance.mount();
+            console.log('Splide initialized successfully');
+          } catch (error) {
+            console.error('Error initializing Splide:', error);
+          }
+        }
+      }
+    }
+
+    // Wait for Splide library to load
+    function waitForSplide() {
+      if (typeof Splide !== 'undefined') {
+        initializeSplide();
+      } else {
+        setTimeout(waitForSplide, 100);
+      }
+    }
+
+    waitForSplide();
+
+    // Handle resize events
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        initializeSplide();
+      }, 250);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MBLP Age Groups",
+  "settings": [
+     {
+      "type": "text",
+      "id": "age-group-id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "age-group-class",
+      "label": "Add Class"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "How Subscription Works?"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Set it once. Relax every time."
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop-1",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop-1",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile-1",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile-1",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Step 1 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step1_image",
+      "label": "Step 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "step1_number",
+      "label": "Step 1 Number",
+      "default": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Select Subscription Plan"
+    },
+    {
+      "type": "textarea",
+      "id": "step1_description",
+      "label": "Step 1 Description",
+      "default": "Choose a product with a subscription option, add it to your cart, and check out."
+    },
+    {
+      "type": "header",
+      "content": "Step 2 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_image",
+      "label": "Step 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "step2_number",
+      "label": "Step 2 Number",
+      "default": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Manage Anytime"
+    },
+    {
+      "type": "textarea",
+      "id": "step2_description",
+      "label": "Step 2 Description",
+      "default": "Log into your account to edit shipment, or update your deliveries."
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_link_image",
+      "label": "Step 2 Link Icon"
+    },
+    {
+      "type": "text",
+      "id": "step2_link_text",
+      "label": "Step 2 Link Text",
+      "default": "Learn how it works"
+    },
+    {
+      "type": "url",
+      "id": "step2_link_url",
+      "label": "Step 2 Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Step 3 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "step3_image",
+      "label": "Step 3 Image"
+    },
+    {
+      "type": "text",
+      "id": "step3_number",
+      "label": "Step 3 Number",
+      "default": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Receive Your Products"
+    },
+    {
+      "type": "textarea",
+      "id": "step3_description",
+      "label": "Step 3 Description",
+      "default": "Your products arrive on time — just relax and enjoy."
+    },
+    {
+      "type": "header",
+      "content": "Info Section Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "info_icon",
+      "label": "Info Icon"
+    },
+    {
+      "type": "richtext",
+      "id": "info_content",
+      "label": "Info Content",
+      "default": "<p>Each party should be organized for a specific age group, as the teaching content and approach will vary.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Age Groups",
+      "settings": {
+        "section_title": "How Subscription Works?",
+        "section_subtitle": "Set it once. Relax every time.",
+        "step1_number": "Step 1",
+        "step1_title": "Select Subscription Plan",
+        "step1_description": "Choose a product with a subscription option, add it to your cart, and check out.",
+        "step2_number": "Step 2",
+        "step2_title": "Manage Anytime",
+        "step2_description": "Log into your account to edit shipment, or update your deliveries.",
+        "step2_link_text": "Learn how it works",
+        "step3_number": "Step 3",
+        "step3_title": "Receive Your Products",
+        "step3_description": "Your products arrive on time — just relax and enjoy.",
+        "button_text": "Get Started"
+      }
+    }
+  ]
+}
+{% endschema %}

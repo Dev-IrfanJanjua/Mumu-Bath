@@ -1,0 +1,1005 @@
+{% comment %}
+  MBLP Exclusive Subscription Prices Section - Updated with Form-based Cart Addition
+{% endcomment %}
+
+<!-- Splide CSS/JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<style>
+      .mblp-exclusive-subscription-main {
+        width: 100%;
+        padding-top: {{ section.settings.padding_top_desktop | default: 60 }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop | default: 60 }}px;
+      }
+      .mblp-exclusive-subscription-subscribe-btn.sold-out {
+      background: #ccc;
+      cursor: not-allowed;
+      color: #666;
+    }
+      @media (max-width: 768px) {
+        .mblp-exclusive-subscription-main {
+          padding-top: {{ section.settings.padding_top_mobile | default: 40 }}px !important;
+          padding-bottom: {{ section.settings.padding_bottom_mobile | default: 40 }}px !important;
+        }
+
+
+       .mblp-exclusive-subscription-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  padding: 0 15px;
+}
+
+ 
+.mblp-exclusive-subscription-tabs-nav {
+    display: flex;
+     {% comment %} border-bottom: 2px solid var(--col-dark-grey);
+  padding-bottom: 16px; {% endcomment %}
+    gap: 14px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    padding: 0;
+    width: 100%;
+    /* Add smooth scrolling */
+    scroll-behavior: smooth;
+    /* Add scroll snap for better UX */
+    scroll-snap-type: x mandatory;
+  }
+
+.mblp-exclusive-subscription-tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--col-grey);
+  font-family: 'Inter Medium' !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+  flex-shrink: 0; /* Prevent tabs from shrinking */
+    /* Add scroll snap alignment */
+    scroll-snap-align: start;
+    /* Minimum width to ensure readability */
+    min-width: fit-content;
+}
+
+.mblp-exclusive-subscription-tab-btn.active {
+  color: var(--col-light-black);
+}
+        {% comment %} .mblp-exclusive-subscription-tabs-nav {
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+      gap: 14px !important;         overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+          padding: 0;
+    } {% endcomment %}
+
+        .mblp-exclusive-subscription-tabs-nav::-webkit-scrollbar {
+      /* display: none; */
+    }
+
+         {% comment %} .mblp-exclusive-subscription-tab-btn.active {
+      background: var(--col-light-black, #000) !important;
+      color: var(--col-offwhite, #fff) !important;
+           border-color: var(--col-light-black, #000) !important;
+    } {% endcomment %}
+        .mblp-exclusive-subscription-title-wrapper h2 {
+          font-size: 28px !important;
+          margin-bottom: 24px !important;
+        }
+        {% comment %} .mblp-exclusive-subscription-tab-btn:hover {
+      background: #F8F6EE;
+    } {% endcomment %}
+
+    {% comment %} .mblp-exclusive-subscription-tab-btn.active:hover {
+      background: var(--col-light-black, #333) !important;
+    } {% endcomment %}
+         {% comment %} .mblp-exclusive-subscription-tab-btn {
+               border-radius: 20px;
+      background: #F8F6EE !important;
+      border-radius: 20px;
+      padding: 10px 14px;
+      font-size: 16px !important;
+      color: #000 !important;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    } {% endcomment %}
+        .mblp-exclusive-subscription-product-title {
+          font-size: 20px !important;
+          max-width: 280px;
+          margin: 0 auto;
+        }
+        .mblp-exclusive-subscription-prices span {
+          font-size: 20px !important;
+        }
+        .mblp-exclusive-subscription-subscribe-btn {
+          font-size: 20px !important;
+          max-width: 280px;
+          margin: 0 auto;
+        }
+        .mblp-exclusive-subscription-slider-arrows {
+          margin-bottom: 20px !important;
+        }
+        .mblp-exclusive-arrow {
+          width: 50px !important;
+          height: 50px !important;
+        }
+        .mblp-exclusive-arrow svg {
+          width: 30px !important;
+          height: 30px !important;
+        }
+        .mblp-exclusive-arrow:hover {
+      background: #000 !important;
+      color: #FFF !important;
+  }
+      }
+      @media (max-width: 500px) {
+        .mblp-exclusive-subscription-product-card {
+          max-width: unset !important;
+      }
+      }
+      .mblp-exclusive-subscription-title-wrapper {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .mblp-exclusive-subscription-title-wrapper h2 {
+        color: var(--col-light-black);
+        text-align: center;
+        font-family: var(--fs-lora) !important;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 40px;
+      }
+      .mblp-exclusive-subscription-tabs-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+      }
+      .mblp-exclusive-subscription-tabs-nav {
+        display: flex;
+        gap: 40px;
+        border-bottom: 2px solid var(--col-dark-grey);
+        padding-bottom: 16px;
+        width: 100%;
+        justify-content: center;
+      }
+      .mblp-exclusive-subscription-tab-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--col-grey);
+        font-family: 'Inter Medium' !important;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        position: relative;
+      }
+      .mblp-exclusive-subscription-tab-btn.active {
+        color: var(--col-light-black);
+      }
+      .mblp-exclusive-subscription-content-wrapper {
+        width: 100%;
+        margin-top: 0;
+      }
+      .mblp-exclusive-subscription-tab-content {
+        display: none;
+      }
+      .mblp-exclusive-subscription-tab-content.active {
+        display: block;
+      }
+      .mblp-exclusive-subscription-slider {
+        /* margin: 0 auto;
+        max-width: 1200px; */
+      }
+      .mblp-exclusive-subscription-product-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* min-width: 260px;
+        max-width: 300px; */
+      }
+      .mblp-exclusive-subscription-product-image {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        border: 2px solid var(--col-light-black);
+        overflow: hidden;
+        position: relative;
+      }
+      .mblp-exclusive-subscription-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--col-yellow);
+        color: var(--col-black);
+        text-align: center;
+        font-family: 'Inter Semi Bold' !important;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        border-radius: 8px;
+        padding: 8px 16px;
+        z-index: 2;
+      }
+      .mblp-exclusive-subscription-product-title {
+        color: var(--col-light-black);
+          text-align: center;
+          font-family: 'Inter Medium' !important;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-bottom: 12px;
+          min-height: 48px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+      }
+      .mblp-exclusive-subscription-rating .smallcaps {
+          display: none;
+      }
+
+      .mblp-exclusive-subscription-rating {
+        display: flex;
+          height: 24px;
+          padding: 0px 83px 0px 77px;
+          align-items: center;
+          margin-bottom: 16px;
+      }
+      .mblp-exclusive-subscription-prices {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .mblp-exclusive-subscription-prices del {
+        color: var(--col-yellow);
+        margin-right: 0;
+        font-size: 20px;
+        font-family: 'Inter Semi Bold' !important;
+      }
+      .mblp-exclusive-subscription-prices span {
+        color: var(--col-light-black);
+        text-align: center;
+       font-family: 'Inter Semi Bold' !important;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 0;
+      }
+      .mblp-exclusive-subscription-sub-buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+        justify-content: center;
+        {% comment %} flex-wrap: wrap; {% endcomment %}
+      }
+      .mblp-exclusive-subscription-sub-btn {
+        background: var(--col-light-yellow);
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 8px 12px;
+        text-align: center;
+        font-family: 'Inter Medium' !important;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: var(--col-light-black);
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .mblp-exclusive-subscription-sub-btn.selected,
+      .mblp-exclusive-subscription-sub-btn:hover {
+        background: var(--col-yellow);
+        /* No border for selected */
+      }
+      .mblp-exclusive-subscription-subscribe-btn {
+          border-radius: 6px;
+          width: 100%;
+          cursor: pointer;
+          display: flex;
+          height: 44px;
+          padding: 10px 0px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background: var(--col-light-black);
+          color: var(--col-offwhite);
+          font-family: 'Inter Semi Bold' !important;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          transition: background 0.3s ease;
+          border: none;
+      }
+      .mblp-exclusive-subscription-subscribe-btn:hover {
+        background: #444;
+      }
+      .mblp-exclusive-subscription-subscribe-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .mblp-exclusive-subscription-slider-arrows {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 40px;
+        z-index: 999;
+      }
+      .mblp-exclusive-arrow {
+        background: var(--col-white);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+      }
+      .mblp-exclusive-arrow:hover {
+        background: var(--col-light-yellow);
+      }
+      .mblp-exclusive-arrow:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .mblp-exclusive-arrow:disabled:hover {
+        background: var(--col-white);
+      }
+      .mblp-exclusive-arrow svg {
+        stroke: var(--col-light-black);
+        width: 50px;
+        height: 50px;
+      }
+      /* Hide default Splide arrows */
+      .mblp-exclusive-subscription-slider .splide__arrows,
+      .mblp-exclusive-subscription-slider .splide__arrow {
+        display: none !important;
+      }
+      .mblp-exclusive-subscription-slider .splide__sr {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+      .mblp-exclusive-subscription-rating .rating-badge__stars svg {
+        color: var(--col-yellow, #FBDD3F) !important;
+        fill: var(--col-yellow, #FBDD3F) !important;
+        stroke: var(--col-yellow, #FBDD3F) !important;
+            width: 18px;
+          height: 18px;
+      }
+      .mblp-subscription-price-display {
+        display: none;
+      }
+      .mblp-no-subscription {
+        background: #f8f9fa;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        color: #6c757d;
+        font-style: italic;
+        font-size: 14px;
+      }
+
+      /* Form styling */
+      .mblp-exclusive-product-form {
+        width: 100%;
+      }
+
+      .mblp-exclusive-product-form .variant-input,
+      .mblp-exclusive-product-form .selling-plan-input {
+        display: none;
+      }
+</style>
+
+<div class="mblp-exclusive-subscription-main">
+  <div class="container">
+    <div class="mblp-exclusive-subscription-wrapper">
+      {% if section.settings.title != blank %}
+        <div class="mblp-exclusive-subscription-title-wrapper">
+          <h2>{{ section.settings.title }}</h2>
+        </div>
+      {% endif %}
+      <div class="mblp-exclusive-subscription-tabs-wrapper">
+        <div class="mblp-exclusive-subscription-tabs-nav">
+          {% for block in section.blocks %}
+            <button
+              class="mblp-exclusive-subscription-tab-btn {% if forloop.first %}active{% endif %}"
+              data-tab="{{ forloop.index }}"
+            >
+              {{ block.settings.tab_name }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="mblp-exclusive-subscription-content-wrapper">
+        {% for block in section.blocks %}
+          <div
+            class="mblp-exclusive-subscription-tab-content {% if forloop.first %}active{% endif %}"
+            data-content="{{ forloop.index }}"
+          >
+            {% if block.settings.collection != blank %}
+              {% comment %}
+                This template extracts and displays subscription plan details
+                including intervals, pricing, and availability
+              {% endcomment %}
+
+              <div class="splide mblp-exclusive-subscription-slider" id="mblp-exclusive-splide-{{ forloop.index }}">
+                <div class="splide__track">
+                  <div class="splide__list">
+                    {% for product in collections[block.settings.collection].products %}
+                      <div class="splide__slide">
+                        <div class="mblp-exclusive-subscription-product-card" data-product-id="{{ product.id }}">
+                          {% assign has_subscription = false %}
+                          {% assign sub_price = product.price %}
+                          {% if product.selling_plan_groups.size > 0 %}
+                            {% assign has_subscription = true %}
+                            {% assign first_plan = product.selling_plan_groups[0].selling_plans[0] %}
+                            {% if first_plan.price_adjustments.size > 0 %}
+                              {% for adjustment in first_plan.price_adjustments %}
+                                {% if adjustment.value_type == 'percentage' %}
+                                  {% assign discount = product.price | times: adjustment.value | divided_by: 100 %}
+                                  {% assign sub_price = product.price | minus: discount %}
+                                {% elsif adjustment.value_type == 'fixed_amount' %}
+                                  {% assign sub_price = product.price | minus: adjustment.value %}
+                                {% endif %}
+                              {% endfor %}
+                            {% endif %}
+                          {% endif %}
+                          {% if has_subscription and sub_price < product.price %}
+                          {% endif %}
+                          <div style="position:relative;width:100%;display:flex;flex-direction:column;align-items:center;">
+                            <div class="mblp-exclusive-subscription-product-image">
+                              {% if has_subscription and sub_price < product.price %}
+                                {% assign discount_percent = product.price
+                                  | minus: sub_price
+                                  | times: 100
+                                  | divided_by: product.price
+                                  | round
+                                %}
+                                <span class="mblp-exclusive-subscription-badge">{{ discount_percent }}% Off</span>
+                              {% endif %}
+                              <a href="{{ product.url }}">
+                                <img
+                                  src="{{ product.featured_image | image_url: width: 300 }}"
+                                  alt="{{ product.title }}"
+                                  style="max-width:100%;max-height:100%;object-fit:contain;"
+                                  loading="lazy"
+                                >
+                              </a>
+                            </div>
+                          </div>
+                          <div class="mblp-exclusive-subscription-product-title">{{ product.title }}</div>
+                          <div class="mblp-exclusive-subscription-rating">
+                            {% render 'product-rating', product: product, show_empty: true %}
+                          </div>
+                          {% assign has_subscription = false %}
+                          {% if product.selling_plan_groups.size > 0 %}
+                            {% assign has_subscription = true %}
+                          {% endif %}
+                          <div class="mblp-exclusive-subscription-prices">
+                            {% if has_subscription %}
+                              {% comment %} Check if first plan has specific variant, if not use first available {% endcomment %}
+                              {% assign first_plan = product.selling_plan_groups[0].selling_plans[0] %}
+                              {% assign display_variant_id = product.selected_or_first_available_variant.id %}
+                              {% assign display_base_price = product.price %}
+                              {% assign has_specific_variant = false %}
+
+                              {% comment %} Check if first plan has a specific variant allocated {% endcomment %}
+                              {% for variant in product.variants %}
+                                {% for allocation in variant.selling_plan_allocations %}
+                                  {% if allocation.selling_plan.id == first_plan.id %}
+                                    {% assign display_variant_id = variant.id %}
+                                    {% assign display_base_price = variant.price %}
+                                    {% assign has_specific_variant = true %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+                                {% if has_specific_variant %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %}
+
+                              {% comment %} If no specific variant found, use first available variant {% endcomment %}
+                              {% unless has_specific_variant %}
+                                {% assign display_variant_id = product.selected_or_first_available_variant.id %}
+                                {% assign display_base_price = product.selected_or_first_available_variant.price %}
+                              {% endunless %}
+
+                              {% assign sub_price = display_base_price %}
+                              {% if first_plan.price_adjustments.size > 0 %}
+                                {% for adjustment in first_plan.price_adjustments %}
+                                  {% if adjustment.value_type == 'percentage' %}
+                                    {% assign discount = display_base_price
+                                      | times: adjustment.value
+                                      | divided_by: 100
+                                    %}
+                                    {% assign sub_price = display_base_price | minus: discount %}
+                                  {% elsif adjustment.value_type == 'fixed_amount' %}
+                                    {% assign sub_price = display_base_price | minus: adjustment.value %}
+                                  {% endif %}
+                                {% endfor %}
+                              {% endif %}
+
+                              {% comment %} Show compare price or original variant price {% endcomment %}
+                              {% if has_specific_variant %}
+                                {% for variant in product.variants %}
+                                  {% if variant.id == display_variant_id %}
+                                    {% if variant.compare_at_price > variant.price %}
+                                      <del>{{ variant.compare_at_price | money_with_currency }}</del>
+                                    {% else %}
+                                      <del>{{ variant.price | money_with_currency }}</del>
+                                    {% endif %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+                              {% else %}
+                                {% if product.selected_or_first_available_variant.compare_at_price
+                                    > product.selected_or_first_available_variant.price
+                                %}
+                                  <del>
+                                    {{-
+                                      product.selected_or_first_available_variant.compare_at_price
+                                      | money_with_currency
+                                    -}}
+                                  </del>
+                                {% else %}
+                                  <del>
+                                    {{- product.selected_or_first_available_variant.price | money_with_currency -}}
+                                  </del>
+                                {% endif %}
+                              {% endif %}
+                              <span>{{ sub_price | money_with_currency }}</span>
+                            {% else %}
+                              <span>{{ product.price | money_with_currency }}</span>
+                            {% endif %}
+                          </div>
+
+                          {% if has_subscription %}
+                            <div class="mblp-subscription-price-display" id="subscription-price-{{ product.id }}"></div>
+
+                            <div class="mblp-exclusive-subscription-sub-buttons">
+                              {% for group in product.selling_plan_groups %}
+                                {% for plan in group.selling_plans %}
+                                  {% comment %} Check if plan has specific variant or use first available {% endcomment %}
+                                  {% assign plan_variant_id = product.selected_or_first_available_variant.id %}
+                                  {% assign has_variant_allocation = false %}
+
+                                  {% for variant in product.variants %}
+                                    {% for allocation in variant.selling_plan_allocations %}
+                                      {% if allocation.selling_plan.id == plan.id %}
+                                        {% assign plan_variant_id = variant.id %}
+                                        {% assign has_variant_allocation = true %}
+                                        {% break %}
+                                      {% endif %}
+                                    {% endfor %}
+                                    {% if has_variant_allocation %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  {% comment %} Calculate subscription price using correct variant price {% endcomment %}
+                                  {% comment %} First get the base price from the correct variant {% endcomment %}
+                                  {% assign base_price = product.price %}
+                                  {% if has_variant_allocation %}
+                                    {% for variant in product.variants %}
+                                      {% if variant.id == plan_variant_id %}
+                                        {% assign base_price = variant.price %}
+                                        {% break %}
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% endif %}
+
+                                  {% assign sub_price = base_price %}
+                                  {% assign savings = 0 %}
+                                  {% if plan.price_adjustments.size > 0 %}
+                                    {% for adjustment in plan.price_adjustments %}
+                                      {% if adjustment.value_type == 'percentage' %}
+                                        {% assign discount = base_price | times: adjustment.value | divided_by: 100 %}
+                                        {% assign sub_price = base_price | minus: discount %}
+                                        {% assign savings = discount %}
+                                      {% elsif adjustment.value_type == 'fixed_amount' %}
+                                        {% assign sub_price = base_price | minus: adjustment.value %}
+                                        {% assign savings = adjustment.value %}
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% endif %}
+
+                                  {% comment %} Create user-friendly plan name: Always 'Every X Months' {% endcomment %}
+                                  {% assign plan_words = plan.name | split: ' ' %}
+                                  {% if plan.name contains 'Every' %}
+                                    {% assign plan_number = plan_words[1] %}
+                                  {% else %}
+                                    {% assign plan_number = plan_words[0] %}
+                                  {% endif %}
+                                  {% assign plan_display = 'Every ' | append: plan_number | append: ' Months' %}
+
+                                  {% comment %} Check if plan has specific variant or use first available {% endcomment %}
+                                  {% assign plan_variant_id = product.selected_or_first_available_variant.id %}
+                                  {% assign has_variant_allocation = false %}
+
+                                  {% for variant in product.variants %}
+                                    {% for allocation in variant.selling_plan_allocations %}
+                                      {% if allocation.selling_plan.id == plan.id %}
+                                        {% assign plan_variant_id = variant.id %}
+                                        {% assign has_variant_allocation = true %}
+                                        {% break %}
+                                      {% endif %}
+                                    {% endfor %}
+                                    {% if has_variant_allocation %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  <button
+                                    class="mblp-exclusive-subscription-sub-btn"
+                                    data-plan-id="{{ plan.id }}"
+                                    data-plan-name="{{ plan_display }}"
+                                    data-variant-id="{{ plan_variant_id }}"
+                                    data-subscription-price="{{ sub_price }}"
+                                    data-savings="{{ savings }}"
+                                    data-product-id="{{ product.id }}"
+                                    type="button"
+                                  >
+                                    {{ plan_display }}
+                                  </button>
+                                {% endfor %}
+                              {% endfor %}
+                            </div>
+
+                            {%- form 'product',
+                              product,
+                              data-productid: product.id,
+                              is: 'product-form',
+                              class: 'mblp-exclusive-product-form'
+                            -%}
+                              <input
+                                type="hidden"
+                                name="id"
+                                data-productid="{{ product.id }}"
+                                value="{{ product.selected_or_first_available_variant.id }}"
+                                class="variant-input"
+                              >
+                              <input type="hidden" name="selling_plan" value="" class="selling-plan-input" disabled>
+                              <button
+                                type="submit"
+                                class="mblp-exclusive-subscription-subscribe-btn {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}"
+                                {% unless product.selected_or_first_available_variant.available %}
+                                  disabled
+                                {% endunless %}
+                                data-product-id="{{ product.id }}"
+                                data-available="{{ product.selected_or_first_available_variant.available }}"
+                              >
+                                {% if product.selected_or_first_available_variant.available %}
+                                  Select a Plan
+                                {% else %}
+                                  Sold Out
+                                {% endif %}
+                              </button>
+                            {%- endform -%}
+                          {% else %}
+                            <div class="mblp-no-subscription">
+                              This product is available for one-time purchase only.
+                            </div>
+
+                            {%- form 'product',
+                              product,
+                              data-productid: product.id,
+                              is: 'product-form',
+                              class: 'mblp-exclusive-product-form'
+                            -%}
+                              <input
+                                type="hidden"
+                                name="id"
+                                data-productid="{{ product.id }}"
+                                value="{{ product.selected_or_first_available_variant.id }}"
+                                class="variant-input"
+                              >
+                              <button
+                                type="submit"
+                                class="mblp-exclusive-subscription-subscribe-btn {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}"
+                                {% unless product.selected_or_first_available_variant.available %}
+                                  disabled
+                                {% endunless %}
+                                data-product-id="{{ product.id }}"
+                                data-available="{{ product.selected_or_first_available_variant.available }}"
+                              >
+                                {% if product.selected_or_first_available_variant.available %}
+                                  Add to Cart
+                                {% else %}
+                                  Sold Out
+                                {% endif %}
+                              </button>
+                            {%- endform -%}
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% else %}
+                      <div>No products found in this collection.</div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div
+                  class="mblp-exclusive-subscription-slider-arrows"
+                  data-splide-target="mblp-exclusive-splide-{{ forloop.index }}"
+                >
+                  <button
+                    class="mblp-exclusive-arrow mblp-exclusive-arrow-prev"
+                    data-direction="prev"
+                    aria-label="Previous"
+                    type="button"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button
+                    class="mblp-exclusive-arrow mblp-exclusive-arrow-next"
+                    data-direction="next"
+                    aria-label="Next"
+                    type="button"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            {% else %}
+              <div>Please select a collection for this tab.</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tab switching
+    var tabBtns = document.querySelectorAll('.mblp-exclusive-subscription-tab-btn');
+    var tabContents = document.querySelectorAll('.mblp-exclusive-subscription-tab-content');
+    tabBtns.forEach(function(btn, idx) {
+      btn.addEventListener('click', function() {
+        tabBtns.forEach(function(b) { b.classList.remove('active'); });
+        tabContents.forEach(function(tc) { tc.classList.remove('active'); });
+        btn.classList.add('active');
+        tabContents[idx].classList.add('active');
+      });
+    });
+    
+    // Splide sliders and external arrows
+    document.querySelectorAll('.mblp-exclusive-subscription-slider').forEach(function(slider) {
+      var splide = new Splide(slider, {
+        type: 'slide',
+        perPage: 4,
+        perMove: 1,
+        gap: '24px',
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+          1250: { perPage: 3 },
+          900: { perPage: 2 },
+          768: { perPage: 1,
+                 gap: '0px', 
+                 padding: { right: '15%' },
+                 focus: 'center'
+               }
+        }
+      }).mount();
+      // External arrows
+      var parent = slider.closest('.mblp-exclusive-subscription-tab-content');
+      if (parent) {
+        var arrows = parent.querySelector('.mblp-exclusive-subscription-slider-arrows');
+        if (arrows) {
+          arrows.querySelector('.mblp-exclusive-arrow-prev').addEventListener('click', function() {
+            splide.go('<');
+          });
+          arrows.querySelector('.mblp-exclusive-arrow-next').addEventListener('click', function() {
+            splide.go('>');
+          });
+        }
+      }
+    });
+
+    // Subscription functionality
+    const productCards = document.querySelectorAll('.mblp-exclusive-subscription-product-card');
+    
+    productCards.forEach(card => {
+      const planButtons = card.querySelectorAll('.mblp-exclusive-subscription-sub-btn');
+      const subscribeBtn = card.querySelector('.mblp-exclusive-subscription-subscribe-btn');
+      const subscriptionPriceDiv = card.querySelector(`#subscription-price-${card.dataset.productId}`);
+      const productId = card.dataset.productId;
+      const productForm = card.querySelector('.mblp-exclusive-product-form');
+      const sellingPlanInput = card.querySelector('.selling-plan-input');
+      const variantInput = card.querySelector('.variant-input');
+      let selectedPlan = null;
+      let selectedVariantId = null;
+      
+      // Handle plan selection
+    // Handle plan selection
+planButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Check if product is available
+    const isAvailable = subscribeBtn.dataset.available === 'true';
+    
+    if (!isAvailable) {
+      return; // Don't allow plan selection for sold out products
+    }
+    
+    // Remove active class from all buttons in this card
+    planButtons.forEach(btn => btn.classList.remove('selected'));
+    
+    // Add active class to clicked button
+    this.classList.add('selected');
+    
+    // Store selected plan and variant
+      selectedPlan = {
+        id: this.dataset.planId,
+        name: this.dataset.planName,
+        subscriptionPrice: parseInt(this.dataset.subscriptionPrice),
+        savings: parseInt(this.dataset.savings)
+      };
+      selectedVariantId = this.dataset.variantId;
+      
+      // Update the hidden selling plan input
+      if (sellingPlanInput) {
+        sellingPlanInput.value = selectedPlan.id;
+        sellingPlanInput.disabled = false;
+      }
+      
+      // Update the variant input with the plan-specific variant
+      if (variantInput && selectedVariantId) {
+        variantInput.value = selectedVariantId;
+      }
+      
+      // Enable subscribe button
+      subscribeBtn.disabled = false;
+      subscribeBtn.textContent = 'Subscribe Now';
+  });
+});
+      
+      // Handle form submission
+      if (productForm) {
+        productForm.addEventListener('submit', function(e) {
+          // For subscription products, check if plan is selected
+          if (sellingPlanInput && !selectedPlan) {
+            e.preventDefault();
+            // alert('Please select a subscription plan first.');
+            return;
+          }
+          
+          // Add loading state
+          subscribeBtn.textContent = 'Adding to Cart...';
+          subscribeBtn.disabled = true;
+          
+          // The form will handle the rest automatically and trigger cart drawer
+          // Reset button state after a delay (form submission will redirect/refresh)
+          setTimeout(() => {
+            subscribeBtn.textContent = selectedPlan ? 'Subscribe Now' : 'Add to Cart';
+            subscribeBtn.disabled = selectedPlan ? false : false;
+          }, 1000);
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MBLP Exclusive Sub Prices",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Exclusive Subscription Prices"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_name",
+          "label": "Tab Name",
+          "default": "Tab Name"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Exclusive Subscription",
+      "blocks": [
+        { "type": "tab", "settings": { "tab_name": "Bath & Body" } },
+        { "type": "tab", "settings": { "tab_name": "Body Scrubs & Exfoliation" } },
+        { "type": "tab", "settings": { "tab_name": "Body Oils" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

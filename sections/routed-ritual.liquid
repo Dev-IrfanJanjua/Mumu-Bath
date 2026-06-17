@@ -1,0 +1,326 @@
+{% style %}
+  .about-ritual-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media (max-width: 768px) {
+    .about-ritual-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
+  .about-ritual__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+
+  .about-ritual__grid {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .about-ritual__grid {
+      flex-direction: column;
+      gap:24px;
+    }
+  }
+  .about-ritual-{{ section.id }} .hair__heading {
+    margin: 0 0 18px;
+    text-align:left;
+  }
+  .about-ritual__content {
+        padding-right: 40px;
+    }
+
+  .about-ritual__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+
+  .about-ritual__content .desc   {
+    margin: 0 0 32px;
+  }
+  .about-ritual__content .desc  p {
+        color: #000;
+        font-family: "Plus Jakarta Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; /* 122.222% */
+  }
+
+  .about-ritual__signature {
+      max-width: 144px;
+      height: 40px;
+        aspect-ratio: 18/5;
+        width:100%;
+  }
+
+  .about-ritual__founder {
+    margin: 15px 0;
+color: #000;
+font-family: "Plus Jakarta Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 122.222% */
+  }
+
+  .about-ritual__btn {
+    display: flex;
+    padding: 18px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.07px;
+    border-radius: 41px;
+    border: 1px solid #000;
+    background: #F8F6EE;
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%; /* 26.64px */
+    text-transform: capitalize;
+    text-decoration: none;
+    max-width:max-content;
+  }
+  .about-ritual__btn {
+      transition: background-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+
+  }
+
+  .about-ritual__btn:hover,
+  .hero-section__btn:focus-visible {
+    background-color: var(--hero-btn-hover-bg, #1a1a1a) !important;
+    color: var(--hero-btn-hover-color, #fff);
+    outline-offset: 3px;
+  }
+
+.about-ritual__image,
+.about-ritual__content {
+  flex: 1;
+  max-width: calc(50% - 25px);
+}
+
+
+@media (max-width: 768px) {
+
+.about-ritual__image,
+.about-ritual__content {
+  flex: 1;
+  max-width: 100%;
+}
+.about-ritual__content {
+  padding: 0  16px;
+  text-align:center;
+}
+.about-ritual-{{ section.id }} .hair__heading {
+    max-width:329px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+.about-ritual__content .desc p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; 
+}
+
+.about-ritual__signature {
+    margin: 0 auto;
+}
+
+.about-ritual__founder {
+    margin: 14px 0;
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+a.about-ritual__btn {
+    max-width: 100%;
+    padding: 14.196px 23.66px;
+    border-radius: 32px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%;
+    text-transform: capitalize;
+}
+
+}
+
+{% endstyle %}
+
+<section class="about-ritual-{{ section.id }}  fade-in-section">
+  <div class="about-ritual__container">
+    <div class="about-ritual__grid">
+
+      <!-- LEFT IMAGE -->
+      <div class="about-ritual__image fade-in-left">
+        {% if section.settings.image != blank %}
+          
+          {{ section.settings.image | image_url: width: 1600 | image_tag:
+                        widths: '50, 100, 150, 200, 250, 300, 400, 500,600,1440,1600',
+                        
+                        loading: "lazy",
+                        alt: section.settings.image_alt | default: section.settings.heading
+                    }}
+        {% endif %}
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="about-ritual__content fade-in-up">
+
+        <h2 class="hair__heading">{{ section.settings.heading }}</h2>
+
+        <div class="desc rte">
+          {{ section.settings.description }}
+        </div>
+
+        {% if section.settings.signature != blank %}
+          <div class="about-ritual__signature">
+            {{
+              section.settings.signature
+              | image_url: width: 200
+              | image_tag:
+                loading: 'lazy',
+                alt: section.settings.signature_alt
+            }}
+          </div>
+        {% endif %}
+
+        <div class="about-ritual__founder">
+          {{ section.settings.founder_name }}
+        </div>
+
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="about-ritual__btn">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Ritual Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "About image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Ritual Rooted In Taiwan"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Enter your brand story here. This section is fully editable from Shopify editor.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "signature",
+      "label": "Founder Signature Image"
+    },
+    {
+      "type": "text",
+      "id": "signature_alt",
+      "label": "Signature Alt Text",
+      "default": "Founder signature"
+    },
+    {
+      "type": "text",
+      "id": "founder_name",
+      "label": "Founder Name",
+      "default": "Founder"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Discover Our Story"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F7F3EE"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Ritual Section"
+    }
+  ]
+}
+{% endschema %}

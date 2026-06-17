@@ -1,0 +1,1120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_8fHfUQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6Rh3GN": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Stockists",
+            "heading_tag": "h1"
+          }
+        },
+        "liquid_YYX9KY": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<h1>Stockists</h1>"
+          }
+        },
+        "richtext_FcX39m": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Welcome to our stockists page! We're thrilled to partner with these esteemed retailers who share our passion for quality and innovation. By collaborating with these select partners, we ensure that our products are readily accessible to customers across diverse locations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6Rh3GN",
+        "liquid_YYX9KY",
+        "richtext_FcX39m"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "page_width": "xs"
+      }
+    },
+    "rich_text_GzMHzk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XP6LjN": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "UNITED STATES",
+            "heading_tag": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XP6LjN"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "lg",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "text_with_icons_3yUKBq": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_HfdJ9j": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/chunky_weird_logo-011.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>CALIFORNIA</strong>",
+            "content": "<p>946 Mei Ling Way, Los Angeles, California 90012</p><p>(909) 964-8407 </p>"
+          }
+        },
+        "item_MPGXqi": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/Solsara_-_NEW_1694229999.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>CALIFORNIA</strong>",
+            "content": "<p>32395 Clinton Keith Road B4, Wildomar, CA 92595</p>"
+          }
+        },
+        "item_iXW7tJ": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/ZWRlogo_1659805767.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>IOWA</strong>",
+            "content": "<p>5219 Coachman Rd, Bettendorf, IA 52722</p>"
+          }
+        },
+        "item_7cmTGd": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/modren_supply.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>MICHIGAN</strong>",
+            "content": "<p>28822 Woodward Avenue, Royal Oak, Michigan 48067</p><p>(248) 629-9467</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_HfdJ9j",
+        "item_MPGXqi",
+        "item_iXW7tJ",
+        "item_7cmTGd"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_prEkEz": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_cBGWne": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/337167282_580403114022379_6576095554565451921_n.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW HAMPSHIRE</strong>",
+            "content": "<p>379 E Washington Rd, Hillsborough, NH 03244</p>"
+          }
+        },
+        "item_9jJpF9": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/BLOOM_WEB_LOGO.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW JERSEY</strong>",
+            "content": "<p>67 Monmouth Road Store 2 Oakhurst, NJ 07755 USA</p><p>(732) 245-5684</p>"
+          }
+        },
+        "item_tMGx7e": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/AMNH_Store_Logo_2100.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>200 Central Park W, New York, NY 10024</p><p>(800) 671-7035</p>"
+          }
+        },
+        "item_4jj4RF": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/BROOKLYN_ARTERY.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>1021 Cortelyou Road, Brooklyn, NY 11218</p><p>(347) 365-9896</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_cBGWne",
+        "item_9jJpF9",
+        "item_tMGx7e",
+        "item_4jj4RF"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_jG6eyE": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_R8BpFk": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/brown.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>514 Washington Ave, Brooklyn, NY 11238</p>"
+          }
+        },
+        "item_rixJ68": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/ChelseaMarketBasketLogo.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>75 9th Ave, New York, NY 1001</p><p>(212) 727-1111</p>"
+          }
+        },
+        "item_GfmbtP": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/Frame_88_1645416530.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>30-38 Steinway St, Queens, NY 11103</p><p>(347) 730-6156</p>"
+          }
+        },
+        "item_YpgPGx": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/HY_Logo_black.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>20 Hudson Yards, New York, NY 10001</p><p>(646) 954-3155</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_R8BpFk",
+        "item_rixJ68",
+        "item_GfmbtP",
+        "item_YpgPGx"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_9Gn3rr": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_LhkV4E": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/giftboxstoria.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>25-11 Broadway, Astoria, NY 11106</p><p>(718) 440-3411</p>"
+          }
+        },
+        "item_c9cXcX": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/gone_dogs.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>103 7th Ave, Brooklyn, NY 11215</p><p>(201) 375-3471  </p>"
+          }
+        },
+        "item_FyHifN": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/mogutable_logo_180x_2cad5666-1da4-4c9a-8aa7-2af12ab7465b.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>130 Grand St, Brooklyn, NY 11249</p><p>(929) 426-6185</p>"
+          }
+        },
+        "item_9NaPCi": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/pearl_river_mart.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>75 9th Ave, New York, NY 10011</p><p>  (646) 760-0453</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_LhkV4E",
+        "item_c9cXcX",
+        "item_FyHifN",
+        "item_9NaPCi"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_3gLxVH": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_pi9bKG": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/pearl_river_mart.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>452 Broadway, New York, NY 10013</p><p>(212) 431-4770</p>"
+          }
+        },
+        "item_e8UE7z": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/RSP_logo_full_230x_2b24df7f-a509-4b7a-907c-ee7f007bb6f8.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>313 Court Street Brooklyn, NY 11231</p><p>(929) 283-5950</p>"
+          }
+        },
+        "item_rNx8E8": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/Asustainablevillage.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>318 E 9th St, New York, NY 10003</p>"
+          }
+        },
+        "item_kJBQm7": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/logo_1.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>130 Grand St, Brooklyn, NY 11249</p><p>(347) 653-3543</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_pi9bKG",
+        "item_e8UE7z",
+        "item_rNx8E8",
+        "item_kJBQm7"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_qbjTQf": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_Y3mLHE": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/2023-10-29_19-06-31_1698620816.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>141 India St, Brooklyn, NY 11222</p><p>(201) 383-5949</p>"
+          }
+        },
+        "item_HP7QUk": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/morewinsonbuttons_winson.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>NEW YORK</strong>",
+            "content": "<p>164 Graham Ave Brooklyn, NY 11206</p>"
+          }
+        },
+        "item_RHh6TT": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/logo_final.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>PENNSYLVANIA</strong>",
+            "content": "<p>37 North third street, Philadelphia, PA 19106</p>"
+          }
+        },
+        "item_y3AJRB": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/christina_cat_logo.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>RHODE ISLAND</strong>",
+            "content": "<p>100 Bay St, Westerly, RI 02891</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_Y3mLHE",
+        "item_HP7QUk",
+        "item_RHh6TT",
+        "item_y3AJRB"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_9JJqyG": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_MDmxYj": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/Booksy.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>TENNESSEE</strong>",
+            "content": "<p>514 Brandies Circle, Suite C, Murfreesboro, TN 37128</p>"
+          }
+        },
+        "item_eDLRfC": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/new-breathe-logo-white.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>TEXAS</strong>",
+            "content": "<p>4131 Lomo Alto Dr, Dallas, TX 75219</p><p>(972) 850-9894</p>"
+          }
+        },
+        "item_MbtPWi": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/logobanner_1.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>UTAH</strong>",
+            "content": "<p>1586 E 3900 S Salt  Lake  City, UT 84124</p><p><a href=\"https://www.bloomsandco.com/contact\">(</a>801) 272-3431</p>"
+          }
+        },
+        "item_EUfbqM": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/Solsara_-2.png",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>RHODE ISLAND</strong>",
+            "content": "<p>100 Bay St, Westerly, RI 02891</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_MDmxYj",
+        "item_eDLRfC",
+        "item_MbtPWi",
+        "item_EUfbqM"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "rich_text_fdUF6Y": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dKyfFt": {
+          "type": "heading",
+          "settings": {
+            "text": "ONLINE",
+            "heading_tag": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dKyfFt"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "lg",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "text_with_icons_RfXJ4d": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_kDKfMd": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/123-baby-box-logo-new_110x_e3bc1.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_9CGcJF": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/babytone.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_3CMaTU": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/clic_logo.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_WCCgma": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/Closiist_Logo_TransparentBackgro.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_kDKfMd",
+        "item_9CGcJF",
+        "item_3CMaTU",
+        "item_WCCgma"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "text_with_icons_eBHbdb": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_fzzPPb": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/IMG_1386_1.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_KcNMX3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/pazlifestyle.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_RGXkJX": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/somni.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        },
+        "item_JVAi9z": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/nb_logo_en.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_fzzPPb",
+        "item_KcNMX3",
+        "item_RGXkJX",
+        "item_JVAi9z"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "rich_text_Dtm3qf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_BwXWYN": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>ASIA</strong>",
+            "heading_tag": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BwXWYN"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "lg",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "text_with_icons_yfqawx": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_hwhrz4": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-customer-support",
+            "custom_icon": "shopify://shop_images/natro_shop.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>HONG KONG</strong>",
+            "content": ""
+          }
+        },
+        "item_8RktBE": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "custom_icon": "shopify://shop_images/1_12_23c9dea7-61da-4768-b0ff-227c18026c3d.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>TAIWAN</strong>",
+            "content": ""
+          }
+        },
+        "item_BrRWnL": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/IMG_1386_1.jpg",
+            "icon_width": 240,
+            "mobile_icon_width": 140,
+            "title": "<strong>TAIWAN</strong>",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_hwhrz4",
+        "item_8RktBE",
+        "item_BrRWnL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "rich_text_B9miLP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jpaV8i": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>UNITED STATES</strong>",
+            "heading_tag": "h3"
+          }
+        },
+        "subheading_VJQJwp": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>CALIFORNIA</strong>"
+          }
+        },
+        "subheading_YaCpyA": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Chunky Things</strong></span>"
+          }
+        },
+        "richtext_GDqdde": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>946 Mei Ling Way, Los Angeles, California 90012</p><p>(909) 964-8407 </p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jpaV8i",
+        "subheading_VJQJwp",
+        "subheading_YaCpyA",
+        "richtext_GDqdde"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_gEtgLW": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Wd9jrJ": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Solsara</strong></span>"
+          }
+        },
+        "richtext_3CABEH": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>32395 Clinton Keith Road B4, Wildomar, CA 92595</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Wd9jrJ",
+        "richtext_3CABEH"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": true
+      }
+    },
+    "rich_text_LV4xmq": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_3GH8qj": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>IOWA</strong>"
+          }
+        },
+        "subheading_TUzzDj": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Zero Waste Reserve</strong></span>"
+          }
+        },
+        "richtext_ED7PH8": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>5219 Coachman Rd, Bettendorf, IA 52722</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_3GH8qj",
+        "subheading_TUzzDj",
+        "richtext_ED7PH8"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_8XyE4B": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_97KbKF": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>MICHIGAN</strong>"
+          }
+        },
+        "subheading_hM9JNm": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Modern Supply</strong></span>"
+          }
+        },
+        "richtext_JDJxaf": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>28822 Woodward Avenue, Royal Oak, Michigan 48067</p><p>(248) 629-9467</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_97KbKF",
+        "subheading_hM9JNm",
+        "richtext_JDJxaf"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_fpFnUn": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_RWDE48": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>NEW HAMPSHIRE</strong>"
+          }
+        },
+        "subheading_GDd7nh": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Monadnock Green Shop</strong></span>"
+          }
+        },
+        "richtext_BR7zEi": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>379 E Washington Rd, Hillsborough, NH 03244</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_RWDE48",
+        "subheading_GDd7nh",
+        "richtext_BR7zEi"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_7wQnXe": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_6aLGqP": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>NEW JERSEY</strong>"
+          }
+        },
+        "subheading_gK4Pyt": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>BLOOMBAR </strong></span>"
+          }
+        },
+        "richtext_NGVtce": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>67 Monmouth Road Store 2 Oakhurst, NJ 07755 USA</p><p>(732) 245-5684</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_6aLGqP",
+        "subheading_gK4Pyt",
+        "richtext_NGVtce"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_DcnTbk": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_xAfhLc": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>NEW YORK</strong>"
+          }
+        },
+        "subheading_dMgzwF": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>American Museum of Natural History Gift Shop</strong></span>"
+          }
+        },
+        "richtext_YJJwr7": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>200 Central Park W, New York, NY 10024</p><p>(800) 671-7035</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xAfhLc",
+        "subheading_dMgzwF",
+        "richtext_YJJwr7"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_fHCKPB": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_G3zdgX": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Brooklyn ARTery</strong></span>"
+          }
+        },
+        "richtext_RaAQUd": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>1021 Cortelyou Road, Brooklyn, NY 11218</p><p>(347) 365-9896</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_G3zdgX",
+        "richtext_RaAQUd"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_zFRUcJ": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_epkyhi": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>Brown Official</strong></span>"
+          }
+        },
+        "richtext_zEyWcE": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>514 Washington Ave, Brooklyn, NY 11238</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_epkyhi",
+        "richtext_zEyWcE"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "rich_text_CfXVa4": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_yUAmAn": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>NEW YORK</strong>"
+          }
+        },
+        "subheading_hryy4j": {
+          "type": "subheading",
+          "settings": {
+            "text": "<span style=\"text-decoration:underline\"><strong>American Museum of Natural History Gift Shop</strong></span>"
+          }
+        },
+        "richtext_mkaHeq": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>200 Central Park W, New York, NY 10024</p><p>(800) 671-7035</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_yUAmAn",
+        "subheading_hryy4j",
+        "richtext_mkaHeq"
+      ],
+      "disabled": true,
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    }
+  },
+  "order": [
+    "rich_text_8fHfUQ",
+    "main",
+    "rich_text_GzMHzk",
+    "text_with_icons_3yUKBq",
+    "text_with_icons_prEkEz",
+    "text_with_icons_jG6eyE",
+    "text_with_icons_9Gn3rr",
+    "text_with_icons_3gLxVH",
+    "text_with_icons_qbjTQf",
+    "text_with_icons_9JJqyG",
+    "rich_text_fdUF6Y",
+    "text_with_icons_RfXJ4d",
+    "text_with_icons_eBHbdb",
+    "rich_text_Dtm3qf",
+    "text_with_icons_yfqawx",
+    "rich_text_B9miLP",
+    "rich_text_gEtgLW",
+    "rich_text_LV4xmq",
+    "rich_text_8XyE4B",
+    "rich_text_fpFnUn",
+    "rich_text_7wQnXe",
+    "rich_text_DcnTbk",
+    "rich_text_fHCKPB",
+    "rich_text_zFRUcJ",
+    "rich_text_CfXVa4"
+  ]
+}

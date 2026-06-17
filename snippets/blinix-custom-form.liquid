@@ -1,0 +1,189 @@
+<style>
+
+  form {
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left;
+    
+  }
+  h2 {
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+   input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: left;
+  }
+  textarea {
+    height: 100px;
+  }
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  button[type="submit"] {
+    background-color: #121212;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: transparent;
+    border: 1px solid #121212;
+    color: #121212;
+  }
+
+  .blini-radio{
+
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .blini-radio p{
+
+    font-size: 16px;
+    margin: 0px;
+    line-height: 30px;
+  }
+
+.blinix-radio-wrapper{
+
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+@media(max-width: 768px){
+
+form {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0px 0px;
+    text-align: left;
+    
+  } 
+
+  
+}
+
+
+  
+</style>
+
+ {%- form 'contact', class: 'form' -%}
+   {%- if form.posted_successfully? -%}
+          {%- assign content = 'contact.form.success_message' | t -%}
+          {%- render 'banner', status: 'success', content: content -%}
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          {%- capture content -%}{{ form.errors.translated_fields[form.errors.first] | capitalize }} {{ form.errors.messages[form.errors.first] }}{%- endcapture -%}
+          {%- render 'banner', status: 'error', content: content -%}
+        {%- endif -%}
+  <div>
+    <h3>Corporate & Event Gifting Inquiry</h3>
+    <p>Please fill out the form below, and a team member will reach out in 1-2 business days!</p>
+  </div>
+
+  <div class="field">
+  <label for="inquiry-type">Inquiry Type</label>
+  <select id="inquiry-type" name="contact[inquiry_type]" required>
+    <option value="" disabled selected>Select an inquiry type</option>
+    <option value="Corporate / Event Gifting">Corporate / Event Gifting</option>
+    <option value="Wedding & Party Gifting">Wedding & Party Gifting</option>
+    <option value="Holiday & Festive Gifting">Holiday & Festive Gifting</option>
+    <option value="Personal Custom Order">Personal Custom Order</option>
+  </select>
+</div>
+
+  <div>
+     {%- assign label  = 'contact.form.name' | t -%}
+      {%- render 'input', type: 'text', name: 'contact[name]', label: label, value: customer.name, required: true, autocomplete: 'name' -%}
+    <!-- <input type="text" id="name" name="contact[name]" required placeholder="Your Name"> -->
+  </div>
+  <div>
+     {%- assign label  = 'Company' -%}
+      {%- render 'input', type: 'text', name: 'contact[Company]', label: label, value: customer.name, required: true, autocomplete: 'Company' -%}
+    <!-- <input type="text" id="Company" name="contact[Company]" required placeholder="Company"> -->
+  </div>
+  <div>
+    {%- assign label  = 'contact.form.email' | t -%}
+     {%- render 'input', type: 'email', name: 'contact[email]', label: label, value: customer.email, required: true, autocomplete: 'email' -%}
+    <!-- <input type="email" id="email" name="contact[email]" required placeholder="Email"> -->
+  </div>
+  <div>
+  {%- assign label = 'Phone'-%}
+  {%- render 'input', type: 'tel', name: 'contact[phone]', label: label, required: false, autocomplete: 'tel' -%}
+</div>
+
+  <div>
+  {%- assign label = 'Desired Delivery Date' -%}
+  {%- render 'input', type: 'date', name: 'contact[delivery_date]', label: label, required: false -%}
+</div>
+
+  <div>
+    <label for="gender">Number of Recipients:</label>
+    <select id="gender" name="contact[gender]" required>
+      <option value="male">10-25</option>
+      <option value="female">25-50</option>
+      <option value="other">50-100</option>
+      <option value="other">100-200</option>
+      <option value="other">200-300</option>
+      <option value="other">300+</option>
+    </select>
+  </div>
+  <div>
+    <label>Shipping Method:</label>
+    <div class="blinix-radio-wrapper">
+      <div class="blini-radio">
+        <input type="radio" id="subscribe" name="contact[subscription]" value="subscribe" required>
+        <p for="subscribe">All gifts will be shipped to one address.</p>
+      </div>
+      <div class="blini-radio">
+        <input type="radio" id="unsubscribe" name="contact[subscription]" value="unsubscribe" required>
+        <p for="unsubscribe">Each gift will be sent to the individual recipient.</p>
+      </div>
+    </div>
+  </div>
+  <div>
+  <label for="budget">Total Budget:</label>
+  <select id="budget" name="contact[budget]" required>
+    <option value="" disabled selected>Select a budget</option>
+    <option value="Under $500">Under $500</option>
+    <option value="$500 - $1,000">$500 - $1,000</option>
+    <option value="$1,000 - $2,000">$1,000 - $2,000</option>
+    <option value="$2,000 - $3,000">$2,000 - $3,000</option>
+    <option value="$3,000+">$3,000+</option>
+  </select>
+</div>
+  <div>
+    <p>
+      Tell us more! Share any product preferences, special requests, or anything else that would help us create the perfect gift.
+    </p>
+    <textarea id="comments" name="contact[comments]" rows="4" cols="50"></textarea>
+  </div>
+  <div>
+    <button type="submit">Send My Inquiry</button>
+  </div>
+  {%- endform -%}

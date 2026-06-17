@@ -1,0 +1,249 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-award-gift",
+            "icon_width": 24,
+            "mobile_icon_width": 24,
+            "title": "Free delivery worldwide",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "icon-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-award-gift",
+            "icon_width": 24,
+            "mobile_icon_width": 24,
+            "title": "Satisfied or refunded",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "icon-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-award-gift",
+            "icon_width": 24,
+            "mobile_icon_width": 24,
+            "title": "Top-notch support",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "icon-4": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-award-gift",
+            "icon_width": 24,
+            "mobile_icon_width": 24,
+            "title": "Secure payments",
+            "content": "<p>Short content about your store</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon-1",
+        "icon-2",
+        "icon-3",
+        "icon-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "stack_on_mobile": false,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "custom_footer_ChtPUW": {
+      "type": "custom-footer",
+      "blocks": {
+        "left_content_MGc8zw": {
+          "type": "left_content",
+          "settings": {
+            "small_text": "Lorem ipsum dolor sit amet consectetur. Laoreet neque nunc aliquam pharetra.",
+            "logo": "shopify://shop_images/Mask_group_1.png"
+          }
+        },
+        "newsletter_QJ3weP": {
+          "type": "newsletter",
+          "settings": {
+            "title": "",
+            "content": "<p>Stay up to date on our news, education and offers</p>",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "menu_block_kajRcm": {
+          "type": "menu_block",
+          "settings": {
+            "title": "Shop",
+            "menu": "footer-shop"
+          }
+        },
+        "menu_block_3JU6YJ": {
+          "type": "menu_block",
+          "settings": {
+            "title": "About",
+            "menu": "footer-about"
+          }
+        },
+        "menu_block_wz8iab": {
+          "type": "menu_block",
+          "settings": {
+            "title": "Inquire",
+            "menu": "footer-inquire"
+          }
+        },
+        "contact_block_xRFyGH": {
+          "type": "contact_block",
+          "settings": {
+            "heading": "Get in Touch",
+            "icon_1": "shopify://shop_images/Group.svg",
+            "label_1": "<p>For General Support</p>",
+            "email_1": "<p><a href=\"mailto:hello@mumubath.com\" title=\"mailto:hello@mumubath.com\">hello@mumubath.com</a></p>",
+            "icon_2": "shopify://shop_images/Group.svg",
+            "label_2": "<p>Business Inquiries</p>",
+            "email_2": "<p><a href=\"mailto:sasha.chou@mumubath.com\" title=\"mailto:sasha.chou@mumubath.com\">sasha.chou@mumubath.com</a></p>"
+          }
+        },
+        "accordion_nDRPGH": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Shop",
+            "accordion_menu": "footer-shop",
+            "icon_plus": "shopify://shop_images/Plus.svg",
+            "icon_minus": "shopify://shop_images/minus.svg",
+            "show_contact_info": false,
+            "con_info": ""
+          }
+        },
+        "accordion_GGxxRD": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "About",
+            "accordion_menu": "footer-about",
+            "icon_plus": "shopify://shop_images/Plus.svg",
+            "icon_minus": "shopify://shop_images/minus.svg",
+            "show_contact_info": false,
+            "con_info": ""
+          }
+        },
+        "accordion_wzNVba": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Inquire",
+            "accordion_menu": "footer-inquire",
+            "icon_plus": "shopify://shop_images/Plus.svg",
+            "icon_minus": "shopify://shop_images/minus.svg",
+            "show_contact_info": false,
+            "con_info": ""
+          }
+        },
+        "accordion_r9BBL4": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Get in Touch",
+            "accordion_menu": "",
+            "icon_plus": "shopify://shop_images/Plus.svg",
+            "icon_minus": "shopify://shop_images/minus.svg",
+            "show_contact_info": true,
+            "con_info": "<p><strong>For General Support</strong><br/> <a href=\"mailto:hello@mumubath.com\">hello@mumubath.com</a></p><p><br/> <strong>Business Inquiries</strong><br/> <a href=\"mailto:sasha.chou@mumubath.com\">sasha.chou@mumubath.com</a><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_content_MGc8zw",
+        "newsletter_QJ3weP",
+        "menu_block_kajRcm",
+        "menu_block_3JU6YJ",
+        "menu_block_wz8iab",
+        "contact_block_xRFyGH",
+        "accordion_nDRPGH",
+        "accordion_GGxxRD",
+        "accordion_wzNVba",
+        "accordion_r9BBL4"
+      ],
+      "name": "Live 5AM Footer (Standalone)",
+      "settings": {
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text_tExy7t": {
+          "type": "text",
+          "settings": {
+            "title": "<a href=\"https://www.mumubath.com/\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0455/5862/8516/files/Mumu_Bath_-_Logomark_-_Yellow.png?v=1707741437\" alt=\"Mumu Bath\" width=\"110\" height=\"110\">\n</a>",
+            "content": "<p>We transform ordinary bath and shower moments into extraordinary experiences with all-natural ingredients that incorporate unique Asian scents inspired by our Taiwanese heritage.</p>",
+            "enable_follow_on_shop": false
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "blinix-footer-menu",
+            "show_menu_title": true
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "OUR TOP PRODUCTS",
+            "content": "<p><a href=\"https://www.mumubath.com/collections/scented-candles\">Candles</a></p>\n<p><a href=\"https://www.mumubath.com/collections/body-butters\">Body Butters</a></p>\n<p><a href=\"https://www.mumubath.com/collections/soap\">Handmade Soaps</a></p>\n<p><a href=\"https://www.mumubath.com/collections/all-body-scrub\">Exfoliating Scrubs</a></p>\n<br><p class=\"h6\" style=\"color: white;\">GET IN TOUCH</p>\n<p>Contact Us <br><a href=\"mailto:hello@mumubath.com\">hello@mumubath.com</a></p>\n<p>Wholesale Inquiries <br> <a href=\"mailto:sasha.chou@mumubath.com\">sasha.chou@mumubath.com</a>   </p>\n<p>Corporate Gifting <br><a href=\"mailto:sasha.chou@mumubath.com\">sasha.chou@mumubath.com</a></p><p>PR, Marketing & Careers <br> <a href=\"mailto:sasha.chou@mumubath.com\">sasha.chou@mumubath.com</a></p>",
+            "enable_follow_on_shop": false
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "STAY IN TOUCH",
+            "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
+            "button_background": "#fbdd40",
+            "button_text_color": "#1c1c1c"
+          }
+        }
+      },
+      "block_order": [
+        "text_tExy7t",
+        "links",
+        "text",
+        "newsletter"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "show_social_media": true,
+        "show_payment_icons": false,
+        "show_country_selector": false,
+        "show_country_name": false,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "text-with-icons",
+    "custom_footer_ChtPUW",
+    "footer"
+  ]
+}

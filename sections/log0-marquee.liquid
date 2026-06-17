@@ -1,0 +1,251 @@
+{% comment %} ! This is glitch free marquee and dont change the width of the container {% endcomment %}
+
+
+{% stylesheet %}
+.feature-scroll-container-mf {
+    overflow: hidden;
+    background-color: #000000;
+    padding: 24px 0;
+    margin:  0;
+}
+
+.feature-scroll-track-mf {
+    display: flex;
+    animation: scroll-seamless 20s linear infinite;
+    width: max-content;
+    will-change: transform;
+}
+
+.feature-icon-item-mf {
+    display: flex;
+    align-items: center;
+    margin-right: 105px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.feature-icon-item-mf img {
+    width: 26px;
+    height: 26px;
+    aspect-ratio: 1/1;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.feature-icon-item-mf span {
+    color: var(--White, #FFF);
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Acumin Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* Seamless infinite scroll animation */
+@keyframes scroll-seamless {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-icon-item-mf span {
+        font-size: 17px; 
+    }
+    .pdp-marquee .feature-icon-item-mf span {
+       font-size: 16px;
+    }
+    .feature-scroll-container-mf {
+        padding: 20px 0;
+    }
+    .feature-icon-item-mf img {
+        margin-right: 10px;
+        width: 21.125px;
+        height: 21.125px;
+    }
+    .feature-icon-item-mf {
+        margin-right: 20px;
+    }
+}
+
+
+/* newstyle */
+.left-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 0 24px;
+}
+.shop-footer .icon {
+    display: inline-block;
+    width: var(--icon-size, 20px);
+    height: var(--icon-size, 20px);
+    vertical-align: middle;
+    fill: none;
+    stroke: white;
+}
+.zz-footer-link.left-con-richtext {
+   padding: 8px 0 0;
+}
+.left-col .zz-footer-title {
+  margin-bottom: 10px;
+}
+.left-col .text-button-large {
+      font-family: "Source Code Pro" !important;
+}
+@media (max-width: 768px) {
+   .left-col .zz-footer-title {
+     font-size: 18px !important; 
+     padding:0px;
+     border: 0px;
+    margin:0 0 10px !important;
+  }
+  .left-col {
+    flex-direction: column;
+    margin:0 0 32px;
+  }
+  .text-button-large {
+     font-size:14px !important;
+  }
+  .zz-footer-link.left-con-richtext {
+     font-size:14px;
+  }
+  .zz-footer-link.left-con-richtext {
+    padding: 0px;
+  }
+  .pdp-marquee .feature-scroll-container-mf {
+     padding: 16px 0 !important;
+  }
+}
+{% endstylesheet %}
+
+
+<div class="feature-scroll-container-mf sec-{{ section.id }} {% if section.settings.pdp %}pdp-marquee{% endif %}">
+        <div class="feature-scroll-track-mf">
+          {% comment %} Original set {% endcomment %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="feature-icon-item-mf">
+                {% if block.settings.icon %}
+                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
+                {% endif %}
+                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          {% comment %} Duplicate set 1 {% endcomment %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="feature-icon-item-mf">
+                {% if block.settings.icon %}
+                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
+                {% endif %}
+                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          {% comment %} Duplicate set 2 {% endcomment %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="feature-icon-item-mf">
+                {% if block.settings.icon %}
+                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
+                {% endif %}
+                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+{% schema %}
+{
+  "name": "Scrolling Feature Icons",
+  "tag": "section",
+  "class": "scrolling-feature-icons",
+  "settings": [
+    {
+          "type": "checkbox",
+          "id": "hide",
+          "label": "Hide Desktop"
+    },
+    {
+          "type": "checkbox",
+          "id": "pdp",
+          "label": "Pdp Styling"
+    },
+    
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Logo Marquee",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}      
+
+{% style %}
+
+
+
+.feature-icon-item-mf img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    max-width: 140px;
+    aspect-ratio: 137 / 37;
+}
+
+.feature-scroll-container-mf {
+    overflow: hidden;
+    background: #242221;
+    padding: 37px 0;
+    margin: 0;
+}
+
+@media screen and (max-width:767px){
+
+    .feature-scroll-container-mf {
+       padding: 20px 0;
+    }
+    .feature-icon-item-mf img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        max-width: 100px;
+        aspect-ratio: 22 / 7;
+        margin-right:0px;
+    }
+    .feature-icon-item-mf  {
+       margin-right:12px;
+    }
+
+}
+
+
+
+{% endstyle %}

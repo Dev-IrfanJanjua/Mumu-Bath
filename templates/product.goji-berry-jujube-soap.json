@@ -1,0 +1,563 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "targetbay_product_reviews_product_stats_pF9gGF": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false,
+            "show_below_gallery": false
+          }
+        },
+        "accordion_N3tiJp": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Benefits",
+            "content": "<ul><li><strong>Moisture-Locking:</strong> Organic Castor Oil and Cocoa Butter hydrate and lock in moisture.</li><li><strong>Softens & Protects:</strong> Carnauba and Candelilla Waxes create a protective barrier without stickiness.</li><li><strong>Gentle on Lips: </strong>Lightweight and silky, with a smooth application and a hint of shine and color.</li><li><strong>Vegan & Natural:</strong> Made with 100% vegan, natural ingredients.</li></ul>",
+            "page": ""
+          }
+        },
+        "accordion_aM9zjH": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "How to Use",
+            "content": "<p>Apply a small amount to your lips as needed for hydration and a soft, smooth finish.</p>",
+            "page": ""
+          }
+        },
+        "accordion_jwzrfA": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Scent",
+            "content": "<p>Tangerine/ Grapefruit/ Peppermint/ Cocoa Vanilla/ Chai (tinted)/ Mango(tinted)</p>",
+            "page": ""
+          }
+        },
+        "accordion_Tzq7CP": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Suitable for",
+            "content": "<p>All Skin Types, Sensitive Skin</p>",
+            "page": ""
+          }
+        },
+        "accordion_UP6zMm": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Ingredients",
+            "content": "<p>Organic Castor Oil, Organic Cocoa butter, Carnauba Wax, Candelilla Wax, Flavor Oil</p>",
+            "page": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": true,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "product_variations_ya4kgK": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "",
+            "option_value_metafield": "",
+            "products": [],
+            "color_selector_type": "color"
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "complementary_products": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "Pairs well with",
+            "products_count": 2,
+            "show_below_gallery": true,
+            "stack_products": false,
+            "show_quick_buy": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "targetbay_product_reviews_product_stats_pF9gGF",
+        "price",
+        "description",
+        "accordion_N3tiJp",
+        "accordion_aM9zjH",
+        "accordion_jwzrfA",
+        "accordion_Tzq7CP",
+        "accordion_UP6zMm",
+        "variant_picker",
+        "quantity_selector",
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
+        "buy_buttons",
+        "separator",
+        "product_variations_ya4kgK",
+        "payment_terms",
+        "complementary_products"
+      ],
+      "settings": {
+        "container_size": "lg",
+        "product_info_size": 50,
+        "show_sticky_add_to_cart": false,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 5,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "logo_list_xHnX8R": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_CLnHf9": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon1_230a8067-63ce-4236-9d24-78b278f1771a.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_eqfHMb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon2_1_a3a163ba-9312-451e-ba9b-da5e8f5ab19b.png",
+            "logo_width": 110,
+            "link": ""
+          }
+        },
+        "logo_6JkUGR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon3_324f22fb-5953-41b9-9a36-b48454f4a26e.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_ztgwXY": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon4.png",
+            "logo_width": 140,
+            "link": ""
+          }
+        },
+        "logo_MfmddM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon5.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_46Rrm3": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon6.png",
+            "logo_width": 100,
+            "link": ""
+          }
+        },
+        "logo_BibnEe": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon7.png",
+            "logo_width": 160,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_CLnHf9",
+        "logo_eqfHMb",
+        "logo_6JkUGR",
+        "logo_ztgwXY",
+        "logo_MfmddM",
+        "logo_46Rrm3",
+        "logo_BibnEe"
+      ],
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "subheading": "",
+        "title": "Our Benefits",
+        "items_per_row": 4,
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "rich_text_q6rtXk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qXiDrf": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Choose Mumu Bath for YourGoji Berry Soap?",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_g7kpKC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At Mumu Bath, we blend traditional care with modern ingredients to create skincare that feels as good as it looks. Our Goji Berry Soap is crafted with love, purity, and your skin’s well-being in mind.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qXiDrf",
+        "richtext_g7kpKC"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "multi_column_AMJYMA": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_dcpgQe": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Thoughtfully Handcrafted",
+            "heading_tag": "h3",
+            "content": "<p>Every bar is handmade in small batches to ensure freshness and consistency. We follow a meticulous process that preserves the natural benefits of the ingredients.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_6nL6KR": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Clean, Ethical Ingredients",
+            "heading_tag": "h3",
+            "content": "<p>We use only natural, non-toxic ingredients - no harsh chemicals, sulfates, or artificial fragrances. Our formulas are vegan and cruelty-free, making them better for you and the planet.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_UjbEpV": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Trusted by Customers",
+            "heading_tag": "h3",
+            "content": "<p>We’re proud of our 5-star reviews and loyal community. Every product is backed by real results and a satisfaction-first approach.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_3L6hy7": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Long-Lasting and Sustainable",
+            "heading_tag": "h3",
+            "content": "<p>Our goji berry soap bar is designed to last, with a rich lather that doesn't strip your skin. Plus, it comes in eco-friendly packaging to reduce waste.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_UzPeCy": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Gentle and Nourishing",
+            "heading_tag": "h3",
+            "content": "<p>Our goji berry beauty soap is enriched with skin-loving oils and butter. It gently cleanses while providing antioxidant-rich nourishment for radiant skin.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_dcpgQe",
+        "image_with_text_6nL6KR",
+        "image_with_text_UjbEpV",
+        "image_with_text_3L6hy7",
+        "image_with_text_UzPeCy"
+      ],
+      "name": "t:sections.multi_column.presets.multi_column.name",
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "columns_per_row": 3,
+        "stack_on_mobile": true,
+        "overlap_image": true,
+        "content_alignment": "center",
+        "text_alignment": "center",
+        "spacing": "md",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "rich_text_cnKKiq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bQxegr": {
+          "type": "heading",
+          "settings": {
+            "text": "Glow Naturally with Every Wash",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_GKk6Xc": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Indulge your skin in the antioxidant-rich care of our goji berry beauty soap. Each bar is handcrafted to gently cleanse, hydrate, and restore your skin’s natural glow. Infused with botanical oils and goji berry extract, it’s a daily skincare essential you’ll love using. Our gluta berry soap is customer favorite for brightening and smoothing the skin. Elevate your routine with gentle, nourishing ingredients that make a difference from the first use. Treat your skin to something truly special.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bQxegr",
+        "richtext_GKk6Xc"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_tqwRnR": {
+      "type": "faq",
+      "blocks": {
+        "question_BMPHW7": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use gluta berry soap daily on sensitive skin?",
+            "answer": "<p>Yes, our gluta berry soap is gentle enough for daily use, even on sensitive skin types. We use mild, nourishing ingredients like olive oil and coconut oil that maintain your skin’s natural moisture. The goji berry extract works to brighten your complexion gradually.</p>"
+          }
+        },
+        "question_6C88fk": {
+          "type": "question",
+          "settings": {
+            "question": "Does the Goji Berry Soap contain any artificial colors or fragrances?",
+            "answer": "<p>No, we do not use artificial colors or synthetic fragrances in our Goji Berry Soap. All scent and color come from natural sources like essential oils and botanicals. It’s a clean beauty product you can feel good about.</p>"
+          }
+        },
+        "question_TYnMe7": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store the Goji Berry Soap between uses?",
+            "answer": "<p>Store your Goji Berry Soap in a well-drained soap dish away from standing water. This prevents it from becoming mushy and helps it last longer. A dry environment keeps the bar firm and fresh.</p>"
+          }
+        },
+        "question_K4YDfb": {
+          "type": "question",
+          "settings": {
+            "question": "Is your goji berry soap bar suitable for the face and body?",
+            "answer": "<p>Yes, the goji berry soap bar is gentle enough for both the face and body. It cleanses without over-drying and helps maintain natural skin moisture. The goji berry infusion supports a radiant, healthy glow.</p>"
+          }
+        },
+        "question_X8H44j": {
+          "type": "question",
+          "settings": {
+            "question": "Is this soap suitable for children?",
+            "answer": "<p>Yes, our Goji Berry Soap is gentle enough for kids aged 3 and above. It's free from harsh chemicals, synthetic fragrances, and artificial dyes.</p>"
+          }
+        },
+        "question_dmrMBV": {
+          "type": "question",
+          "settings": {
+            "question": "How often should I use soap for the best results?",
+            "answer": "<p>We recommend using Goji Berry Soap daily for optimal results. Consistency is key to achieving a natural glow and smooth skin.</p>"
+          }
+        },
+        "question_rG63db": {
+          "type": "question",
+          "settings": {
+            "question": "How long does one goji berry soap bar typically last?",
+            "answer": "<p>One goji berry soap bar can last anywhere from 3 to 5 weeks depending on usage and storage. To extend its lifespan, keep it dry between uses using a soap dish with drainage.</p>"
+          }
+        },
+        "question_C4k94e": {
+          "type": "question",
+          "settings": {
+            "question": "What should I do if my product is damaged or incorrect?",
+            "answer": "<p>Please inspect your order upon arrival and contact us right away if it's defective, damaged, or incorrect. We’ll evaluate the issue and work to resolve it promptly.</p>"
+          }
+        },
+        "question_QwbcnV": {
+          "type": "question",
+          "settings": {
+            "question": "How does goji berry beauty soap support skin hydration?",
+            "answer": "<p>The goji berry beauty soap is crafted with nourishing oils that help lock in moisture while cleansing. Goji berry extract adds an antioxidant boost that helps prevent dryness and dullness. Your skin feels refreshed and hydrated after each use.</p>"
+          }
+        },
+        "question_KY4QfU": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take for Mumu Bath orders to ship?",
+            "answer": "<p>Orders are typically processed within 3–5 business days, with shipments going out Monday to Friday. We use USPS First Class, USPS Ground, or UPS Ground, and shipping may be delayed during public holidays or due to unforeseen issues.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_BMPHW7",
+        "question_6C88fk",
+        "question_TYnMe7",
+        "question_K4YDfb",
+        "question_X8H44j",
+        "question_dmrMBV",
+        "question_rG63db",
+        "question_C4k94e",
+        "question_QwbcnV",
+        "question_KY4QfU"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "custom_liquid_jdrn4z": {
+      "type": "custom-liquid",
+      "settings": {
+        "separate_section_with_border": false,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "{% render 'product-page-image-section' %}",
+        "text_alignment": "start"
+      }
+    },
+    "1742279709b3f4ee9a": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_gY8kUA": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_product_reviews_ELQQWa": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_68ahqC": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_gY8kUA",
+        "targetbay_product_reviews_product_reviews_ELQQWa",
+        "targetbay_product_reviews_site_reviews_68ahqC"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo_list_xHnX8R",
+    "rich_text_q6rtXk",
+    "multi_column_AMJYMA",
+    "rich_text_cnKKiq",
+    "faq_tqwRnR",
+    "custom_liquid_jdrn4z",
+    "1742279709b3f4ee9a",
+    "related-products"
+  ]
+}

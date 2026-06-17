@@ -1,0 +1,250 @@
+<!-- Section: MBLP Floating Buttons -->
+<div class="mblp-floating-buttons-main" id="mblp-floating-buttons-{{ section.id }}">
+  <div class="mblp-floating-buttons-wrapper">
+    {% for block in section.blocks %}
+      <div class="mblp-floating-buttons-item" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="mblp-floating-buttons-link">
+        {% else %}
+          <div class="mblp-floating-buttons-link">
+        {% endif %}
+        
+        <!-- Icon Container -->
+        <div class="mblp-floating-buttons-icon">
+          {% if block.settings.icon_image != blank %}
+            {{ block.settings.icon_image | image_url: width: 24 | image_tag: alt: block.settings.icon_text }}
+          {% endif %}
+        </div>
+        
+        <!-- Text -->
+        {% if block.settings.icon_text != blank %}
+          <span class="mblp-floating-buttons-text">{{ block.settings.icon_text }}</span>
+        {% endif %}
+        
+        {% if block.settings.link != blank %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+    /* Add smooth scrolling to the entire page */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Base Floating Buttons Styles */
+    .mblp-floating-buttons-main {
+      position: fixed;
+      top: 57%;
+      left: 30px;
+      transform: translateY(-50%);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .mblp-floating-buttons-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      background: #232121;
+      gap: 8px;
+      pointer-events: auto;
+      border-radius: 10px;
+      pointer-events: auto;
+    }
+
+    .mblp-floating-buttons-item {
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+
+    .mblp-floating-buttons-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F8F6EE !important;
+      padding: 10px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      justify-content: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover and Active States */
+    .mblp-floating-buttons-link:hover,
+    .mblp-floating-buttons-link:active,
+    .mblp-floating-buttons-link:focus {
+      background: #FBDD3F !important;
+    }
+
+    .mblp-floating-buttons-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .mblp-floating-buttons-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .mblp-floating-buttons-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .mblp-floating-buttons-text {
+      color: #000;
+      text-align: center;
+      font-family: 'Inter Medium'!important;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+
+      .mblp-floating-buttons-wrapper {
+        gap: 5px;
+        padding: 8px;
+      }
+      .mblp-floating-buttons-link {
+    padding: 5px;
+}
+
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 769px) and (max-width: 1024px) {
+    }
+
+    /* Hide on specific pages if needed */
+    {% if section.settings.hide_on_checkout %}
+    .template-cart .mblp-floating-buttons-main,
+    .template-checkout .mblp-floating-buttons-main {
+      display: none;
+    }
+    {% endif %}
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Floating Buttons",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_bottom_position",
+      "label": "Bottom Position (Mobile)",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Button Text Size (Mobile)",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_border_radius",
+      "label": "Mobile Border Radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_checkout",
+      "label": "Hide on Cart & Checkout Pages",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "floating_button",
+      "name": "Floating Button",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image (PNG/SVG recommended)"
+        },
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Button Text",
+          "default": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Floating Buttons",
+      "settings": {
+        "mobile_bottom_position": 80,
+        "mobile_text_size": 12,
+        "mobile_border_radius": 20,
+        "hide_on_checkout": true
+      },
+      "blocks": [
+        {
+          "type": "floating_button",
+          "settings": {
+            "icon_text": "Group Capacity",
+            "link": "#group-capacity"
+        }
+        },
+        {
+          "type": "floating_button",
+          "settings": {
+            "icon_text": "Time Slots",
+            "link": "#time-slots"
+          }
+        },
+        {
+          "type": "floating_button",
+          "settings": {
+            "icon_text": "Save Your Spot",
+            "link": "#save-spot"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,148 @@
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{% style %}
+
+.atc-btn {
+    max-width: 190px;
+    width: 100%;
+}
+
+.secondary-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+.primary-image {
+  position: relative;
+  z-index: 1;
+}
+
+.hair-product-card:hover .secondary-image {
+  opacity: 1;
+}
+
+.hair-product-card:hover .primary-image {
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px){
+
+.collection .hair-product-card__title a {
+    font-size: 12px;
+    line-height: normal;
+}
+
+.collection .hair-product-price {
+    font-size: 14px;
+}
+
+}
+
+{% endstyle %}
+
+{% assign hover_image = product.images[1] %}
+
+<div class="hair-product-card">
+
+    <a href="{{ product.url }}" class="hair-product-card__image-wrapper">
+
+        {%- if product.featured_image -%}
+        {{
+            product.featured_image
+            | image_url: width: 900
+            | image_tag:
+            loading: 'lazy',
+            class: 'hair-product-card__image primary-image',
+            widths: '320,480,640,800,900',
+            sizes: '(min-width: 990px) 25vw, 50vw',
+            alt: product.featured_image.alt,
+            width: product.featured_image.width,
+            height: product.featured_image.height
+        }}
+        {%- endif -%}
+
+        {%- if hover_image -%}
+        {{
+            hover_image
+            | image_url: width: 900
+            | image_tag:
+            loading: 'lazy',
+            class: 'hair-product-card__image secondary-image',
+            widths: '320,480,640,800,900',
+            sizes: '(min-width: 990px) 25vw, 50vw',
+            alt: hover_image.alt,
+            width: hover_image.width,
+            height: hover_image.height
+        }}
+        {%- else -%}
+            {{
+                product.featured_image
+                | image_url: width: 900
+                | image_tag:
+                loading: 'lazy',
+                class: 'hair-product-card__image secondary-image',
+                widths: '320,480,640,800,900',
+                sizes: '(min-width: 990px) 25vw, 50vw',
+                alt: product.featured_image.alt,
+                width: product.featured_image.width,
+                height: product.featured_image.height
+            }}
+        {%- endif -%}
+
+    </a>
+
+    <div class="hair-product-card__content">
+
+        <h3 class="hair-product-card__title">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3>
+
+        {%- assign metafield_rating_text  = product.metafields.custom.rating_text -%}
+        {%- assign metafield_rating_image = product.metafields.custom.rating_image -%}
+
+        <div class="hair-product-rating">
+        {%- if metafield_rating_image != blank -%}
+            {{
+            metafield_rating_image
+            | image_url: width: 200
+            | image_tag: loading: 'lazy', class: 'hair-rating-image', alt: 'Rating'
+            }}
+        {%- elsif section.settings.rating_image != blank -%}
+            {{
+            section.settings.rating_image
+            | image_url: width: 200
+            | image_tag: loading: 'lazy', class: 'hair-rating-image', alt: 'Rating'
+            }}
+        {%- endif -%}
+
+        <span class="hair-rating-text">
+            {%- if metafield_rating_text != blank -%}
+            {{ metafield_rating_text }}
+            {%- else -%}
+            {{ section.settings.rating_text }}
+            {%- endif -%}
+        </span>
+        </div>
+
+        <div class="feeat-foot">
+        <div class="hair-product-price-wrapper">
+            {%- if product.compare_at_price > product.price -%}
+            <div class="hair-product-compare-price">{{ product.compare_at_price | money }}</div>
+            {%- endif -%}
+            <div class="hair-product-price">{{ product.price | money }}</div>
+        </div>
+
+        {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
+        <div class="atc-btn">
+            {%- render 'buy-buttons',
+            product: product,
+            form_id: product_form_id,
+            show_button_icon: section.settings.cs-btn,
+            show_icon: settings.cs-btn
+            -%}
+        </div>
+        </div>
+
+    </div>
+</div>

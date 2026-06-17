@@ -1,0 +1,217 @@
+<!-- sections/mblp-manage-subscription.liquid -->
+<div
+  class="mblp-manage-subscription"
+  style="padding-top: {{ section.settings.padding_top_desktop }}px; padding-bottom: {{ section.settings.padding_bottom_desktop }}px;"
+>
+  <div class="container">
+    <div class="mblp-manage-subscription-wrapper">
+      <div class="mblp-manage-subscription-sub-wrapper">
+        {% if section.settings.main_heading != blank %}
+          <div class="mblp-manage-subscription-heading">
+            <h2>{{ section.settings.main_heading }}</h2>
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <div class="mblp-manage-subscription-button">
+            <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+          </div>
+        {% endif %}
+
+        {% if section.settings.image != blank %}
+          <div class="mblp-manage-subscription-image">
+            {{ section.settings.image | image_url: width: 1500 | image_tag }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="mblp-manage-subscription-description">
+            <p>{{ section.settings.description }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mblp-manage-subscription {
+    background-color: var(--col-offwhite);
+  }
+
+  .mblp-manage-subscription-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mblp-manage-subscription-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    /* max-width: 800px; */
+    width: 100%;
+  }
+
+  .mblp-manage-subscription-heading h2 {
+    color: var(--col-black);
+    font-family: var(--fs-lora) !important;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+  }
+
+  .mblp-manage-subscription-button a {
+    display: flex;
+    width: 363px;
+    height: 63px;
+    padding: 14px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--col-light-black);
+    color: #FCF7E3;
+    font-family: 'Inter Semi Bold' !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .mblp-manage-subscription-button a:hover {
+    background-color: var(--col-black);
+  }
+
+  .mblp-manage-subscription-image {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .mblp-manage-subscription-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mblp-manage-subscription-description p {
+    color: var(--col-light-black);
+    font-family: 'Inter Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .mblp-manage-subscription {
+      padding-top: {{ section.settings.padding_top_mobile }}px !important;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+    }
+
+    .mblp-manage-subscription-heading h2 {
+              font-size: 28px;
+        max-width: 330px;
+    }
+
+    .mblp-manage-subscription-button a {
+     width: 100%;
+        /* max-width: 300px; */
+        font-size: 18px;
+        padding: 16px 32px;
+    }
+
+    .mblp-manage-subscription-sub-wrapper {
+      gap: 20px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Manage Subscription",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Never Run Out Again. Stay Stocked, Stay Glowing."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Manage Your Subscription"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Manage Subscription",
+      "settings": {
+        "main_heading": "Never Run Out Again. Stay Stocked, Stay Glowing.",
+        "button_text": "Manage Your Subscription",
+        "button_link": "#"
+      }
+    }
+  ]
+}
+{% endschema %}

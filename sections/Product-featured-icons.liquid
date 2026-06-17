@@ -1,0 +1,245 @@
+{% liquid
+  assign section_id = 'icon-features-' | append: section.id
+%}
+
+<section
+  id="{{ section_id }}"
+  class="icon-features-section fade-in-section"
+  style="
+    --section-bg: {{ section.settings.background_color }};
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+    <div class="icon-features-grid">
+      {% for block in section.blocks %}
+        <div
+          id="item-{{ forloop.index }}"
+          class="icon-feature-item fade-in-item"
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.image != blank %}
+            <div class="icon-feature-image">
+              
+              {{ block.settings.image | image_url: width: 1600 | image_tag:
+                        widths: '50, 100, 150, 200, 250, 300, 400, 500,600,1440,1600',
+                        
+                        loading: "lazy",
+                        alt: block.settings.image.alt
+                    }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <div class="icon-feature-title">
+              {{ block.settings.title }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .icon-features-section{
+    background: var(--section-bg);
+    padding-top: var(--pt-desktop);
+    padding-bottom: var(--pb-desktop);
+  }
+
+  .icon-features-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:32px;
+    align-items:start;
+  }
+
+  .icon-feature-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .icon-feature-image{
+    margin-bottom:3px;
+    line-height:0;
+  }
+
+  .icon-feature-image img{
+    width:147px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  .icon-feature-title{
+    color:#101010;
+    text-align:center;
+    font-family:"Plus Jakarta Sans";
+    font-size:18px;
+    font-style:normal;
+    font-weight:600;
+    line-height:148%;
+    text-transform:capitalize;
+  }
+
+  @media screen and (max-width: 768px){
+
+    .icon-features-section{
+      padding-top: var(--pt-mobile);
+      padding-bottom: var(--pb-mobile);
+    }
+
+    .icon-features-grid{
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .icon-feature-image img{
+      width:50px;
+      height: 50px;
+    }
+
+    .icon-feature-title{
+      font-size:14px;
+      line-height:120%;
+    }
+    #item-6     .icon-feature-title {
+        max-width:85px;
+    }
+
+
+
+
+  }
+
+
+@media screen and (max-width: 390px) {
+    .icon-features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Icon Features",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5F3EE"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Text",
+          "default": "Feature Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Features",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Natural & Vegan"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Scents Of Taiwan"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Joyful Shower Rituals"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Handmade With Care"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Sustainably Sourced"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Cruelty-Free"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

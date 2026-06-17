@@ -1,0 +1,328 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "targetbay_product_reviews_product_stats_pF9gGF": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false,
+            "show_below_gallery": false
+          }
+        },
+        "accordion_N3tiJp": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Benefits",
+            "content": "<ul><li><strong>Moisture-Locking:</strong> Organic Castor Oil and Cocoa Butter hydrate and lock in moisture.</li><li><strong>Softens & Protects:</strong> Carnauba and Candelilla Waxes create a protective barrier without stickiness.</li><li><strong>Gentle on Lips: </strong>Lightweight and silky, with a smooth application and a hint of shine and color.</li><li><strong>Vegan & Natural:</strong> Made with 100% vegan, natural ingredients.</li></ul>",
+            "page": ""
+          }
+        },
+        "accordion_aM9zjH": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "How to Use",
+            "content": "<p>Apply a small amount to your lips as needed for hydration and a soft, smooth finish.</p>",
+            "page": ""
+          }
+        },
+        "accordion_jwzrfA": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Scent",
+            "content": "<p>Tangerine/ Grapefruit/ Peppermint/ Cocoa Vanilla/ Chai (tinted)/ Mango(tinted)</p>",
+            "page": ""
+          }
+        },
+        "accordion_Tzq7CP": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Suitable for",
+            "content": "<p>All Skin Types, Sensitive Skin</p>",
+            "page": ""
+          }
+        },
+        "accordion_UP6zMm": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Ingredients",
+            "content": "<p>Organic Castor Oil, Organic Cocoa butter, Carnauba Wax, Candelilla Wax, Flavor Oil</p>",
+            "page": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": true,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "product_variations_ya4kgK": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "",
+            "option_value_metafield": "",
+            "products": [],
+            "color_selector_type": "color"
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "complementary_products": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "Pairs well with",
+            "products_count": 2,
+            "show_below_gallery": true,
+            "stack_products": false,
+            "show_quick_buy": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "targetbay_product_reviews_product_stats_pF9gGF",
+        "price",
+        "description",
+        "accordion_N3tiJp",
+        "accordion_aM9zjH",
+        "accordion_jwzrfA",
+        "accordion_Tzq7CP",
+        "accordion_UP6zMm",
+        "variant_picker",
+        "quantity_selector",
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
+        "buy_buttons",
+        "separator",
+        "product_variations_ya4kgK",
+        "payment_terms",
+        "complementary_products"
+      ],
+      "settings": {
+        "container_size": "lg",
+        "product_info_size": 50,
+        "show_sticky_add_to_cart": false,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 5,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "logo_list_xHnX8R": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_CLnHf9": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon1_230a8067-63ce-4236-9d24-78b278f1771a.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_eqfHMb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon2_1_a3a163ba-9312-451e-ba9b-da5e8f5ab19b.png",
+            "logo_width": 110,
+            "link": ""
+          }
+        },
+        "logo_6JkUGR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon3_324f22fb-5953-41b9-9a36-b48454f4a26e.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_ztgwXY": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon4.png",
+            "logo_width": 140,
+            "link": ""
+          }
+        },
+        "logo_MfmddM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon5.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_46Rrm3": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon6.png",
+            "logo_width": 100,
+            "link": ""
+          }
+        },
+        "logo_BibnEe": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon7.png",
+            "logo_width": 160,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_CLnHf9",
+        "logo_eqfHMb",
+        "logo_6JkUGR",
+        "logo_ztgwXY",
+        "logo_MfmddM",
+        "logo_46Rrm3",
+        "logo_BibnEe"
+      ],
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "subheading": "",
+        "title": "Our Benefits",
+        "items_per_row": 4,
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "custom_liquid_jdrn4z": {
+      "type": "custom-liquid",
+      "settings": {
+        "separate_section_with_border": false,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "{% render 'product-page-image-section' %}",
+        "text_alignment": "start"
+      }
+    },
+    "1742279709b3f4ee9a": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_gY8kUA": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_product_reviews_ELQQWa": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_68ahqC": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_gY8kUA",
+        "targetbay_product_reviews_product_reviews_ELQQWa",
+        "targetbay_product_reviews_site_reviews_68ahqC"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo_list_xHnX8R",
+    "custom_liquid_jdrn4z",
+    "1742279709b3f4ee9a",
+    "related-products"
+  ]
+}

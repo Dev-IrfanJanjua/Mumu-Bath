@@ -1,0 +1,406 @@
+<!-- Section: MBLP Make 2 Products -->
+<div class="mblp-make-2-products-main">
+  <div class="container">
+    <div class="mblp-make-2-products-wrapper">
+      <div class="mblp-make-2-products-sub-wrapper">
+        <!-- Section Title -->
+        {% if section.settings.section_title != blank %}
+          <div class="mblp-make-2-products-title">
+            <h2>{{ section.settings.section_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Section Subtitle -->
+        {% if section.settings.section_subtitle != blank %}
+          <div class="mblp-make-2-products-subtitle">
+            <p>{{ section.settings.section_subtitle }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Products Grid -->
+        <div class="mblp-make-2-products-grid">
+          {% for block in section.blocks %}
+            <div class="mblp-make-2-products-item" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <div class="mblp-make-2-products-item-image">
+                  {{ block.settings.image | image_url: width: 400 | image_tag }}
+                </div>
+              {% else %}
+                <div class="mblp-make-2-products-item-image placeholder">
+                  <div class="placeholder-content"></div>
+                </div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <div class="mblp-make-2-products-item-title">
+                  <h3>{{ block.settings.title }}</h3>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    /* Base styles - Mobile First */
+    .mblp-make-2-products-main {
+      background-color: #FFF;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .mblp-make-2-products-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;  
+    }
+
+    .mblp-make-2-products-sub-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mblp-make-2-products-title h2 {
+      font-size: 28px;
+      text-align: center;
+      font-family: var(--fs-lora) !important;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      padding-bottom: 16px;
+      color: var(--col-light-black);
+      margin: 0;
+    }
+
+    .mblp-make-2-products-subtitle p {
+      color: var(--col-light-black);
+      text-align: center;
+      font-family: var(--fs-lora) !important;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;  
+      line-height: normal;
+      padding-bottom: 40px;
+      margin: 0;
+      max-width: 600px;
+    }
+
+    .mblp-make-2-products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .mblp-make-2-products-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 0 0 calc(50% - 10px);
+      max-width: calc(50% - 10px);
+    }
+
+    .mblp-make-2-products-item-image {
+      width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: #FFF8D3;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    }
+
+    .mblp-make-2-products-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .mblp-make-2-products-item-image.placeholder .placeholder-content {
+      {% comment %} width: 60%;
+      height: 60%;
+      background: #E5E7EB;
+      border-radius: 8px; {% endcomment %}
+    }
+
+    .mblp-make-2-products-item-title {
+      width: 100%;
+    }
+
+    .mblp-make-2-products-item-title h3 {
+      color: var(--col-light-black);
+      margin: 0;
+      font-family: var(--fs-lora) !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 180%;
+      background: #F8F6EE;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .mblp-make-2-products-title h2 {
+        font-size: 24px;
+        padding-bottom: 12px;
+      }
+
+      .mblp-make-2-products-subtitle p {
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .mblp-make-2-products-grid {
+        gap: 15px;
+      }
+
+      .mblp-make-2-products-item {
+              flex: 0 0 calc(50% - 7.5px);
+        max-width: calc(25% - 0px);
+      }
+
+      .mblp-make-2-products-item-image {
+        padding: 20px;
+        margin-bottom: 10px;
+      }
+
+      .mblp-make-2-products-item-title h3 {
+        font-size: 16px;
+      }
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 769px) {
+      .mblp-make-2-products-main {
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      }
+
+      .mblp-make-2-products-title h2 {
+        font-size: 36px;
+        padding-bottom: 20px;
+      }
+
+      .mblp-make-2-products-subtitle p {
+        font-size: 20px;
+        padding-bottom: 60px;
+        max-width: unset;
+      }
+
+      .mblp-make-2-products-grid {
+        gap: 30px;
+        max-width: 1000px;
+      }
+
+      .mblp-make-2-products-item {
+        flex: 0 0 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+      }
+
+      .mblp-make-2-products-item-image {
+        max-width: 220px;
+        padding: 35px;
+        margin-bottom: 12px;
+      }
+
+      .mblp-make-2-products-item-title h3 {
+        font-size: 20px;
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1024px) {
+      .mblp-make-2-products-grid {
+        gap: 40px;
+      }
+
+      .mblp-make-2-products-item {
+        flex: 0 0 calc(33.333% - 26.67px);
+        max-width: calc(25.333% - 26.67px);
+      }
+
+      .mblp-make-2-products-item-image {
+        max-width: 240px;
+        padding: 40px;
+      }
+
+      .mblp-make-2-products-item-title h3 {
+        font-size: 24px;
+      }
+    }
+
+    /* Special handling for different numbers of items */
+    
+    /* When there are 2 items total, center them on desktop */
+    @media (min-width: 769px) {
+      .mblp-make-2-products-grid:has(.mblp-make-2-products-item:nth-child(2):last-child) {
+        justify-content: center;
+      }
+      
+      .mblp-make-2-products-grid:has(.mblp-make-2-products-item:nth-child(2):last-child) .mblp-make-2-products-item {
+        flex: 0 0 300px;
+        max-width: 300px;
+      }
+    }
+
+    /* When there are 4 items, center the last row (2 items) on desktop */
+    @media (min-width: 769px) {
+      .mblp-make-2-products-grid:has(.mblp-make-2-products-item:nth-child(4):last-child) .mblp-make-2-products-item:nth-child(4) {
+        margin-left: calc(16.666% + 15px);
+      }
+    }
+
+    /* Fallback for browsers that don't support :has() */
+    @supports not selector(:has(*)) {
+      @media (min-width: 769px) {
+        /* Style for exactly 2 items */
+        .mblp-make-2-products-item:nth-child(2):last-child,
+        .mblp-make-2-products-item:nth-child(2):last-child ~ .mblp-make-2-products-item:nth-child(1) {
+          flex: 0 0 300px;
+          max-width: 300px;
+        }
+        
+        /* Style for exactly 4 items - center last row */
+        .mblp-make-2-products-item:nth-child(4):last-child {
+          margin-left: calc(16.666% + 15px);
+        }
+      }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Make 2 Products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Party Workshop — Make 2 Products"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Pick your favorites — get hands-on, make two, and take them home with you!"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Product Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title",
+          "default": "Product Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Make 2 Products",
+      "settings": {
+        "section_title": "Party Workshop — Make 2 Products",
+        "section_subtitle": "Pick your favorites — get hands-on, make two, and take them home with you!"
+      },
+      "blocks": [
+        {
+          "type": "product_item",
+          "settings": {
+            "title": "Face Mist"
+          }
+        },
+        {
+          "type": "product_item",
+          "settings": {
+            "title": "Bath Bomb"
+          }
+        },
+        {
+          "type": "product_item",
+          "settings": {
+            "title": "Body Scrub"
+          }
+        },
+        {
+          "type": "product_item",
+          "settings": {
+            "title": "Lip Balm"
+          }
+        },
+        {
+          "type": "product_item",
+          "settings": {
+            "title": "Surprise"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

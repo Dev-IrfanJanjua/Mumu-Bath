@@ -1,0 +1,193 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_BVCF67": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AVBcD9": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>Wholesale Inquiries </strong>",
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_GniyiF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<h1><b>Wholesale Inquiries</b> </h1>"
+          }
+        },
+        "richtext_eacpn4": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Interested in carrying Mumu Bath in your store? </p><p>Email: sasha.chou@mumubath.com — we’ll be in touch within 2 business days! </p><p><strong> </strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AVBcD9",
+        "liquid_GniyiF",
+        "richtext_eacpn4"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "custom_liquid_YzCdat": {
+      "type": "custom-liquid",
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<iframe src=\"https://www.faire.com/embed/bw_smuary54zb\" width=\"900\" height=\"600\" scrolling=\"no\" style=\"margin:0 auto;border:none;display:block;max-width:100%;width:900px;height:600px;\"></iframe>",
+        "text_alignment": "center"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Order",
+            "icon": "picto-award-gift",
+            "icon_width": 16
+          }
+        },
+        "question_N7ULm4": {
+          "type": "question",
+          "settings": {
+            "question": "How much do you charge for shipping?",
+            "answer": "<p>We offer free shipping for your first wholesale order. For subsequent orders, shipping costs will be calculated based on the destination.</p>"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "Is every product in your line available for wholesale?",
+            "answer": "<p>Yes. Occasionally, we may have a small number of products not included in our wholesale catalog. If you have any questions, please reach out and we’ll assist you promptly. </p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer refillable products for wholesale?",
+            "answer": "<p> Yes. Please email: sasha.chou@mumubath.com</p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "What are the minimum order quantities?",
+            "answer": "<p>The required minimum order is $250. All SKU’s are sold in case sizing (case = 6 units). </p>"
+          }
+        },
+        "question_wQUcHf": {
+          "type": "question",
+          "settings": {
+            "question": "Do you provide testers?",
+            "answer": "<p>Yes, we provide complimentary testers. </p>"
+          }
+        },
+        "question_AW8kNY": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "question": "How much do you charge for shipping?",
+            "answer": "<p>We offer free shipping for your first wholesale order. All subsequent orders… </p>"
+          }
+        },
+        "question_gAkBwN": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to ship my order?",
+            "answer": "<p>We will ship your order within 7-10 business days.</p>"
+          }
+        },
+        "question_ykbcB6": {
+          "type": "question",
+          "settings": {
+            "question": "Who should I contact if I have a question about my order?",
+            "answer": "<p>Send us an email to: </p><p>sasha.chou@mumubath.com</p><p>We will respond to you soon.</p><p></p>"
+          }
+        },
+        "question_UcLcUn": {
+          "type": "question",
+          "settings": {
+            "question": "Pricing & Payment Terms",
+            "answer": "<p>We require all wholesale partners follow our MSRP. Orders are paid for in full at the time the order is placed.</p>"
+          }
+        },
+        "question_TLY9gb": {
+          "type": "question",
+          "settings": {
+            "question": "Other Questions?",
+            "answer": "<p>If you have another question that is not answered here, we’re here to help! <a href=\"mailto:wholesale@omorganicscanada.com\">Contact us</a> at hello@mumubath.com. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "category",
+        "question_N7ULm4",
+        "question-1",
+        "question-2",
+        "question-3",
+        "question_wQUcHf",
+        "question_AW8kNY",
+        "question_gAkBwN",
+        "question_ykbcB6",
+        "question_UcLcUn",
+        "question_TLY9gb"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "17422808467f24cbff": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_UDNFBq": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_JKP8W9": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_UDNFBq",
+        "targetbay_product_reviews_site_reviews_JKP8W9"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "rich_text_BVCF67",
+    "custom_liquid_YzCdat",
+    "faq",
+    "17422808467f24cbff"
+  ]
+}

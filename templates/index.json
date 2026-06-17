@@ -1,0 +1,1295 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_her_banner_jXad3K": {
+      "type": "custom-her-banner",
+      "name": "Hero — Natural Care",
+      "settings": {
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#eee7dd",
+        "show_rating": true,
+        "rating_image": "shopify://shop_images/Container.svg",
+        "rating_image_alt": "Five gold stars",
+        "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
+        "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+        "heading": "Natural Care, Rooted In Taiwan",
+        "heading_tag": "h1",
+        "heading_color": "#1a1a1a",
+        "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
+        "description_color": "#555555",
+        "button_label": "Shop Now",
+        "button_url": "/collections/all",
+        "button_open_new_tab": false,
+        "button_bg_color": "#d4a84b",
+        "button_text_color": "#1a1a1a",
+        "button_hover_bg_color": "#1a1a1a",
+        "button_hover_text_color": "#ffffff",
+        "desktop_banner_image": "shopify://shop_images/Plant_People_Desktop.png",
+        "desktop_banner_image_alt": "Banner Image",
+        "hero_image": "shopify://shop_images/Plant_People_Desktop_1.png",
+        "hero_image_alt": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals",
+        "hero_image_width": 900,
+        "hero_image_height": 700,
+        "section_aria_label": "Hero banner — Natural Care, Rooted In Taiwan"
+      }
+    },
+    "shop_by_categeory_irn6JN": {
+      "type": "shop_by_categeory",
+      "blocks": {
+        "category_card_4djwkQ": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/ACCESSORIES-TILE_jpg.png",
+            "image_mobile": "shopify://shop_images/ACCESSORIES-TILE.jpg_3.png",
+            "image_alt": "Collection of natural soap bars",
+            "label": "<p>Soaps</p>",
+            "collection_url": ""
+          }
+        },
+        "category_card_ABeGwD": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/MOISTURIZING-TILE.jpg_1.png",
+            "image_alt": "Body butter and cream products",
+            "label": "<p>Body Butter & <br/>Body Creams</p>",
+            "collection_url": ""
+          }
+        },
+        "category_card_HrtrCx": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/TREATMENTS-TILE_png.png",
+            "image_alt": "Face care products",
+            "label": "<p>Face</p>",
+            "collection_url": ""
+          }
+        },
+        "category_card_iHTMyF": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/ACCESSORIES-TILE.jpg_1.png",
+            "image_alt": "Candles and fragrance collection",
+            "label": "<p>Candles & Fragrance</p>",
+            "collection_url": ""
+          }
+        },
+        "category_card_YPRMQ4": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/ACCESSORIES-TILE.jpg_2.png",
+            "image_alt": "Bath and body accessories",
+            "label": "<p>Accessories</p>",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_card_4djwkQ",
+        "category_card_ABeGwD",
+        "category_card_HrtrCx",
+        "category_card_iHTMyF",
+        "category_card_YPRMQ4"
+      ],
+      "name": "Shop By Categories",
+      "settings": {
+        "heading": "Shop By Categories",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#ffffff",
+        "label_text_color": "#000000",
+        "label_bg_color": "rgba(0,0,0,0)",
+        "card_gap": 22,
+        "card_radius": 16,
+        "section_aria_label": "Shop by product categories"
+      }
+    },
+    "custom_featured_collection_3JMW8E": {
+      "type": "custom_featured_collection",
+      "name": "Featured Collection Slider",
+      "settings": {
+        "pdp_style": false,
+        "collection": "face-body",
+        "heading": "Best Sellers You'll Love",
+        "rating_image": "shopify://shop_images/ab28715c7240b1e3df945cdf2f537305.svg",
+        "rating_text": "<p><strong>4.7</strong> (240)</p>",
+        "button_text": "SHOP BEST SELLERS",
+        "bg_color": "#ffffff",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 50,
+        "cs-btn": true
+      }
+    },
+    "routed_ritual_UqNeyg": {
+      "type": "routed-ritual",
+      "name": "About Ritual Section",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image_alt": "About image",
+        "heading": "A Ritual Rooted In Taiwan",
+        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
+        "signature": "shopify://shop_images/image_21.png",
+        "signature_alt": "Founder signature",
+        "founder_name": "Founder",
+        "button_label": "Discover Our Story",
+        "button_link": "",
+        "bg_color": "#f8f6ee",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "log0_marquee_CqKi4C": {
+      "type": "log0-marquee",
+      "blocks": {
+        "feature_e9X3bX": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_6_BuzzFeed_2_1.png"
+          }
+        },
+        "feature_yKaNdD": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_7_Logo_1_2_1.png"
+          }
+        },
+        "feature_NRBb8P": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_12_channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d_1.png"
+          }
+        },
+        "feature_EJCd7y": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_11_vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53_2.png"
+          }
+        },
+        "feature_NbdkLy": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_94_Glamour_logo_1.png"
+          }
+        },
+        "feature_bRjwYL": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imageye___-_imgi_8_pix_1_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "feature_e9X3bX",
+        "feature_yKaNdD",
+        "feature_NRBb8P",
+        "feature_EJCd7y",
+        "feature_NbdkLy",
+        "feature_bRjwYL"
+      ],
+      "name": "Scrolling Logo Marquee",
+      "settings": {
+        "hide": false,
+        "pdp": false
+      }
+    },
+    "tab_collections_YVcprf": {
+      "type": "tab-collections",
+      "blocks": {
+        "tab_WqNnUN": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "ALL",
+            "collection": "all-products-excluded-workshop-and-gift-card"
+          }
+        },
+        "tab_dfnEPP": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Soaps",
+            "collection": "soap"
+          }
+        },
+        "tab_cxHKGk": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Body Butter & Body Cream",
+            "collection": "body-butters"
+          }
+        },
+        "tab_fY6JAn": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Face",
+            "collection": "facial-skincare"
+          }
+        },
+        "tab_M7T3Ra": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Candles & Fragrance",
+            "collection": "scented-candles"
+          }
+        },
+        "tab_wpUTxN": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Accessories",
+            "collection": "accessories"
+          }
+        }
+      },
+      "block_order": [
+        "tab_WqNnUN",
+        "tab_dfnEPP",
+        "tab_cxHKGk",
+        "tab_fY6JAn",
+        "tab_M7T3Ra",
+        "tab_wpUTxN"
+      ],
+      "name": "Tabbed Featured Collection",
+      "settings": {
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#ffffff",
+        "heading": "Beauty Products To Excite The Senses",
+        "tab_active_bg": "#1a1a1a",
+        "tab_active_color": "#ffffff",
+        "tab_inactive_bg": "rgba(0,0,0,0)",
+        "tab_inactive_color": "#1a1a1a",
+        "tab_border_color": "#d0cac3",
+        "rating_image": "shopify://shop_images/ab28715c7240b1e3df945cdf2f537305.svg",
+        "rating_text": "4.7 (240)",
+        "button_text": "View All",
+        "cs-btn": true
+      }
+    },
+    "product_featured_icons_QT9QUK": {
+      "type": "Product-featured-icons",
+      "blocks": {
+        "feature_PH43kq": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_6.png",
+            "title": "Natural & Vegan"
+          }
+        },
+        "feature_3KnYqa": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_1.png",
+            "title": "Scents Of Taiwan"
+          }
+        },
+        "feature_YNnLFD": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_2.png",
+            "title": "Joyful Shower Rituals"
+          }
+        },
+        "feature_QmxaqY": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_3.png",
+            "title": "Handmade With Care"
+          }
+        },
+        "feature_k9zAaw": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_4.png",
+            "title": "Sustainably Sourced"
+          }
+        },
+        "feature_zxfRQw": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_5.png",
+            "title": "Cruelty-Free"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PH43kq",
+        "feature_3KnYqa",
+        "feature_YNnLFD",
+        "feature_QmxaqY",
+        "feature_k9zAaw",
+        "feature_zxfRQw"
+      ],
+      "name": "Icon Features",
+      "settings": {
+        "background_color": "#f8f6ee",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "hair_reviews_XLpwYz": {
+      "type": "hair-reviews",
+      "blocks": {
+        "review_miXqB4": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person relaxing in bath",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_3MiHnN": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_gVFFN3": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_3893d264-217f-4a63-bbdf-6987603b64b8.png",
+            "image_alt": "Osmanthus Flower candle product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_DQ3irB": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person in bath lifestyle shot",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_HzpHiX": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        }
+      },
+      "block_order": [
+        "review_miXqB4",
+        "review_3MiHnN",
+        "review_gVFFN3",
+        "review_DQ3irB",
+        "review_HzpHiX"
+      ],
+      "name": "Reviews Swiper",
+      "settings": {
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#ffffff",
+        "badge_rating_image": "shopify://shop_images/Container_1.svg",
+        "badge_rating_image_alt": "Five gold stars",
+        "badge_text": "10,500+ 5-Star Reviews",
+        "heading": "Amazing Reviews For Mumu Bath"
+      }
+    },
+    "comfortable_skin_4kz4Vt": {
+      "type": "comfortable-skin",
+      "blocks": {
+        "card_zyKyzJ": {
+          "type": "card",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Frame_2147243043.png",
+            "mobile_image": "shopify://shop_images/Frame_2147243043_2.png",
+            "heading": "<p>For soft, <br/>comfortable skin</p>",
+            "link": "#",
+            "button_text": "Shop Body Care",
+            "full_width": false
+          }
+        },
+        "card_6yxtWM": {
+          "type": "card",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Frame_2147243044.png",
+            "mobile_image": "shopify://shop_images/Frame_2147243044_1.png",
+            "heading": "<p>For a calmer shower <br/>ritual looking skin.</p>",
+            "link": "shopify://collections/beauty-box-gifts",
+            "button_text": "Shop Bath & shower",
+            "full_width": false
+          }
+        },
+        "card_4a6AxV": {
+          "type": "card",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Frame_2147243043_1.png",
+            "mobile_image": "shopify://shop_images/Frame_2147243048.png",
+            "heading": "<p>For gifts that feel personal</p>",
+            "link": "shopify://collections/avocado-oil-soap",
+            "button_text": "Shop Gifts Sets",
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "card_zyKyzJ",
+        "card_6yxtWM",
+        "card_4a6AxV"
+      ],
+      "name": "Image Grid Cards",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 12
+      }
+    },
+    "custom_featured_blogs_HH4XUC": {
+      "type": "custom-featured-blogs",
+      "name": "Recent Blog Posts",
+      "settings": {
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "bg_color": "#ffffff",
+        "heading": "Recent Blog Posts",
+        "blog": "mumu-bath",
+        "posts_limit": 8,
+        "card_radius": 16,
+        "fallback_tag": "Organic",
+        "tag_bg_color": "#ffffff",
+        "tag_text_color": "#000000",
+        "read_more_text": "Read More"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_BthT9f": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/the_year_of_the_horse.jpg",
+            "mobile_image": "shopify://shop_images/the_year_of_the_horse.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "",
+            "button_1_link": "shopify://products/valentine-s-exclusive-box",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#fbdd40",
+            "button_2_text_color": "#000000",
+            "background": "#ffffff",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "slide-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_15.jpg",
+            "mobile_image": "shopify://shop_images/mobile_2.jpg",
+            "subheading": "",
+            "title": "  <h2 class=\"blinix-heading-one\">Taiwanese Roots. Natural Luxury.</h2>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "Shop Now",
+            "button_1_link": "shopify://collections/all",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#fbdd40",
+            "button_2_text_color": "#000000",
+            "background": "#ffffff",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "image_Fy6w6g": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner_5.jpg",
+            "mobile_image": "shopify://shop_images/hero_banner_2.jpg",
+            "subheading": "",
+            "title": "  <h2 class=\"blinix-heading-one\">✿ Mumu Bath ✿\n</h2>\n\n<p class=\"bold-des\"><b> Our products are crafted from high-quality, organic, and natural ingredients, ideal for sensitive skin.</b></p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 500,
+            "button_1_text": "Shop Mumu Bath",
+            "button_1_link": "shopify://collections/all",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "solid",
+            "button_2_background": "#232121",
+            "button_2_text_color": "#ffffff",
+            "background": "",
+            "background_opacity": 34,
+            "text_color": "#131313",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "slide-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1-1.jpg",
+            "mobile_image": "shopify://shop_images/mobile-1.jpg",
+            "subheading": "",
+            "title": " <h2 class=\"blinix-heading-one\">Radiance Awaits</h2>\n<p>Mumu Bath strikes the perfect\nbalance between affordability and\npremium quality, offering accessible\nluxury in the bath and bodycare space.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 440,
+            "button_1_text": "Shop Now",
+            "button_1_link": "shopify://collections/all",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#1c1c1c",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BthT9f",
+        "slide-1",
+        "image_Fy6w6g",
+        "slide-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 4,
+        "background": "#fcfbee",
+        "controls_color": "#1c1c1c"
+      }
+    },
+    "logo_list_w3Yc3U": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_nMUMRm": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/BuzzFeed_2.png",
+            "logo_width": 130,
+            "link": ""
+          }
+        },
+        "logo_UfMfA4": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Logo_1_2.png",
+            "logo_width": 130,
+            "link": ""
+          }
+        },
+        "logo_KqhaD7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/pix_1.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_NFKrep": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Vogue.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_z8ANQi": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Glamour_logo.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_qqQfVe": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_NfCiFr": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d.png",
+            "logo_width": 100,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_nMUMRm",
+        "logo_UfMfA4",
+        "logo_KqhaD7",
+        "logo_NFKrep",
+        "logo_z8ANQi",
+        "logo_qqQfVe",
+        "logo_NfCiFr"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "mb-logo-list",
+        "separate_section_with_border": true,
+        "subheading": "",
+        "title": "Featured In",
+        "items_per_row": 5,
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "featured-collections": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "soap",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        },
+        "collection_9gE7CN": {
+          "type": "collection",
+          "settings": {
+            "collection": "body-butters",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        },
+        "collection_R6CrJ3": {
+          "type": "collection",
+          "settings": {
+            "collection": "facial-skincare",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        },
+        "collection_xgUjJc": {
+          "type": "collection",
+          "settings": {
+            "collection": "scented-candles",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        },
+        "collection_CLgAPc": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection_9gE7CN",
+        "collection_R6CrJ3",
+        "collection_xgUjJc",
+        "collection_CLgAPc"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": false,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 0.2,
+        "subheading": "Beauty Products to Excite the Senses"
+      }
+    },
+    "logo_list_8gKhzJ": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_MpdaXH": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_25_189ec6fe-b91d-4ac8-a04f-ade66a3381c8.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        },
+        "logo_p6xD8r": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_24.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        },
+        "logo_VxbfbV": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_26.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        },
+        "logo_Rjxw7J": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_27.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        },
+        "logo_Yxbpyb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_20_751cc6e6-c45e-4b3e-a660-03ddb3c01b4e.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        },
+        "logo_pj6kTC": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_21.png",
+            "logo_width": 250,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_MpdaXH",
+        "logo_p6xD8r",
+        "logo_VxbfbV",
+        "logo_Rjxw7J",
+        "logo_Yxbpyb",
+        "logo_pj6kTC"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": false,
+        "subheading": "",
+        "title": "",
+        "items_per_row": 7,
+        "logo_item_background": "#fcfbee",
+        "logo_item_border": ""
+      }
+    },
+    "image_with_text_k6TRXx": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_cMpL3k": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_jYBCKp": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JJDzeg": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_cMpL3k",
+        "heading_jYBCKp",
+        "richtext_JJDzeg"
+      ],
+      "disabled": true,
+      "settings": {
+        "mblp-class": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Untitled_design_1.jpg",
+        "reveal_on_scroll": true,
+        "image_position": "end",
+        "content_width": "md",
+        "remove_vertical_spacing": false
+      }
+    },
+    "multi_column_MFTKcw": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_gDCyHQ": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Osmanthus Flower Body Oil",
+            "heading_tag": "h1",
+            "content": "<p>Discover your most radiant skin with our bestselling Osmanthus Flower Body Oil, as seen on BuzzFeed. </p>",
+            "link_url": "shopify://collections/body",
+            "link_text": "Shop Now"
+          }
+        },
+        "image_with_text_Nx8qiX": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/OSMANTHUS_FLOWER2_BODY_OIL.jpg",
+            "title": "",
+            "heading_tag": "h3",
+            "content": "",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_gDCyHQ",
+        "image_with_text_Nx8qiX"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "mb-multi-col mb-multi-col-1",
+        "separate_section_with_border": false,
+        "columns_per_row": 2,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "xs",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "multi_column_iHMCGT": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_tTJnMN": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/vanilla2.webp",
+            "title": "",
+            "heading_tag": "h3",
+            "content": "",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_brB9Xn": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "All Purpose Healing Salve",
+            "heading_tag": "h1",
+            "content": "<p>Our Wonder Balm is a gentle multi-purpose healing balm. Add this balm as a vital part of any first-aid kit. </p>",
+            "link_url": "shopify://products/wonder-balm",
+            "link_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_tTJnMN",
+        "image_with_text_brB9Xn"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "mb-multi-col mb-multi-col-2",
+        "separate_section_with_border": false,
+        "columns_per_row": 2,
+        "stack_on_mobile": true,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "xs",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "image_with_text_overlay_CTrNxC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_g6cgHF": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text overlay",
+            "heading_tag": "h4"
+          }
+        },
+        "richtext_rmGxjT": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Add your own custom content to give more information about your store, availability details Add your own custom content to give more information about your store, availability details...</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_g6cgHF",
+        "richtext_rmGxjT"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "image": "shopify://shop_images/hero_banner_3.jpg",
+        "allow_transparent_header": false,
+        "reveal_on_scroll": false,
+        "remove_vertical_spacing": false,
+        "content_width": "xs",
+        "mobile_text_position": "place-self-start-center text-center",
+        "desktop_text_position": "sm:place-self-center-start sm:text-start",
+        "text_color": "#232121",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "image-with-text-scroll": {
+      "type": "images-with-text-scroll",
+      "blocks": {
+        "item-1": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/IMG_6529_copy_c54df9b5-9681-4031-9eae-89ba9d19d269.jpg",
+            "subheading": "",
+            "title": "<strong>Our Story</strong>",
+            "content": "<p>Hi, I'm Sasha Chou, the founder of Mumu Bath. As a small, female-founded company, we’ve been on an exciting journey to create bath and body products that capture the essence of our Taiwanese heritage.</p><p>Mumu Bath was established in 2020 when my baby developed eczema at 6 months old. Faced with the challenge of finding soaps gentle enough for her, I decided to create products rooted in simplicity for the entire family.</p><p>Our Taiwanese roots influence our creations. We source tea and floral ingredients from my family’s farm in Alishan, crafting our products with exquisite ingredients to make the daily shower feel like a getaway, a moment to cherish amidst our busy lives.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "solid"
+          }
+        },
+        "image_with_text_Xnch8e": {
+          "type": "image_with_text",
+          "settings": {
+            "subheading": "",
+            "title": "Title",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "solid"
+          }
+        },
+        "image_with_text_6wtzUP": {
+          "type": "image_with_text",
+          "settings": {
+            "subheading": "",
+            "title": "Title",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "image_with_text_Xnch8e",
+        "image_with_text_6wtzUP"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_position": "start",
+        "text_alignment": "center",
+        "heading_tag": "h3",
+        "background": "#f8f6ee",
+        "text_color": "#1c1c1c",
+        "button_background": "#1c1c1c",
+        "button_text_color": "#1c1c1c",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 0
+      }
+    },
+    "multi_column_66qtDq": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_gidKpY": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/Mt.AliTaiwanestea3.jpg",
+            "title": "Mt. Ali Taiwanese Tea Soap",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "shopify://products/mt-ali-taiwanese-tea-soap",
+            "link_text": "Shop Now"
+          }
+        },
+        "image_with_text_9tKr3J": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/goji-3.jpg",
+            "title": "Goji Berry Soaps",
+            "heading_tag": "h4",
+            "content": "<p></p><p></p>",
+            "link_url": "shopify://products/goji-berry-soap",
+            "link_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_gidKpY",
+        "image_with_text_9tKr3J"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": false,
+        "columns_per_row": 2,
+        "stack_on_mobile": false,
+        "overlap_image": false,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "",
+        "title": "<strong>Handmade Soap</strong>",
+        "content": ""
+      }
+    },
+    "image_with_text_MdkqrP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nQeDEn": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>Our Story</strong>",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_NyFrEc": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Hi, I'm Sasha Chou, the founder of Mumu Bath. As a small, female-founded company, we’ve been on an exciting journey to create bath and body products that capture the essence of our Taiwanese heritage.</p><p>Mumu Bath was established in 2020 when my baby developed eczema at 6 months old. Faced with the challenge of finding soaps gentle enough for her, I decided to create products rooted in simplicity for the entire family.</p>"
+          }
+        },
+        "button_cVAfFi": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "OUR JOURNEY",
+            "url": "shopify://pages/story",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_nQeDEn",
+        "richtext_NyFrEc",
+        "button_cVAfFi"
+      ],
+      "disabled": true,
+      "settings": {
+        "mblp-class": "",
+        "separate_section_with_border": true,
+        "image": "shopify://shop_images/Untitled_design_4.jpg",
+        "reveal_on_scroll": true,
+        "image_position": "end",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
+    "1742373873806b2ce2": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_review_carousel_WWLP9P": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/review-carousel/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {
+            "targetbay_carousel_id": "17664"
+          }
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_review_carousel_WWLP9P"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".tb-revcarousel-header {display: none;}"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "image_size": "auto",
+        "subheading": "Keep me updated",
+        "title": "Newsletter",
+        "content": "<p>A short sentence describing what someone will receive by subscribing.</p>",
+        "button_text": "Subscribe",
+        "text_color": "#1c1c1c",
+        "button_background": "#fbdd40",
+        "button_text_color": "#232121",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "1728125863d2c64a00": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_site_reviews_PYqqXk": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_tb_common_KHXDpz": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_site_reviews_PYqqXk",
+        "targetbay_product_reviews_tb_common_KHXDpz"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "store_loacation_XzEjeV": {
+      "type": "store-loacation",
+      "blocks": {
+        "location_dq4kL7": {
+          "type": "location",
+          "settings": {
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189.04262745736534!2d-73.98746269073791!3d40.702999842536535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6d369d182885635%3A0x2119e776793f31ee!2sMumu%20Bath!5e0!3m2!1sen!2s!4v1780994233696!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "location_heading": "Directions to Our Oldsmar Location",
+            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "hours_heading": "Opening Hours",
+            "days": "Open every Saturday & Sunday",
+            "hours": "9:00 AM - 6:00 PM",
+            "direction_icon": "shopify://shop_images/Frame_2147227530.svg",
+            "direction_url": "https://maps.app.goo.gl/eU3T1873486eM2fT6",
+            "direction_text": "Get Directions"
+          }
+        },
+        "location_h7xDAw": {
+          "type": "location",
+          "settings": {
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189.04262745736534!2d-73.98746269073791!3d40.702999842536535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6d369d182885635%3A0x2119e776793f31ee!2sMumu%20Bath!5e0!3m2!1sen!2s!4v1780994233696!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "location_heading": "Directions to Our Oldsmar Location",
+            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "hours_heading": "Opening Hours",
+            "days": "Open every Saturday & Sunday",
+            "hours": "9:00 AM - 6:00 PM",
+            "direction_icon": "shopify://shop_images/Frame_2147227530.svg",
+            "direction_url": "https://maps.app.goo.gl/eU3T1873486eM2fT6",
+            "direction_text": "Get Directions"
+          }
+        }
+      },
+      "block_order": [
+        "location_dq4kL7",
+        "location_h7xDAw"
+      ],
+      "name": "Store Locations",
+      "settings": {
+        "heading": "Visit Mumu Bath Near You",
+        "bg_color": "#ffffff",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "custom_her_banner_jXad3K",
+    "shop_by_categeory_irn6JN",
+    "custom_featured_collection_3JMW8E",
+    "routed_ritual_UqNeyg",
+    "log0_marquee_CqKi4C",
+    "tab_collections_YVcprf",
+    "product_featured_icons_QT9QUK",
+    "hair_reviews_XLpwYz",
+    "comfortable_skin_4kz4Vt",
+    "custom_featured_blogs_HH4XUC",
+    "slideshow",
+    "logo_list_w3Yc3U",
+    "featured-collections",
+    "logo_list_8gKhzJ",
+    "image_with_text_k6TRXx",
+    "multi_column_MFTKcw",
+    "multi_column_iHMCGT",
+    "image_with_text_overlay_CTrNxC",
+    "image-with-text-scroll",
+    "multi_column_66qtDq",
+    "image_with_text_MdkqrP",
+    "1742373873806b2ce2",
+    "newsletter",
+    "1728125863d2c64a00",
+    "store_loacation_XzEjeV"
+  ]
+}

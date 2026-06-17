@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_V8qHe6": {
+      "type": "slideshow",
+      "blocks": {
+        "image_AaiDwh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_60.png",
+            "mobile_image": "shopify://shop_images/facial_90a5a423-4ca0-401b-9187-837463dd390e.png",
+            "subheading": "Face Moisturizing Creams & Serums",
+            "title": "<h2>Facial Skincare</h2>\n<br>\n<p>\nOur advanced face creams and serums are crafted for every skin type, providing hydration, rejuvenation, and a healthy glow. From lightweight serums to rich moisturizers, each formula is designed to nourish and protect, enhancing your natural radiance.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 100,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_AaiDwh"
+      ],
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "image_size": "auto",
+        "allow_transparent_header": false,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "xs",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "hide_product_information": false,
+        "products_per_page": 34,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_empty_filter_values": false,
+        "show_filter_values_count": true,
+        "show_color_swatch": true,
+        "open_filters_by_default": false
+      }
+    },
+    "rich_text_mHt9p7": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_9DPXiW": {
+          "type": "subheading",
+          "settings": {
+            "text": ""
+          }
+        },
+        "heading_XbAmNU": {
+          "type": "heading",
+          "settings": {
+            "text": "",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_LApRFk": {
+          "type": "richtext",
+          "settings": {
+            "content": "<h2>Naturally Radiant Skincare for Every Face</h2><p><br/>At Mumu Bath, we believe your skincare routine should be<br/>simple, clean, and deeply nourishing. Our Face Collection is thoughtfully<br/>crafted with gentle, plant-based ingredients that care for your skin - without compromise.</p><p>From serums to creams, each product is made to hydrate,<br/>protect, and restore balance. If you're looking for a<strong> face moisturizer for<br/>sensitive skin</strong>, our formulations are lightweight, soothing, and made to<br/>calm irritation while delivering long-lasting moisture. </p><p>Our Face Essentials<br/><br/><strong>Repair & Hydrate Face Serum (Rose Scent) - </strong>This lightweight serum restores<br/>radiance and soothes tired skin with every drop. It layers beautifully under<br/>any routine and adds a natural boost to your <strong>face skincare</strong>.</p><p><strong>Deep Moisture Face & Hand Cream<br/>- </strong>Packed with plant oils, this<br/>multitasking cream deeply hydrates both face and hands. Its smooth texture<br/>absorbs quickly, leaving your skin supple and fresh.</p><p><a><strong>All Natural</strong></a><strong> Vegan Lip Balm - </strong>Made<br/>with organic ingredients, our lip balm protects and nourishes delicate lips.<br/>Use it daily for a soft, smooth, and hydrated finish.</p><p><strong>Rejuvenating Face Cream - </strong>Our best-selling cream delivers deep nourishment with anti-aging botanicals. It’s a perfect <strong>face moisturizer for dry skin</strong> that<br/>softens, firms, and protects.</p><p><strong>Coffee Eye Cream - </strong>Infused with caffeine and antioxidants, this cream brightens and refreshes the under-eye area. It’s perfect for morning use to de-puff and energize tired eyes.</p><p><strong>Goji Glow Face Oil</strong> – Powered by goji berry extract and nutrient-rich oils,<br/>this facial oil helps improve skin tone and texture. Use it as the final step in your routine to seal in moisture and add a natural, dewy glow.</p><p> </p><h2>Why Your Skin Will Love Our Face Collection</h2><p><br/>Our face care range is crafted to support healthier, happier skin - naturally. Every formula is made with gentle ingredients and backed by a commitment to clean, nourishing beauty.</p><ul><li><strong>Deep Hydration - </strong>Our <strong>face moisturizer for dry skin</strong> delivers<br/>     long-lasting hydration using nutrient-rich natural ingredients. It helps<br/>     restore your skin’s softness without clogging pores.</li><li><strong>Gentle and Clean Formulas - </strong>Our products are free from harsh chemicals and<br/>     synthetic fragrances. They’re perfect for daily use and suitable for even<br/>     the most sensitive skin.</li><li><strong>Holistic Face Skincare - </strong>We offer a complete <strong>face skincare</strong> routine - from<br/>     serum to eye cream - designed to target dryness, dullness, and fine lines.<br/>     Each product works in harmony to enhance your natural glow.</li><li><strong>Natural Ingredients - </strong>We use ethically sourced plant oils, extracts, and<br/>     botanicals. <a>These help</a> soothe, repair, and<br/>     nourish your skin while keeping your routine eco-friendly.</li><li><strong>Lightweight and Non-Greasy - </strong>Our creams and serums absorb easily into the skin. They<br/>     leave no residue - just softness, balance, and hydration.</li></ul><p> </p><h2>What Makes Us Your Go-To for Natural Face Care</h2><p><br/>At Mumu Bath, we blend gentle ingredients with thoughtful craftsmanship to bring you face products that truly care for your skin. Our focus is on clean beauty, quality, and results you can feel.</p><ul><li><strong>Sensitive-Skin Friendly - </strong>Our <strong>face moisturizer for sensitive skin</strong> is<br/> crafted with calming botanicals and no harsh additives. It’s ideal for<br/> delicate skin that needs extra care.</li><li><strong>Handcrafted in Small Batches - </strong>Every item is made in small batches to ensure freshness and consistency. This hands-on approach allows us to maintain the highest quality standards.</li><li><strong>Sustainable and Ethical - </strong>We use eco-conscious packaging and responsibly sourced ingredients. It’s skincare that’s kind to your face - and the planet.</li><li><strong>Trusted by Real Customers - </strong>Loved for our transparency and effectiveness, our face collection has earned glowing feedback. Your skin deserves products that deliver, naturally.</li></ul><p> </p><h2>Glow Naturally, Every Day</h2><p><strong> </strong>Your skin deserves clean, gentle care that works in harmony with nature. At Mumu Bath, our <strong>face skincare</strong> collection is designed to nourish, hydrate, and protect - without compromise. From soothing creams to revitalizing serums, every product is crafted with love and transparency. Make your routine a moment of self-care with products that feel as good as they look. Explore our <a>full face</a> range and let your natural glow shine through.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_9DPXiW",
+        "heading_XbAmNU",
+        "richtext_LApRFk"
+      ],
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "start",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_4WBWJH": {
+      "type": "faq",
+      "blocks": {
+        "question_9xW9jd": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I use your face moisturizer for sensitive skin daily?</strong>",
+            "answer": "<p>Yes, our <strong>face moisturizer for sensitive skin</strong> is formulated for daily use. It absorbs quickly and leaves your skin calm, soft,<br/>and balanced throughout the day.</p>"
+          }
+        },
+        "question_WrbtdB": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Do you use any parabens or sulfates in your face products?</strong>",
+            "answer": "<p>No, our formulas are free from parabens, sulfates, phthalates, and other harsh chemicals. We believe in clean, safe skincare.</p>"
+          }
+        },
+        "question_M6MCRk": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How long does it take to see results from your face serum?</strong>",
+            "answer": "<p>Most people notice improved hydration and texture within a week. Continued use brings long-term glow and skin balance.</p>"
+          }
+        },
+        "question_tqeDYm": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is your face cream suitable for mature skin?</strong>",
+            "answer": "<p>Yes, our face cream contains anti-aging ingredients like rosehip and vitamin E. It helps improve elasticity and reduce fine lines.</p>"
+          }
+        },
+        "question_mc7LhM": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How should I layer the products in your face skincareroutine?</strong>",
+            "answer": "<p>Start with a cleanser, follow with our serum, then apply moisturizer, and finish with eye cream or balm. Our <strong>face skincare</strong> line is designed to work together in harmony.</p>"
+          }
+        },
+        "question_GYm9bf": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I use your lip balm on cracked lips?</strong>",
+            "answer": "<p>Yes, our all-natural lip balm is perfect for healing dry or cracked lips. It’s made with nourishing oils and no synthetic waxes.</p>"
+          }
+        },
+        "question_ENnXqT": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is Coffee Eye Cream suitable for day and night use?</strong>",
+            "answer": "<p>Yes, you can use it in the morning to reduce puffiness and in the evening to hydrate and brighten your under-eye area.</p>"
+          }
+        },
+        "question_tbA6kL": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Will your face moisturizer for dry skin feel greasy?</strong>",
+            "answer": "<p>Not at all - our <strong>face moisturizer for dry skin</strong> is rich yet fast-absorbing. It hydrates without leaving a heavy or oily finish on your skin.</p>"
+          }
+        },
+        "question_7pDWiA": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How should I store your face products?</strong>",
+            "answer": "<p>Keep them in a cool, dry place, away from direct sunlight. Because we use natural preservatives, it’s best to use them within 6–12 months of opening.</p>"
+          }
+        },
+        "question_8f8b4G": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can I travel with your face products?</strong>",
+            "answer": "<p>Yes, most of our face products are TSA-compliant and easy to pack. They’re solid or tightly sealed to prevent leaks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_9xW9jd",
+        "question_WrbtdB",
+        "question_M6MCRk",
+        "question_tqeDYm",
+        "question_mc7LhM",
+        "question_GYm9bf",
+        "question_ENnXqT",
+        "question_tbA6kL",
+        "question_7pDWiA",
+        "question_8f8b4G"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "1742280294d4c64756": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_B8CUDR": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_CcmkNr": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_B8CUDR",
+        "targetbay_product_reviews_site_reviews_CcmkNr"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_V8qHe6",
+    "collection-banner",
+    "main",
+    "rich_text_mHt9p7",
+    "faq_4WBWJH",
+    "1742280294d4c64756"
+  ]
+}

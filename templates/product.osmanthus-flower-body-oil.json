@@ -1,0 +1,555 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "targetbay_product_reviews_product_stats_pF9gGF": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false,
+            "show_below_gallery": false
+          }
+        },
+        "accordion_N3tiJp": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Benefits",
+            "content": "<ul><li><strong>Moisture-Locking:</strong> Organic Castor Oil and Cocoa Butter hydrate and lock in moisture.</li><li><strong>Softens & Protects:</strong> Carnauba and Candelilla Waxes create a protective barrier without stickiness.</li><li><strong>Gentle on Lips: </strong>Lightweight and silky, with a smooth application and a hint of shine and color.</li><li><strong>Vegan & Natural:</strong> Made with 100% vegan, natural ingredients.</li></ul>",
+            "page": ""
+          }
+        },
+        "accordion_aM9zjH": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "How to Use",
+            "content": "<p>Apply a small amount to your lips as needed for hydration and a soft, smooth finish.</p>",
+            "page": ""
+          }
+        },
+        "accordion_jwzrfA": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Scent",
+            "content": "<p>Tangerine/ Grapefruit/ Peppermint/ Cocoa Vanilla/ Chai (tinted)/ Mango(tinted)</p>",
+            "page": ""
+          }
+        },
+        "accordion_Tzq7CP": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Suitable for",
+            "content": "<p>All Skin Types, Sensitive Skin</p>",
+            "page": ""
+          }
+        },
+        "accordion_UP6zMm": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Ingredients",
+            "content": "<p>Organic Castor Oil, Organic Cocoa butter, Carnauba Wax, Candelilla Wax, Flavor Oil</p>",
+            "page": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": true,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "product_variations_ya4kgK": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "",
+            "option_value_metafield": "",
+            "products": [],
+            "color_selector_type": "color"
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "complementary_products": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "Pairs well with",
+            "products_count": 2,
+            "show_below_gallery": true,
+            "stack_products": false,
+            "show_quick_buy": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "targetbay_product_reviews_product_stats_pF9gGF",
+        "price",
+        "description",
+        "accordion_N3tiJp",
+        "accordion_aM9zjH",
+        "accordion_jwzrfA",
+        "accordion_Tzq7CP",
+        "accordion_UP6zMm",
+        "variant_picker",
+        "quantity_selector",
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
+        "buy_buttons",
+        "separator",
+        "product_variations_ya4kgK",
+        "payment_terms",
+        "complementary_products"
+      ],
+      "settings": {
+        "container_size": "lg",
+        "product_info_size": 50,
+        "show_sticky_add_to_cart": false,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 5,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "logo_list_xHnX8R": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_CLnHf9": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon1_230a8067-63ce-4236-9d24-78b278f1771a.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_eqfHMb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon2_1_a3a163ba-9312-451e-ba9b-da5e8f5ab19b.png",
+            "logo_width": 110,
+            "link": ""
+          }
+        },
+        "logo_6JkUGR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon3_324f22fb-5953-41b9-9a36-b48454f4a26e.png",
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_ztgwXY": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon4.png",
+            "logo_width": 140,
+            "link": ""
+          }
+        },
+        "logo_MfmddM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon5.png",
+            "logo_width": 150,
+            "link": ""
+          }
+        },
+        "logo_46Rrm3": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon6.png",
+            "logo_width": 100,
+            "link": ""
+          }
+        },
+        "logo_BibnEe": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/icon7.png",
+            "logo_width": 160,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_CLnHf9",
+        "logo_eqfHMb",
+        "logo_6JkUGR",
+        "logo_ztgwXY",
+        "logo_MfmddM",
+        "logo_46Rrm3",
+        "logo_BibnEe"
+      ],
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "subheading": "",
+        "title": "Our Benefits",
+        "items_per_row": 4,
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "rich_text_q6rtXk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qXiDrf": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Choose Mumu Bath for YourSkincare Needs",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_g7kpKC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At Mumu Bath, we believe in gentle, effective skincare rooted in nature. Our commitment to clean ingredients and mindful craftsmanship sets us apart.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qXiDrf",
+        "richtext_g7kpKC"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "multi_column_AMJYMA": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_dcpgQe": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Naturally Scented",
+            "heading_tag": "h3",
+            "content": "<p>Our blend is lightly scented with real osmanthus oil, offering a calming, floral aroma that soothes both body and mind. No artificial perfumes - just nature at its finest.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_6nL6KR": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Suitable for Sensitive Skin",
+            "heading_tag": "h3",
+            "content": "<p>We formulate with gentle oils that hydrate and protect even the most delicate skin. Perfect for daily use, all year round.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_UjbEpV": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Handcrafted with Care",
+            "heading_tag": "h3",
+            "content": "<p>Each bottle is handmade in small batches for quality and freshness. This ensures your essential oil osmanthus is always at its most effective.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_3L6hy7": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Pure Ingredients, No Compromises",
+            "heading_tag": "h3",
+            "content": "<p>We use only natural, plant-based ingredients to ensure your skin gets the care it deserves. No parabens, synthetic fragrances, or harsh chemicals - ever.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_UzPeCy": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Eco-Friendly Packaging",
+            "heading_tag": "h3",
+            "content": "<p>Our recyclable packaging is part of our promise to care for the planet while caring for your skin. Beauty should never come at the environment's expense.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_dcpgQe",
+        "image_with_text_6nL6KR",
+        "image_with_text_UjbEpV",
+        "image_with_text_3L6hy7",
+        "image_with_text_UzPeCy"
+      ],
+      "name": "t:sections.multi_column.presets.multi_column.name",
+      "settings": {
+        "custom_class": "",
+        "separate_section_with_border": true,
+        "columns_per_row": 3,
+        "stack_on_mobile": true,
+        "overlap_image": true,
+        "content_alignment": "center",
+        "text_alignment": "center",
+        "spacing": "md",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "rich_text_cnKKiq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bQxegr": {
+          "type": "heading",
+          "settings": {
+            "text": "Nourish Your Skin, Naturally",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_GKk6Xc": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Wrap your skin in the silky softness of our Osmanthus Flower Body Oil. Infused with the delicate scent of osmanthus oil, it leaves your body glowing, hydrated, and beautifully fragranced. The lightweight formula absorbs quickly without feeling greasy. Perfect for daily self-care or a calming night ritual. Let your skin feel the luxury of nature’s finest. Experience softness that lingers long after application.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bQxegr",
+        "richtext_GKk6Xc"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "reserve-rich-text-id": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "faq_tqwRnR": {
+      "type": "faq",
+      "blocks": {
+        "question_BMPHW7": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Is your osmanthus body oilsuitable for sensitive skin?</strong>",
+            "answer": "<p>Yes, our osmanthus body oil is crafted with gentle, skin-loving ingredients suitable for most skin types, including sensitive skin. It’s free from synthetic fragrances, parabens, and sulfates. Always do a patch test if you have particularly reactive skin.</p>"
+          }
+        },
+        "question_6C88fk": {
+          "type": "question",
+          "settings": {
+            "question": "How often should I apply oil?",
+            "answer": "<p>You can use oil daily, especially after showering or bathing. For the best results, apply while your skin is still damp to lock in moisture. It’s also great for a relaxing bedtime ritual.</p>"
+          }
+        },
+        "question_TYnMe7": {
+          "type": "question",
+          "settings": {
+            "question": "Is essential oil osmanthus safe for everyday use?",
+            "answer": "<p>Yes, when properly diluted - as it is in our body oil - essential oil osmanthus is safe for daily use. Our formulation blends this oil with nourishing plant-based oils for a balanced, skin-friendly product. We always recommend doing a patch test if you’re new to essential oils.</p>"
+          }
+        },
+        "question_K4YDfb": {
+          "type": "question",
+          "settings": {
+            "question": "Does this body oil contain any synthetic fragrances?",
+            "answer": "<p>No, we do not use synthetic fragrances in any of our products. The scent in our body oil comes naturally from real osmanthus and botanical extracts, offering a clean and authentic aroma.</p>"
+          }
+        },
+        "question_X8H44j": {
+          "type": "question",
+          "settings": {
+            "question": "Can osmanthus oil be used on the face?",
+            "answer": "<p>While osmanthus oil is gentle, our body oil is formulated specifically for body use. For facial care, we recommend using products specially made for facial skin, as they are often lighter and more targeted in their formulation.</p>"
+          }
+        },
+        "question_dmrMBV": {
+          "type": "question",
+          "settings": {
+            "question": "Is the Osmanthus Flower Body Oil greasy or heavy?",
+            "answer": "<p>Not at all. Our body oil is lightweight and fast absorbing. It leaves your skin feeling silky-smooth without any sticky residue.</p>"
+          }
+        },
+        "question_rG63db": {
+          "type": "question",
+          "settings": {
+            "question": "Is your osmanthus oil sustainably sourced?",
+            "answer": "<p>We’re committed to ethically sourcing our osmanthus oil and other ingredients. Our formulations are made in small batches with quality in mind, and we work with trusted suppliers who align with our values of sustainability and purity.</p>"
+          }
+        },
+        "question_C4k94e": {
+          "type": "question",
+          "settings": {
+            "question": "Will the oil stain clothes or sheets?",
+            "answer": "<p>When applied properly and given a few minutes to absorb, it should not stain. Always allow the oil to fully absorb before getting dressed or lying down.</p>"
+          }
+        },
+        "question_QwbcnV": {
+          "type": "question",
+          "settings": {
+            "question": "How should I store body oil?",
+            "answer": "<p>Store in a cool, dry place away from direct sunlight. This helps preserve the oil's natural properties and extends shelf life.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_BMPHW7",
+        "question_6C88fk",
+        "question_TYnMe7",
+        "question_K4YDfb",
+        "question_X8H44j",
+        "question_dmrMBV",
+        "question_rG63db",
+        "question_C4k94e",
+        "question_QwbcnV"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
+    },
+    "custom_liquid_jdrn4z": {
+      "type": "custom-liquid",
+      "settings": {
+        "separate_section_with_border": false,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "{% render 'product-page-image-section' %}",
+        "text_alignment": "start"
+      }
+    },
+    "1742279709b3f4ee9a": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_gY8kUA": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_product_reviews_ELQQWa": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_68ahqC": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_gY8kUA",
+        "targetbay_product_reviews_product_reviews_ELQQWa",
+        "targetbay_product_reviews_site_reviews_68ahqC"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo_list_xHnX8R",
+    "rich_text_q6rtXk",
+    "multi_column_AMJYMA",
+    "rich_text_cnKKiq",
+    "faq_tqwRnR",
+    "custom_liquid_jdrn4z",
+    "1742279709b3f4ee9a",
+    "related-products"
+  ]
+}

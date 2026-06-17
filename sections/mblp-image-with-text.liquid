@@ -1,0 +1,733 @@
+<!-- sections/mblp-image-with-text.liquid -->
+<div
+  class="mblp-image-with-text-main"
+  style="padding-top: {{ section.settings.padding_top_desktop }}px; padding-bottom: {{ section.settings.padding_bottom_desktop }}px;"
+>
+  <div class="container">
+    <div class="mblp-image-with-text-wrapper">
+      <div class="mblp-image-with-text-sub-wrapper">
+        <div class="mblp-image-with-text-content">
+          <!-- Content Section -->
+          <div class="mblp-image-with-text-main-content">
+            <!-- Main Heading -->
+            {% if section.settings.main_heading != blank or section.settings.subheading != blank %}
+              <div class="mblp-image-with-text-heading">
+                <!-- Desktop: Show separate headings -->
+                <div class="mblp-desktop-heading">
+                  {% if section.settings.main_heading != blank %}
+                    <h2>{{ section.settings.main_heading }}</h2>
+                  {% endif %}
+                  {% if section.settings.subheading != blank %}
+                    <h2>{{ section.settings.subheading }}</h2>
+                  {% endif %}
+                </div>
+
+                <!-- Mobile: Show single rich text field -->
+                <div class="mblp-mobile-heading">
+                  {% if section.settings.mobile_heading != blank %}
+                    <div class="mblp-mobile-rich-text">
+                      {{ section.settings.mobile_heading }}
+                    </div>
+                  {% else %}
+                    <!-- Fallback to combined headings if mobile_heading is empty -->
+                    {% if section.settings.main_heading != blank %}
+                      <h2>{{ section.settings.main_heading }}</h2>
+                    {% endif %}
+                    {% if section.settings.subheading != blank %}
+                      <h2>{{ section.settings.subheading }}</h2>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            <!-- Buttons with unique MBLP classes -->
+            <div class="mblp-image-with-text-buttons">
+              {% if section.settings.button_1_text != blank %}
+                <div class="mblp-image-with-text-button-1">
+                  <a href="{{ section.settings.button_1_link }}" class="mblp-button mblp-button-primary">
+                    {{ section.settings.button_1_text }}
+                  </a>
+                </div>
+              {% endif %}
+
+              {% if section.settings.button_2_text != blank %}
+                <div class="mblp-image-with-text-button-2">
+                  <a href="{{ section.settings.button_2_link }}" class="mblp-button mblp-button-secondary">
+                    {{ section.settings.button_2_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Description -->
+            {% if section.settings.description != blank %}
+              <div class="mblp-image-with-text-description">
+                <p>{{ section.settings.description }}</p>
+              </div>
+            {% endif %}
+
+            <!-- Features List -->
+            <div class="mblp-image-with-text-features">
+              {% if section.settings.feature_1 != blank %}
+                <div class="mblp-image-with-text-feature-item">
+                  <div class="mblp-image-with-text-feature-icon">
+                    {% if section.settings.feature_1_icon != blank %}
+                      {{ section.settings.feature_1_icon | image_url: width: 24 | image_tag }}
+                    {% else %}
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.25 6.25L8.125 14.375L3.75 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    {% endif %}
+                  </div>
+                  <span>{{ section.settings.feature_1 }}</span>
+                </div>
+              {% endif %}
+
+              {% if section.settings.feature_2 != blank %}
+                <div class="mblp-image-with-text-feature-item">
+                  <div class="mblp-image-with-text-feature-icon">
+                    {% if section.settings.feature_2_icon != blank %}
+                      {{ section.settings.feature_2_icon | image_url: width: 24 | image_tag }}
+                    {% else %}
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.25 6.25L8.125 14.375L3.75 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    {% endif %}
+                  </div>
+                  <span>{{ section.settings.feature_2 }}</span>
+                </div>
+              {% endif %}
+
+              {% if section.settings.feature_3 != blank %}
+                <div class="mblp-image-with-text-feature-item">
+                  <div class="mblp-image-with-text-feature-icon">
+                    {% if section.settings.feature_3_icon != blank %}
+                      {{ section.settings.feature_3_icon | image_url: width: 24 | image_tag }}
+                    {% else %}
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.25 6.25L8.125 14.375L3.75 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    {% endif %}
+                  </div>
+                  <span>{{ section.settings.feature_3 }}</span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <!-- Image Section -->
+        {% if section.settings.image_with_text_image != blank %}
+          <div class="mblp-image-with-text-image-container">
+            <div class="mblp-image-with-text-image">
+              {{ section.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+              /* Main Container - Full Width */
+              .mblp-image-with-text-main {
+                background-color: {{ section.settings.background_color }};
+                width: 100%;
+              }
+
+              /* Wrapper - Full Width */
+              .mblp-image-with-text-wrapper {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-width: 1440px;
+        margin: 0 auto;
+              }
+
+              .mblp-image-with-text-sub-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                gap: 100px;
+              }
+
+              /* Content Section - 50% width */
+              .mblp-image-with-text-content {
+                flex: 1;
+                width: 100%;
+                max-width: 50%;
+                padding-right: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+                box-sizing: border-box;
+              }
+
+              .mblp-image-with-text-main-content {
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+              }
+
+              /* Image Container - 50% width */
+              .mblp-image-with-text-image-container {
+                flex: 1;
+                width: 100%;
+                max-width: 50%;
+              }
+
+              .mblp-image-with-text-image {
+                width: 100%;
+                height: 100%;
+              }
+
+              .mblp-image-with-text-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+
+              /* Heading Styles */
+              .mblp-image-with-text-heading {
+                position: relative;
+              }
+
+              /* Desktop Heading - Show by default */
+              .mblp-desktop-heading {
+                display: block;
+              }
+
+              /* Mobile Heading - Hidden by default */
+              .mblp-mobile-heading {
+                display: none;
+              }
+
+              .mblp-image-with-text-heading h2 {
+                color: var(--col-light-black);
+                font-family: var(--fs-lora) !important;
+                font-size: 48px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0;
+              }
+
+              /* Mobile Rich Text Styling */
+              .mblp-mobile-rich-text {
+                color: var(--col-light-black);
+                font-family: var(--fs-lora) !important;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 1.2;
+              }
+
+              .mblp-mobile-rich-text h1,
+              .mblp-mobile-rich-text h2,
+              .mblp-mobile-rich-text h3,
+              .mblp-mobile-rich-text h4,
+              .mblp-mobile-rich-text h5,
+              .mblp-mobile-rich-text h6 {
+                color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                margin: 0;
+                padding: 0;
+              }
+
+              .mblp-mobile-rich-text p {
+                color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                margin: 0;
+                padding: 0;
+              }
+
+              /* Description - Updated with custom styles */
+              .mblp-image-with-text-description p {
+                color: var(--col-black);
+                font-family: var(--fs-lora) !important;
+                font-size: 28px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0;
+              }
+
+              /* Features - Updated with custom styles */
+              .mblp-image-with-text-features {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                color: var(--col-black);
+    font-family: 'Inter Medium' !important;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+              }
+
+              .mblp-image-with-text-feature-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              }
+
+              .mblp-image-with-text-feature-icon {
+                color: {{ section.settings.feature_icon_color }};
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+
+              .mblp-image-with-text-feature-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+
+              /* Unique MBLP Button Styles */
+              .mblp-image-with-text-buttons {
+                display: flex;
+                gap: 16px;
+                align-items: flex-start;
+                flex-direction: column;
+              }
+
+              /* Base MBLP Button Styles */
+              .mblp-button {
+                display: inline-block;
+                padding: 14px 20px;
+                font-family: 'Inter Semi Bold' !important;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                text-decoration: none;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+                min-width: 500px;
+                text-align: center;
+                box-sizing: border-box;
+                cursor: pointer;
+              }
+
+              /* MBLP Primary Button */
+              .mblp-button-primary {
+                background-color: var(--col-black);
+                color: var(--col-offwhite);
+                border: 2px solid var(--col-black);
+              }
+
+              .mblp-button-primary:hover {
+                background-color: var(--col-light-black, #333);
+                border-color: var(--col-light-black, #333);
+                color: var(--col-offwhite);
+              }
+
+              /* MBLP Secondary Button */
+              .mblp-button-secondary {
+                background-color: transparent;
+                color: var(--col-light-black);
+                border: 2px solid var(--col-black);
+              }
+
+              .mblp-button-secondary:hover {
+                background-color: var(--col-black);
+                color: var(--col-offwhite);
+                border-color: var(--col-black);
+              }
+
+              @media (max-width: 1100px) {
+                .mblp-button {
+                  min-width: 410px;
+                  font-size: 16px;
+                }
+                .mblp-image-with-text-heading h2 {
+                  font-size: 36px;
+                }
+                .mblp-image-with-text-sub-wrapper {
+                  gap: 50px;
+                }
+              }
+
+              /* Mobile Styles */
+              @media (max-width: 768px) {
+                .mblp-image-with-text-main-content {
+                gap: 18px;
+                align-items: center;
+      }
+                .mblp-image-with-text-main {
+                  padding-top: {{ section.settings.padding_top_mobile }}px !important;
+                  padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+                }
+
+                .mblp-image-with-text-image {
+      max-width: 245px;
+      margin: 0 auto;
+  }
+
+                .mblp-button {
+                  min-width: 345px;
+          width: 100%;
+          font-size: 18px;
+          padding: 16px 32px;
+                }
+
+                .mblp-image-with-text-wrapper,
+                .mblp-image-with-text-sub-wrapper {
+                  flex-direction: column;
+                  gap: 0;
+                }
+
+                .mblp-image-with-text-content,
+                .mblp-image-with-text-image-container {
+                  width: 100%;
+                  max-width: unset;
+                }
+
+                .mblp-image-with-text-content {
+                  padding: 40px 10px;
+                }
+
+                .mblp-image-with-text-image-container {
+                  order: 1;
+                }
+
+                /* Mobile Heading Display Logic */
+                .mblp-desktop-heading {
+                  display: none;
+                }
+
+                .mblp-mobile-heading {
+                  display: block;
+                }
+
+                .mblp-image-with-text-heading h2 {
+                  font-size: 28px !important;
+          font-weight: 700;
+          max-width: 315px;
+          text-align: center;
+                }
+                .mblp-image-with-text-feature-icon {
+      width: 20px;
+      height: 20px;
+                }
+
+
+                .mblp-image-with-text-buttons {
+                  flex-direction: column;
+                  gap: 12px;
+                }
+
+                .mblp-image-with-text-description p {
+                  font-size: 20px;
+                }
+
+                .mblp-image-with-text-features {
+                  font-size: 16px;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+                }
+              }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Image with Text",
+  "class": "mblp-image-text--main",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_with_text_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main heading (Desktop)",
+      "default": "Subscribe & Save"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading (Desktop)"
+    },
+    {
+      "type": "richtext",
+      "id": "mobile_heading",
+      "label": "Mobile heading (Rich Text)",
+      "info": "This rich text field will replace both desktop headings on mobile devices. Use formatting options to style your mobile heading.",
+      "default": "<p><strong>Subscribe & Save</strong><br>5-8% on Every Order</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 text",
+      "default": "Explore Subscription Program"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 text",
+      "default": "Manage Your Subscription"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Why Subscribe?"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Feature 1",
+      "default": "Flexible Deliveries"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_1_icon",
+      "label": "Feature 1 Icon (optional)"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Feature 2",
+      "default": "Cancel Anytime"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_2_icon",
+      "label": "Feature 2 Icon (optional)"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Feature 3",
+      "default": "Free Sample"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_3_icon",
+      "label": "Feature 3 Icon (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "label": "Subheading font size",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Subheading font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "label": "Description font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "feature_font_size",
+      "label": "Feature font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "feature_color",
+      "label": "Feature text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "feature_icon_color",
+      "label": "Feature icon color",
+      "default": "#00aa00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Image with Text",
+      "settings": {
+        "main_heading": "Subscribe & Save",
+        "subheading": "5-8% on Every Order",
+        "mobile_heading": "<p><strong>Subscribe & Save</strong><br>5-8% on Every Order</p>",
+        "description": "Why Subscribe?",
+        "feature_1": "Flexible Deliveries",
+        "feature_2": "Cancel Anytime",
+        "feature_3": "Free Sample",
+        "button_1_text": "Explore Subscription Program",
+        "button_2_text": "Manage Your Subscription"
+      }
+    }
+  ]
+}
+{% endschema %}

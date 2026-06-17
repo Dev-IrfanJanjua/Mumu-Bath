@@ -1,0 +1,525 @@
+{{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+{% liquid
+  assign blog_handle = section.settings.blog
+  assign selected_blog = blogs[blog_handle]
+%}
+
+<section
+  class="blog-swiper-section fade-in-section"
+  id="blog-swiper-section-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    --blog-pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --blog-pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --blog-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --blog-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --blog-card-radius: {{ section.settings.card_radius }}px;
+    --blog-tag-bg: {{ section.settings.tag_bg_color }};
+    --blog-tag-color: {{ section.settings.tag_text_color }};
+  "
+>
+  <div class="page-width">
+
+    {%- comment -%} ── HEADER: heading + arrows ── {%- endcomment -%}
+    <div class="blog-swiper__header fade-in-left">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="blog-swiper__heading hair__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="blog-swiper__arrows">
+        <button class="blog-swiper-prev" aria-label="Previous posts">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21" viewBox="0 0 11 21" fill="none">
+            <path d="M9.43981 1.47566e-06C9.43981 4.01397 6.62597 7.53 0.999998 10.5514C6.62597 13.0665 9.43981 16.3023 9.4398 20.2589" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="blog-swiper-next" aria-label="Next posts">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21" viewBox="0 0 11 21" fill="none">
+            <path d="M1.56019 1.47566e-06C1.56019 4.01397 4.37403 7.53 10 10.5514C4.37403 13.0665 1.56019 16.3023 1.56021 20.2589" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {%- comment -%} ── SWIPER ── {%- endcomment -%}
+    <div class="swiper blog-swiper fade-in-up">
+      <div class="swiper-wrapper">
+
+        {%- if selected_blog != blank -%}
+          {%- for article in selected_blog.articles limit: section.settings.posts_limit -%}
+            <div class="swiper-slide">
+              <article class="blog-card">
+
+                {%- comment -%} Image with gradient overlay + tag {%- endcomment -%}
+                <a href="{{ article.url }}" class="blog-card__image-wrap" aria-label="{{ article.title | escape }}">
+                  {%- if article.image -%}
+                    {{
+                      article.image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: article.image.alt | default: article.title,
+                        width: 800,
+                        height: 600,
+                        class: 'blog-card__image',
+                        widths: '400,600,800',
+                        sizes: '(max-width: 749px) 80vw, 25vw'
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'blog-card__image blog-card__image--placeholder' }}
+                  {%- endif -%}
+
+                  <div class="blog-card__gradient" aria-hidden="true"></div>
+
+                  {%- comment -%} Tag badge — first tag or section fallback {%- endcomment -%}
+                  {%- assign tag_label = article.tags | first -%}
+                  {%- if tag_label == blank -%}
+                    {%- assign tag_label = section.settings.fallback_tag -%}
+                  {%- endif -%}
+                  {%- if tag_label != blank -%}
+                    <span class="blog-card__tag">{{ tag_label }}</span>
+                  {%- endif -%}
+                </a>
+
+                {%- comment -%} Content ── {%- endcomment -%}
+                <div class="blog-card__content">
+                  <h3 class="blog-card__title">
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                  </h3>
+                  <a href="{{ article.url }}" class="blog-card__read-more">
+                    {{ section.settings.read_more_text | default: 'Read More' }}
+                  </a>
+                </div>
+
+              </article>
+            </div>
+          {%- endfor -%}
+
+        {%- else -%}
+          {%- comment -%} Placeholder slides for theme editor ── {%- endcomment -%}
+          {%- for i in (1..4) -%}
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <div class="blog-card__image-wrap">
+                  {{ 'image' | placeholder_svg_tag: 'blog-card__image blog-card__image--placeholder' }}
+                  <div class="blog-card__gradient" aria-hidden="true"></div>
+                  <span class="blog-card__tag">{{ section.settings.fallback_tag | default: 'Organic' }}</span>
+                </div>
+                <div class="blog-card__content">
+                  <h3 class="blog-card__title"><a href="#">Sample Blog Post Title For Healthy Skin</a></h3>
+                  <a href="#" class="blog-card__read-more">{{ section.settings.read_more_text | default: 'Read More' }}</a>
+                </div>
+              </article>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+
+      </div>
+
+      <div class="blog-swiper-pagination swiper-pagination hair-swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Section ── */
+  .blog-swiper-section {
+    padding-top: var(--blog-pt-mobile, 48px);
+    padding-bottom: var(--blog-pb-mobile, 48px);
+  }
+  @media (min-width: 750px) {
+    .blog-swiper-section {
+      padding-top: var(--blog-pt-desktop, 72px);
+      padding-bottom: var(--blog-pb-desktop, 72px);
+    }
+    
+  }
+
+  /* ── Header ── */
+  .blog-swiper__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 48px;
+  }
+  .blog-swiper__heading { margin: 0; }
+
+  /* ── Arrows ── */
+  .blog-swiper__arrows {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+  }
+  .blog-swiper-prev,
+  .blog-swiper-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    color: currentColor;
+    transition: opacity 0.2s;
+  }
+  .blog-swiper-prev:hover,
+  .blog-swiper-next:hover { opacity: 0.5; }
+  .blog-swiper-prev.swiper-button-disabled,
+  .blog-swiper-next.swiper-button-disabled { opacity: 0.25; cursor: default; }
+
+  /* ── Swiper ── */
+  .blog-swiper { overflow: hidden; }
+  .blog-swiper .swiper-slide { height: auto; }
+
+  /* ── Card ── */
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* ── Image wrap ── */
+  .blog-card__image-wrap {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--blog-card-radius, 16px);
+    aspect-ratio: 4 / 4;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .blog-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--blog-card-radius, 16px);
+    transition: transform 0.45s ease;
+  }
+  .blog-card__image--placeholder {
+    width: 100%;
+    height: 100%;
+    background: #e8e0d8;
+  }
+  .blog-card__image-wrap:hover .blog-card__image {
+    transform: scale(1.04);
+  }
+
+  /* ── Gradient overlay ── */
+  .blog-card__gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--blog-card-radius, 16px);
+    background: linear-gradient(180deg, rgba(0,0,0,0.00) 56.43%, rgba(0,0,0,0.90) 99.82%);
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .blog-card__image-wrap:hover .blog-card__gradient {
+    opacity: 0.75;
+  }
+
+  /* ── Tag badge ── */
+  .blog-card__tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 7px 8px;
+    color: #F7F9F2;
+    text-align: center;
+    font-size: 11.828px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 14.193px */
+    font-family: "Plus Jakarta Sans";
+    white-space: nowrap;
+    pointer-events: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border-radius: 29.569px;
+border: 1.478px solid #F7F9F2;
+  }
+  .blog-card__image-wrap:hover .blog-card__tag {
+    background-color: var(--blog-tag-color, #1a1a1a);
+    color: var(--blog-tag-bg, #fff);
+    transform: translateY(-2px);
+  }
+
+  /* ── Content ── */
+  .blog-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 24px;
+    flex: 1;
+  }
+
+  /* ── Title ── */
+  .blog-card__title {
+    margin: 0;
+    color: #001116;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: capitalize;
+  }
+  .blog-card__title a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+  }
+  .blog-card__title a:hover { opacity: 0.7; }
+
+  /* ── Read More ── */
+  .blog-card__read-more {
+    display: inline-block;
+    color: rgba(0,17,22,0.80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    text-transform: capitalize;
+    transition: opacity 0.2s ease;
+  }
+  .blog-card__read-more:hover { opacity: 0.6; }
+
+  /* ── Pagination ── */
+  .blog-swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 31px;
+    display:flex;
+  }
+
+  .blog-swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+.hair-swiper-pagination .swiper-pagination-bullet-active {
+      background: black;
+    opacity: 1;
+    width: 26px;
+    height: 8px;
+    border-radius: 4px;
+}
+
+
+@media (max-width: 786px) {
+
+.blog-swiper__arrows {
+   display:none;
+}
+
+.blog-swiper__header {
+    justify-content: center;
+    margin-block-end: 24px;
+}
+
+.blog-swiper-section .hair-swiper-pagination .swiper-pagination-bullet-active {
+    border-radius: 40px;
+    background: var(--Deep-Navy, #1A2744);
+    width: 20px;
+    height: 10px;
+}
+
+.blog-swiper-pagination {
+    margin-top: 24px;
+}
+.blog-swiper-section .page-width {
+        padding-right: 0;
+    }
+    .blog-swiper-section .blog-swiper__heading {
+        padding-right: 16px;
+    }
+
+
+}
+</style>
+
+<script>
+(function () {
+  function waitForSwiper(cb) {
+    if (typeof Swiper !== 'undefined') { cb(); return; }
+    var t = setInterval(function () {
+      if (typeof Swiper !== 'undefined') { clearInterval(t); cb(); }
+    }, 50);
+  }
+
+  waitForSwiper(function () {
+    var el = document.querySelector('#blog-swiper-section-{{ section.id }} .blog-swiper');
+    if (!el) return;
+
+    var prevBtn = document.querySelector('#blog-swiper-section-{{ section.id }} .blog-swiper-prev');
+    var nextBtn = document.querySelector('#blog-swiper-section-{{ section.id }} .blog-swiper-next');
+
+    new Swiper(el, {
+      slidesPerView: 1.2,
+      spaceBetween: 16,
+      spped:1000,
+      navigation: { prevEl: prevBtn, nextEl: nextBtn },
+      pagination: {
+        el: el.querySelector('.blog-swiper-pagination'),
+        clickable: true
+      },
+      breakpoints: {
+        480: { slidesPerView: 2,  spaceBetween: 14 },
+        750: { slidesPerView: 3,  spaceBetween: 16 },
+        990: { slidesPerView: 4,  spaceBetween: 16 }
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Recent Blog Posts",
+  "tag": "section",
+  "class": "section-recent-blog-posts",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top — Desktop (px)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom — Desktop (px)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top — Mobile (px)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom — Mobile (px)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recent Blog Posts"
+    },
+    {
+      "type": "header",
+      "content": "Blog Source"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "posts_limit",
+      "label": "Max Posts to Show",
+      "min": 2, "max": 12, "step": 1,
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Card Settings"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Image Border Radius (px)",
+      "min": 0, "max": 32, "step": 1,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Tag Badge"
+    },
+    {
+      "type": "text",
+      "id": "fallback_tag",
+      "label": "Fallback Tag (if article has no tags)",
+      "default": "Organic"
+    },
+    {
+      "type": "color",
+      "id": "tag_bg_color",
+      "label": "Tag Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Tag Text Colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Read More Link"
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read More Label",
+      "default": "Read More"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recent Blog Posts",
+      "settings": {
+        "heading": "Recent Blog Posts",
+        "posts_limit": 8,
+        "card_radius": 16,
+        "fallback_tag": "Organic",
+        "tag_bg_color": "#ffffff",
+        "tag_text_color": "#1a1a1a",
+        "read_more_text": "Read More",
+        "bg_color": "#ffffff",
+        "padding_top_desktop": 72,
+        "padding_bottom_desktop": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    }
+  ]
+}
+{% endschema %}

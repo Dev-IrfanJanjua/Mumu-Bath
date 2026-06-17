@@ -1,0 +1,1309 @@
+
+<footer
+  class="custom-footer footer-section {% if template.suffix == "energy-quiz" %}custom_quiz_page_class{% endif %} fade-in-section"
+  style="
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  {% if section.settings.bg_image_desktop != blank %}
+    <style>
+      .custom-footer {
+        background-image: url({{ section.settings.bg_image_desktop | image_url: width: 2000 }});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  {% endif %}
+
+  <div class="page-width">
+    <div class="footer-main">
+      <!-- LEFT COLUMN -->
+      <div class="footer-left fade-in-left">
+        {% for block in section.blocks %}
+          {% case block.type %}
+             {%- when 'newsletter' -%}
+                  <div class="v-stack gap-4 sm:gap-5">
+                    {%- if block.settings.title != blank -%}
+                      <p class="h6">{{ block.settings.title }}</p>
+                    {%- endif -%}
+
+                    {%- if block.settings.content != blank -%}
+                      <div class="prose text-subdued">
+                        {{- block.settings.content -}}
+                      </div>
+                    {%- endif -%}
+
+                    {%- assign newsletter_form_id = 'newsletter-form-' | append: section.id -%}
+
+                    {%- form 'customer', id: newsletter_form_id, class: 'form' -%}
+                      {%- if form.posted_successfully? -%}
+                        {%- assign success_message = 'general.newsletter.subscribed_successfully' | t -%}
+                        {%- render 'banner', content: success_message, status: 'success' -%}
+                      {%- else -%}
+                        {%- if form.errors -%}
+                          {%- capture error_message -%}{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}{%- endcapture -%}
+                          {%- render 'banner', content: error_message, status: 'error' -%}
+                        {%- endif -%}
+
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+
+                        {%- assign input_label = 'Sign Up For Our Newsletter'  -%}
+                        {%- render 'input', name: 'contact[email]', label: input_label, type: 'email', required: true, autocomplete: 'email', enterkeyhint: 'send' -%}
+
+                        <div class="align-self-start">
+                          {%- assign button_label = 'general.newsletter.subscribe' | t -%}
+                          {%- render 'button', type: 'submit', content: button_label, background: block.settings.button_background, text_color: block.settings.button_text_color -%}
+                        </div>
+                      {%- endif -%}
+                    {%- endform -%}
+                  </div>
+
+            {% when 'left_content' %}
+              <div class="footer-left-block">
+               
+                
+                {% if block.settings.logo != blank %}
+                  <a href="/">
+                    <img src="{{ block.settings.logo | image_url }}" alt="Footer logo" class="footer-logo">
+                  </a>
+                {% endif %}
+                {% if block.settings.small_text != blank %}
+                  <p class="footer-small-text">{{ block.settings.small_text }}</p>
+                {% endif %}
+              </div>
+
+               {% when 'social_icons' %}
+              <ul class="social-icons">
+                {% if block.settings.facebook_url %}
+                  <li class="social-icon facebook">
+                    <a href="{{ block.settings.facebook_url }}" target="_blank" rel="noopener noreferrer">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M28.9999 16.0005C28.9959 19.1777 27.8301 22.2438 25.7223 24.6213C23.6145 26.9987 20.7101 28.5233 17.5562 28.908C17.486 28.9159 17.4149 28.9089 17.3475 28.8873C17.2802 28.8658 17.2182 28.8302 17.1657 28.783C17.1131 28.7357 17.0712 28.6779 17.0426 28.6132C17.014 28.5486 16.9995 28.4786 16.9999 28.408V19.0005H19.9999C20.137 19.0008 20.2727 18.9729 20.3986 18.9185C20.5244 18.8642 20.6378 18.7845 20.7315 18.6845C20.8253 18.5845 20.8975 18.4663 20.9437 18.3373C20.9899 18.2082 21.009 18.071 20.9999 17.9342C20.9779 17.6771 20.8592 17.4378 20.6679 17.2646C20.4766 17.0914 20.2268 16.997 19.9687 17.0005H16.9999V14.0005C16.9999 13.47 17.2107 12.9613 17.5857 12.5862C17.9608 12.2112 18.4695 12.0005 18.9999 12.0005H20.9999C21.137 12.0008 21.2727 11.9729 21.3986 11.9185C21.5244 11.8642 21.6378 11.7845 21.7315 11.6845C21.8253 11.5845 21.8975 11.4663 21.9437 11.3373C21.9899 11.2082 22.009 11.071 21.9999 10.9342C21.9778 10.6766 21.8588 10.437 21.667 10.2637C21.4751 10.0904 21.2247 9.99634 20.9662 10.0005H18.9999C17.9391 10.0005 16.9217 10.4219 16.1715 11.172C15.4214 11.9222 14.9999 12.9396 14.9999 14.0005V17.0005H11.9999C11.8629 17.0002 11.7272 17.028 11.6013 17.0824C11.4755 17.1367 11.3621 17.2164 11.2683 17.3164C11.1746 17.4164 11.1023 17.5346 11.0562 17.6636C11.01 17.7927 10.9909 17.9299 10.9999 18.0667C11.0221 18.3243 11.141 18.5639 11.3329 18.7372C11.5248 18.9105 11.7752 19.0046 12.0337 19.0005H14.9999V28.4105C15.0004 28.481 14.9859 28.5509 14.9574 28.6154C14.9289 28.68 14.887 28.7377 14.8346 28.785C14.7822 28.8322 14.7204 28.8678 14.6532 28.8894C14.5861 28.911 14.5151 28.9182 14.4449 28.9105C11.2066 28.5161 8.2344 26.9203 6.11654 24.439C3.99867 21.9577 2.88955 18.7718 3.00869 15.5117C3.25869 8.76171 8.72619 3.27421 15.4812 3.01171C17.2301 2.94396 18.9746 3.22965 20.6105 3.85166C22.2464 4.47368 23.7401 5.41925 25.0021 6.63183C26.2642 7.8444 27.2687 9.29906 27.9556 10.9088C28.6425 12.5185 28.9977 14.2503 28.9999 16.0005Z" fill="white"/>
+                          </svg>
+                    </a>
+                  </li>
+                {% endif %}
+                {% if block.settings.instagram_url %}
+                  <li class="social-icon instagram">
+                    <a href="{{ block.settings.instagram_url }}" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                          <path d="M22 3H10C8.14409 3.00199 6.36477 3.74012 5.05245 5.05245C3.74012 6.36477 3.00199 8.14409 3 10V22C3.00199 23.8559 3.74012 25.6352 5.05245 26.9476C6.36477 28.2599 8.14409 28.998 10 29H22C23.8559 28.998 25.6352 28.2599 26.9476 26.9476C28.2599 25.6352 28.998 23.8559 29 22V10C28.998 8.14409 28.2599 6.36477 26.9476 5.05245C25.6352 3.74012 23.8559 3.00199 22 3ZM16 22C14.8133 22 13.6533 21.6481 12.6666 20.9888C11.6799 20.3295 10.9108 19.3925 10.4567 18.2961C10.0026 17.1997 9.88378 15.9933 10.1153 14.8295C10.3468 13.6656 10.9182 12.5965 11.7574 11.7574C12.5965 10.9182 13.6656 10.3468 14.8295 10.1153C15.9933 9.88378 17.1997 10.0026 18.2961 10.4567C19.3925 10.9108 20.3295 11.6799 20.9888 12.6666C21.6481 13.6533 22 14.8133 22 16C21.9983 17.5908 21.3657 19.116 20.2408 20.2408C19.116 21.3657 17.5908 21.9983 16 22ZM23.5 10C23.2033 10 22.9133 9.91203 22.6666 9.7472C22.42 9.58238 22.2277 9.34811 22.1142 9.07403C22.0007 8.79994 21.9709 8.49834 22.0288 8.20736C22.0867 7.91639 22.2296 7.64912 22.4393 7.43934C22.6491 7.22956 22.9164 7.0867 23.2074 7.02882C23.4983 6.97094 23.7999 7.00065 24.074 7.11418C24.3481 7.22771 24.5824 7.41997 24.7472 7.66664C24.912 7.91332 25 8.20333 25 8.5C25 8.89782 24.842 9.27936 24.5607 9.56066C24.2794 9.84196 23.8978 10 23.5 10ZM20 16C20 16.7911 19.7654 17.5645 19.3259 18.2223C18.8864 18.8801 18.2616 19.3928 17.5307 19.6955C16.7998 19.9983 15.9956 20.0775 15.2196 19.9231C14.4437 19.7688 13.731 19.3878 13.1716 18.8284C12.6122 18.269 12.2312 17.5563 12.0769 16.7804C11.9225 16.0044 12.0017 15.2002 12.3045 14.4693C12.6072 13.7384 13.1199 13.1136 13.7777 12.6741C14.4355 12.2346 15.2089 12 16 12C17.0609 12 18.0783 12.4214 18.8284 13.1716C19.5786 13.9217 20 14.9391 20 16Z" fill="white"/>
+                        </svg>
+                    </a>
+                  </li>
+                {% endif %}
+                {% if block.settings.tiktok_url %}
+                  <li class="social-icon tiktok">
+                    <a href="{{ block.settings.tiktok_url }}" target="_blank" rel="noopener noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M29 10V15C29 15.2652 28.8946 15.5196 28.7071 15.7071C28.5196 15.8946 28.2652 16 28 16C25.911 16.0049 23.8521 15.5026 22 14.5363V19.5C22 22.0196 20.9991 24.4359 19.2175 26.2175C17.4359 27.9991 15.0196 29 12.5 29C9.98044 29 7.56408 27.9991 5.78249 26.2175C4.00089 24.4359 3 22.0196 3 19.5C3 14.8875 6.36375 10.81 10.825 10.015C10.9689 9.98942 11.1167 9.9957 11.2579 10.0334C11.3992 10.0711 11.5304 10.1393 11.6424 10.2332C11.7544 10.3271 11.8445 10.4445 11.9063 10.5769C11.9681 10.7094 12.0001 10.8538 12 11V16.3363C12.0001 16.5255 11.9464 16.7109 11.8453 16.8709C11.7442 17.0309 11.5997 17.1589 11.4288 17.24C11.0245 17.4317 10.6792 17.7283 10.4287 18.099C10.1782 18.4696 10.0317 18.9007 10.0046 19.3472C9.97747 19.7938 10.0707 20.2394 10.2744 20.6376C10.4782 21.0359 10.7851 21.3722 11.1631 21.6114C11.5411 21.8506 11.9764 21.984 12.4236 21.9977C12.8707 22.0114 13.3133 21.9048 13.7053 21.6891C14.0972 21.4735 14.4241 21.1566 14.6518 20.7715C14.8796 20.3865 14.9998 19.9474 15 19.5V3C15 2.73478 15.1054 2.48043 15.2929 2.29289C15.4804 2.10536 15.7348 2 16 2H21C21.2652 2 21.5196 2.10536 21.7071 2.29289C21.8946 2.48043 22 2.73478 22 3C22.0017 4.59079 22.6343 6.11595 23.7592 7.24081C24.884 8.36567 26.4092 8.99835 28 9C28.2652 9 28.5196 9.10536 28.7071 9.29289C28.8946 9.48043 29 9.73478 29 10Z" fill="white"/>
+                          </svg>
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
+
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="footer-right fade-in-up">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu_block' %}
+              <div class="footer-menu">
+                <h4>{{ block.settings.title }}</h4>
+                <ul class="link-list">
+                  {% for link in block.settings.menu.links %}
+                    <li><a href="{{ link.url }}" class="link-text">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% when 'contact_block' %}
+              <div class="contact-block">
+                    {% if block.settings.heading != blank %}
+                      <h3 class="contact-block__heading">
+                        {{ block.settings.heading }}
+                      </h3>
+                    {% endif %}
+
+                    <div class="comt-sub">
+                      <div class="contact-block__item">
+                        {% if block.settings.icon_1 != blank %}
+                          <img
+                            src="{{ block.settings.icon_1 | image_url }}"
+                            alt=""
+                            width="24"
+                            height="24"
+                            class="contact-block__icon"
+                          >
+                        {% endif %}
+
+                        <div class="contact-block__content">
+                          {{ block.settings.label_1 }}
+                        </div>
+                      </div>
+
+                      <div
+                        href="mailto:{{ block.settings.email_1 | strip_html }}"
+                        class="contact-block__email"
+                      >
+                        {{ block.settings.email_1 }}
+                      </div>
+                    </div>
+
+                    <div class="comt-sub">
+                      <div class="contact-block__item">
+                        {% if block.settings.icon_2 != blank %}
+                          <img
+                            src="{{ block.settings.icon_2 | image_url }}"
+                            alt=""
+                            width="24"
+                            height="24"
+                            class="contact-block__icon"
+                          >
+                        {% endif %}
+
+                        <div class="contact-block__content">
+                          {{ block.settings.label_2 }}
+                        </div>
+                      </div>
+
+                      <div
+                        href="mailto:{{ block.settings.email_2 | strip_html }}"
+                        class="contact-block__email"
+                      >
+                        {{ block.settings.email_2 }}
+                      </div>
+                    </div>
+              </div>
+
+            {% when 'accordion' %}
+              <div class="footer-accordion" data-accordion id="acc-{{forloop.index }}">
+                <button class="accordion-toggle" aria-expanded="false">
+                  <span class="accordion-title">{{ block.settings.accordion_title }}</span>
+                  <img class="icon-plus" src="{{ block.settings.icon_plus | image_url: width: 20 }}" alt="+">
+                  <img class="icon-minus" src="{{ block.settings.icon_minus | image_url: width: 20 }}" alt="-">
+                </button>
+                <div class="accordion-content {% if block.settings.show_contact_info %}con-bt{% endif %}">
+                  {% if block.settings.show_contact_info %}
+                        {{ block.settings.con_info }}
+                  {% else %}
+
+                  <ul>
+                    {% for link in linklists[block.settings.accordion_menu].links %}
+                      <li><a href="{{ link.url }}" class="link-text">{{ link.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+
+                {% endif %}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+  </div>
+</footer>
+
+<style>
+.custom-footer {
+  padding-top: var(--pt-desktop);
+  padding-bottom: var(--pb-desktop);
+  background-color: #000000;
+ 
+}
+.custom-footer .prose.text-subdued {
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing:0px;
+}
+.custom-footer .form {
+    align-content: start;
+    gap: 12px;
+    display: grid;
+    grid-template-columns: 370px auto;
+    align-items: stretch;
+
+}
+.custom-footer .form-control input {
+  border-radius: 44px;
+border: 1px solid var(--Deep-Navy, #1A2744);
+background: #FFF;
+display: flex;
+padding: 16px 20px;
+align-items: center;
+gap: 12px;
+align-self: stretch;
+}
+.custom-footer .align-self-start {
+    align-self: start;
+    height: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .custom-footer  .sm\:gap-5 {
+        gap: 18px;
+    }
+}
+
+.custom-footer .input:focus + label,
+.textarea:focus + label,
+.select:focus-visible + label {
+  display: none;
+}
+.footer-left button {
+
+
+border-radius: 36px;
+border: 1px solid #1A2744;
+background: var(--Yellow, #FBDD40);
+display: flex;
+padding: 16px 40px;
+justify-content: center;
+align-items: center;
+gap: 12px;
+color: #000;
+text-align: center;
+font-family: 'Mona Sans';
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 142.857% */
+text-transform: uppercase;
+letter-spacing:0px;
+height:100%;
+}
+.footer-left button {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.footer-left button:hover,
+.footer-left button:focus-visible {
+  background-color: var(--hero-btn-hover-bg, #ffffff) !important;
+  color: #000000;
+  outline-offset: 3px;
+  transform: translateY(-2px) scale(1.03);
+}
+.custom-footer .form-control label {
+  color: #5B5B5B;
+
+/* body text 2 */
+font-family: "DM Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */
+
+}
+
+ul.link-list.none {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 590px auto;
+  gap: 40px;
+  justify-content:center;
+}
+
+.footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, 155px) 200px;
+    column-gap: 0px;
+    justify-content: start;
+}
+.comt-sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-menu ul {
+  list-style: none;
+  padding: 0;
+  margin:0px;
+}
+
+.footer-menu a, .link-text {
+  text-decoration: none;
+  color: #FFF;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.8;
+}
+#acc-5 { border-top:1px solid white;}
+.footer-bottom {
+    margin-top: 100px;
+    padding-top: 21px;
+    border-top: 1px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-email-form {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.footer-email-form input {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-email-form button {
+  padding: 10px 16px;
+}
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width:max-content;
+}
+.footer-menu h4 {
+width: 100%;
+position: relative;
+color: #FFF;
+font-family: "Mona Sans" !important;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 24px */
+display: inline-block;
+margin:0px;
+
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+ul.link-list.none li {
+  list-style:none;
+}
+.bottom-text.none {
+    position: relative;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: Poppins;
+    color: #fff;
+    text-align: left;
+    font-weight: 400;
+}
+.foot-head {
+  color: var(--White, #FFF);
+  font-family: "Acumin Pro";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 28.8px */
+  letter-spacing: -0.48px;
+  text-transform: capitalize;
+  margin:0 0 16px;
+}
+.footer-desc {
+  max-width:590px;
+  margin:0 0 25px;
+}
+.footer-desc p {
+  color: var(--White, #FFF);
+  font-family: "Acumin Pro";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+  letter-spacing: -0.32px;
+  margin:0;
+}
+.footer-small-text {
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin:0px 0 50px;
+    opacity: 0.9;
+}
+.footer-logo {
+    max-width: 270px;
+    width: 100%;
+    height: 62px;
+    object-fit: contain;
+}
+
+.footer-logo {
+ display:block;
+}
+.footer-logo-mob, .footer-accordion {
+ display:none;
+}
+.field.name {
+    display: none;
+}
+p.cs-text-sm {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    line-height: 22.4px;
+    font-family: Poppins;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    margin: 20px 0 0;
+    max-width: 400px;
+}
+p.cs-text-lg {
+    position: relative;
+    font-size: 40px;
+    letter-spacing: -0.04em;
+    line-height: 56px;
+    text-transform: capitalize;
+    font-family: 'Josefin Sans';
+    color: #fff;
+    text-align: left;
+    margin: 0 0 20px;
+    font-weight:400;
+}
+
+  .input-wrap {
+     position:relative; 
+  }
+  .custom-signup .email-signup__input, .custom-signup .email-signup__button--text {
+    padding: var(--padding-lg) var(--padding-3xl);
+    background: transparent;
+    border:0px !important;
+    border-bottom: 1px solid white !important;
+    color: white;
+  }
+  .custom-arrow {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border:0px;
+  }
+  .newsletter-input::placeholder {
+    font-size: 18px;
+    line-height: normal;
+    font-family: Poppins;
+    color: #fff;
+    text-align: left;
+    font-weight:500;
+  }
+  .footer-bottom-text {
+      color: var(--light-gray-20, #E0E0E0);
+      text-align: center;
+      font-family: "Acumin Pro";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.32px;
+      margin:0px;
+
+  }
+
+
+.email-signup__input:focus {
+  border: none !important;
+  
+}
+
+.footer-social .social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+
+
+
+.link-list li {
+  position: relative;
+  line-height: 0;
+}
+
+.link-text {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding-bottom: 2px; /* space for underline */
+}
+
+.link-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* underline thickness */
+  background-color:white; /* inherits text color */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-text:hover::after {
+  transform: scaleX(1);
+}
+
+.custom-signup .email-signup__input {
+   padding-left:0px;
+}
+
+.field__button>svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 14px;
+    object-fit: contain;
+}
+ul.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    padding: 0px;
+    margin: 24px 0 0;
+}
+ul.social-icons li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.custom-footer .newsletter-input {
+    background: transparent;
+    box-shadow: none;
+    border: 0px;
+    font-size: 14px;
+    font-family: 'Poppins';
+    color: #fff;
+    width: 100%;
+    max-width: calc(100% - 50px);
+    transition:none !important;
+    
+}
+.custom-footer .newsletter-input:-webkit-autofill,
+.custom-footer .newsletter-input:-webkit-autofill:hover,
+.custom-footer .newsletter-input:-webkit-autofill:focus,
+.custom-footer .newsletter-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+
+  -webkit-text-fill-color: inherit !important;
+  background-color: transparent !important;
+
+  transition: none !important;
+}
+.custom-footer .newsletter-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparennt inset !important; /* example */
+  -webkit-text-fill-color: #fff !important;
+}
+.custom-footer .field {
+    background: transparent;
+    color: var(--Color-3, #FFF);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: flex;
+    height: 58px;
+    padding: 12px 10px 12px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 50px;
+    border: 1px solid var(--Color-3, #FFF);
+}
+.field.name {
+    display: none !important;
+}
+.field__button>svg {
+    width: 100%;
+    margin-right: 14px;
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
+}
+.field__button {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: currentColor;
+    cursor: pointer;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.contact-block {
+  color: #fff;
+}
+
+.contact-block__heading {
+  margin: 0 0 20px;
+  color: #FFF;
+font-family: "Mona Sans" !important;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 24px */
+}
+
+.contact-block__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comt-sub:not(:last-child) {
+  margin-bottom: 22px;
+}
+
+.contact-block__icon {
+  width: 23px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.contact-block__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-block__content p, .con-bt p  {
+  margin: 0;
+  color: #FFF;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+  opacity: 0.8;
+}
+.con-bt p:first-child  {
+margin:12px 0 0;
+}
+
+.con-bt strong {
+  font-weight:700;
+}
+
+.contact-block__email {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+  color: #FFF;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+  opacity: 0.8;
+}
+
+.contact-block__email:hover {
+  text-decoration: underline;
+  text-decoration-color: #fff;
+}
+
+
+@media (max-width: 1300px) {
+
+.footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    column-gap: 70px;
+    justify-content: end;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 433px auto;
+    gap: 90px;
+}
+
+}
+@media (max-width: 1080px) {
+       .footer-right {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        column-gap: 42px;
+        justify-content: space-between;
+    }
+        .footer-main {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 433px auto;
+        gap: 90px;
+    }
+}
+.custom-footer :is(.input,.textarea):not(:placeholder-shown)~.floating-label, :is(.input,.textarea,.select):-webkit-autofill~.floating-label, .select:valid~.floating-label {
+    opacity: 0;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .custom-footer {
+    padding-top: var(--pt-mobile);
+    padding-bottom: var(--pb-mobile);
+  }
+  .contact-block {
+    color: #fff;
+    display: none;
+}
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-right {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin:0px;
+    border:0px;
+  }
+  .foot-head, .footer-menu {
+    display:none;
+  }
+  .footer-logo {
+    display: block;
+    max-width: 170px;
+    height: 38.699px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+  .footer-logo-mob {
+     display:none;
+     margin: 0 0 40px;
+     width:100%;
+     height:auto;
+  }
+  .footer-desc p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.28px;
+  }
+  .footer-small-text {
+      color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+      margin:16px 0 32px;
+  }
+  .footer-main {
+     gap:32px;
+  }
+  .email-signup__button {
+     width:unset !important;
+  }
+  .custom-footer .newsletter-input{
+    width:300px;
+  }
+
+
+
+/* accodion */
+
+  /* Accordion */
+  .cs_accordion {
+    padding:50px 0 0;
+    width:100%;
+  }
+  .accordion-toggle {
+    background: none;
+    border: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 0;
+    padding-top: 0px;
+}
+ img.icon-plus {
+    width: 20px;
+    height: 20px;
+}
+img.icon-minus {
+    width: 20px;
+    height: 20px;
+}
+.footer-section .accordion-title { 
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    margin:0px;
+}
+.footer-accordion {
+    border-bottom: 1px solid  #ffffff;
+    padding:24px 0 20px;
+    display:block;
+}
+.icon-minus { display: none; }
+.accordion-content {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+    .accordion-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .accordion-content li {    margin: 0px 0; }
+.accordion-content .link-text { 
+  color: #ffffff; 
+   text-decoration: none;
+  font-size: 14px;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  text-transform: uppercase;
+
+ }
+ .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.footer-bottom-text {
+   color: var(--Gray, #767676);
+}
+ul.link-list.none {
+    display: flex;
+    justify-content: center;
+    gap: 12px 15px;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+    flex-wrap: wrap;
+}
+p.cs-text-sm {
+    font-size: 14px;
+    margin: 12px 0 0;
+    max-width: 360px;
+}
+p.cs-text-lg {
+    font-size: 24px;
+    margin: 0 0 12px;
+}
+ul.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.footer-right .footer-accordion:first-of-type {
+  border-top: 1px solid white;
+}
+
+#acc-6{
+  padding-top:20px;
+}
+
+.custom-footer .gap-4 {
+    gap: 24px;
+}
+.custom-footer .form {
+    
+    grid-template-columns: 1fr;
+}
+
+.footer-left button {
+   width:100%;
+}
+
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "header",
+      "content": "Padding – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Padding – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_block",
+      "name": "Contact Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Get in Touch"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "First Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "label_1",
+          "label": "First Label"
+        },
+        {
+          "type": "richtext",
+          "id": "email_1",
+          "label": "First Email"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Second Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "label_2",
+          "label": "Second Label"
+        },
+        {
+          "type": "richtext",
+          "id": "email_2",
+          "label": "Second Email"
+        }
+      ]
+    },
+    {
+      "type": "left_content",
+      "name": "Left Content",
+      "limit": 1,
+      "settings": [
+        
+        { "type": "text", "id": "small_text", "label": "Small Description" },
+        { "type": "image_picker", "id": "logo", "label": "Logo" }
+      ]
+    },
+    {
+      "type": "menu_block",
+      "name": "Menu Column",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Menu Title" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    },
+    {
+      "type": "bottom_text",
+      "name": "Bottom Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Menu"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Bottom Text"
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "label": "Animation Style",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "fade", "label": "Fade In" },
+            { "value": "slide-up", "label": "Slide Up" }
+          ],
+          "default": "none"
+        }
+      ]
+    },
+    {
+      "name": "Social Footer Block",
+      "type":"social_icons",
+      "settings": [
+        {
+          "type": "url",
+          "id": "facebook_url",
+          "label": "Facebook URL"
+        },
+        {
+          "type": "url",
+          "id": "instagram_url",
+          "label": "Instagram URL"
+        },
+        {
+          "type": "url",
+          "id": "tiktok_url",
+          "label": "TikTok URL"
+        }
+      ]
+    },
+    {
+      "type": "payment_block",
+      "name": "Payment Icons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "payment_types",
+          "label": "Payment Types (Visual placeholder)"
+        }
+      ]
+    },
+    {
+    "type": "accordion",
+    "name": "Accordion Menu",
+    "settings": [
+      {
+        "type": "text",
+        "id": "accordion_title",
+        "label": "Accordion Title",
+        "default": "More Info"
+      },
+      {
+        "type": "link_list",
+        "id": "accordion_menu",
+        "label": "Accordion Menu"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon_plus",
+        "label": "Plus Icon"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon_minus",
+        "label": "Minus Icon"
+      },
+      {
+          "type": "checkbox",
+          "id": "show_contact_info",
+          "label": "show contact info"
+      },
+      {
+         "type":"richtext",
+         "id":"con_info",
+         "label":"contact info"
+      }
+    ]
+   },
+   {
+      "type": "newsletter",
+      "name": "newsletter Form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.footer.blocks.newsletter.newsletter_info"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:global.text.heading",
+          "default": "Newsletter"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:global.text.content",
+          "default": "<p>Sign up to our newsletter to receive exclusive offers.</p>"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "t:global.colors.button_background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "t:global.colors.button_text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Live 5AM Footer (Standalone)",
+      "category": "Footer"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["footer"]
+  }
+}
+{% endschema %}
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ DOM loaded");
+
+  const accordions = document.querySelectorAll(".footer-accordion[data-accordion]");
+  console.log("🔍 Footer accordions found:", accordions.length);
+
+  if (accordions.length === 0) {
+    console.warn("⚠️ No footer accordions found on this page.");
+    return;
+  }
+
+  accordions.forEach((acc, index) => {
+    console.log(`➡️ Setting up accordion ${index + 1}`);
+
+    const toggle = acc.querySelector(".accordion-toggle");
+    const content = acc.querySelector(".accordion-content");
+    const plus = acc.querySelector(".icon-plus");
+    const minus = acc.querySelector(".icon-minus");
+
+    if (!toggle || !content) {
+      console.warn(`⚠️ Missing elements inside accordion ${index + 1}`);
+      return;
+    }
+
+    // --- 1. Handle toggle click ---
+    toggle.addEventListener("click", () => {
+      console.log(`🖱️ Clicked accordion ${index + 1}`);
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+
+      // Close all footer accordions first
+      accordions.forEach((otherAcc, i) => {
+        const otherToggle = otherAcc.querySelector(".accordion-toggle");
+        const otherContent = otherAcc.querySelector(".accordion-content");
+        const otherPlus = otherAcc.querySelector(".icon-plus");
+        const otherMinus = otherAcc.querySelector(".icon-minus");
+
+        if (otherToggle && otherContent) {
+          otherToggle.setAttribute("aria-expanded", "false");
+          otherContent.style.maxHeight = 0;
+          if (otherPlus && otherMinus) {
+            otherPlus.style.display = "inline";
+            otherMinus.style.display = "none";
+          }
+          console.log(`❌ Closed accordion ${i + 1}`);
+        }
+      });
+
+      if (!expanded) {
+        console.log(`✅ Opening accordion ${index + 1}`);
+        toggle.setAttribute("aria-expanded", "true");
+        content.style.maxHeight = content.scrollHeight + "px";
+        if (plus && minus) {
+          plus.style.display = "none";
+          minus.style.display = "inline";
+        }
+      }
+    });
+  });
+});
+</script>
+
+

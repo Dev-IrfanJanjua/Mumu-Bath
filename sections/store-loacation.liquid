@@ -1,0 +1,415 @@
+<section
+  id="store-locations-{{ section.id }}"
+  class="store-locations-section fade-in-section"
+  style="
+    --bg-color: {{ section.settings.bg_color }};
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hair__heading store-locations-heading fade-in-left">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="store-locations-grid fade-in-up">
+
+      {% for block in section.blocks %}
+        <div
+          class="store-location-card"
+          id="location-{{ section.id }}-{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+
+          <div class="store-location-map">
+            {{ block.settings.map_embed }}
+          </div>
+
+          <div class="store-location-content">
+
+            {% if block.settings.location_heading != blank %}
+              <h3 class="location-title">
+                {{ block.settings.location_heading }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.address != blank %}
+              <div class="location-address">
+                {{ block.settings.address }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.hours_heading != blank %}
+              <h4 class="hours-title">
+                {{ block.settings.hours_heading }}
+              </h4>
+            {% endif %}
+
+            {% if block.settings.days != blank %}
+              <div class="location-days">
+                {{ block.settings.days }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.hours != blank %}
+              <div class="location-hours">
+                {{ block.settings.hours }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.direction_url != blank %}
+              <a
+                href="{{ block.settings.direction_url }}"
+                class="direction-link tfc__view-all"
+              >
+                {% if block.settings.direction_icon != blank %}
+                  {{
+                    block.settings.direction_icon
+                    | image_url: width: 40
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '20,30,40',
+                      sizes: '18px',
+                      alt: block.settings.direction_text,
+                      class: 'direction-icon'
+                  }}
+                {% endif %}
+
+                <span>{{ block.settings.direction_text }}</span>
+              </a>
+            {% endif %}
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.store-locations-section{
+  background:var(--bg-color);
+  padding-top:var(--pt-desktop);
+  padding-bottom:var(--pb-desktop);
+}
+
+.store-locations-heading{
+  text-align:center;
+  margin:0 0 48px;
+}
+
+.store-locations-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;/
+}
+
+.store-location-card{
+  display:grid;
+  grid-template-columns:minmax(300px,1fr) 1fr;
+  gap:16px;
+  align-items:start;
+}
+
+.store-location-map{
+    overflow: hidden;
+    border-radius: 8px;
+    height: auto;
+    aspect-ratio: 1.14;
+}
+
+.store-location-content {
+    padding-right: 16px;
+}
+
+.store-location-map iframe{
+  width:100%;
+  height: 100%;
+  border:0;
+  display:block;
+}
+
+.location-title{
+  margin:0 0 16px;
+  color: #000;
+font-family: "Plus Jakarta Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 20.7px; /* 115% */
+}
+
+.location-address{
+ color: #000;
+font-family: "Plus Jakarta Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20.7px; /* 129.375% */
+  margin-bottom:24px;
+}
+
+.hours-title{
+  margin:0 0 12px;
+  color: #000;
+font-family: "Plus Jakarta Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 20.7px; /* 115% */
+}
+
+.location-days,
+.location-hours{
+ color: #000;
+font-family: "Plus Jakarta Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20.7px; /* 129.375% */
+}
+
+.location-hours{
+  margin-top:12px;
+}
+
+.direction-link{
+  display:inline-flex;
+  align-items:center;
+  gap:16px;
+  margin-top:24px;
+  color: var(--Black---S, #333);
+font-family: "Plus Jakarta Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 120%; /* 21.6px */
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-decoration-skip-ink: auto;
+text-decoration-thickness: auto;
+text-underline-offset: auto;
+text-underline-position: from-font;;
+}
+
+.direction-link:hover{
+  opacity:.7;
+}
+
+.direction-icon{
+  width:18px;
+  height:18px;
+  object-fit:contain;
+  display:block;
+}
+
+@media screen and (max-width: 1199px){
+
+  .store-locations-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .store-locations-section{
+    padding-top:var(--pt-mobile);
+    padding-bottom:var(--pb-mobile);
+  }
+
+  .store-locations-heading{
+    font-size:30px;
+    margin-bottom:24px;
+  }
+
+  .store-location-card{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .location-title{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20.7px; /* 115% */
+  }
+
+  .hours-title{
+    font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 20.7px; /* 115% */
+  }
+
+  .location-address,
+  .location-days,
+  .location-hours{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.7px; /* 129.375% */
+  }
+
+  
+}
+</style>
+
+{% schema %}
+{
+  "name": "Store Locations",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Visit Mumu Bath Near You"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "map_embed",
+          "label": "Google Map Embed"
+        },
+        {
+          "type": "text",
+          "id": "location_heading",
+          "label": "Location Heading",
+          "default": "Directions to Our Oldsmar Location"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Address",
+          "default": "Oldsmar Flea Market - 180 Racetrack Road N"
+        },
+        {
+          "type": "text",
+          "id": "hours_heading",
+          "label": "Hours Heading",
+          "default": "Opening Hours"
+        },
+        {
+          "type": "text",
+          "id": "days",
+          "label": "Days",
+          "default": "Open every Saturday & Sunday"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "label": "Hours",
+          "default": "9:00 AM - 6:00 PM"
+        },
+        {
+          "type": "image_picker",
+          "id": "direction_icon",
+          "label": "Direction Icon"
+        },
+        {
+          "type": "url",
+          "id": "direction_url",
+          "label": "Direction Link"
+        },
+        {
+          "type": "text",
+          "id": "direction_text",
+          "label": "Direction Text",
+          "default": "Get Directions"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store Locations",
+      "settings": {
+        "heading": "Visit Mumu Bath Near You"
+      },
+      "blocks": [
+        {
+          "type": "location",
+          "settings": {
+            "location_heading": "Directions to Our Oldsmar Location",
+            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "hours_heading": "Opening Hours",
+            "days": "Open every Saturday & Sunday",
+            "hours": "9:00 AM - 6:00 PM",
+            "direction_text": "Get Directions"
+          }
+        },
+        {
+          "type": "location",
+          "settings": {
+            "location_heading": "Directions to Our Oldsmar Location",
+            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "hours_heading": "Opening Hours",
+            "days": "Open every Saturday & Sunday",
+            "hours": "9:00 AM - 6:00 PM",
+            "direction_text": "Get Directions"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

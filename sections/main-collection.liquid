@@ -1,0 +1,693 @@
+{%- liquid
+  assign active_values_count = 0
+
+  for filter in collection.filters
+    if filter.type == 'price_range'
+      if filter.max_value.value != blank or filter.min_value.value != blank
+        assign active_values_count = active_values_count | plus: 1
+      endif
+    else
+      assign active_values_count = active_values_count | plus: filter.active_values.size
+    endif
+  endfor
+
+  if section.settings.quick_links_menu.links.size > 0 or section.settings.show_filters and collection.filters.size > 0
+    assign show_filters = true
+  else
+    assign show_filters = false
+  endif
+
+  # First, we retrieve, based on the merchant settings, the user preferences and the available space the most appropriate size
+  assign products_mobile_grid_mode = cart.attributes.products_mobile_grid_mode
+
+  if request.design_mode
+    # In the theme editor we do not use the choice selected manually, to reduce confusion when changing the theme editor values
+    assign products_desktop_grid_mode = section.settings.products_size_desktop
+  else
+    assign products_desktop_grid_mode = cart.attributes.products_desktop_grid_mode | default: section.settings.products_size_desktop
+  endif
+
+  if products_mobile_grid_mode == blank or request.design_mode
+    if section.settings.products_per_row_mobile == '1'
+      assign products_mobile_grid_mode = 'large'
+    else
+      assign products_mobile_grid_mode = 'medium'
+    endif
+  endif
+-%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+CSS
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --product-list-horizontal-spacing-factor: {{ section.settings.horizontal_spacing_factor }};
+    --product-list-vertical-spacing-factor: {{ section.settings.vertical_spacing_factor }};
+
+    {% comment %}On mobile, it's simple! No sidebar or whatever{% endcomment %}
+    --collection-items-per-row-medium: 2;
+    --collection-items-per-row-large: 1;
+  }
+
+  #shopify-section-{{ section.id }} .product-list {
+    --product-list-max-items-per-row-allowed: 99 !important; {% comment %}On collection page, we explicitly set a number of items so we don't want this{% endcomment %}
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      {% comment %}On tablet, we do not have any sidebar, so we can fix it{% endcomment %}
+      --collection-items-per-row-compact: 4;
+      --collection-items-per-row-medium: 3;
+      --collection-items-per-row-large: 2;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      {%- comment -%}Starting from 1000px it starts to get funky, as we can have or not the sidebar{%- endcomment -%}
+
+      {%- if section.settings.filter_layout == 'sidebar' and show_filters -%}
+        --collection-items-per-row-compact: 4;
+        --collection-items-per-row-medium: 3;
+        --collection-items-per-row-large: 2;
+      {%- else -%}
+        --collection-items-per-row-compact: 6;
+        --collection-items-per-row-medium: 4;
+        --collection-items-per-row-large: 3;
+      {%- endif -%}
+    }
+
+    #shopify-section-{{ section.id }} .collection {
+      {%- if section.settings.filter_layout == 'sidebar' and show_filters -%}
+        --collection-grid-template: var(--collection-sidebar-width, 0) minmax(0,1fr);
+      {%- endif -%}
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    #shopify-section-{{ section.id }} {
+      {%- comment -%}Starting from 1400px we can afford having more content even in sidebar mode{%- endcomment -%}
+
+      {%- if section.settings.filter_layout == 'sidebar' and show_filters -%}
+        --collection-items-per-row-compact: 6;
+        --collection-items-per-row-medium: 4;
+        --collection-items-per-row-large: 3;
+      {%- endif -%}
+    }
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div class="container {% if section.settings.cstm_style %} cstm_main_collection {% endif %}">
+  <div class="v-stack gap-6 sm:gap-12 {% if section.settings.cstm_style %} page-width {% endif %}">
+    {%- if collection.all_products_count == 0 -%}
+      <div class="empty-state">
+        <div class="prose">
+          <h1 class="h4">{{ collection.title }}</h1>
+          <p>{{ 'collection.general.empty_collection' | t }}</p>
+
+          {%- assign button_content = 'collection.general.continue_shopping' | t -%}
+          {%- render 'button', href: routes.all_products_collection_url, size: 'xl', content: button_content -%}
+        </div>
+      </div>
+    {%- else -%}
+      {%- if show_filters or section.settings.show_sort_by or section.settings.show_grid_mode_selector or section.settings.show_results_count -%}
+        <height-observer variable="collection-toolbar" class="collection-toolbar full-bleed">
+          <div class="collection-toolbar__button-list">
+            {%- if show_filters -%}
+              <div class="collection-toolbar__button-container {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %} {% if section.settings.cstm_style %}col__filter-wraper{% endif %} ">
+                {% if section.settings.cstm_style %}
+                  <p class="collection-filter_shop">Shop All</p>
+                {% endif %}
+                <button type="button" aria-controls="facets-drawer" class="collection-toolbar__button heading text-xxs w-full">
+                  {% if section.settings.cstm_style %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clip-path="url(#clip0_531_11480)">
+                          <path d="M15.5789 13.4737H7.53634C7.4393 12.9982 7.181 12.5709 6.80514 12.264C6.42928 11.9571 5.95893 11.7895 5.47368 11.7895C4.98844 11.7895 4.51809 11.9571 4.14223 12.264C3.76636 12.5709 3.50806 12.9982 3.41103 13.4737H0.421053C0.309383 13.4737 0.202286 13.518 0.123324 13.597C0.0443609 13.676 0 13.7831 0 13.8947C0 14.0064 0.0443609 14.1135 0.123324 14.1925C0.202286 14.2714 0.309383 14.3158 0.421053 14.3158H3.41103C3.50806 14.7912 3.76636 15.2186 4.14223 15.5255C4.51809 15.8324 4.98844 16 5.47368 16C5.95893 16 6.42928 15.8324 6.80514 15.5255C7.181 15.2186 7.4393 14.7912 7.53634 14.3158H15.5789C15.6906 14.3158 15.7977 14.2714 15.8767 14.1925C15.9556 14.1135 16 14.0064 16 13.8947C16 13.7831 15.9556 13.676 15.8767 13.597C15.7977 13.518 15.6906 13.4737 15.5789 13.4737ZM5.47368 15.1579C5.22386 15.1579 4.97964 15.0838 4.77191 14.945C4.56419 14.8062 4.40228 14.6089 4.30668 14.3781C4.21107 14.1473 4.18606 13.8933 4.2348 13.6483C4.28354 13.4033 4.40384 13.1782 4.5805 13.0015C4.75715 12.8249 4.98223 12.7046 5.22725 12.6559C5.47228 12.6071 5.72626 12.6321 5.95707 12.7277C6.18789 12.8233 6.38516 12.9852 6.52396 13.193C6.66276 13.4007 6.73684 13.6449 6.73684 13.8947C6.73648 14.2296 6.60328 14.5507 6.36647 14.7875C6.12966 15.0243 5.80858 15.1575 5.47368 15.1579ZM15.5789 7.57895H13.4311C13.334 7.1035 13.0757 6.67618 12.6999 6.36927C12.324 6.06237 11.8537 5.89474 11.3684 5.89474C10.8832 5.89474 10.4128 6.06237 10.037 6.36927C9.6611 6.67618 9.4028 7.1035 9.30577 7.57895H0.421053C0.309383 7.57895 0.202286 7.62331 0.123324 7.70227C0.0443609 7.78123 0 7.88833 0 8C0 8.11167 0.0443609 8.21877 0.123324 8.29773C0.202286 8.37669 0.309383 8.42105 0.421053 8.42105H9.30577C9.4028 8.8965 9.6611 9.32382 10.037 9.63073C10.4128 9.93763 10.8832 10.1053 11.3684 10.1053C11.8537 10.1053 12.324 9.93763 12.6999 9.63073C13.0757 9.32382 13.334 8.8965 13.4311 8.42105H15.5789C15.6906 8.42105 15.7977 8.37669 15.8767 8.29773C15.9556 8.21877 16 8.11167 16 8C16 7.88833 15.9556 7.78123 15.8767 7.70227C15.7977 7.62331 15.6906 7.57895 15.5789 7.57895ZM11.3684 9.26316C11.1186 9.26316 10.8744 9.18908 10.6666 9.05028C10.4589 8.91148 10.297 8.7142 10.2014 8.48339C10.1058 8.25258 10.0808 7.9986 10.1295 7.75357C10.1783 7.50854 10.2986 7.28347 10.4752 7.10681C10.6519 6.93016 10.877 6.80985 11.122 6.76111C11.367 6.71237 11.621 6.73739 11.8518 6.83299C12.0826 6.9286 12.2799 7.0905 12.4187 7.29823C12.5575 7.50595 12.6316 7.75017 12.6316 8C12.6312 8.3349 12.498 8.65598 12.2612 8.89278C12.0244 9.12959 11.7033 9.26279 11.3684 9.26316ZM15.5789 1.68421H9.22055C9.12352 1.20877 8.86522 0.781439 8.48935 0.474537C8.11349 0.167634 7.64314 0 7.15789 0C6.67265 0 6.2023 0.167634 5.82644 0.474537C5.45057 0.781439 5.19227 1.20877 5.09524 1.68421H0.421053C0.309383 1.68421 0.202286 1.72857 0.123324 1.80753C0.0443609 1.8865 0 1.99359 0 2.10526C0 2.21693 0.0443609 2.32403 0.123324 2.40299C0.202286 2.48196 0.309383 2.52632 0.421053 2.52632H5.09524C5.19227 3.00176 5.45057 3.42909 5.82644 3.73599C6.2023 4.04289 6.67265 4.21053 7.15789 4.21053C7.64314 4.21053 8.11349 4.04289 8.48935 3.73599C8.86522 3.42909 9.12352 3.00176 9.22055 2.52632H15.5789C15.6906 2.52632 15.7977 2.48196 15.8767 2.40299C15.9556 2.32403 16 2.21693 16 2.10526C16 1.99359 15.9556 1.8865 15.8767 1.80753C15.7977 1.72857 15.6906 1.68421 15.5789 1.68421ZM7.15789 3.36842C6.90807 3.36842 6.66385 3.29434 6.45612 3.15554C6.2484 3.01674 6.08649 2.81947 5.99089 2.58865C5.89528 2.35784 5.87027 2.10386 5.91901 1.85883C5.96775 1.61381 6.08805 1.38873 6.26471 1.21208C6.44136 1.03542 6.66644 0.915116 6.91146 0.866377C7.15649 0.817638 7.41047 0.842652 7.64128 0.938258C7.8721 1.03386 8.06938 1.19577 8.20817 1.40349C8.34697 1.61122 8.42105 1.85543 8.42105 2.10526C8.42069 2.44016 8.28749 2.76124 8.05068 2.99805C7.81387 3.23486 7.49279 3.36806 7.15789 3.36842Z" fill="black"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_531_11480">
+                            <rect width="16" height="16" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                  {% else %}
+                    {{- 'collection.faceting.filter_button' | t }} {% if active_values_count > 0 %}({{ active_values_count }}){% endif -%}
+                  {% endif %}
+                </button>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_sort_by -%}
+              {%- assign selected_sort_by_value = collection.sort_by | default: collection.default_sort_by -%}
+
+              <div class="collection-toolbar__button-container">
+                <button type="button" aria-controls="sort-by-popover" class="collection-toolbar__button heading text-xxs w-full">
+                  <span class="text-with-icon justify-center">
+                    {{- 'collection.faceting.sort_by' | t -}}
+                    {%- render 'icon' with 'chevron-down' -%}
+                  </span>
+                </button>
+
+                <facets-sort-popover id="sort-by-popover" section-id="{{ section.id }}" class="popover popover--bottom-end" close-on-listbox-select>
+                  <p class="h4" slot="header">{{ 'collection.faceting.sort_by' | t }}</p>
+
+                  <x-listbox class="popover__value-list">
+                    {%- for sort_option in collection.sort_options -%}
+                      {%- if sort_option.name != blank -%}
+                        <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}" {% if sort_option.value == selected_sort_by_value %}aria-selected="true"{% endif %}>
+                          <span class="reversed-link">{{ sort_option.name }}</span>
+                        </button>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </x-listbox>
+                </facets-sort-popover>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.show_results_count -%}
+            <p class="collection-toolbar__products-count h6 text-subdued md-max:hidden">
+              {{ 'collection.products_count' | t: count: collection.products_count }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.show_grid_mode_selector -%}
+            <collection-layout-switch device="mobile" class="collection-toolbar__layout-switch-list sm:hidden" aria-controls="product-list-{{ section.id }}">
+              <button type="button" value="large" class="collection-toolbar__button {% if products_mobile_grid_mode == 'large' %}is-active{% endif %}" aria-label="Switch to larger product images">{%- render 'icon' with 'collection-layout-1' -%}</button>
+              <button type="button" value="medium" class="collection-toolbar__button {% if products_mobile_grid_mode == 'medium' %}is-active{% endif %}" aria-label="Switch to smaller product images">{%- render 'icon' with 'collection-layout-2' -%}</button>
+            </collection-layout-switch>
+
+            <collection-layout-switch device="desktop" class="collection-toolbar__layout-switch-list sm-max:hidden" aria-controls="product-list-{{ section.id }}">
+              <button type="button" value="large" class="collection-toolbar__button {% if products_desktop_grid_mode == 'large' %}is-active{% endif %}" aria-label="Switch to larger product images">{%- render 'icon' with 'collection-layout-2' -%}</button>
+              <button type="button" value="medium" class="collection-toolbar__button {% if products_desktop_grid_mode == 'medium' %}is-active{% endif %}" aria-label="Switch to smaller product images">{%- render 'icon' with 'collection-layout-3' -%}</button>
+              <button type="button" value="compact" class="collection-toolbar__button {% if products_desktop_grid_mode == 'compact' %}is-active{% endif %}" aria-label="Switch to compact product images">{%- render 'icon' with 'collection-layout-4' -%}</button>
+            </collection-layout-switch>
+          {%- endif -%}
+        </height-observer>
+      {%- endif -%}
+
+      <div class="collection">
+        {%- paginate collection.products by section.settings.products_per_page -%}
+          {%- if show_filters -%}
+            <facets-drawer id="facets-drawer" class="facets-drawer drawer drawer--sm {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %} {% if section.settings.cstm_style %}col_filter-drawer{% endif %} ">
+              <p class="h4" slot="header">{{ 'collection.faceting.filters' | t }}</p>
+
+              {%- render 'facets', results: collection, show_filters: section.settings.show_filters, open_filters_by_default: section.settings.open_filters_by_default, update_on_change: false, quick_links_menu: section.settings.quick_links_menu, context: 'drawer' -%}
+
+              <div slot="footer">
+                {%- assign button_content = 'collection.faceting.apply_filters' | t -%}
+                {%- render 'button', type: 'button', content: button_content, stretch: true, is: 'dialog-close-button' -%}
+              </div>
+            </facets-drawer>
+
+            {%- if section.settings.filter_layout == 'sidebar' -%}
+              <safe-sticky class="facets-sidebar md-max:hidden">
+                {% if section.settings.cstm_style %}
+                  <p class="collection-filter_shop">Shop All</p>
+                  {%- render 'active-facets', results: collection -%}
+                {% endif %}
+                {%- render 'facets', results: collection, show_filters: section.settings.show_filters, open_filters_by_default: section.settings.open_filters_by_default, update_on_change: true, quick_links_menu: section.settings.quick_links_menu, context: 'sidebar' -%}
+              </safe-sticky>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if collection.products_count == 0 -%}
+            <div class="empty-state">
+              <div class="prose">
+                <p>{{ 'collection.faceting.no_results' | t }}</p>
+
+                {%- assign button_content = 'collection.faceting.clear_filters' | t -%}
+                {%- render 'button', href: collection.url, is: 'facet-link', content: button_content -%}
+              </div>
+            </div>
+          {%- else -%}
+            <div class="collection__main">
+              {% unless section.settings.cstm_style %}
+                {%- render 'active-facets', results: collection -%}
+              {% endunless %}
+
+              <product-list id="product-list-{{ section.id }}" class="product-list" collection-mobile-layout="{{ products_mobile_grid_mode }}" collection-desktop-layout="{{ products_desktop_grid_mode }}">
+                {%- for product in collection.products -%}
+                  {% if section.settings.cstm_style %}
+                    {%- render 'new-product-card', product: product, reveal: settings.stagger_products_apparition, hide_product_information: section.settings.hide_product_information, stacked: true, section: section -%}
+                  {% else %}
+                    {%- render 'product-card', product: product, reveal: settings.stagger_products_apparition, hide_product_information: section.settings.hide_product_information, stacked: true -%}
+                  {% endif %}
+                {%- endfor -%}
+              </product-list>
+
+              {%- render 'pagination', paginate: paginate, facet: true -%}
+            </div>
+          {%- endif -%}
+        {%- endpaginate -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main_collection.name",
+  "class": "shopify-section--main-collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cstm_style",
+      "label": "Enable Custom Styling",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "cs-btn",
+      "label": "Custom ATC",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_product_information",
+      "label": "t:global.product_list.hide_product_information",
+      "info": "t:global.product_list.hide_product_information_collection_info"
+    },
+    {
+      "type": "header",
+      "content": "t:global.product_list.product_list_category"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "t:global.faceting.products_per_page",
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "default": 48
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "t:global.product_list.products_per_row_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "products_size_desktop",
+      "label": "t:global.product_list.products_size_desktop",
+      "info": "t:global.product_list.products_size_desktop_info",
+      "options": [
+        {
+          "value": "compact",
+          "label": "t:global.product_list.products_size_desktop_options.compact"
+        },
+        {
+          "value": "medium",
+          "label": "t:global.product_list.products_size_desktop_options.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:global.product_list.products_size_desktop_options.large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_grid_mode_selector",
+      "label": "t:global.product_list.show_grid_mode_selector",
+      "info": "t:global.product_list.show_grid_mode_selector_info",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:global.product_list.spacing_category",
+      "info": "t:global.product_list.spacing_category_info"
+    },
+    {
+      "type": "range",
+      "min": 0.2,
+      "max": 2,
+      "step": 0.1,
+      "id": "horizontal_spacing_factor",
+      "label": "t:global.product_list.horizontal_spacing_factor",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "min": 0.2,
+      "max": 2,
+      "step": 0.1,
+      "id": "vertical_spacing_factor",
+      "label": "t:global.product_list.vertical_spacing_factor",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "t:global.faceting.filters_and_sorting_category"
+    },
+    {
+      "type": "select",
+      "id": "filter_layout",
+      "label": "t:global.faceting.desktop_layout",
+      "options": [
+        {
+          "value": "sidebar",
+          "label": "t:global.faceting.desktop_layout_options.sidebar"
+        },
+        {
+          "value": "drawer",
+          "label": "t:global.faceting.desktop_layout_options.drawer"
+        }
+      ],
+      "default": "sidebar"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links_menu",
+      "label": "t:sections.main_collection.quick_links_menu",
+      "info": "t:sections.main_collection.quick_links_menu_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_by",
+      "label": "t:global.faceting.show_sort_by",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "t:global.faceting.show_filters",
+      "info": "t:global.faceting.show_filters_info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_results_count",
+      "label": "t:global.faceting.show_results_count",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_group_name",
+      "label": "t:global.faceting.show_group_name",
+      "info": "t:global.faceting.show_group_name_info",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_empty_filter_values",
+      "label": "t:global.faceting.show_empty_filter_values",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_values_count",
+      "label": "t:global.faceting.show_filter_values_count",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "t:global.faceting.show_filter_color_swatch",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "open_filters_by_default",
+      "label": "t:global.faceting.open_filters_by_default",
+      "default": false
+    }
+  ]
+}
+{% endschema %}
+
+<script type="application/ld+json">
+  {
+	  "@context": "http://schema.org",
+	  "@type": "CollectionPage",
+	  "name": "mumubath- {{ collection.title }}",
+	  "url": "{{ collection.url }}",
+  "hasPart": {
+      	"@type": "WebPageElement"
+	  },
+	  "mainEntity": {
+      	"@type": "WebPageElement",
+      	"offers": {
+          	"@type": "Offer",
+          	"itemOffered": [
+              	{% for product in collection.products %}
+              	{
+                  	"@type": "Product",
+                  	"image": "{{ product | img_url: '2560w' }}",
+                  	"name": "{{ product.title }}",
+                	"description": "{{ product.description | strip_html | replace: '\n', '' | replace: '\"', '\\"' | truncate: 150 | escape }}",
+                  	"offers": {
+                      	"@type": "Offer",
+                      	"availability": "http://schema.org/InStock",
+                      	"price": "{{ product.price | money_without_currency | replace: ',', '' }}",
+                      	"priceCurrency": "USD",
+                      	"url": "{{ product.url }}"
+                  	},
+                  	"sku": "{{ product.sku }}"
+              	}{% unless forloop.last %},{% endunless %}
+              	{% endfor %}
+          	]
+      	}
+	  }
+  }
+</script>
+
+{% if section.settings.cstm_style %}
+
+{% style %}
+
+.cstm_main_collection {
+    padding-top: 80px;
+    margin-inline: 0;
+}
+
+.cstm_main_collection .product-list {
+    gap: 48px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    overflow: hidden;
+}
+
+.cstm_main_collection .product-list .hair-product-card {
+    max-width: calc(33.3% - 10px);
+    width: 100%;
+    height: auto;
+}
+
+.cstm_main_collection .collection-toolbar {
+    display: none;
+}
+
+.cstm_main_collection span.text-with-icon {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.cstm_main_collection .text-subdued {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.cstm_main_collection .active-facets {
+    margin-bottom: 24px;
+}
+
+.cstm_main_collection p.collection-filter_shop {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0 0 24px;
+}
+
+span.cstm_filter--icon {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.cstm_main_collection details.accordion[aria-expanded="true"] span.cstm_filter--icon{
+    transform: rotate(180deg);
+}
+
+.cstm_main_collection nav.pagination {
+    border: none;
+    grid-auto-columns: minmax(0,22px);
+    gap: 20px;
+}
+
+.cstm_main_collection a.pagination__link {
+    max-width: 22px;
+    width: 100%;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--www-innbeautyproject-com-shark, var(--color-grey-16, #27292B));
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: var(--font-size-16, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-400, 400);
+    line-height: var(--line-height-22, 22px); /* 137.5% */
+}
+
+.cstm_main_collection .pagination__link[aria-current=page] {
+    box-shadow: none;
+    height: 22px;
+    max-width: 22px;
+    width: 100%;
+    border-radius: 5px;
+    background: #27292B;
+    color: #fff;
+}
+
+.cstm_main_collection span.pagination__link.pagination__link--disabled:not([aria-current=page]) {
+    height: 22px;
+}
+
+.cstm_main_collection .collection {
+    margin: 0;
+}
+
+@media screen and (max-width: 1000px){
+
+.cstm_main_collection {
+    padding-top: 50px;
+}
+
+.cstm_main_collection .product-list {
+    gap: 16px 8px;
+    display: flex;
+}
+
+.cstm_main_collection .product-list .hair-product-card {
+    max-width: calc(50% - 4px);
+}
+
+.cstm_main_collection .collection-toolbar {
+    display: block;
+    margin: 0;
+    position: static;
+    border: none;
+    box-shadow: none;
+    min-height: unset;
+}
+
+.col__filter-wraper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cstm_main_collection p.collection-filter_shop {
+    font-size: 20px;
+    margin: 0;
+}
+
+.cstm_main_collection button.collection-toolbar__button {
+    padding: 0;
+    max-width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.collection_filter--icon{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+details.accordion.group {
+    background: #fff;
+    padding: 0;
+}
+
+.col_filter-drawer span.text-with-icon {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.col_filter-drawer .text-subdued {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.col_filter-drawer p.h4 {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.col_filter-drawer button.button.w-full {
+    border-radius: 5px;
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+}
+
+.col_filter-drawer details.accordion[aria-expanded="true"] span.cstm_filter--icon {
+    transform: rotate(180deg);
+}
+
+.collection-toolbar__button-container+.collection-toolbar__button-container {
+    display: none !important;
+}
+
+.collection-toolbar__layout-switch-list {
+  display: none !important;
+}
+
+}
+
+{% endstyle %}
+
+{% endif %}

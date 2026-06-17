@@ -1,0 +1,798 @@
+<!-- Section: MBLP Image with Text Bath Bomb -->
+<div id="{{ section.settings.bath-bomb-id }}" class="{{ section.settings.bath-bomb-class }} mblp-image-with-text-bath-bomb-main">
+  <div class="mblp-container">
+    <div class="mblp-image-with-text-bath-bomb-wrapper">
+      <div class="mblp-image-with-text-bath-bomb-sub-wrapper">
+        
+        <!-- Main Content Row -->
+        <div class="mblp-image-with-text-bath-bomb-content">
+          <!-- Left Image -->
+          {% if section.settings.main_image != blank %}
+            <div class="mblp-image-with-text-bath-bomb-left">
+              <div class="mblp-image-with-text-bath-bomb-main-image">
+                <img src="{{ section.settings.main_image | image_url: width: 1500 }}" alt="{{ section.settings.main_title }}">
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Right Content -->
+          <div class="mblp-image-with-text-bath-bomb-right">
+            <!-- Main Title -->
+            {% if section.settings.main_title != blank %}
+              <div class="mblp-image-with-text-bath-bomb-title">
+                <h2>{{ section.settings.main_title }}</h2>
+              </div>
+            {% endif %}
+
+            <!-- Subtitle with Icon -->
+            {% if section.settings.subtitle != blank %}
+              <div class="mblp-image-with-text-bath-bomb-subtitle">
+                {% if section.settings.subtitle_icon != blank %}
+                  <img src="{{ section.settings.subtitle_icon | image_url: width: 48 }}" alt="Icon">
+                {% endif %}
+                <h3>{{ section.settings.subtitle }}</h3>
+              </div>
+            {% endif %}
+
+            <!-- Description -->
+            {% if section.settings.description != blank %}
+              <div class="mblp-image-with-text-bath-bomb-description">
+                {{ section.settings.description }}
+              </div>
+            {% endif %}
+
+                       <!-- Product Icons Row -->
+            <div class="mblp-image-with-text-bath-bomb-products">
+              <!-- Product 1 -->
+              {% if section.settings.product1_image != blank or section.settings.product1_title != blank %}
+                <div class="mblp-image-with-text-bath-bomb-product">
+                  {% if section.settings.product1_image != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-image">
+                      <img src="{{ section.settings.product1_image | image_url: width: 1500 }}" alt="{{ section.settings.product1_title }}">
+                    </div>
+                  {% endif %}
+                  {% if section.settings.product1_title != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-title">
+                      <span>{{ section.settings.product1_title }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              <!-- Product 2 -->
+              {% if section.settings.product2_image != blank or section.settings.product2_title != blank %}
+                <div class="mblp-image-with-text-bath-bomb-product">
+                  {% if section.settings.product2_image != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-image">
+                      <img src="{{ section.settings.product2_image | image_url: width: 1500 }}" alt="{{ section.settings.product2_title }}">
+                    </div>
+                  {% endif %}
+                  {% if section.settings.product2_title != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-title">
+                      <span>{{ section.settings.product2_title }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              <!-- Product 3 -->
+              {% if section.settings.product3_image != blank or section.settings.product3_title != blank %}
+                <div class="mblp-image-with-text-bath-bomb-product">
+                  {% if section.settings.product3_image != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-image">
+                      <img src="{{ section.settings.product3_image | image_url: width: 1500 }}" alt="{{ section.settings.product3_title }}">
+                    </div>
+                  {% endif %}
+                  {% if section.settings.product3_title != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-title">
+                      <span>{{ section.settings.product3_title }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              <!-- Product 4 -->
+              {% if section.settings.product4_image != blank or section.settings.product4_title != blank %}
+                <div class="mblp-image-with-text-bath-bomb-product">
+                  {% if section.settings.product4_image != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-image">
+                      <img src="{{ section.settings.product4_image | image_url: width: 1500 }}" alt="{{ section.settings.product4_title }}">
+                    </div>
+                  {% endif %}
+                  {% if section.settings.product4_title != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-product-title">
+                      <span>{{ section.settings.product4_title }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+
+
+            <!-- Info Section -->
+            {% if section.settings.info_icon != blank or section.settings.info_content != blank %}
+              <div class="mblp-image-with-text-bath-bomb-info-section">
+                <div class="mblp-image-with-text-bath-bomb-info-wrapper">
+                  {% if section.settings.info_icon != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-info-icon">
+                      <img src="{{ section.settings.info_icon | image_url: width: 48 }}" alt="Info icon">
+                    </div>
+                  {% endif %}
+                  {% if section.settings.info_content != blank %}
+                    <div class="mblp-image-with-text-bath-bomb-info-content">
+                      {{ section.settings.info_content }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            <!-- Button Section -->
+            {% if section.settings.button_text != blank %}
+              <div class="mblp-image-with-text-bath-bomb-button-section">
+                <a href="{{ section.settings.button_url | default: '#' }}" class="mblp-image-with-text-bath-bomb-button">
+                  <h3>{{ section.settings.button_text }}</h3>
+                  <p>{{ section.settings.button_text_1 }}</p>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base styles - Mobile First */
+  .mblp-image-with-text-bath-bomb-main {
+    background-color: #FFF;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .mblp-image-with-text-bath-bomb-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .mblp-image-with-text-bath-bomb-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* Main Content Row */
+  .mblp-image-with-text-bath-bomb-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    align-items: center;
+    background:  #F8F6EE 100%;
+  }
+
+  .mblp-image-with-text-bath-bomb-left {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .mblp-image-with-text-bath-bomb-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* Typography */
+  .mblp-image-with-text-bath-bomb-title h2 {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Dm Sans Bold' !important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--col-light-black);
+    margin: 0;
+  }
+
+  .mblp-image-with-text-bath-bomb-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .mblp-image-with-text-bath-bomb-subtitle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 44px;
+    max-height: 44px;
+  }
+
+  .mblp-image-with-text-bath-bomb-subtitle h3 {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+  }
+
+  .mblp-image-with-text-bath-bomb-description p {
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 180%;
+    text-align: center;
+    letter-spacing: -0.18px;
+     margin: 0;
+  }
+
+  /* Main Image */
+  .mblp-image-with-text-bath-bomb-main-image {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .mblp-image-with-text-bath-bomb-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Product Icons */
+  .mblp-image-with-text-bath-bomb-products {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .mblp-image-with-text-bath-bomb-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .mblp-image-with-text-bath-bomb-product-image {
+    width: 80px;
+    height: 80px;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mblp-image-with-text-bath-bomb-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mblp-image-with-text-bath-bomb-product-title span {
+    color: var(--col-light-black);
+    font-family: 'Inter Semi Bold' !important;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  /* Info Section - Reusing existing styles */
+  .mblp-image-with-text-bath-bomb-info-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mblp-image-with-text-bath-bomb-info-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFF;
+    border-radius: 10px;
+    padding: 16px 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .mblp-image-with-text-bath-bomb-info-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+  .mblp-image-with-text-bath-bomb-info-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+  .mblp-image-with-text-bath-bomb-info-content p {
+    margin: 0;
+    color: var(--col-light-black);
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.16px;
+  }
+
+  /* Button Section - Reusing existing styles */
+  .mblp-image-with-text-bath-bomb-button-section {
+    width: 100%;
+     background: #FBDD3F;
+      padding: 16px 20px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .mblp-image-with-text-bath-bomb-button h3 {
+   
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-family: 'Dm Sans Medium' !important;
+    color: #232121;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  .mblp-image-with-text-bath-bomb-button p {
+    color:  #232121;
+    font-family: 'Dm Sans Medium' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+  .mblp-image-with-text-bath-bomb-button h3:hover {
+    background: #E5C43A;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .mblp-age-groups-main .container {
+    padding: 0 32px;
+  }
+    
+    .mblp-image-with-text-bath-bomb-title h2 {
+      font-size: 28px;
+    }
+
+    .mblp-image-with-text-bath-bomb-subtitle h3 {
+      font-size: 18px;
+    }
+
+    .mblp-image-with-text-bath-bomb-description p {
+      font-size: 18px;
+        line-height: 160%;
+        letter-spacing: -0.174px;
+        text-align: left;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .mblp-image-with-text-bath-bomb-products {
+      gap: 15px;
+    }
+    .mblp-image-with-text-bath-bomb-product {
+    background: #FFF;
+    max-width: 150px;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 13px;
+}
+
+    .mblp-image-with-text-bath-bomb-product-image {
+      width: 100px;
+        height: 100px;
+    }
+
+    .mblp-image-with-text-bath-bomb-product-title span {
+      font-size: 20px;
+    }
+
+    .mblp-image-with-text-bath-bomb-button {
+      font-size: 16px;
+    }
+
+    .mblp-image-with-text-bath-bomb-info-wrapper {
+      padding: 14px 12px;
+      gap: 8px;
+      border-radius: 6px;
+    }
+
+    .mblp-image-with-text-bath-bomb-info-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mblp-image-with-text-bath-bomb-info-content p {
+      font-size: 14px;
+      line-height: 120%;
+        letter-spacing: -0.14px;
+        text-align: left;
+        max-width: 260px;
+    }
+
+    .mblp-image-with-text-bath-bomb-button-section {
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+    .mblp-image-with-text-bath-bomb-left {
+    width: 100%;
+    max-width: 100%;
+  }
+  .mblp-image-with-text-bath-bomb-button h3 {
+    font-size: 18px;
+  }
+
+  .mblp-image-with-text-bath-bomb-right {
+    padding: 40px 32px;
+        max-width: 100%;
+        width: 100%;
+            background: #FCF3C5 52.88%;
+    }
+    
+    .mblp-image-with-text-bath-bomb-button p {
+        font-size: 14px;
+    }
+    .mblp-image-with-text-bath-bomb-subtitle {
+    gap: 6px;
+}
+
+    .mblp-image-with-text-bath-bomb-subtitle img {
+    max-width: 24px;
+    max-height: 24px;
+   }
+
+  }
+
+
+  /* Mobile Styles */
+  @media (max-width: 500px) {
+    
+    .mblp-image-with-text-bath-bomb-title h2 {
+      max-width: 240px;
+        margin: 0 auto;
+    }
+    .mblp-image-with-text-bath-bomb-product-image {
+    width: 85px;
+    height: 85px;
+}
+
+.mblp-image-with-text-bath-bomb-product-title span {
+    font-size: 14px;
+}
+    
+
+  }
+
+  /* Tablet and Desktop Styles */
+  @media (min-width: 769px) {
+     .mblp-image-with-text-bath-bomb-button h3 {
+      font-size: 20px;
+     }
+
+     .mblp-image-with-text-bath-bomb-subtitle h3 {
+      font-size: 18px;
+    }
+
+
+    .mblp-image-with-text-bath-bomb-main {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    .mblp-image-with-text-bath-bomb-content {
+      flex-direction: row;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .mblp-image-with-text-bath-bomb-left {
+      max-width: 50%;
+    }
+
+    .mblp-image-with-text-bath-bomb-right {
+      text-align: left;
+      max-width: 400px;
+      gap: 10px;
+    }
+
+    .mblp-image-with-text-bath-bomb-title h2 {
+      text-align: left;
+      font-size: 28px;
+    }
+
+    .mblp-image-with-text-bath-bomb-subtitle {
+      justify-content: flex-start;
+    }
+
+    .mblp-image-with-text-bath-bomb-description p {
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .mblp-image-with-text-bath-bomb-product-image {
+      width: 100%;
+        height: 100px;
+    }
+
+    .mblp-image-with-text-bath-bomb-product-title span {
+      font-size: 16px;
+    }
+
+    .mblp-image-with-text-bath-bomb-info-wrapper {
+      padding: 10px;
+    }
+
+  }
+
+  /* Large Desktop Styles */
+  @media (min-width: 1100px) {
+
+     .mblp-image-with-text-bath-bomb-info-wrapper {
+      padding: 20px;
+    }
+
+    .mblp-image-with-text-bath-bomb-product-image {
+      width: 100%;
+        height: 125px;
+    }
+
+    .mblp-image-with-text-bath-bomb-button h3 {
+      font-size: 24px;
+     }
+
+    .mblp-image-with-text-bath-bomb-right {
+      text-align: left;
+      max-width: 550px;
+      gap: 24px;
+    }
+
+    .mblp-image-with-text-bath-bomb-title h2 {
+      font-size: 40px;
+    }
+
+    .mblp-image-with-text-bath-bomb-subtitle h3 {
+      font-size: 24px;
+    }
+
+    .mblp-image-with-text-bath-bomb-description p {
+      font-size: 18px;
+    }
+
+    .mblp-image-with-text-bath-bomb-content {
+      gap: 90px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MBLP Bath Bomb",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bath-bomb-id",
+      "label": "Section ID"
+    },
+    {
+      "type": "text",
+      "id": "bath-bomb-class",
+      "label": "Additional CSS Class"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Bath Bomb Workshop Party"
+    },
+    {
+      "type": "image_picker",
+      "id": "subtitle_icon",
+      "label": "Subtitle Icon"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Make 2 Products in 90 Minutes!"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "header",
+      "content": "Product 1 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "product1_image",
+      "label": "Product 1 Icon"
+    },
+    {
+      "type": "text",
+      "id": "product1_title",
+      "label": "Product 1 Title",
+      "default": "Body Scrub"
+    },
+    {
+      "type": "header",
+      "content": "Product 2 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "product2_image",
+      "label": "Product 2 Icon"
+    },
+    {
+      "type": "text",
+      "id": "product2_title",
+      "label": "Product 2 Title",
+      "default": "Face Mist"
+    },
+        {
+      "type": "header",
+      "content": "Product 3 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "product3_image",
+      "label": "Product 3 Icon"
+    },
+    {
+      "type": "text",
+      "id": "product3_title",
+      "label": "Product 3 Title",
+      "default": "Bath Bomb"
+    },
+    {
+      "type": "header",
+      "content": "Product 4 Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "product4_image",
+      "label": "Product 4 Icon"
+    },
+    {
+      "type": "text",
+      "id": "product4_title",
+      "label": "Product 4 Title",
+      "default": "Lip Balm"
+    },
+    {
+      "type": "header",
+      "content": "Info Section Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "info_icon",
+      "label": "Info Icon"
+    },
+    {
+      "type": "richtext",
+      "id": "info_content",
+      "label": "Info Content",
+      "default": "<p>All tools and materials will be provided, so no preparation is needed!</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Book Now for $65 Per Person"
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button Text Info",
+      "default": "-Includes all materials & tools"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Image with Text Bath Bomb",
+      "settings": {
+        "main_title": "Bath Bomb Workshop Party",
+        "subtitle": "Make 2 Products in 90 Minutes!",
+        "description": "<p>In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.</p>",
+        "product1_title": "Body Scrub",
+        "product2_title": "Face Mist",
+        "info_content": "<p>All tools and materials will be provided, so no preparation is needed!</p>",
+        "button_text": "Book Now for $65 Per Person"
+      }
+    }
+  ]
+}
+{% endschema %}

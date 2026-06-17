@@ -1,0 +1,1416 @@
+{% comment %}
+  MBLP Products Usage Instructions Section - Desktop Only Version
+{% endcomment %}
+
+<!--
+  Splide CSS --.mblp-products-usage-product-title h3
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <!-- Splide JavaScript
+-->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<div
+  class="mblp-products-usage-main"
+  style="padding-top: {{ section.settings.padding_top_desktop }}px; padding-bottom: {{ section.settings.padding_bottom_desktop }}px;"
+>
+  <div class="container">
+    <div class="mblp-products-usage-wrapper">
+      <div class="mblp-products-usage-sub-wrapper">
+        <!-- Main Title -->
+        {% if section.settings.main_title != blank %}
+          <div class="mblp-products-usage-title-wrapper">
+            <h2>{{ section.settings.main_title }}</h2>
+          </div>
+        {% endif %}
+
+        <!-- Tabs Navigation -->
+        <div class="mblp-products-usage-tabs-wrapper">
+          <div class="mblp-products-usage-tabs-nav">
+            {% for block in section.blocks %}
+              <button
+                class="mblp-products-usage-tab-btn {% if forloop.first %}active{% endif %}"
+                data-tab="{{ forloop.index }}"
+              >
+                {{ block.settings.tab_name }}
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="mblp-products-usage-content-wrapper">
+          {% for block in section.blocks %}
+            <div
+              class="mblp-products-usage-tab-content {% if forloop.first %}active{% endif %}"
+              data-content="{{ forloop.index }}"
+            >
+              <!-- Check if we have any products for this tab -->
+              {% assign has_products = false %}
+              {% for i in (1..10) %}
+                {% assign product_title_key = 'product' | append: i | append: '_title' %}
+                {% assign product_image_key = 'product' | append: i | append: '_image' %}
+                {% if block.settings[product_title_key] != blank or block.settings[product_image_key] != blank %}
+                  {% assign has_products = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if has_products %}
+                <div class="mblp-products-usage-table-wrapper">
+                  <div class="mblp-products-usage-table" data-tab-id="{{ forloop.index }}">
+                    <!-- Table Structure with Fixed First Column and Sliding Products -->
+                    <div class="mblp-products-usage-table-container">
+                      <!-- Fixed First Column (Labels) -->
+                      <div class="mblp-products-usage-labels-column">
+                        <!-- Empty header cell -->
+                        <div class="mblp-products-usage-label-cell mblp-products-usage-header-cell mblp-row-header">
+                          <!-- Empty -->
+                        </div>
+
+                        <!-- Dynamic Rows 1-8 -->
+                        {% for i in (1..8) %}
+                          {% assign row_text_key = 'row' | append: i | append: '_text' %}
+                          {% assign row_icon_key = 'row' | append: i | append: '_icon' %}
+                          {% if section.settings[row_text_key] != blank %}
+                            <div class="mblp-products-usage-label-cell mblp-row-{{ i }}">
+                              <div class="mblp-products-usage-row-label">
+                                {% if section.settings[row_icon_key] != blank %}
+                                  <div class="mblp-products-usage-icon-wrapper">
+                                    {{ section.settings[row_icon_key] | image_url: width: 50 | image_tag }}
+                                  </div>
+                                {% endif %}
+                                <span>{{ section.settings[row_text_key] }}</span>
+                              </div>
+                            </div>
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+
+                      <!-- Sliding Products Columns -->
+                      <div class="mblp-products-usage-products-container">
+                        <div class="splide mblp-products-usage-splide" id="mblp-splide-{{ forloop.index }}">
+                          <div class="splide__track">
+                            <div class="splide__list">
+                              <!-- Each slide contains one complete product column -->
+                              {% for i in (1..10) %}
+                                {% assign product_title_key = 'product' | append: i | append: '_title' %}
+                                {% assign product_image_key = 'product' | append: i | append: '_image' %}
+
+                                {% if block.settings[product_title_key] != blank
+                                  or block.settings[product_image_key] != blank
+                                %}
+                                  <div class="splide__slide">
+                                    <div class="mblp-products-usage-product-column">
+                                      <!-- Product Header -->
+                                      <div class="mblp-products-usage-product-cell mblp-products-usage-product-header mblp-row-header">
+                                        {% if block.settings[product_image_key] != blank %}
+                                          <div class="mblp-products-usage-product-image">
+                                            {{ block.settings[product_image_key] | image_url: width: 1500 | image_tag }}
+                                          </div>
+                                        {% endif %}
+                                        {% if block.settings[product_title_key] != blank %}
+                                          <div class="mblp-products-usage-product-title">
+                                            <h3>{{ block.settings[product_title_key] }}</h3>
+                                          </div>
+                                        {% endif %}
+                                      </div>
+
+                                      <!-- Dynamic Product Rows 1-8 -->
+                                      {% for j in (1..8) %}
+                                        {% assign product_row_key = 'product'
+                                          | append: i
+                                          | append: '_row'
+                                          | append: j
+                                        %}
+                                        {% assign row_text_key = 'row' | append: j | append: '_text' %}
+                                        {% if block.settings[product_row_key] != blank
+                                          and section.settings[row_text_key] != blank
+                                        %}
+                                          <div class="mblp-products-usage-product-cell mblp-row-{{ j }}">
+                                            <div class="mblp-products-usage-cell-content{% if j >= 7 %} mblp-products-usage-feedback-content{% endif %}">
+                                              <span>{{ block.settings[product_row_key] }}</span>
+                                            </div>
+                                          </div>
+                                        {% endif %}
+                                      {% endfor %}
+                                    </div>
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- External Arrow Controls (Outside the table) -->
+                <div class="mblp-products-usage-external-arrows" data-splide-target="mblp-splide-{{ forloop.index }}">
+                  <button class="mblp-external-arrow mblp-external-arrow-prev" data-direction="prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="mblp-external-arrow mblp-external-arrow-next" data-direction="next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+        /* Hide section on small screens */
+        @media (max-width: 768px) {
+          .mblp-products-usage-main {
+            display: none !important;
+          }
+        }
+
+        /* Main Container */
+        .mblp-products-usage-main {
+          width: 100%;
+        }
+
+        .mblp-products-usage-wrapper {
+          width: 100%;
+        }
+
+        .mblp-products-usage-sub-wrapper {
+          width: 100%;
+        }
+
+        /* Main Title */
+        .mblp-products-usage-title-wrapper h2 {
+          color: var(--col-light-black);
+          text-align: center;
+          font-family: var(--fs-lora) !important;
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-bottom: 40px;
+        }
+
+        /* Tabs Navigation */
+        .mblp-products-usage-tabs-wrapper {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 60px;
+        }
+
+        .mblp-products-usage-tabs-nav {
+          display: flex;
+          gap: 40px;
+          border-bottom: 2px solid var(--col-dark-grey);
+          padding-bottom: 16px;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .mblp-products-usage-tab-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          color: var(--col-grey);
+          font-family: 'Inter Medium' !important;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .mblp-products-usage-tab-btn.active {
+          color: var(--col-light-black);
+        }
+
+        /* Tab Content */
+        .mblp-products-usage-content-wrapper {
+          width: 100%;
+        }
+
+        .mblp-products-usage-tab-content {
+          display: none;
+        }
+
+        .mblp-products-usage-tab-content.active {
+          display: block;
+        }
+
+        /* External Arrow Controls (Outside Table) */
+        .mblp-products-usage-external-arrows {
+          display: flex;
+          justify-content: center;
+          gap: 60px;
+          margin-top: 40px;
+          z-index: 999;
+        }
+
+        .mblp-external-arrow {
+          background: var(--col-white);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          border: none;
+          width: 60px;
+          height: 60px;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 1;
+        }
+
+        .mblp-external-arrow:hover {
+          background: var(--col-light-yellow);
+        }
+
+        .mblp-external-arrow:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        .mblp-external-arrow:disabled:hover {
+          background: var(--col-white);
+        }
+
+        .mblp-external-arrow svg {
+          stroke: var(--col-light-black);
+          width: 50px;
+          height: 50px;
+        }
+
+        /* Hide default Splide arrows */
+        .mblp-products-usage-splide .splide__arrows {
+          display: none !important;
+        }
+
+        .mblp-products-usage-splide .splide__arrow {
+          display: none !important;
+        }
+
+        /* Hide Splide screen reader elements to prevent layout shifts */
+        .mblp-products-usage-splide .splide__sr {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
+
+        /* Table Layout */
+        .mblp-products-usage-table-wrapper {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .mblp-products-usage-table {
+          width: 100%;
+        }
+
+        .mblp-products-usage-table-container {
+          display: flex;
+          width: 100%;
+        }
+
+        /* Fixed Labels Column (First Column) */
+        .mblp-products-usage-labels-column {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .mblp-products-usage-label-cell {
+          padding: 10px 16px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+        }
+
+        .mblp-products-usage-header-cell {
+          background: transparent;
+          align-items: flex-end;
+          padding-bottom: 20px;
+        }
+
+        .mblp-products-usage-row-label {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+          background: #FFEC90;
+          border-radius: 30px;
+          padding: 10px 16px;
+          justify-content: center;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .mblp-products-usage-icon-wrapper {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mblp-products-usage-icon-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .mblp-products-usage-row-label span {
+          color: var(--col-light-black);
+          font-family: 'Inter Semi Bold' !important;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        /* Sliding Products Container */
+        .mblp-products-usage-products-container {
+          flex: 1;
+          overflow: hidden;
+        }
+
+        /* Splide Customization */
+        .mblp-products-usage-splide .splide__track {
+          overflow: visible;
+        }
+
+        .mblp-products-usage-splide .splide__list {
+          display: flex;
+        }
+
+        .mblp-products-usage-splide .splide__slide {
+          flex-shrink: 0;
+          width: auto;
+        }
+
+        /* Product Column */
+        .mblp-products-usage-product-column {
+          display: flex;
+          flex-direction: column;
+          min-width: 250px;
+        }
+
+        .mblp-products-usage-product-cell {
+          border-radius: 20px;
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          flex-direction: column;
+        }
+
+        .mblp-products-usage-product-header {
+          padding: 30px 20px;
+          justify-content: center;
+        }
+
+        /* Product Image */
+       .mblp-products-usage-product-image {
+          width: 250px;
+          height: 230px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--col-offwhite);
+          padding: 30px;
+          border-top-left-radius: 100px;
+          border-top-right-radius: 100px;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+
+        .mblp-products-usage-product-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        /* Product Title */
+        .mblp-products-usage-product-title h3 {
+          color: var(--col-light-black);
+          text-align: center;
+          font-family: var(--fs-lora) !important;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 180%;
+          margin: 0;
+          padding: 10px;
+        }
+
+        /* Cell Content */
+        .mblp-products-usage-cell-content span {
+          color: var(--col-black);
+          text-align: center;
+         font-family: 'Inter Medium' !important;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .mblp-products-usage-feedback-content span {
+          color: var(--col-dark-grey);
+          font-style: italic;
+          line-height: 150%;
+        }
+
+        /* Row Height Classes - Updated for 8 rows */
+        .mblp-row-header {
+          min-height: 400px;
+        }
+
+        .mblp-row-1,
+        .mblp-row-2,
+        .mblp-row-3,
+        .mblp-row-4,
+        .mblp-row-5,
+        .mblp-row-6,
+        .mblp-row-7 {
+          min-height: 80px;
+          border-bottom: 1px solid var(--col-grey);
+          border-radius: 0;
+        }
+
+
+        .mblp-row-8 {
+          min-height: 80px;
+        }
+
+        /* Special styling for rows 7-8 (feedback rows) */
+        .mblp-row-7 .mblp-products-usage-row-label,
+        .mblp-row-8 .mblp-products-usage-row-label {
+          /* background: var(--col-light-yellow); */
+        }
+
+  @media (max-width: 1100px) {
+    .mblp-products-usage-product-title h3 {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let splideInstances = {};
+
+  // Tab functionality
+  const tabBtns = document.querySelectorAll('.mblp-products-usage-tab-btn');
+  const tabContents = document.querySelectorAll('.mblp-products-usage-tab-content');
+
+ tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabIndex = this.getAttribute('data-tab');
+      
+      // Remove active class from all tabs and contents
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked tab and corresponding content
+      this.classList.add('active');
+      const targetContent = document.querySelector(`[data-content="${tabIndex}"]`);
+      if (targetContent) {
+        targetContent.classList.add('active');
+        
+        // Align row heights after tab switch
+        setTimeout(() => {
+          alignRowHeights();
+        }, 100);
+      }
+
+      // Update arrow states for the active tab
+      updateArrowStates();
+    });
+  });
+
+  // Function to align row heights across all columns in active tab
+  function alignRowHeights() {
+    const activeTab = document.querySelector('.mblp-products-usage-tab-content.active');
+    if (!activeTab) return;
+
+    const table = activeTab.querySelector('.mblp-products-usage-table');
+    if (!table) return;
+
+    // Reset all heights first
+    const allCells = table.querySelectorAll('.mblp-products-usage-label-cell, .mblp-products-usage-product-cell');
+    allCells.forEach(cell => {
+      cell.style.height = 'auto';
+    });
+
+    // Define row classes to align - Updated for 8 rows
+    const rowClasses = ['.mblp-row-header', '.mblp-row-1', '.mblp-row-2', '.mblp-row-3', '.mblp-row-4', '.mblp-row-5', '.mblp-row-6', '.mblp-row-7', '.mblp-row-8'];
+
+    rowClasses.forEach(rowClass => {
+      const rowCells = table.querySelectorAll(rowClass);
+      if (rowCells.length === 0) return;
+
+      // Get the maximum height among all cells in this row
+      let maxHeight = 0;
+      rowCells.forEach(cell => {
+        const cellHeight = cell.getBoundingClientRect().height;
+        maxHeight = Math.max(maxHeight, cellHeight);
+      });
+
+      // Apply the maximum height to all cells in this row
+      rowCells.forEach(cell => {
+        cell.style.height = maxHeight + 'px';
+      });
+    });
+  }
+
+  // Initialize Splide for each tab
+  const splides = document.querySelectorAll('.mblp-products-usage-splide');
+  splides.forEach((splide, index) => {
+    const slides = splide.querySelectorAll('.splide__slide');
+    const splideId = splide.id;
+    
+    const splideInstance = new Splide(splide, {
+      type: 'slide',
+      perPage: 3,
+      perMove: 1,
+      gap: '0px',
+      arrows: false, // Disable default arrows
+      pagination: false,
+      autoWidth: false,
+      focus: 0,
+      trimSpace: false,
+      breakpoints: {
+        1024: {
+          perPage: 2,
+        }
+      }
+    });
+
+    splideInstance.mount();
+    splideInstances[splideId] = splideInstance;
+
+    // Listen for slide changes to update arrow states and realign heights
+    splideInstance.on('moved', function() {
+      updateArrowStates();
+      setTimeout(() => {
+        alignRowHeights();
+      }, 100);
+    });
+
+    // Listen for resize events to realign heights
+    splideInstance.on('resized', function() {
+      setTimeout(() => {
+        alignRowHeights();
+      }, 100);
+    });
+  });
+
+  // External arrow controls
+  const externalArrows = document.querySelectorAll('.mblp-products-usage-external-arrows');
+  externalArrows.forEach(arrowContainer => {
+    const targetSplideId = arrowContainer.getAttribute('data-splide-target');
+    const prevBtn = arrowContainer.querySelector('.mblp-external-arrow-prev');
+    const nextBtn = arrowContainer.querySelector('.mblp-external-arrow-next');
+
+    if (prevBtn && nextBtn && splideInstances[targetSplideId]) {
+      prevBtn.addEventListener('click', function() {
+        splideInstances[targetSplideId].go('<');
+      });
+
+      nextBtn.addEventListener('click', function() {
+        splideInstances[targetSplideId].go('>');
+      });
+    }
+  });
+
+  // Function to update arrow states (disabled/enabled)
+  function updateArrowStates() {
+    externalArrows.forEach(arrowContainer => {
+      const targetSplideId = arrowContainer.getAttribute('data-splide-target');
+      const prevBtn = arrowContainer.querySelector('.mblp-external-arrow-prev');
+      const nextBtn = arrowContainer.querySelector('.mblp-external-arrow-next');
+      
+      // Only update arrows for the currently active tab
+      const activeTabContent = arrowContainer.closest('.mblp-products-usage-tab-content');
+      if (!activeTabContent || !activeTabContent.classList.contains('active')) {
+        return;
+      }
+
+      if (splideInstances[targetSplideId]) {
+        const splideInstance = splideInstances[targetSplideId];
+        const currentIndex = splideInstance.index;
+        const totalSlides = splideInstance.length;
+        const perPage = splideInstance.options.perPage;
+
+        // Update prev button
+        if (currentIndex === 0) {
+          prevBtn.disabled = true;
+        } else {
+          prevBtn.disabled = false;
+        }
+
+        // Update next button
+        if (currentIndex >= totalSlides - perPage) {
+          nextBtn.disabled = true;
+        } else {
+          nextBtn.disabled = false;
+        }
+      }
+    });
+  }
+
+  // Initial setup
+  setTimeout(() => {
+    alignRowHeights();
+    updateArrowStates();
+  }, 200);
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    setTimeout(() => {
+      alignRowHeights();
+    }, 200);
+  });
+
+  // Handle font loading
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() {
+        setTimeout(() => {
+          alignRowHeights();
+        }, 100);
+      });
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "MBLP Products Usage Instr",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Products Usage Instructions"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Global Row Settings (Apply to All Tabs)"
+    },
+    {
+      "type": "image_picker",
+      "id": "row1_icon",
+      "label": "Row 1 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row1_text",
+      "label": "Row 1 Text",
+      "default": "Frequency"
+    },
+    {
+      "type": "image_picker",
+      "id": "row2_icon",
+      "label": "Row 2 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row2_text",
+      "label": "Row 2 Text",
+      "default": "Duration"
+    },
+    {
+      "type": "image_picker",
+      "id": "row3_icon",
+      "label": "Row 3 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row3_text",
+      "label": "Row 3 Text",
+      "default": "Ingredients"
+    },
+    {
+      "type": "image_picker",
+      "id": "row4_icon",
+      "label": "Row 4 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row4_text",
+      "label": "Row 4 Text",
+      "default": "Feedback"
+    },
+    {
+      "type": "image_picker",
+      "id": "row5_icon",
+      "label": "Row 5 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row5_text",
+      "label": "Row 5 Text",
+    },
+    {
+      "type": "image_picker",
+      "id": "row6_icon",
+      "label": "Row 6 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row6_text",
+      "label": "Row 6 Text",
+    },
+    {
+      "type": "image_picker",
+      "id": "row7_icon",
+      "label": "Row 7 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row7_text",
+      "label": "Row 7 Text",
+    },
+    {
+      "type": "image_picker",
+      "id": "row8_icon",
+      "label": "Row 8 Icon"
+    },
+    {
+      "type": "text",
+      "id": "row8_text",
+      "label": "Row 8 Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Product Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_name",
+          "label": "Tab Name",
+          "default": "Facial Skincare"
+        },
+        {
+          "type": "header",
+          "content": "Product 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "product1_image",
+          "label": "Product 1 Image"
+        },
+        {
+          "type": "text",
+          "id": "product1_title",
+          "label": "Product 1 Title"
+        },
+        {
+          "type": "text",
+          "id": "product1_row1",
+          "label": "Product 1 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product1_row2",
+          "label": "Product 1 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product1_row3",
+          "label": "Product 1 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product1_row4",
+          "label": "Product 1 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product1_row5",
+          "label": "Product 1 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product1_row6",
+          "label": "Product 1 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product1_row7",
+          "label": "Product 1 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product1_row8",
+          "label": "Product 1 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "product2_image",
+          "label": "Product 2 Image"
+        },
+        {
+          "type": "text",
+          "id": "product2_title",
+          "label": "Product 2 Title"
+        },
+        {
+          "type": "text",
+          "id": "product2_row1",
+          "label": "Product 2 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product2_row2",
+          "label": "Product 2 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product2_row3",
+          "label": "Product 2 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product2_row4",
+          "label": "Product 2 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product2_row5",
+          "label": "Product 2 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product2_row6",
+          "label": "Product 2 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product2_row7",
+          "label": "Product 2 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product2_row8",
+          "label": "Product 2 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "product3_image",
+          "label": "Product 3 Image"
+        },
+        {
+          "type": "text",
+          "id": "product3_title",
+          "label": "Product 3 Title"
+        },
+        {
+          "type": "text",
+          "id": "product3_row1",
+          "label": "Product 3 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product3_row2",
+          "label": "Product 3 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product3_row3",
+          "label": "Product 3 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product3_row4",
+          "label": "Product 3 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product3_row5",
+          "label": "Product 3 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product3_row6",
+          "label": "Product 3 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product3_row7",
+          "label": "Product 3 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product3_row8",
+          "label": "Product 3 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "product4_image",
+          "label": "Product 4 Image"
+        },
+        {
+          "type": "text",
+          "id": "product4_title",
+          "label": "Product 4 Title"
+        },
+        {
+          "type": "text",
+          "id": "product4_row1",
+          "label": "Product 4 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product4_row2",
+          "label": "Product 4 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product4_row3",
+          "label": "Product 4 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product4_row4",
+          "label": "Product 4 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product4_row5",
+          "label": "Product 4 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product4_row6",
+          "label": "Product 4 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product4_row7",
+          "label": "Product 4 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product4_row8",
+          "label": "Product 4 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "product5_image",
+          "label": "Product 5 Image"
+        },
+        {
+          "type": "text",
+          "id": "product5_title",
+          "label": "Product 5 Title"
+        },
+        {
+          "type": "text",
+          "id": "product5_row1",
+          "label": "Product 5 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product5_row2",
+          "label": "Product 5 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product5_row3",
+          "label": "Product 5 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product5_row4",
+          "label": "Product 5 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product5_row5",
+          "label": "Product 5 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product5_row6",
+          "label": "Product 5 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product5_row7",
+          "label": "Product 5 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product5_row8",
+          "label": "Product 5 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "product6_image",
+          "label": "Product 6 Image"
+        },
+        {
+          "type": "text",
+          "id": "product6_title",
+          "label": "Product 6 Title"
+        },
+        {
+          "type": "text",
+          "id": "product6_row1",
+          "label": "Product 6 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product6_row2",
+          "label": "Product 6 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product6_row3",
+          "label": "Product 6 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product6_row4",
+          "label": "Product 6 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product6_row5",
+          "label": "Product 6 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product6_row6",
+          "label": "Product 6 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product6_row7",
+          "label": "Product 6 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product6_row8",
+          "label": "Product 6 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "product7_image",
+          "label": "Product 7 Image"
+        },
+        {
+          "type": "text",
+          "id": "product7_title",
+          "label": "Product 7 Title"
+        },
+        {
+          "type": "text",
+          "id": "product7_row1",
+          "label": "Product 7 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product7_row2",
+          "label": "Product 7 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product7_row3",
+          "label": "Product 7 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product7_row4",
+          "label": "Product 7 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product7_row5",
+          "label": "Product 7 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product7_row6",
+          "label": "Product 7 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product7_row7",
+          "label": "Product 7 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product7_row8",
+          "label": "Product 7 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "product8_image",
+          "label": "Product 8 Image"
+        },
+        {
+          "type": "text",
+          "id": "product8_title",
+          "label": "Product 8 Title"
+        },
+        {
+          "type": "text",
+          "id": "product8_row1",
+          "label": "Product 8 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product8_row2",
+          "label": "Product 8 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product8_row3",
+          "label": "Product 8 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product8_row4",
+          "label": "Product 8 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product8_row5",
+          "label": "Product 8 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product8_row6",
+          "label": "Product 8 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product8_row7",
+          "label": "Product 8 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product8_row8",
+          "label": "Product 8 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 9"
+        },
+        {
+          "type": "image_picker",
+          "id": "product9_image",
+          "label": "Product 9 Image"
+        },
+        {
+          "type": "text",
+          "id": "product9_title",
+          "label": "Product 9 Title"
+        },
+        {
+          "type": "text",
+          "id": "product9_row1",
+          "label": "Product 9 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product9_row2",
+          "label": "Product 9 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product9_row3",
+          "label": "Product 9 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product9_row4",
+          "label": "Product 9 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product9_row5",
+          "label": "Product 9 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product9_row6",
+          "label": "Product 9 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product9_row7",
+          "label": "Product 9 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product9_row8",
+          "label": "Product 9 Row 8 Value"
+        },
+        {
+          "type": "header",
+          "content": "Product 10"
+        },
+        {
+          "type": "image_picker",
+          "id": "product10_image",
+          "label": "Product 10 Image"
+        },
+        {
+          "type": "text",
+          "id": "product10_title",
+          "label": "Product 10 Title"
+        },
+        {
+          "type": "text",
+          "id": "product10_row1",
+          "label": "Product 10 Row 1 Value"
+        },
+        {
+          "type": "text",
+          "id": "product10_row2",
+          "label": "Product 10 Row 2 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product10_row3",
+          "label": "Product 10 Row 3 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product10_row4",
+          "label": "Product 10 Row 4 Value"
+        },
+        {
+          "type": "text",
+          "id": "product10_row5",
+          "label": "Product 10 Row 5 Value"
+        },
+        {
+          "type": "text",
+          "id": "product10_row6",
+          "label": "Product 10 Row 6 Value"
+        },
+        {
+          "type": "textarea",
+          "id": "product10_row7",
+          "label": "Product 10 Row 7 Value"
+        },
+        {
+          "type": "text",
+          "id": "product10_row8",
+          "label": "Product 10 Row 8 Value"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MBLP Products Usage Instructions",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Facial Skincare",
+            "product1_title": "Coffee Eye Cream",
+            "product1_row1": "Morning and Evening",
+            "product1_row2": "3-6 months",
+            "product1_row3": "Coffee Arabica Seed Oil Non-GMO Soybean Oil",
+            "product1_row4": "My eyes immediately look less puffy and brighter when I apply the cream.",
+            "product1_row5": "Reduces puffiness",
+            "product1_row6": "Apply gently around eyes",
+            "product1_row7": "Excellent results for dark circles",
+            "product1_row8": "5/5 stars",
+            "product2_title": "Face Serum",
+            "product2_row1": "Morning and Evening",
+            "product2_row2": "1-2 months",
+            "product2_row3": "Hyaluronic Acid CoQ10",
+            "product2_row4": "Perfect if you want something moisturizing but lightweight.",
+            "product2_row5": "Deep hydration",
+            "product2_row6": "Use on clean skin",
+            "product2_row7": "Great for sensitive skin",
+            "product2_row8": "4.8/5 stars",
+            "product3_title": "Face Cream",
+            "product3_row1": "Morning and Evening",
+            "product3_row2": "2-3 months",
+            "product3_row3": "Pomegranate Extract Shea Butter",
+            "product3_row4": "Amazing face cream with no fragrance and great for my sensitive skin.",
+            "product3_row5": "Anti-aging benefits",
+            "product3_row6": "Apply to face and neck",
+            "product3_row7": "Perfect for sensitive skin",
+            "product3_row8": "4.9/5 stars"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
