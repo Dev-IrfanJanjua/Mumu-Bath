@@ -5229,6 +5229,8 @@ tfoot td {
 
 .header-sidebar__footer {
   position: relative;
+  display: none;
+
 }
 
 .header-sidebar__footer:before {

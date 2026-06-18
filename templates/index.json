@@ -154,53 +154,59 @@
         "padding_bottom_mobile": 40
       }
     },
-    "log0_marquee_CqKi4C": {
+    "marquee_new_kREtdd": {
+      "type": "marquee-new",
+      "disabled": true,
+      "name": "Marqee New",
+      "settings": {}
+    },
+    "log0_marquee_34RXJi": {
       "type": "log0-marquee",
       "blocks": {
-        "feature_e9X3bX": {
+        "feature_XGejWg": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_6_BuzzFeed_2_1.png"
+            "icon": "shopify://shop_images/imgi_6_BuzzFeed_2_1_Vectorized.svg"
           }
         },
-        "feature_yKaNdD": {
+        "feature_3WQn9d": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_7_Logo_1_2_1.png"
+            "icon": "shopify://shop_images/imgi_7_Logo_1_2_1_Vectorized.svg"
           }
         },
-        "feature_NRBb8P": {
+        "feature_b8Vmtq": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_12_channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d_1.png"
+            "icon": "shopify://shop_images/imgi_12_channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d_1_Vectorized.svg"
           }
         },
-        "feature_EJCd7y": {
+        "feature_azJ8NH": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_11_vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53_2.png"
+            "icon": "shopify://shop_images/imgi_11_vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53_2_Vectorized.svg"
           }
         },
-        "feature_NbdkLy": {
+        "feature_kzGtiU": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_94_Glamour_logo_1.png"
+            "icon": "shopify://shop_images/imgi_94_Glamour_logo_1_Vectorized.svg"
           }
         },
-        "feature_bRjwYL": {
+        "feature_fzcPdM": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/imageye___-_imgi_8_pix_1_1.png"
+            "icon": "shopify://shop_images/imgi_8_pix_1_1_Vectorized.svg"
           }
         }
       },
       "block_order": [
-        "feature_e9X3bX",
-        "feature_yKaNdD",
-        "feature_NRBb8P",
-        "feature_EJCd7y",
-        "feature_NbdkLy",
-        "feature_bRjwYL"
+        "feature_XGejWg",
+        "feature_3WQn9d",
+        "feature_b8Vmtq",
+        "feature_azJ8NH",
+        "feature_kzGtiU",
+        "feature_fzcPdM"
       ],
       "name": "Scrolling Logo Marquee",
       "settings": {
@@ -622,86 +628,6 @@
         "cycle_speed": 4,
         "background": "#fcfbee",
         "controls_color": "#1c1c1c"
-      }
-    },
-    "logo_list_w3Yc3U": {
-      "type": "logo-list",
-      "blocks": {
-        "logo_nMUMRm": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/BuzzFeed_2.png",
-            "logo_width": 130,
-            "link": ""
-          }
-        },
-        "logo_UfMfA4": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Logo_1_2.png",
-            "logo_width": 130,
-            "link": ""
-          }
-        },
-        "logo_KqhaD7": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/pix_1.png",
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_NFKrep": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Vogue.png",
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_z8ANQi": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Glamour_logo.png",
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_qqQfVe": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53.png",
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_NfCiFr": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d.png",
-            "logo_width": 100,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_nMUMRm",
-        "logo_UfMfA4",
-        "logo_KqhaD7",
-        "logo_NFKrep",
-        "logo_z8ANQi",
-        "logo_qqQfVe",
-        "logo_NfCiFr"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_class": "mb-logo-list",
-        "separate_section_with_border": true,
-        "subheading": "",
-        "title": "Featured In",
-        "items_per_row": 5,
-        "logo_item_background": "",
-        "logo_item_border": ""
       }
     },
     "featured-collections": {
@@ -1270,14 +1196,14 @@
     "shop_by_categeory_irn6JN",
     "custom_featured_collection_3JMW8E",
     "routed_ritual_UqNeyg",
-    "log0_marquee_CqKi4C",
+    "marquee_new_kREtdd",
+    "log0_marquee_34RXJi",
     "tab_collections_YVcprf",
     "product_featured_icons_QT9QUK",
     "hair_reviews_XLpwYz",
     "comfortable_skin_4kz4Vt",
     "custom_featured_blogs_HH4XUC",
     "slideshow",
-    "logo_list_w3Yc3U",
     "featured-collections",
     "logo_list_8gKhzJ",
     "image_with_text_k6TRXx",

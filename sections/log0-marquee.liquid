@@ -1,170 +1,180 @@
-{% comment %} ! This is glitch free marquee and dont change the width of the container {% endcomment %}
-
+{% comment %} Glitch-free marquee — CSS only, no JS, Safari + Android safe {% endcomment %}
 
 {% stylesheet %}
+
+/* ─── Container ─────────────────────────────────────── */
 .feature-scroll-container-mf {
     overflow: hidden;
-    background-color: #000000;
-    padding: 24px 0;
-    margin:  0;
+    background: #242221;
+    padding: 37px 0;
+    margin: 0;
+    /* Keeps Safari from merging this layer with parent */
+    isolation: isolate;
+    -webkit-isolation: isolate;
 }
 
+/* ─── Track ──────────────────────────────────────────── */
 .feature-scroll-track-mf {
     display: flex;
-    animation: scroll-seamless 20s linear infinite;
+    flex-wrap: nowrap;
     width: max-content;
-    will-change: transform;
+    /* translate3d forces GPU layer — stays promoted the whole time */
+    -webkit-animation: marquee-scroll 20s linear infinite;
+    animation: marquee-scroll 20s linear infinite;
+    /* NO will-change — Safari drops layers on will-change between cycles */
+    /* NO backface-visibility — not needed, causes issues on some iOS */
+    /* NO translateZ — translate3d in keyframes handles it */
 }
 
+/* ─── Each item ──────────────────────────────────────── */
 .feature-icon-item-mf {
     display: flex;
     align-items: center;
-    margin-right: 105px;
+    flex-shrink: 0;
+    margin-right: 80px;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
+/* ─── Image ──────────────────────────────────────────── */
 .feature-icon-item-mf img {
-    width: 26px;
-    height: 26px;
-    aspect-ratio: 1/1;
-    flex-shrink: 0;
-    margin-right: 12px;
+    display: block;
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    aspect-ratio: 137 / 37;
+    object-fit: contain;
+    /* Prevent Safari from lazy-loading mid-scroll */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
-.feature-icon-item-mf span {
-    color: var(--White, #FFF);
-    text-align: center;
-    leading-trim: both;
-    text-edge: cap;
-    font-family: "Acumin Pro";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+/* ─── Keyframes ─────────────────────────────────────────
+   We have 4 identical sets.
+   Shift by exactly -25% = 1 set width.
+   translate3d keeps the element on the GPU compositor
+   the entire duration — no layer drop at loop boundary.
+─────────────────────────────────────────────────────── */
+@-webkit-keyframes marquee-scroll {
+    0%   { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+    100% { -webkit-transform: translate3d(-25%, 0, 0); transform: translate3d(-25%, 0, 0); }
+}
+@keyframes marquee-scroll {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-25%, 0, 0); }
 }
 
-/* Seamless infinite scroll animation */
-@keyframes scroll-seamless {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-33.333%);
-    }
-}
-
-@media (max-width: 768px) {
-    .feature-icon-item-mf span {
-        font-size: 17px; 
-    }
-    .pdp-marquee .feature-icon-item-mf span {
-       font-size: 16px;
-    }
+/* ─── Responsive ─────────────────────────────────────── */
+@media screen and (max-width: 767px) {
     .feature-scroll-container-mf {
         padding: 20px 0;
     }
-    .feature-icon-item-mf img {
-        margin-right: 10px;
-        width: 21.125px;
-        height: 21.125px;
-    }
     .feature-icon-item-mf {
-        margin-right: 20px;
+        margin-right: 10px;
+    }
+    .feature-icon-item-mf img {
+        max-width: 100px;
+        aspect-ratio: 22 / 7;
     }
 }
 
+/* ─── PDP variant ────────────────────────────────────── */
+.pdp-marquee .feature-scroll-container-mf {
+    padding: 16px 0;
+}
 
-/* newstyle */
-.left-col {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0 0 24px;
+/* ─── Accessibility: respect reduced motion ──────────── */
+@media (prefers-reduced-motion: reduce) {
+    .feature-scroll-track-mf {
+        -webkit-animation: none;
+        animation: none;
+    }
 }
-.shop-footer .icon {
-    display: inline-block;
-    width: var(--icon-size, 20px);
-    height: var(--icon-size, 20px);
-    vertical-align: middle;
-    fill: none;
-    stroke: white;
-}
-.zz-footer-link.left-con-richtext {
-   padding: 8px 0 0;
-}
-.left-col .zz-footer-title {
-  margin-bottom: 10px;
-}
-.left-col .text-button-large {
-      font-family: "Source Code Pro" !important;
-}
-@media (max-width: 768px) {
-   .left-col .zz-footer-title {
-     font-size: 18px !important; 
-     padding:0px;
-     border: 0px;
-    margin:0 0 10px !important;
-  }
-  .left-col {
-    flex-direction: column;
-    margin:0 0 32px;
-  }
-  .text-button-large {
-     font-size:14px !important;
-  }
-  .zz-footer-link.left-con-richtext {
-     font-size:14px;
-  }
-  .zz-footer-link.left-con-richtext {
-    padding: 0px;
-  }
-  .pdp-marquee .feature-scroll-container-mf {
-     padding: 16px 0 !important;
-  }
-}
+
 {% endstylesheet %}
 
 
 <div class="feature-scroll-container-mf sec-{{ section.id }} {% if section.settings.pdp %}pdp-marquee{% endif %}">
-        <div class="feature-scroll-track-mf">
-          {% comment %} Original set {% endcomment %}
-          {% for block in section.blocks %}
-            {% if block.type == 'feature' %}
-              <div class="feature-icon-item-mf">
-                {% if block.settings.icon %}
-                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
-                {% endif %}
-                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
-              </div>
-            {% endif %}
-          {% endfor %}
+    <div class="feature-scroll-track-mf">
 
-          {% comment %} Duplicate set 1 {% endcomment %}
-          {% for block in section.blocks %}
+        {% comment %} Set 1 — original {% endcomment %}
+        {% for block in section.blocks %}
             {% if block.type == 'feature' %}
-              <div class="feature-icon-item-mf">
-                {% if block.settings.icon %}
-                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
-                {% endif %}
-                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
-              </div>
+                <div class="feature-icon-item-mf" {{ block.shopify_attributes }}>
+                    {% if block.settings.icon %}
+                        <img
+                            src="{{ block.settings.icon | image_url: width: 280 }}"
+                            alt="{{ block.settings.icon.alt | escape }}"
+                            width="280"
+                            height="auto"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+                    {% endif %}
+                </div>
             {% endif %}
-          {% endfor %}
+        {% endfor %}
 
-          {% comment %} Duplicate set 2 {% endcomment %}
-          {% for block in section.blocks %}
+        {% comment %} Set 2 — duplicate {% endcomment %}
+        {% for block in section.blocks %}
             {% if block.type == 'feature' %}
-              <div class="feature-icon-item-mf">
-                {% if block.settings.icon %}
-                  <img src="{{  block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt }}" width="50" height="39" loading="eager" fetchpriority="high">
-                {% endif %}
-                {% comment %} <span>{{ block.settings.title }}</span> {% endcomment %}
-              </div>
+                <div class="feature-icon-item-mf" aria-hidden="true">
+                    {% if block.settings.icon %}
+                        <img
+                            src="{{ block.settings.icon | image_url: width: 280 }}"
+                            alt=""
+                            width="280"
+                            height="auto"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+                    {% endif %}
+                </div>
             {% endif %}
-          {% endfor %}
-        </div>
-      </div>
+        {% endfor %}
+
+        {% comment %} Set 3 — duplicate {% endcomment %}
+        {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+                <div class="feature-icon-item-mf" aria-hidden="true">
+                    {% if block.settings.icon %}
+                        <img
+                            src="{{ block.settings.icon | image_url: width: 280 }}"
+                            alt=""
+                            width="280"
+                            height="auto"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% comment %} Set 4 — duplicate (extra buffer for Safari) {% endcomment %}
+        {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+                <div class="feature-icon-item-mf" aria-hidden="true">
+                    {% if block.settings.icon %}
+                        <img
+                            src="{{ block.settings.icon | image_url: width: 280 }}"
+                            alt=""
+                            width="280"
+                            height="auto"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+
 
 {% schema %}
 {
@@ -173,16 +183,15 @@
   "class": "scrolling-feature-icons",
   "settings": [
     {
-          "type": "checkbox",
-          "id": "hide",
-          "label": "Hide Desktop"
+      "type": "checkbox",
+      "id": "hide",
+      "label": "Hide Desktop"
     },
     {
-          "type": "checkbox",
-          "id": "pdp",
-          "label": "Pdp Styling"
-    },
-    
+      "type": "checkbox",
+      "id": "pdp",
+      "label": "PDP Styling"
+    }
   ],
   "blocks": [
     {
@@ -204,48 +213,4 @@
     }
   ]
 }
-{% endschema %}      
-
-{% style %}
-
-
-
-.feature-icon-item-mf img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    max-width: 140px;
-    aspect-ratio: 137 / 37;
-}
-
-.feature-scroll-container-mf {
-    overflow: hidden;
-    background: #242221;
-    padding: 37px 0;
-    margin: 0;
-}
-
-@media screen and (max-width:767px){
-
-    .feature-scroll-container-mf {
-       padding: 20px 0;
-    }
-    .feature-icon-item-mf img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        display: block;
-        max-width: 100px;
-        aspect-ratio: 22 / 7;
-        margin-right:0px;
-    }
-    .feature-icon-item-mf  {
-       margin-right:12px;
-    }
-
-}
-
-
-
-{% endstyle %}
+{% endschema %}
