@@ -23,7 +23,16 @@
           {% if section.settings.map_image != blank %}
             <div class="mblp-store-location-map">
               <div class="mblp-store-location-map-image">
-                {{ section.settings.map_image | image_url: width: 800 | image_tag }}
+                {{ section.settings.map_image
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    width: 800,
+                    height: 250,
+                    fetchpriority: 'low',
+                    sizes: '(max-width: 768px) 100vw, 420px',
+                    alt: section.settings.section_title | append: ' - Store Location Map'
+                }}
               </div>
             </div>
           {% endif %}
@@ -124,7 +133,7 @@
   .mblp-store-location-title h2 {
     color: var(--col-light-black);
     text-align: center;
-    font-family: 'Dm Sans Bold' !important;
+    font-family: 'Dm Sans Bold';
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
@@ -141,7 +150,7 @@
 
   .mblp-store-location-subtitle p {
     color: var(--col-light-black);
-    font-family: 'Dm Sans Medium' !important;
+    font-family: 'Dm Sans Medium' ;
     font-size: 18px;
         font-weight: 600;
     font-style: normal;
@@ -209,7 +218,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100% !important;
+    width: 100% ;
     max-width: 106px;
     position: relative;
   }
@@ -227,7 +236,7 @@
   /* Location Info Text */
   .mblp-store-location-info p {
     color: var(--col-light-black);
-    font-family: 'Dm Sans Medium' !important;
+    font-family: 'Dm Sans Medium' ;
     font-size: 20px;
     font-weight: 600;
     font-style: normal;
@@ -282,8 +291,8 @@
     }
 
     .mblp-store-location-icon {
-      width: 26px !important;
-      height: 26px !important;
+      width: 26px ;
+      height: 26px ;
     }
     .subway-icons svg {
     width: 26px;

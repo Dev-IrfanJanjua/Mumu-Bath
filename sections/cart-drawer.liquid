@@ -1,3 +1,5 @@
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+
 <cart-drawer id="cart-drawer" class="cart-drawer drawer {% if cart.empty? %}drawer--center-body{% endif %}" initial-focus="false" handle-editor-events>
   <p class="h4 cart_drawer_title" slot="header">{{ 'cart.general.title' | t }}</p>
   {%- if cart.empty? -%}
@@ -182,10 +184,24 @@
     letter-spacing: 0;
 }
 
+.cart-drawer__items p.smallcaps {
+    color: #3B332F;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
 quantity-selector.cart_qty_slctr {
     border-radius: 4px;
     border: 0.8px solid #1E1E1E;
     background: #FFF;
+    max-height: 30px;
+}
+
+.cart-drawer__items .quantity-selector__button {
+    height: 30px;
 }
 
 quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
@@ -196,6 +212,7 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
+    height: 30px;
 }
 
 .cart-drawer__items .line-item-info .v-stack {
@@ -305,6 +322,7 @@ free-shipping-bar.free-shipping-bar {
 .cart-upsell-swiper .hair-product-card__title a {
     font-size: 12px;
     line-height: 16px;
+    font-weight: 500;
 }
 
 .cart-upsell-swiper .hair-product-price {
@@ -371,6 +389,7 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 .cart-drawer__items img.line-item__media {
     aspect-ratio: 1.2;
     max-width: 100px;
+    align-self: start;
 }
 
 .cart-drawer__items line-item.line-item {
@@ -380,6 +399,10 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 
 .cart-drawer__items {
     gap: 16px;
+}
+
+.cart-drawer__items .icon-minus{
+  display: block
 }
 
 }

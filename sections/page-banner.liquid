@@ -1,0 +1,446 @@
+{% comment %} Hero Banner Section {% endcomment %}
+
+{%- liquid
+  assign has_desktop_img = false
+  assign has_mobile_img   = false
+  if section.settings.bg_image_desktop != blank
+    assign has_desktop_img = true
+  endif
+  if section.settings.bg_image_mobile != blank
+    assign has_mobile_img = true
+  endif
+
+  assign clean_title = section.settings.title | replace: '<p>', '' | replace: '</p>', ''
+-%}
+
+<style>
+  .section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    background-color: {{ section.settings.section_bg_color }};
+    min-height: {{ section.settings.min_height_desktop }}px;
+    display: flex;
+    align-items: {{ section.settings.content_align_v }};
+    justify-content: center;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  /* ── Background images ── */
+  .section-{{ section.id }} .hb-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .section-{{ section.id }} .hb-bg__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.bg_focal_desktop }};
+    display: block;
+  }
+
+  .section-{{ section.id }} .hb-bg__img--mobile {
+    display: none;
+  }
+
+  .section-{{ section.id }} .hb-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+
+  /* ── Content ── */
+  .section-{{ section.id }} .hb-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: {{ section.settings.content_align_h }};
+    text-align: {{ section.settings.text_align }};
+    gap: 24px;
+    max-width: {{ section.settings.content_max_width }}px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .section-{{ section.id }} .hb-title.title_title {
+    color: {{ section.settings.title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 66px;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  /* richtext output tags inherit the heading style */
+  .section-{{ section.id }} .hb-title.title_title h1,
+  .section-{{ section.id }} .hb-title.title_title h2,
+  .section-{{ section.id }} .hb-title.title_title h3,
+  .section-{{ section.id }} .hb-title.title_title span {
+    font: inherit;
+    color: inherit;
+    margin: 0;
+    letter-spacing: inherit;
+  }
+
+  .section-{{ section.id }} .hb-subtitle {
+    color: {{ section.settings.subtitle_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    margin: 0;
+    max-width: 560px;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      min-height: {{ section.settings.min_height_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .hb-bg__img--desktop {
+      display: none;
+    }
+
+    .section-{{ section.id }} .hb-bg__img--mobile {
+      display: block;
+      object-position: {{ section.settings.bg_focal_mobile }};
+    }
+
+    .section-{{ section.id }} .hb-title.title_title {
+      font-size: 30px;
+      line-height: 42px;
+    }
+
+    .section-{{ section.id }} .hb-subtitle {
+      font-size: 14px;
+    }
+
+    .section-{{ section.id }} .hb-inner{
+        gap:12px
+    }
+
+  }
+</style>
+
+<section
+  class="section-{{ section.id }}"
+  id="shopify-section-{{ section.id }}"
+  aria-label="{{ section.settings.title | strip_html | escape }}"
+>
+
+  <!-- Background images: absolute HTML elements, not CSS background -->
+  <div class="hb-bg" aria-hidden="true">
+
+    {%- if has_desktop_img -%}
+      {{
+        section.settings.bg_image_desktop
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '750, 1100, 1500, 1780, 2000, 2400',
+          sizes: '100vw',
+          class: 'hb-bg__img hb-bg__img--desktop',
+          alt: ''
+      }}
+    {%- endif -%}
+
+    {%- if has_mobile_img -%}
+      {{
+        section.settings.bg_image_mobile
+        | image_url: width: 1200
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '375, 550, 750, 1100',
+          sizes: '100vw',
+          class: 'hb-bg__img hb-bg__img--mobile',
+          alt: ''
+      }}
+    {%- elsif has_desktop_img -%}
+      {{
+        section.settings.bg_image_desktop
+        | image_url: width: 1200
+        | image_tag:
+          loading: 'eager',
+          widths: '375, 550, 750, 1100',
+          sizes: '100vw',
+          class: 'hb-bg__img hb-bg__img--mobile',
+          alt: ''
+      }}
+    {%- endif -%}
+
+    {%- if section.settings.overlay_opacity > 0 -%}
+      <div class="hb-bg__overlay"></div>
+    {%- endif -%}
+
+  </div>
+
+  <!-- Content -->
+  <div class="page-width">
+    <div class="hb-inner">
+
+      {%- unless clean_title == blank -%}
+        <div class="hb-title title_title" role="heading" aria-level="1">
+          {{ clean_title }}
+        </div>
+      {%- endunless -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="hb-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Contact & Support</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "info": "Leave blank to hide",
+      "default": "You can phone, email or start an instant chat."
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left",   "label": "Left"   },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right"  }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 400,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "label": "Content Max Width",
+      "default": 800
+    },
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "select",
+      "id": "bg_focal_desktop",
+      "label": "Image Focus (Desktop)",
+      "options": [
+        { "value": "center center", "label": "Center"       },
+        { "value": "center top",    "label": "Top"          },
+        { "value": "center bottom", "label": "Bottom"       },
+        { "value": "left center",   "label": "Left"         },
+        { "value": "right center",  "label": "Right"        },
+        { "value": "left top",      "label": "Left Top"     },
+        { "value": "right top",     "label": "Right Top"    },
+        { "value": "left bottom",   "label": "Left Bottom"  },
+        { "value": "right bottom",  "label": "Right Bottom" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background Image (Mobile)",
+      "info": "Falls back to the desktop image if left blank"
+    },
+    {
+      "type": "select",
+      "id": "bg_focal_mobile",
+      "label": "Image Focus (Mobile)",
+      "options": [
+        { "value": "center center", "label": "Center"       },
+        { "value": "center top",    "label": "Top"          },
+        { "value": "center bottom", "label": "Bottom"       },
+        { "value": "left center",   "label": "Left"         },
+        { "value": "right center",  "label": "Right"        },
+        { "value": "left top",      "label": "Left Top"     },
+        { "value": "right top",     "label": "Right Top"    },
+        { "value": "left bottom",   "label": "Left Bottom"  },
+        { "value": "right bottom",  "label": "Right Bottom" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Content Position"
+    },
+    {
+      "type": "select",
+      "id": "content_align_v",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top"    },
+        { "value": "center",     "label": "Middle" },
+        { "value": "flex-end",   "label": "Bottom" }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "select",
+      "id": "content_align_h",
+      "label": "Horizontal Alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left"   },
+        { "value": "center",     "label": "Center" },
+        { "value": "flex-end",   "label": "Right"  }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Banner Height"
+    },
+    {
+      "type": "range",
+      "id": "min_height_desktop",
+      "min": 200,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Min Height (Desktop)",
+      "default": 440
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Min Height (Mobile)",
+      "default": 320
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background (fallback)",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

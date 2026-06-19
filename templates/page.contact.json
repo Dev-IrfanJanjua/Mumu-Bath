@@ -9,6 +9,117 @@
  */
 {
   "sections": {
+    "page_banner_iEFVAK": {
+      "type": "page-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "title": "<p>Contact & Support</p>",
+        "subtitle": "You can phone, email or start an instant chat.",
+        "text_align": "center",
+        "content_max_width": 800,
+        "bg_image_desktop": "shopify://shop_images/Frame_2147241782.png",
+        "bg_focal_desktop": "center center",
+        "bg_image_mobile": "shopify://shop_images/Frame_2147241782_1.png",
+        "bg_focal_mobile": "center center",
+        "overlay_opacity": 10,
+        "content_align_v": "flex-end",
+        "content_align_h": "center",
+        "min_height_desktop": 500,
+        "min_height_mobile": 360,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "section_bg_color": "#1a1a1a",
+        "overlay_color": "#000000",
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff"
+      }
+    },
+    "in_touch_section_TLcGbL": {
+      "type": "in-touch-section",
+      "blocks": {
+        "contact_item_8kwBk7": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147228986.svg",
+            "title": "Call us at:",
+            "link_text": "01494422324",
+            "link": "tel:01494422324"
+          }
+        },
+        "contact_item_m4eYFt": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147228987.svg",
+            "title": "Email us at:",
+            "link_text": "hello@mumubath.com",
+            "link": "mailto:hello@mumubath.com"
+          }
+        },
+        "contact_item_iDXBhn": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147228988.svg",
+            "title": "Address1:",
+            "link_text": "72 Jay St, Brooklyn, NY 11201",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_8kwBk7",
+        "contact_item_m4eYFt",
+        "contact_item_iDXBhn"
+      ],
+      "name": "In Touch",
+      "settings": {
+        "heading": "<p>Get in touch <br/>we’re here anytime.</p>",
+        "background_color": "#ffffff",
+        "heading_color": "#000000",
+        "link_color": "#000000",
+        "card_background": "#f8f6ee",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "contact_form_section_wNfXac": {
+      "type": "contact-form-section",
+      "name": "Contact Form",
+      "settings": {
+        "title": "Need Help Getting Started?",
+        "subtitle": "Thank you for your support. If you need more help, feel free to send us a message, and we'll get back to you soon.",
+        "label_name": "Name",
+        "label_email": "E-mail",
+        "label_message": "Message",
+        "btn_label": "Submit",
+        "success_message": "Thanks for contacting us! We'll be in touch soon.",
+        "image": "shopify://shop_images/Frame_2147242998.png",
+        "card_padding": 32,
+        "card_border_radius": 8,
+        "col_gap": 40,
+        "input_border_radius": 8,
+        "btn_border_radius": 40,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 60,
+        "section_bg_color": "#ffffff",
+        "card_bg_color": "#f8f6ee",
+        "title_color": "#000000",
+        "subtitle_color": "#000000",
+        "input_bg_color": "#ffffff",
+        "input_text_color": "#000000",
+        "input_border_color": "#e0e0e0",
+        "input_focus_color": "#000000",
+        "btn_bg_color": "#fbdd3f",
+        "btn_text_color": "#000000",
+        "hover_bg_color": "#000000",
+        "hover_text_color": "#ffffff"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -22,6 +133,7 @@
       "blocks": {
         "subheading_qix8tL": {
           "type": "subheading",
+          "disabled": true,
           "settings": {
             "text": ""
           }
@@ -53,6 +165,7 @@
         "liquid_tzg8PY",
         "richtext_QkGCkU"
       ],
+      "disabled": true,
       "settings": {
         "mblp-class": "",
         "separate_section_with_border": true,
@@ -65,6 +178,7 @@
     },
     "custom_liquid_PccweW": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "separate_section_with_border": true,
@@ -76,6 +190,7 @@
     },
     "custom_liquid_rXekNW": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -86,6 +201,7 @@
     },
     "contact-form": {
       "type": "contact",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "subheading": "",
@@ -109,6 +225,7 @@
         "targetbay_product_reviews_tb_common_bctExK",
         "targetbay_product_reviews_site_reviews_cdVHWy"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -117,6 +234,9 @@
     }
   },
   "order": [
+    "page_banner_iEFVAK",
+    "in_touch_section_TLcGbL",
+    "contact_form_section_wNfXac",
     "main",
     "image_with_text_PcffKD",
     "custom_liquid_PccweW",

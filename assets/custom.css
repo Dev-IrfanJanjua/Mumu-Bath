@@ -775,3 +775,50 @@ a.link-faded-reverse:last-child {
     visibility 0s;
   transition-delay: calc(var(--i, 0) * var(--stagger));
 }
+
+/* ==== global class ==== */
+
+.title_title{
+  color: #000;
+  font-family: "Mona Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.btn_btn{
+  border-radius: 41px;
+  background: var(--Yellow, #FBDD40);
+  padding: 18px 30px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #000;
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 148%; /* 26.64px */
+  text-transform: capitalize;
+}
+
+.btn_btn:hover{
+  background-color: #000; 
+  color: #fff;
+}
+
+@media screen and (max-width: 768px){
+
+.title_title{
+  font-size: 30px;
+  line-height: 38px;
+}
+
+.btn_btn{
+  font-size: 14px;
+  line-height: 120%; /* 26.64px */
+}
+
+}

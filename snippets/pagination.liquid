@@ -22,16 +22,20 @@ Supported variables
 
       <a {% if facet %}is="facet-link"{% endif %} class="pagination__link h6" rel="prev" aria-label="{{ 'general.accessibility.go_to_page' | t: index: previous_page }}" href="{{ paginate.previous.url }}{{ hash }}">
         {% if section.settings.cstm_style %}
-          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
-            <g clip-path="url(#clip0_531_11265)">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.7029 9.17579L2.83 5.29289L6.7029 1.41L5.2929 0L0 5.29289L5.2929 10.5858L6.7029 9.17579Z" fill="#27292B"/>
-            </g>
-            <defs>
-              <clipPath id="clip0_531_11265">
-                <rect width="7" height="11" fill="white"/>
-              </clipPath>
-            </defs>
-          </svg>
+          {% if template.name == 'blog' %}
+            Prev
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+              <g clip-path="url(#clip0_531_11265)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.7029 9.17579L2.83 5.29289L6.7029 1.41L5.2929 0L0 5.29289L5.2929 10.5858L6.7029 9.17579Z" fill="#27292B"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_531_11265">
+                  <rect width="7" height="11" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+          {% endif %}
         {% else %}
           {%- render 'icon' with 'chevron-left', width: 11, direction_aware: true -%}
         {% endif %}
@@ -55,16 +59,20 @@ Supported variables
 
       <a {% if facet %}is="facet-link"{% endif %} class="pagination__link h6" rel="next" aria-label="{{ 'general.accessibility.go_to_page' | t: index: next_page }}" href="{{ paginate.next.url }}{{ hash }}">
         {% if section.settings.cstm_style %}
-          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_531_11276)">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.17579L3.87289 5.29289L0 1.41L1.41 0L6.70289 5.29289L1.41 10.5858L0 9.17579Z" fill="#27292B"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_531_11276">
-            <rect width="7" height="11" fill="white"/>
-            </clipPath>
-            </defs>
-          </svg>
+          {% if template.name == 'blog' %}
+            Next
+          {% else %}
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_531_11276)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.17579L3.87289 5.29289L0 1.41L1.41 0L6.70289 5.29289L1.41 10.5858L0 9.17579Z" fill="#27292B"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_531_11276">
+              <rect width="7" height="11" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+          {% endif %}
         {% else %}
           {%- render 'icon' with 'chevron-right', width: 11, direction_aware: true -%}
         {% endif %}

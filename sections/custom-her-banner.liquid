@@ -24,116 +24,109 @@
 >
   <div class="page-width">
     <div class="hero-rel">
-    <div class="hero-section__grid">
+      <div class="hero-section__grid">
+        {%- comment -%} ── LEFT COLUMN ── {%- endcomment -%}
+        <div class="hero-section__content">
+          {%- comment -%} Rating Row {%- endcomment -%}
+          {%- if section.settings.show_rating -%}
+            <div class="hero-section__rating" aria-label="{{ section.settings.rating_aria_label | escape }}">
+              {%- assign rating_alt = section.settings.rating_image_alt | escape -%}
 
-      {%- comment -%} ── LEFT COLUMN ── {%- endcomment -%}
-      <div class="hero-section__content">
-
-        {%- comment -%} Rating Row {%- endcomment -%}
-        {%- if section.settings.show_rating -%}
-          <div class="hero-section__rating" aria-label="{{ section.settings.rating_aria_label | escape }}">
-            {%- assign rating_alt = section.settings.rating_image_alt | escape -%}
-
-                {%- if section.settings.rating_image != blank -%}
+              {%- if section.settings.rating_image != blank -%}
                 {{
-                    section.settings.rating_image
-                    | image_url: width: 120
-                    | image_tag:
+                  section.settings.rating_image
+                  | image_url: width: 120
+                  | image_tag:
                     loading: 'eager',
-                    fetchpriority: 'high',
+                    fetchpriority: 'low',
                     alt: rating_alt,
                     width: 120,
                     height: 20,
                     class: 'hero-section__rating-img'
                 }}
-                {%- else -%}
+              {%- else -%}
                 <span class="hero-section__rating-stars" aria-hidden="true">★★★★★</span>
-            {%- endif -%}
+              {%- endif -%}
 
-            {%- if section.settings.rating_richtext != blank -%}
-              <div class="hero-section__rating-text rte">
-                {{ section.settings.rating_richtext }}
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
+              {%- if section.settings.rating_richtext != blank -%}
+                <div class="hero-section__rating-text rte">
+                  {{ section.settings.rating_richtext }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
 
-        {%- comment -%} Heading {%- endcomment -%}
-        {%- if section.settings.heading != blank -%}
-          <{{ section.settings.heading_tag }} class="hero-section__heading">
-            {{ section.settings.heading }}
-          </{{ section.settings.heading_tag }}>
-        {%- endif -%}
+          {%- comment -%} Heading {%- endcomment -%}
+          {%- if section.settings.heading != blank -%}
+            <{{ section.settings.heading_tag }} class="hero-section__heading">
+              {{ section.settings.heading }}
+            </{{ section.settings.heading_tag }}>
+          {%- endif -%}
 
-        {%- comment -%} Description {%- endcomment -%}
-        {%- if section.settings.description != blank -%}
-          <p class="hero-section__description">
-            {{ section.settings.description }}
-          </p>
-        {%- endif -%}
+          {%- comment -%} Description {%- endcomment -%}
+          {%- if section.settings.description != blank -%}
+            <p class="hero-section__description">
+              {{ section.settings.description }}
+            </p>
+          {%- endif -%}
 
-        {%- comment -%} CTA Button {%- endcomment -%}
-        {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
-          <a
-            class="hero-section__btn"
-            href="{{ section.settings.button_url }}"
-            {% if section.settings.button_open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
-            aria-label="{{ section.settings.button_label | escape }}"
-          >
-            {{- section.settings.button_label | escape -}}
-          </a>
-        {%- endif -%}
+          {%- comment -%} CTA Button {%- endcomment -%}
+          {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
+            <a
+              class="hero-section__btn"
+              href="{{ section.settings.button_url }}"
+              {% if section.settings.button_open_new_tab %}
+                target="_blank" rel="noopener noreferrer"
+              {% endif %}
+              aria-label="{{ section.settings.button_label | escape }}"
+            >
+              {{- section.settings.button_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+        {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
 
+        {%- comment -%} ── RIGHT COLUMN — Hero Image ── {%- endcomment -%}
+        <div class="hero-section__media">
+          {%- if section.settings.hero_image != blank -%}
+            {{
+              section.settings.hero_image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'eager',
+                fetchpriority: 'high',
+                alt: section.settings.hero_image_alt,
+                width: section.settings.hero_image_width,
+                height: section.settings.hero_image_height,
+                class: 'hero-section__img',
+                sizes: '(max-width: 749px) 100vw, 50vw',
+                widths: '400, 600, 750, 900'
+            }}
+          {%- else -%}
+            {{ 'collection-1' | placeholder_svg_tag: 'hero-section__img hero-section__img--placeholder' }}
+          {%- endif -%}
+        </div>
+        {%- comment -%} ── END RIGHT COLUMN ── {%- endcomment -%}
       </div>
-      {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
-
-      {%- comment -%} ── RIGHT COLUMN — Hero Image ── {%- endcomment -%}
-      <div class="hero-section__media">
-        {%- if section.settings.hero_image != blank -%}
+      {%- if section.settings.desktop_banner_image != blank -%}
+        <div class="hero-section__desktop-banner">
           {{
-            section.settings.hero_image
-            | image_url: width: 900
+            section.settings.desktop_banner_image
+            | image_url: width: 2000
             | image_tag:
               loading: 'eager',
-              fetchpriority: 'high',
-              preload: true,
-              alt: section.settings.hero_image_alt ,
-              width: section.settings.hero_image_width,
-              height: section.settings.hero_image_height,
-              class: 'hero-section__img',
-              sizes: '(max-width: 749px) 100vw, 50vw',
-              widths: '400, 600, 750, 900'
+              fetchpriority: 'low',
+              alt: section.settings.desktop_banner_image_alt,
+              widths: '1200,1500,1800,2000',
+              class: 'hero-section__desktop-banner-image'
           }}
-        {%- else -%}
-          {{ 'collection-1' | placeholder_svg_tag: 'hero-section__img hero-section__img--placeholder' }}
-        {%- endif -%}
-      </div>
-      {%- comment -%} ── END RIGHT COLUMN ── {%- endcomment -%}
-
+        </div>
+      {%- endif -%}
     </div>
-    {%- if section.settings.desktop_banner_image != blank -%}
-      <div class="hero-section__desktop-banner">
-        {{
-          section.settings.desktop_banner_image
-          | image_url: width: 2000
-          | image_tag:
-            loading: 'eager',
-            fetchpriority: 'high',
-            preload: true,
-            alt: section.settings.desktop_banner_image_alt,
-            widths: '1200,1500,1800,2000',
-            class: 'hero-section__desktop-banner-image'
-        }}
-      </div>
-    {%- endif -%}
-  </div>
-
   </div>
 </section>
 
 <style>
- 
-
   /* ── Section shell ── */
   .hero-section {
     background-color: var(--hero-bg, #f9f5f0);
@@ -159,22 +152,22 @@
 
   @media (min-width: 750px) {
     .hero-section__grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+      grid-template-columns: 1fr 1fr;
+      gap: 0px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
   /* ── Content (left) ── */
-.hero-section__content {
+  .hero-section__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
     order: 2;
     max-width: 615px;
-}
+  }
 
   @media (min-width: 750px) {
     .hero-section__content {
@@ -205,15 +198,15 @@
   }
 
   .hero-section__rating-text {
-   color: #101010;
-   text-align: center;
-    font-family: "Plus Jakarta Sans";
+    color: #101010;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: 148%; /* 26.64px */
     text-transform: capitalize;
-}
+  }
 
   .hero-section__rating-text p {
     margin: 0;
@@ -222,7 +215,7 @@
   /* ── Heading ── */
   .hero-section__heading {
     color: #000;
-    font-family: "Mona Sans" !important;
+    font-family: 'Mona Sans';
     font-size: 60px;
     font-style: normal;
     font-weight: 500;
@@ -234,21 +227,20 @@
   /* ── Description ── */
   .hero-section__description {
     color: #000;
-    font-family: "Plus Jakarta Sans";
+    font-family: 'Plus Jakarta Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 133.333% */
     padding: 0 0 30px;
-    max-width:566px;
+    max-width: 566px;
   }
 
   /* ── CTA Button — bgc + color transition only, no transform ── */
   .hero-section__btn {
-    background-color: var(--hero-btn-bg, #d4a84b);
-    color: var(--hero-btn-color, #1a1a1a);
-    color: #000;
-    font-family: "Plus Jakarta Sans";
+    background: var(--hero-btn-bg, #fbdd3f);
+    color: var(--hero-btn-color, #000);
+    font-family: 'Plus Jakarta Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -261,10 +253,8 @@
     align-items: center;
     gap: 10.07px;
     border-radius: 41px;
-    background: #FBDD3F !important;
     transition: background-color 0.25s ease, color 0.25s ease;
     white-space: nowrap;
-
   }
 
   .hero-section__btn:hover,
@@ -285,7 +275,7 @@
   @media (min-width: 750px) {
     .hero-section__media {
       order: 2;
-      display:none;
+      display: none;
     }
   }
 
@@ -302,92 +292,84 @@
     background: #e8e0d8;
   }
 
-.hero-rel {
-  position: relative;
-}
+  .hero-rel {
+    position: relative;
+  }
 
-
-
-.hero-section__desktop-banner-image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 750px) {
-
-.hero-section__content {
-    gap: 16px;
-    order: 1;
-    text-align:center;
-}
-
-.hero-section__grid {
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-}
-.hero-section__rating-img {
+  .hero-section__desktop-banner-image {
     display: block;
-    width: 100px;
-    height: 15px;
-    object-fit: contain;
-}
-.hero-section__rating {
-    gap: 9px;
-    justify-content: center;
-}
+    width: 100%;
+    height: auto;
+  }
 
-.hero-section__rating-text {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 148%; /* 20.72px */
-  text-transform: capitalize;
+  @media (max-width: 750px) {
+    .hero-section__content {
+      gap: 16px;
+      order: 1;
+      text-align: center;
+    }
 
-}
+    .hero-section__grid {
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-section__rating-img {
+      display: block;
+      width: 100px;
+      height: 15px;
+      object-fit: contain;
+    }
+    .hero-section__rating {
+      gap: 9px;
+      justify-content: center;
+    }
 
-.hero-section__heading {
-   font-size: 36px;
-font-style: normal;
-font-weight: 500;
-line-height: 42px; /* 116.667% */
-letter-spacing: -0.86px;
-text-transform: capitalize;
-        max-width: 343px;
-        margin: 0 auto;
+    .hero-section__rating-text {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 148%; /* 20.72px */
+      text-transform: capitalize;
+    }
 
-}
+    .hero-section__heading {
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 42px; /* 116.667% */
+      letter-spacing: -0.86px;
+      text-transform: capitalize;
+      max-width: 343px;
+      margin: 0 auto;
+    }
 
-.hero-section__description {
-   font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 22px; /* 157.143% */
-padding: 0 0 8px;
-max-width: 316px;
-        text-align: center;
-        margin: 0 auto;
-        
-}
+    .hero-section__description {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px; /* 157.143% */
+      padding: 0 0 8px;
+      max-width: 316px;
+      text-align: center;
+      margin: 0 auto;
+    }
 
-.hero-section__btn {
-padding: 14.196px 23.66px;
-border-radius:32px;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 148%; /* 20.72px */
-text-transform: capitalize;
-width:100%;
+    .hero-section__btn {
+      padding: 14.196px 23.66px;
+      border-radius: 32px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 148%; /* 20.72px */
+      text-transform: capitalize;
+      width: 100%;
+    }
 
-}
-
-.hero-section__desktop-banner-image {
-  display:none;
-}
-
-}
+    .hero-section__desktop-banner-image {
+      display: none;
+    }
+  }
 </style>
 
 {% schema %}

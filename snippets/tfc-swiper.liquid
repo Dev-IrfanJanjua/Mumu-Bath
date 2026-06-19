@@ -8,6 +8,9 @@
     suffix    — unique string per panel ('all' or block.id)
 {% endcomment %}
 
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
 <div class="swiper tfc-swiper" id="tfc-swiper-{{ swiper_id }}-{{ suffix }}">
   <div class="swiper-wrapper">
 
@@ -45,7 +48,7 @@
                     class: 'hair-product-card__image secondary-image',
                     widths: '320,480,640,800,900',
                     sizes: '(min-width: 990px) 25vw, 50vw',
-                    alt: hover_image.alt,
+                    alt: "image",
                     width: hover_image.width,
                     height: hover_image.height
                 }}
@@ -63,7 +66,7 @@
               {%- assign metafield_rating_image = product.metafields.custom.rating_image -%}
 
               <div class="hair-product-rating">
-                {%- if metafield_rating_image != blank -%}
+                {% comment %} {%- if metafield_rating_image != blank -%}
                   {{
                     metafield_rating_image
                     | image_url: width: 200
@@ -77,13 +80,16 @@
                   }}
                 {%- endif -%}
 
+
                 <span class="hair-rating-text">
                   {%- if metafield_rating_text != blank -%}
                     {{ metafield_rating_text }}
                   {%- else -%}
                     {{ section.settings.rating_text }}
                   {%- endif -%}
-                </span>
+                </span> {% endcomment %}
+
+                <div class="targetbay_star_container" id="{{product.id}}"></div>
               </div>
 
               <div class="feeat-foot">

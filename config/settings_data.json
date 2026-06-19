@@ -98,6 +98,11 @@
           "button_vertical_position": "lowest",
           "greeting_message": ""
         }
+      },
+      "14636096584879143106": {
+        "type": "shopify://apps/bayengage-email-marketing/blocks/global-embed/8614585b-d13d-43f9-bedc-abbb26a11ca6",
+        "disabled": true,
+        "settings": {}
       }
     }
   },

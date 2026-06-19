@@ -1,0 +1,312 @@
+{% style %}
+.section-{{ section.id }} {
+  background-color: {{ section.settings.background_color }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .in-touch-wrapper {
+  text-align: center;
+}
+
+.section-{{ section.id }} .in-touch-title {
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: "Mona Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: -0.86px;
+    text-transform: capitalize;
+}
+
+.section-{{ section.id }} .in-touch-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.section-{{ section.id }} .in-touch-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 16px;
+    border-radius: 8px;
+    flex-direction: column;
+    background-color: {{ section.settings.card_background }};
+}
+
+.section-{{ section.id }} .in-touch-block-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.section-{{ section.id }} .in-touch-block-icon img,
+.section-{{ section.id }} .in-touch-block-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.section-{{ section.id }} .in-touch-block-content {
+  flex: 1;
+  text-align: left;
+}
+
+.section-{{ section.id }} .in-touch-block-title {
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 8px;
+    text-align: center;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.section-{{ section.id }} .in-touch-block-link {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    word-break: break-word;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section-{{ section.id }} .in-touch-block-link:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .in-touch-title {
+    margin-bottom: 24px;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .section-{{ section.id }} .in-touch-block {
+    padding: 24px 16px;
+  }
+
+  .section-{{ section.id }} .in-touch-blocks {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+    }
+
+    .section-{{ section.id }} .in-touch-block-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .section-{{ section.id }} .in-touch-block-title {
+        font-size: 16px;
+    }
+
+}
+{% endstyle %}
+
+<section class="in-touch-section section-{{ section.id }}">
+  <div class="page-width">
+    <div class="in-touch-wrapper">
+
+      {% if section.settings.heading != blank %}
+        <div class="in-touch-title">
+          {{
+            section.settings.heading
+            | replace: '<p>', ''
+            | replace: '</p>', ''
+          }}
+        </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <ul class="in-touch-blocks">
+
+          {% for block in section.blocks %}
+            <li
+              class="in-touch-block"
+              {{ block.shopify_attributes }}
+            >
+
+              {% if block.settings.icon != blank %}
+                <div class="in-touch-block-icon">
+                  {{
+                    block.settings.icon
+                    | image_url: width: 1600
+                    | image_tag:
+                      widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+                      loading: 'lazy',
+                      alt: block.settings.title
+                  }}
+                </div>
+              {% endif %}
+
+              <div class="in-touch-block-content">
+
+                {% if block.settings.title != blank %}
+                  <h3 class="in-touch-block-title">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.link_text != blank %}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="in-touch-block-link"
+                  >
+                    {{ block.settings.link_text }}
+                  </a>
+                {% endif %}
+
+              </div>
+            </li>
+          {% endfor %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "In Touch",
+  "tag": "section",
+  "class": "shopify-section-in-touch",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_item",
+      "name": "Contact Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Email Us"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "hello@example.com"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "In Touch",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "contact_item"
+        },
+        {
+          "type": "contact_item"
+        },
+        {
+          "type": "contact_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

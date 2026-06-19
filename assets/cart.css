@@ -1,0 +1,110 @@
+.cart-page {
+  align-items: start;
+  row-gap: max(4rem, var(--section-vertical-spacing-tight));
+  display: grid;
+}
+
+.cart-footer {
+  flex-direction: column;
+  gap: 1.5rem;
+  display: flex;
+}
+
+.cart-recap {
+  gap: .5rem;
+  display: grid;
+}
+
+.cart-recap [type="submit"] {
+  margin-block-start: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .cart-footer {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .cart-footer > :not(:only-child) {
+    width: min(24rem, 100%);
+  }
+
+  .cart-recap {
+    text-align: end;
+    justify-items: end;
+    margin-inline-start: auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cart-page {
+    row-gap: max(6rem, var(--section-vertical-spacing-tight));
+  }
+}
+
+.cart-drawer::part(body) {
+  padding-block: 0;
+}
+
+.cart-drawer:has(.cart-drawer__order-note[open])::part(header), .cart-drawer:has(.cart-drawer__order-note[open])::part(body) {
+  opacity: .4;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+
+.cart-drawer:not(:has(.cart-drawer__footer:only-child))::part(footer) {
+  padding-block-start: calc(var(--drawer-footer-padding-block)  - .5rem);
+}
+
+.cart-drawer .free-shipping-bar {
+  font-size: var(--text-sm);
+  border-block-end-width: 1px;
+  margin-inline-start: calc(-1 * var(--drawer-body-padding-inline));
+  margin-inline-end: calc(-1 * var(--drawer-body-padding-inline));
+  padding-block: .5rem;
+  padding-inline-start: var(--drawer-body-padding-inline);
+  padding-inline-end: var(--drawer-body-padding-inline);
+}
+
+.cart-drawer__items {
+  gap: 1.5rem;
+  padding-block-start: var(--drawer-body-padding-block);
+  padding-block-end: var(--drawer-body-padding-block);
+  display: grid;
+}
+
+.cart-drawer__button-price {
+  align-items: center;
+  display: flex;
+}
+
+.cart-drawer__button-price:before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 100%;
+  margin-inline-end: 1.125rem;
+}
+
+.cart-drawer__footer {
+  align-items: start;
+  gap: 1rem;
+  display: grid;
+}
+
+.cart-drawer__order-note {
+  width: 100%;
+  background: rgb(var(--background));
+  box-shadow: 1px 0 6px rgb(var(--border-color));
+  z-index: 2;
+  border-block-start-width: 1px;
+  padding-block-start: calc(var(--drawer-footer-padding-block)  - .5rem);
+  padding-block-end: var(--drawer-footer-padding-block);
+  padding-inline-start: var(--drawer-body-padding-inline);
+  padding-inline-end: var(--drawer-body-padding-inline);
+  display: none;
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}

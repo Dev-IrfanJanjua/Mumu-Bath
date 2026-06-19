@@ -35,38 +35,8 @@ h4.cart-upsell-title {
   <h4 class="cart-upsell-title">You May Also</h4>
   
   <div class="cart-upsell-swiper">
-      {% comment %} <div class="swiper">
-        <div class="swiper-wrapper"> {% endcomment %}
           {% for product in products %}
-            {% comment %} <div class="swiper-slide"> {% endcomment %}
                 {%- render 'new-product-card', product: product, section: section, show_button_icon: show_button_icon -%}
-            {% comment %} </div> {% endcomment %}
           {% endfor %}
-        {% comment %} </div>
-      </div> {% endcomment %}
   </div>
 </div>
-
-
-{% comment %} <script>
-function initCartUpsellSwiper() {
-  document.querySelectorAll('.cart-upsell-products .swiper').forEach((slider) => {
-    if (slider.swiper) return;
-
-    new Swiper(slider, {
-      slidesPerView: 2,
-      spaceBetween: 8,
-      grabCursor: true,
-      observer: true,
-      observeParents: true
-
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', initCartUpsellSwiper);
-
-// Re-run when cart drawer content is updated
-document.addEventListener('cart:refresh', initCartUpsellSwiper);
-document.addEventListener('cart:updated', initCartUpsellSwiper);
-</script> {% endcomment %}

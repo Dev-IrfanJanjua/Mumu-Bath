@@ -29,7 +29,7 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
 {% endif %}
  
 
-    <script>
+    {% comment %} <script>
       document.addEventListener("DOMContentLoaded", function() {
           function setAltTags() {
               document.querySelectorAll('img').forEach(function(img) {
@@ -65,7 +65,7 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
           const observer = new MutationObserver(setAltTags);
           observer.observe(document.body, { childList: true, subtree: true });
       });
-    </script>
+    </script> {% endcomment %}
 
     <meta name="google-site-verification" content="bD8elzWlcUZ2N28YIGNqIK8hZ8Ot3RxFfrGTfAxQCd0">
     <meta charset="utf-8">
@@ -106,6 +106,34 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
       <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
     {%- endunless -%}
 
+    {%- if request.page_type == 'index' -%}
+      {%- assign hero = sections['custom-her-banner'] -%}
+      
+      {%- comment -%} Mobile preload {%- endcomment -%}
+      {%- if hero.settings.hero_image != blank -%}
+        <link rel="preload" as="image"
+          media="(max-width: 749px)"
+          href="{{ hero.settings.hero_image | image_url: width: 750 }}"
+          imagesrcset="
+            {{ hero.settings.hero_image | image_url: width: 400 }} 400w,
+            {{ hero.settings.hero_image | image_url: width: 750 }} 750w"
+          imagesizes="100vw">
+      {%- endif -%}
+
+      {%- comment -%} Desktop preload {%- endcomment -%}
+      {%- if hero.settings.desktop_banner_image != blank -%}
+        <link rel="preload" as="image"
+          media="(min-width: 750px)"
+          href="{{ hero.settings.desktop_banner_image | image_url: width: 1500 }}"
+          imagesrcset="
+            {{ hero.settings.desktop_banner_image | image_url: width: 1200 }} 1200w,
+            {{ hero.settings.desktop_banner_image | image_url: width: 1500 }} 1500w,
+            {{ hero.settings.desktop_banner_image | image_url: width: 2000 }} 2000w"
+          imagesizes="100vw">
+      {%- endif -%}
+    {%- endif -%} 
+
+
     {%- render 'microdata-schema' -%}
     {%- render 'css-variables' -%}
     {%- render 'js-variables' -%}
@@ -128,8 +156,10 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
         }
       }
     </script>
-    {{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    {% comment %} {{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }} {% endcomment %}
+     {% comment %} <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> {% endcomment %}
+     {% comment %} {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script> {% endcomment %}
 
     <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
     <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
@@ -206,7 +236,7 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
       {%- sections 'footer-group' -%}
     {%- endif -%}
 
-    {%- render 'blinix-custom-font' -%}
+    {% comment %} {%- render 'blinix-custom-font' -%} {% endcomment %}
 
     <!-- Google Tag Manager (noscript) -->
     <noscript

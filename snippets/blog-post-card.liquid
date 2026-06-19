@@ -35,6 +35,10 @@ Supported parameters
       <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="blog-post-card__category {{ category_class | default: 'h6' }} link-faded">{{ article.tags | first }}</a>
     {%- endif -%}
 
+    {% if section.settings.cstm_style %}
+      <span class="blogs_date">{{ article.published_at | date: "%b %d, %Y" }}</span>
+    {% endif %}
+
     {%- if article -%}
       <p>
         <a href="{{ article.url }}" class="blog-post-card__title {{ title_class | default: 'h4' }}">{{ article.title }}</a>
@@ -46,7 +50,7 @@ Supported parameters
     {%- if show_excerpt -%}
       {%- if article -%}
         {%- unless article.excerpt_or_content == blank -%}
-          <p class="blog-post-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 200 }}</p>
+          <p class="blog-post-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 100 }}</p>
         {%- endunless -%}
       {%- else -%}
         <p class="blog-post-card__excerpt">{{ 'general.on_boarding.blog_post_excerpt' | t }}</p>

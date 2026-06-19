@@ -1,4 +1,8 @@
-<div class="section-spacing section-spacing--tight">
+{% if section.settings.cstm_style %}
+  {{ 'blog-main.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<div class="section-spacing section-spacing--tight {% if section.settings.cstm_style %}cstm_blog-main{% endif %}">
   {%- if blog.articles_count == 0 -%}
     <div class="container container--xs">
       <div class="empty-state">
@@ -49,9 +53,27 @@
           </div>
         {%- endif -%}
 
-        <div class="v-stack gap-8 sm:gap-12">
+        {% if section.settings.cstm_style %}
+          <div class="blogs_header">
+            <h2 class="blogs__title title_title">{{ section.settings.cstm_title | default: blog.title }}</h2>
+            {% if section.settings.cstm_subtitle != blank %}
+              <p class="blocgs__subtitle">{{ section.settings.cstm_subtitle }}</p>
+            {% endif %}
+            <div class="blogs__tabs">
+              {% for block in section.blocks %}
+                {% if block.type == 'tabs' and block.settings.label != blank %}
+                  <a href="{{ block.settings.url }}" class="blogs__tab {% if request.path == block.settings.url %} active{% endif %}">
+                    {{ block.settings.label }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="v-stack gap-8 sm:gap-12 {% if section.settings.cstm_style %}cstm_blog-wrapper{% endif %}">
           {%- paginate blog.articles by section.settings.posts_per_page -%}
-            <blog-posts class="blog-post-list" {% if settings.stagger_blog_posts_apparition %}reveal-on-scroll="true"{% endif %}>
+            <blog-posts {% if section.settings.cstm_style %}id="cstm_blog-post-list__id"{% endif %} class="blog-post-list {% if section.settings.cstm_style %} cstm_blog-post-list {% endif %}" {% if settings.stagger_blog_posts_apparition %}reveal-on-scroll="true"{% endif %}>
               {%- capture sizes -%}(max-width: 699px) 95vw, (max-width: 1149px) calc(100vw / 2), calc((80rem - (5rem * ({{ section.settings.blog.articles_count | default: 3 | at_most: 3 }} - 1) / 3){%- endcapture -%}
 
               {%- for article in blog.articles -%}
@@ -98,6 +120,22 @@
   "class": "shopify-section--main-blog",
   "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "cstm_style",
+      "label": "Enable Custom Style",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cstm_title",
+      "label": "Custom Title"
+    },
+    {
+      "type": "text",
+      "id": "cstm_subtitle",
+      "label": "Custom Subtitle"
+    },
     {
       "type": "checkbox",
       "id": "show_blog_title",
@@ -177,6 +215,24 @@
       "label": "t:global.blog.show_read_more",
       "default": true
     }
-  ]
+  ],
+  "blocks": [
+    {
+      "type": "tabs",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab Label"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Tab url"
+        }
+      ]
+    }
+  ],
 }
 {% endschema %}

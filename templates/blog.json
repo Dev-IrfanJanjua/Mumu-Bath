@@ -9,24 +9,107 @@
  */
 {
   "sections": {
+    "page_banner_FFUYP6": {
+      "type": "page-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "title": "<p>Mumu Bath <br/>Wellness Journal</p>",
+        "subtitle": "Explore skin-loving rituals, ingredient stories, bath care\ntips, and self-care inspiration rooted in natural ingredients",
+        "text_align": "center",
+        "content_max_width": 540,
+        "bg_image_desktop": "shopify://shop_images/Frame_2147241468.png",
+        "bg_focal_desktop": "center center",
+        "bg_image_mobile": "shopify://shop_images/Frame_2147241468_1.png",
+        "bg_focal_mobile": "center center",
+        "overlay_opacity": 0,
+        "content_align_v": "flex-end",
+        "content_align_h": "center",
+        "min_height_desktop": 500,
+        "min_height_mobile": 560,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "section_bg_color": "#1a1a1a",
+        "overlay_color": "#000000",
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff"
+      }
+    },
     "main": {
       "type": "main-blog",
+      "blocks": {
+        "tabs_XzUxXB": {
+          "type": "tabs",
+          "settings": {
+            "label": "All Articles",
+            "url": "shopify://blogs/mumu-bath"
+          }
+        },
+        "tabs_FKkqwi": {
+          "type": "tabs",
+          "settings": {
+            "label": "Soaps",
+            "url": "shopify://blogs/news"
+          }
+        },
+        "tabs_GMXcr7": {
+          "type": "tabs",
+          "settings": {
+            "label": "Body Butter & Body Creams",
+            "url": "shopify://blogs/blog"
+          }
+        },
+        "tabs_qeFcMC": {
+          "type": "tabs",
+          "settings": {
+            "label": "Face",
+            "url": "shopify://blogs/blog"
+          }
+        },
+        "tabs_NVhrFr": {
+          "type": "tabs",
+          "settings": {
+            "label": "Candles & Fragrance",
+            "url": "shopify://blogs/blog"
+          }
+        },
+        "tabs_zH4nyU": {
+          "type": "tabs",
+          "settings": {
+            "label": "Accessories",
+            "url": "shopify://blogs/blog"
+          }
+        }
+      },
+      "block_order": [
+        "tabs_XzUxXB",
+        "tabs_FKkqwi",
+        "tabs_GMXcr7",
+        "tabs_qeFcMC",
+        "tabs_NVhrFr",
+        "tabs_zH4nyU"
+      ],
       "settings": {
-        "show_blog_title": true,
+        "cstm_style": true,
+        "cstm_title": "Featured Reads",
+        "cstm_subtitle": "Our favorite guides to help you understand your skin, choose better ingredients, and create simple everyday rituals.",
+        "show_blog_title": false,
         "show_rss_feed": false,
         "show_tags": false,
-        "posts_per_page": 18,
+        "posts_per_page": 6,
         "feature_first_blog_post": false,
         "featured_blog_post_text_color": "#ffffff",
         "featured_blog_post_button_background": "#ffffff",
         "featured_blog_post_button_text_color": "#1c1c1c",
         "show_category": false,
-        "show_excerpt": false,
-        "show_read_more": true
+        "show_excerpt": true,
+        "show_read_more": false
       }
     }
   },
   "order": [
+    "page_banner_FFUYP6",
     "main"
   ]
 }
