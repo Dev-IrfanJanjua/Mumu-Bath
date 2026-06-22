@@ -1,0 +1,745 @@
+{% comment %} FAQ Section with Tabs {% endcomment %}
+
+<style>
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.section_bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  /* ── Main title ── */
+  .section-{{ section.id }} .faq-main-title.title_title {
+    color: {{ section.settings.title_color }};
+    text-align: center;
+    margin: 0 0 48px;
+  }
+
+  /* ── Two-column layout ── */
+  .section-{{ section.id }} .faq-body {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ── Left: sticky tabs ── */
+  .section-{{ section.id }} .faq-tabs {
+    position: sticky;
+    top: 100px;
+  }
+
+  .section-{{ section.id }} .faq-tabs__heading {
+    color: {{ section.settings.secondary_title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 16px;
+  }
+
+  .section-{{ section.id }} .faq-tabs__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-{{ section.id }} .faq-tabs__item {
+    border-top: 1px solid {{ section.settings.divider_color }};
+  }
+
+  .section-{{ section.id }} .faq-tabs__item:last-child {
+    border-bottom: 1px solid {{ section.settings.divider_color }};
+  }
+
+  .section-{{ section.id }} .faq-tabs__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: {{ section.settings.tab_text_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+
+  .section-{{ section.id }} .faq-tabs__btn[aria-selected="true"] {
+    background-color: {{ section.settings.tab_active_bg }};
+    color: {{ section.settings.tab_active_text_color }};
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  /* Radio indicator */
+  .section-{{ section.id }} .faq-tabs__radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid {{ section.settings.tab_radio_border }};
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .section-{{ section.id }} .faq-tabs__btn[aria-selected="true"] .faq-tabs__radio {
+    border-color: {{ section.settings.tab_radio_active_color }};
+  }
+
+  .section-{{ section.id }} .faq-tabs__radio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: {{ section.settings.tab_radio_active_color }};
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .section-{{ section.id }} .faq-tabs__btn[aria-selected="true"] .faq-tabs__radio-dot {
+    opacity: 1;
+  }
+
+  /* ── Right: FAQ panels ── */
+  .section-{{ section.id }} .faq-panels {
+    min-width: 0;
+  }
+
+  .section-{{ section.id }} .faq-panel {
+    display: none;
+  }
+
+  .section-{{ section.id }} .faq-panel.is-active {
+    display: block;
+  }
+
+  .section-{{ section.id }} .faq-panel__heading {
+    color: {{ section.settings.secondary_title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 12px;
+  }
+
+  .section-{{ section.id }} .faq-panel__divider {
+    border: none;
+    border-top: 1px solid {{ section.settings.divider_color }};
+    margin: 0 0 4px;
+  }
+
+  /* ── Accordion items ── */
+  .section-{{ section.id }} .faq-item {
+    border-bottom: 1px solid {{ section.settings.divider_color }};
+  }
+
+  .section-{{ section.id }} .faq-item__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .section-{{ section.id }} .faq-item__question {
+    color: {{ section.settings.question_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    flex: 1;
+  }
+
+  .section-{{ section.id }} .faq-item__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.icon_color }};
+    transition: transform 0.35s ease;
+  }
+
+  .section-{{ section.id }} .faq-item__icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+
+  .section-{{ section.id }} .faq-item.is-open .faq-item__icon {
+    transform: rotate(45deg);
+  }
+
+  /* Smooth height animation */
+  .section-{{ section.id }} .faq-item__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.36s ease;
+  }
+
+  .section-{{ section.id }} .faq-item.is-open .faq-item__body {
+    grid-template-rows: 1fr;
+  }
+
+  .section-{{ section.id }} .faq-item__body-inner {
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} .faq-item__answer {
+    color: {{ section.settings.answer_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    padding: 0 0 18px;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .faq-main-title.title_title {
+      margin-bottom: 32px;
+    }
+
+    .section-{{ section.id }} .faq-body {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .section-{{ section.id }} .faq-tabs {
+      position: static;
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }}" id="shopify-section-{{ section.id }}">
+  <div class="page-width">
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="faq-main-title title_title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="faq-body">
+
+        <!-- Left: tabs -->
+        <div class="faq-tabs" role="tablist" aria-label="FAQ categories">
+          {%- if section.settings.tabs_heading != blank -%}
+            <p class="faq-tabs__heading">{{ section.settings.tabs_heading }}</p>
+          {%- endif -%}
+
+          <ul class="faq-tabs__list">
+            {%- for block in section.blocks -%}
+              <li class="faq-tabs__item" role="presentation">
+                <button
+                  class="faq-tabs__btn"
+                  role="tab"
+                  id="faq-tab-{{ section.id }}-{{ forloop.index }}"
+                  aria-controls="faq-panel-{{ section.id }}-{{ forloop.index }}"
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  <span>{{ block.settings.tab_label }}</span>
+                  <span class="faq-tabs__radio" aria-hidden="true">
+                    <span class="faq-tabs__radio-dot"></span>
+                  </span>
+                </button>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <!-- Right: panels -->
+        <div class="faq-panels">
+          {%- for block in section.blocks -%}
+            <div
+              class="faq-panel{% if forloop.first %} is-active{% endif %}"
+              id="faq-panel-{{ section.id }}-{{ forloop.index }}"
+              role="tabpanel"
+              aria-labelledby="faq-tab-{{ section.id }}-{{ forloop.index }}"
+            >
+
+              {%- if block.settings.tab_label != blank -%}
+                <h3 class="faq-panel__heading">{{ block.settings.tab_label }}</h3>
+              {%- endif -%}
+              <hr class="faq-panel__divider">
+
+              {%- comment -%} Collect all non-blank FAQ pairs {%- endcomment -%}
+              {%- assign first_open_set = false -%}
+              {%- for i in (1..10) -%}
+                {%- assign q_key = 'faq_q_' | append: i -%}
+                {%- assign a_key = 'faq_a_' | append: i -%}
+                {%- assign faq_q = block.settings[q_key] -%}
+                {%- assign faq_a = block.settings[a_key] -%}
+                {%- if faq_q != blank -%}
+                  {%- assign item_open = false -%}
+                  {%- unless first_open_set -%}
+                    {%- assign item_open = true -%}
+                    {%- assign first_open_set = true -%}
+                  {%- endunless -%}
+                  <div class="faq-item{% if item_open %} is-open{% endif %}">
+                    <button
+                      class="faq-item__trigger"
+                      aria-expanded="{{ item_open }}"
+                      aria-controls="faq-answer-{{ section.id }}-{{ block.id }}-{{ i }}"
+                    >
+                      <span class="faq-item__question">{{ faq_q }}</span>
+                      <span class="faq-item__icon" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line x1="10" y1="3" x2="10" y2="17" stroke-width="1.6" stroke-linecap="round"/>
+                          <line x1="3" y1="10" x2="17" y2="10" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <div
+                      class="faq-item__body"
+                      id="faq-answer-{{ section.id }}-{{ block.id }}-{{ i }}"
+                    >
+                      <div class="faq-item__body-inner">
+                        {%- if faq_a != blank -%}
+                          <p class="faq-item__answer">{{ faq_a }}</p>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+
+            </div>
+          {%- endfor -%}
+        </div>
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+  if (!sectionEl) return;
+
+  /* ── Tab switching ── */
+  var tabBtns   = sectionEl.querySelectorAll('.faq-tabs__btn');
+  var panels    = sectionEl.querySelectorAll('.faq-panel');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('aria-controls');
+
+      tabBtns.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
+      panels.forEach(function (p)  { p.classList.remove('is-active'); });
+
+      btn.setAttribute('aria-selected', 'true');
+      var targetPanel = sectionEl.querySelector('#' + targetId);
+      if (targetPanel) targetPanel.classList.add('is-active');
+    });
+  });
+
+  /* ── Accordion (one open at a time, per panel) ── */
+  panels.forEach(function (panel) {
+    var items = panel.querySelectorAll('.faq-item');
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('.faq-item__trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        // close all in this panel
+        items.forEach(function (el) {
+          el.classList.remove('is-open');
+          el.querySelector('.faq-item__trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        // open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Tabs",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "tabs_heading",
+      "label": "Tabs Column Heading",
+      "default": "FAQ's"
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Colors – Section"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Titles"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Main Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "secondary_title_color",
+      "label": "Secondary Title Color (tabs heading, panel heading)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Tabs"
+    },
+    {
+      "type": "color",
+      "id": "tab_text_color",
+      "label": "Tab Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_bg",
+      "label": "Active Tab Background",
+      "default": "#FBDD40"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_text_color",
+      "label": "Active Tab Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tab_radio_border",
+      "label": "Tab Radio Border (inactive)",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "tab_radio_active_color",
+      "label": "Tab Radio Active Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Colors – FAQ Accordion"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Plus / Minus Icon Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider Line Color",
+      "default": "#e0e0e0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "FAQ Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Label",
+          "default": "Orders"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 1"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_1",
+          "label": "Question 1",
+          "default": "Do you offer gift cards?"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_1",
+          "label": "Answer 1",
+          "default": "Yes, gift cards are available through the Mumu Bath gift shop."
+        },
+        {
+          "type": "header",
+          "content": "FAQ 2"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_2",
+          "label": "Question 2",
+          "default": "Can I order gifts for a team or event?"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 3"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_3",
+          "label": "Question 3",
+          "default": "Can I include a note with my gift?"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 4"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_4",
+          "label": "Question 4"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_4",
+          "label": "Answer 4"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 5"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_5",
+          "label": "Question 5"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_5",
+          "label": "Answer 5"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 6"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_6",
+          "label": "Question 6"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_6",
+          "label": "Answer 6"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 7"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_7",
+          "label": "Question 7"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_7",
+          "label": "Answer 7"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 8"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_8",
+          "label": "Question 8"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_8",
+          "label": "Answer 8"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 9"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_9",
+          "label": "Question 9"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_9",
+          "label": "Answer 9"
+        },
+        {
+          "type": "header",
+          "content": "FAQ 10"
+        },
+        {
+          "type": "text",
+          "id": "faq_q_10",
+          "label": "Question 10"
+        },
+        {
+          "type": "textarea",
+          "id": "faq_a_10",
+          "label": "Answer 10"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Orders",
+            "faq_q_1": "Do you offer gift cards?",
+            "faq_a_1": "Yes, gift cards are available through the Mumu Bath gift shop.",
+            "faq_q_2": "Can I order gifts for a team or event?",
+            "faq_q_3": "Can I include a note with my gift?"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Shipping",
+            "faq_q_1": "How much do you charge for shipping?",
+            "faq_q_2": "How long does shipping take?",
+            "faq_q_3": "Do you ship internationally?",
+            "faq_q_4": "What should I do if my package is delayed?"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Returns",
+            "faq_q_1": "What is your return policy?",
+            "faq_q_2": "Can children take these gummies?",
+            "faq_q_3": "Can I exchange a product?"
+          }
+        },
+        { "type": "tab", "settings": { "tab_label": "Products" } },
+        { "type": "tab", "settings": { "tab_label": "Wholesale" } },
+        { "type": "tab", "settings": { "tab_label": "Gifting" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

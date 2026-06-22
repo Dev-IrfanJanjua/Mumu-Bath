@@ -1,0 +1,706 @@
+{% comment %}
+  ============================================================
+  Subscribe & Save Widget — snippet
+  ============================================================
+  Usage: {% render 'subscribe-save-widget', product: product, section: section %}
+{% endcomment %}
+
+{%- liquid
+  assign widget_id = 'ssw-' | append: section.id
+
+  assign default_purchase_type = block.settings.default_purchase_type | default: 'subscribe'
+
+  assign variant = product.selected_or_first_available_variant
+
+  assign sub_heading      = block.settings.sub_heading       | default: 'Subscribe & Save'
+  assign otp_heading      = block.settings.otp_heading       | default: 'One Time Purchase'
+  assign freq_label       = block.settings.freq_label        | default: 'DELIVERY FREQUENCY'
+  assign freq_description = block.settings.freq_description  | default: 'You Will Receive A Shipment Every Two Months'
+  assign sub_discount_pct = block.settings.sub_discount_pct  | default: 0
+
+-%}
+
+<style>
+  #{{ widget_id }} {
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ssw-purchase-row {
+    border: 1.5px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    background-color: {{ block.settings.card_bg }};
+  }
+
+  .ssw-purchase-row.is-selected {
+    border-color: {{ block.settings.selected_border_color }};
+    background-color: {{ block.settings.selected_card_bg }};
+  }
+
+  .ssw-purchase-row__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ssw-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid {{ block.settings.radio_border_color }};
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .ssw-purchase-row.is-selected .ssw-radio {
+    {% comment %} border-color: {{ block.settings.radio_active_color }}; {% endcomment %}
+    border-color: #000;
+  }
+
+  .ssw-radio__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: {{ block.settings.radio_active_color }};
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .ssw-purchase-row.is-selected .ssw-radio__dot {
+    opacity: 1;
+  }
+
+  .ssw-plan.is-selected .ssw-radio {
+    {% comment %} border-color: {{ block.settings.radio_active_color }}; {% endcomment %}
+    border-color: #000;
+  }
+
+  .ssw-plan.is-selected .ssw-radio__dot {
+    opacity: 1;
+  }
+
+  .ssw-purchase-row__label {
+    color: {{ block.settings.label_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 44px;
+    background-color: {{ block.settings.badge_bg }};
+    color: {{ block.settings.badge_text_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ssw-sub-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s ease;
+    margin-top: 0;
+  }
+
+  .ssw-sub-content.is-visible {
+    grid-template-rows: 1fr;
+  }
+
+  .ssw-sub-content__inner {
+    overflow: hidden;
+  }
+
+  .ssw-sub-content__body {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 28px;
+  }
+
+  .ssw-freq-label {
+    color: {{ block.settings.freq_label_color }};
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-select {
+    background-color: {{ block.settings.select_bg }};
+    border: 1px solid {{ block.settings.border_color }};
+    color: {{ block.settings.label_color }};
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 6px;
+    padding: 12px 36px 12px 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23333' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    width: fit-content;
+    min-width: 200px;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-freq-desc {
+    color: {{ block.settings.freq_desc_color }};
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 148%;
+    text-transform: capitalize;
+  }
+
+  .ssw-plans {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 10px;
+  }
+
+  .ssw-plan {
+    position: relative;
+    border: 1.5px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 24px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: {{ block.settings.card_bg }};
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .ssw-plan.is-selected {
+    border-color: {{ block.settings.selected_border_color }};
+    background-color: {{ block.settings.selected_card_bg }};
+  }
+
+  .ssw-plan__image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+
+  .ssw-plan__image-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: #e8e4da;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .ssw-plan__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ssw-plan__title {
+    color: {{ block.settings.plan_title_color }};
+    margin: 0 0 2px;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18.3px;
+    letter-spacing: 0;
+  }
+
+  .ssw-plan__save {
+    color: {{ block.settings.plan_save_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18.3px;
+    letter-spacing: -0.31px;
+    margin: 0;
+  }
+
+  .ssw-plan__pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .ssw-plan__price {
+    color: {{ block.settings.price_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18.3px;
+    letter-spacing: 0;
+  }
+
+  .ssw-plan__compare {
+    color: {{ block.settings.compare_color }};
+    text-decoration: line-through;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18.3px;
+    letter-spacing: 0;
+  }
+
+  .ssw-plan__tag {
+    background-color: {{ block.settings.badge_bg }};
+    color: {{ block.settings.badge_text_color }};
+    position: absolute;
+    top: -1px;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 6px 8px;
+    border-radius: 44px;
+    white-space: nowrap;
+    font-family: "Plus Jakarta Sans";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  #{{ widget_id }}-qty-input,
+  #{{ widget_id }}-variant-input {
+    display: none !important;
+  }
+</style>
+
+<div
+  id="{{ widget_id }}"
+  data-widget="subscribe-save"
+  data-default-purchase="{{ default_purchase_type }}"
+  data-sub-discount="{{ sub_discount_pct }}"
+  data-product-id="{{ product.id }}"
+>
+
+  <input
+    type="hidden"
+    name="quantity"
+    id="{{ widget_id }}-qty-input"
+    value="1"
+    data-ssw-quantity
+  >
+  <input
+    type="hidden"
+    name="id"
+    id="{{ widget_id }}-variant-input"
+    value="{{ product.selected_or_first_available_variant.id }}"
+    data-ssw-variant
+  >
+
+  <!-- ── One-Time Purchase row ── -->
+  <div
+    class="ssw-purchase-row{% if default_purchase_type == 'one_time' %} is-selected{% endif %}"
+    data-ssw-purchase-row="one_time"
+    role="radio"
+    aria-checked="{% if default_purchase_type == 'one_time' %}true{% else %}false{% endif %}"
+    tabindex="0"
+  >
+    <div class="ssw-purchase-row__header">
+      <span class="ssw-radio" aria-hidden="true">
+        <span class="ssw-radio__dot"></span>
+      </span>
+      <span class="ssw-purchase-row__label">{{ otp_heading }}</span>
+    </div>
+  </div>
+
+  <!-- ── Subscribe & Save row ── -->
+  <div
+    class="ssw-purchase-row{% if default_purchase_type == 'subscribe' %} is-selected{% endif %}"
+    data-ssw-purchase-row="subscribe"
+    role="radio"
+    aria-checked="{% if default_purchase_type == 'subscribe' %}true{% else %}false{% endif %}"
+    tabindex="0"
+  >
+    <div class="ssw-purchase-row__header">
+      <span class="ssw-radio" aria-hidden="true">
+        <span class="ssw-radio__dot"></span>
+      </span>
+      <span class="ssw-purchase-row__label">{{ sub_heading }}</span>
+      <span class="ssw-badge" data-ssw-sub-badge data-check="{{ sub_discount_pct }}">save {{ sub_discount_pct }}%</span>
+    </div>
+
+    <div
+      class="ssw-sub-content{% if default_purchase_type == 'subscribe' %} is-visible{% endif %}"
+      data-ssw-sub-content
+    >
+      <div class="ssw-sub-content__inner">
+        <div class="ssw-sub-content__body">
+          <p class="ssw-freq-label">{{ freq_label }}</p>
+
+          {% assign total_plans = 0 %}
+
+            {% for group in product.selling_plan_groups %}
+            {% assign total_plans = total_plans | plus: group.selling_plans.size %}
+            {% endfor %}
+
+            {% if total_plans > 1 %}
+
+            <select
+                class="ssw-select"
+                data-ssw-frequency
+                aria-label="Subscription Plan"
+            >
+                {% for group in product.selling_plan_groups %}
+                {% for plan in group.selling_plans %}
+                    
+                    {% assign discount = 0 %}
+
+                    {% if plan.price_adjustments.first %}
+                    {% assign adjustment = plan.price_adjustments.first %}
+
+                    {% if adjustment.value_type == 'percentage' %}
+                        {% assign discount = adjustment.value %}
+                    {% endif %}
+                    {% endif %}
+
+                    <option
+                        value="{{ plan.id }}"
+                        data-id="{{ plan.id }}"
+                        data-title="{{ plan.name }}"
+                        data-discount="{{ discount }}%"
+                    >
+                    {{ plan.name }}
+                    </option>
+
+                {% endfor %}
+                {% endfor %}
+            </select>
+
+            {% elsif total_plans == 1 %}
+
+            {% for group in product.selling_plan_groups %}
+                {% for plan in group.selling_plans %}
+
+                {% assign discount = 0 %}
+
+                {% if plan.price_adjustments.first %}
+                    {% assign adjustment = plan.price_adjustments.first %}
+
+                    {% if adjustment.value_type == 'percentage' %}
+                    {% assign discount = adjustment.value %}
+                    {% endif %}
+                {% endif %}
+
+                <input
+                    type="hidden"
+                    name="selling_plan"
+                    value="{{ plan.id }}"
+                    data-id="{{ plan.id }}"
+                    data-title="{{ plan.name }}"
+                    data-discount="{{ discount }}"
+                >
+
+                {% endfor %}
+            {% endfor %}
+
+            {% endif %}
+
+          <p class="ssw-freq-desc" data-ssw-freq-desc>{{ freq_description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Plan cards ── -->
+  <div class="ssw-plans" role="radiogroup" aria-label="Select a plan" data-ssw-plans>
+
+    {%- for i in (1..5) -%}
+      {%- assign qty_key   = 'plan_qty_'   | append: i -%}
+      {%- assign title_key = 'plan_title_' | append: i -%}
+      {%- assign img_key   = 'plan_image_' | append: i -%}
+      {%- assign tag_key   = 'plan_tag_'   | append: i -%}
+
+      {%- assign plan_qty   = block.settings[qty_key] | plus: 0 -%}
+      {%- assign plan_title = block.settings[title_key] -%}
+      {%- assign plan_image = block.settings[img_key] -%}
+      {%- assign plan_tag   = block.settings[tag_key] -%}
+
+      {%- if plan_qty > 0 -%}
+
+        {%- comment -%} Prices {%- endcomment -%}
+        {%- assign plan_price = variant.price | times: plan_qty -%}
+        {%- assign plan_cmp   = variant.compare_at_price | times: plan_qty -%}
+
+        {%- comment -%} One-time savings vs compare_at_price {%- endcomment -%}
+        {%- assign otp_save_cents = plan_cmp | minus: plan_price -%}
+        {%- if plan_cmp > 0 and otp_save_cents > 0 -%}
+          {%- assign otp_save_pct = otp_save_cents | times: 100.0 | divided_by: plan_cmp | round -%}
+        {%- else -%}
+          {%- assign otp_save_pct = 0 -%}
+        {%- endif -%}
+
+        {%- comment -%} Subscription price = plan_price minus sub_discount_pct {%- endcomment -%}
+        {%- assign sub_discount_factor = sub_discount_pct | times: 1.0 | divided_by: 100.0 -%}
+        {%- assign sub_discount_cents  = plan_price | times: sub_discount_factor -%}
+        {%- assign sub_final_cents     = plan_price | minus: sub_discount_cents | round -%}
+
+        {%- comment -%}
+          Sub save % is relative to compare_at_price when available,
+          otherwise relative to the one-time plan_price.
+        {%- endcomment -%}
+        {%- if plan_cmp > 0 -%}
+          {%- assign sub_save_vs = plan_cmp -%}
+        {%- else -%}
+          {%- assign sub_save_vs = plan_price -%}
+        {%- endif -%}
+        {%- assign sub_save_cents = sub_save_vs | minus: sub_final_cents -%}
+        {%- assign sub_save_pct   = sub_save_cents | times: 100.0 | divided_by: sub_save_vs | round -%}
+
+        {%- comment -%} Plan title fallback {%- endcomment -%}
+        {%- if plan_title != blank -%}
+          {%- assign display_title = plan_title -%}
+        {%- else -%}
+          {%- assign display_title = 'Pack of ' | append: plan_qty -%}
+        {%- endif -%}
+
+        {% assign selected_plan = block.settings.default_selected_plan | plus: 0 %}
+
+        <div
+          class="ssw-plan{% if forloop.index == selected_plan %} is-selected{% endif %}"
+          data-ssw-plan
+          data-plan-index="{{ i }}"
+          data-quantity="{{ plan_qty }}"
+
+          data-price-cents="{{ plan_price }}"
+          data-compare-cents="{{ plan_cmp }}"
+          data-otp-save-pct="{{ otp_save_pct }}"
+
+          data-sub-price-cents="{{ sub_final_cents }}"
+          data-sub-save-pct="{{ sub_save_pct }}"
+          data-sub-id="sub-plan-{{ section.id }}-{{ i }}"
+          data-sub-title="{{ display_title | escape }} — {{ sub_discount_pct }}% off"
+
+          data-title="{{ display_title | escape }}"
+          role="radio"
+          aria-checked="{% if forloop.index == selected_plan %}true{% else %}false{% endif %}"
+          tabindex="0"
+        >
+
+          {%- if plan_tag != blank -%}
+            <span class="ssw-plan__tag" data-ssw-plan-tag>{{ plan_tag }}</span>
+          {%- endif -%}
+
+          <span class="ssw-radio" aria-hidden="true">
+            <span class="ssw-radio__dot"></span>
+          </span>
+
+          {%- if plan_image != blank -%}
+            {{
+              plan_image
+              | image_url: width: 100
+              | image_tag:
+                loading: 'lazy',
+                class: 'ssw-plan__image',
+                widths: '48, 96',
+                sizes: '48px',
+                alt: display_title
+            }}
+          {%- else -%}
+            <span class="ssw-plan__image-placeholder" aria-hidden="true"></span>
+          {%- endif -%}
+
+          <div class="ssw-plan__info">
+            <p class="ssw-plan__title" data-ssw-plan-title>{{ display_title }}</p>
+            <p class="ssw-plan__save" data-ssw-plan-save></p>
+          </div>
+
+          <div class="ssw-plan__pricing">
+            <span class="ssw-plan__price" data-ssw-plan-price></span>
+            <span class="ssw-plan__compare" data-ssw-plan-compare style="display:none;"></span>
+          </div>
+
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var widget = document.getElementById('{{ widget_id }}');
+  if (!widget) return;
+
+  var moneyFormat = {{ shop.money_format | json }};
+  var isSubscribe = widget.dataset.defaultPurchase === 'subscribe';
+
+  var purchaseRows = widget.querySelectorAll('[data-ssw-purchase-row]');
+  var subContent   = widget.querySelector('[data-ssw-sub-content]');
+  var planCards    = widget.querySelectorAll('[data-ssw-plan]');
+  var qtyInput     = widget.querySelector('[data-ssw-quantity]');
+
+  /* ── Money formatter ── */
+  function formatMoney(cents) {
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+      return Shopify.formatMoney(cents, moneyFormat);
+    }
+    /* Fallback: basic dollar/cent */
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  /* ── Re-render all plan cards for the current purchase type ── */
+  function updatePlanPrices() {
+    planCards.forEach(function (card) {
+      var priceCents   = parseInt(card.dataset.priceCents,   10) || 0;
+      var compareCents = parseInt(card.dataset.compareCents, 10) || 0;
+      var subCents     = parseInt(card.dataset.subPriceCents,10) || 0;
+      var otpSavePct   = parseInt(card.dataset.otpSavePct,   10) || 0;
+      var subSavePct   = parseInt(card.dataset.subSavePct,   10) || 0;
+
+      var priceEl   = card.querySelector('[data-ssw-plan-price]');
+      var compareEl = card.querySelector('[data-ssw-plan-compare]');
+      var saveEl    = card.querySelector('[data-ssw-plan-save]');
+
+      if (isSubscribe) {
+        /* ── Subscribe mode ── */
+        /* Main price = discounted subscription price */
+        if (priceEl) priceEl.textContent = formatMoney(subCents);
+
+        /* Compare = original one-time price (struck through) */
+        if (compareEl) {
+          if (priceCents > 0 && subCents < priceCents) {
+            compareEl.textContent    = formatMoney(priceCents);
+            compareEl.style.display  = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+
+        /* Save text = sub save % vs compare_at / one-time */
+        if (saveEl) {
+          if (subSavePct > 0) {
+            saveEl.textContent  = 'Save ' + subSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+
+      } else {
+        /* ── One-time mode ── */
+        if (priceEl) priceEl.textContent = formatMoney(priceCents);
+
+        if (compareEl) {
+          if (compareCents > 0 && compareCents > priceCents) {
+            compareEl.textContent   = formatMoney(compareCents);
+            compareEl.style.display = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+
+        if (saveEl) {
+          if (otpSavePct > 0) {
+            saveEl.textContent   = 'Save ' + otpSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+      }
+    });
+  }
+
+  /* ── Switch purchase type ── */
+  function selectPurchaseType(type) {
+    isSubscribe = (type === 'subscribe');
+    widget.dataset.activePurchase = type;
+
+    purchaseRows.forEach(function (row) {
+      var active = row.dataset.sswPurchaseRow === type;
+      row.classList.toggle('is-selected', active);
+      row.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
+
+    if (subContent) subContent.classList.toggle('is-visible', isSubscribe);
+
+    updatePlanPrices();
+  }
+
+  /* ── Select a plan card ── */
+  function selectPlan(card) {
+    planCards.forEach(function (c) {
+      c.classList.remove('is-selected');
+      c.setAttribute('aria-checked', 'false');
+    });
+    card.classList.add('is-selected');
+    card.setAttribute('aria-checked', 'true');
+
+    if (qtyInput) qtyInput.value = card.dataset.quantity || 1;
+  }
+
+  /* ── Event listeners ── */
+  purchaseRows.forEach(function (row) {
+    row.addEventListener('click', function () {
+      selectPurchaseType(row.dataset.sswPurchaseRow);
+    });
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPurchaseType(row.dataset.sswPurchaseRow);
+      }
+    });
+  });
+
+  planCards.forEach(function (card) {
+    card.addEventListener('click', function () { selectPlan(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPlan(card);
+      }
+    });
+  });
+
+  /* ── Init ── */
+  selectPurchaseType(widget.dataset.defaultPurchase || 'subscribe');
+  var defaultSelected = widget.querySelector('.ssw-plan.is-selected');
+
+    if (defaultSelected) {
+    selectPlan(defaultSelected);
+    } else if (planCards.length > 0) {
+    selectPlan(planCards[0]);
+    }
+
+})();
+</script>

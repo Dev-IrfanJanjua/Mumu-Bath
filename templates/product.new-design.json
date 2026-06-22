@@ -17,33 +17,125 @@
           "disabled": true,
           "settings": {}
         },
+        "ratings_PRKteR": {
+          "type": "ratings",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_36.svg",
+            "text": "<strong>4.45</strong>  (5.3k) reviews"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
             "heading_tag": "h3"
           }
         },
+        "subtitle_TqJGVn": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Brightening Citrus Olive Oil Soap Bar"
+          }
+        },
+        "short_desc_PCTrwt": {
+          "type": "short_desc",
+          "settings": {
+            "short_desc": "Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin."
+          }
+        },
+        "sub_bundle_9YPwfn": {
+          "type": "sub_bundle",
+          "settings": {
+            "default_purchase_type": "subscribe",
+            "default_selected_plan": 2,
+            "otp_heading": "One Time Purchase",
+            "sub_heading": "Subscribe & Save",
+            "sub_discount_pct": 8,
+            "freq_label": "DELIVERY FREQUENCY",
+            "freq_description": "You Will Receive A Shipment Every Two Months",
+            "plan_qty_1": 1,
+            "plan_title_1": "Pack One",
+            "plan_image_1": "shopify://shop_images/image_1595.png",
+            "plan_tag_1": "",
+            "plan_qty_2": 2,
+            "plan_title_2": "Pack Two",
+            "plan_image_2": "shopify://shop_images/Frame_2147243318.png",
+            "plan_tag_2": "MOST POPULAR",
+            "plan_qty_3": 3,
+            "plan_title_3": "Pack Three",
+            "plan_image_3": "shopify://shop_images/Frame_2147243318_1.png",
+            "plan_tag_3": "BEST VALUE",
+            "plan_qty_4": 4,
+            "plan_title_4": "Pack Four",
+            "plan_image_4": "shopify://shop_images/Frame_2147243318_2.png",
+            "plan_tag_4": "",
+            "plan_qty_5": 0,
+            "plan_title_5": "",
+            "plan_tag_5": "",
+            "card_bg": "#ffffff",
+            "selected_card_bg": "#F9F6EE",
+            "border_color": "#e0e0e0",
+            "selected_border_color": "#000000",
+            "radio_border_color": "#cccccc",
+            "radio_active_color": "#fbdd40",
+            "label_color": "#000000",
+            "badge_bg": "#FBDD40",
+            "badge_text_color": "#000000",
+            "freq_label_color": "#555555",
+            "freq_desc_color": "#101010",
+            "select_bg": "#FFFFFF",
+            "plan_title_color": "#000000",
+            "plan_save_color": "#000000",
+            "price_color": "#000000",
+            "compare_color": "#999999",
+            "border_radius": 12
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
         "targetbay_product_reviews_product_stats_pF9gGF": {
           "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "disabled": true,
           "settings": {}
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_taxes_notice": false
           }
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "collapse_content": false,
             "show_below_gallery": false
           }
         },
+        "accordion_fpKaYb": {
+          "type": "accordion",
+          "settings": {
+            "default_open": true,
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Description",
+            "content": "<p>Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin. Organic olive and coconut oils deeply hydrate without clogging pores, while organic orange essential oil delivers a burst of citrusy freshness to awaken your senses. <br/><br/>Infused with organic paprika, this bar offers a natural boost of antioxidants and Vitamin C, helping to protect and enhance your skin’s natural radiance.</p>",
+            "page": ""
+          }
+        },
         "accordion_N3tiJp": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Benefits",
@@ -53,8 +145,8 @@
         },
         "accordion_aM9zjH": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "How to Use",
@@ -64,8 +156,8 @@
         },
         "accordion_jwzrfA": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Scent",
@@ -75,8 +167,8 @@
         },
         "accordion_Tzq7CP": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Suitable for",
@@ -86,8 +178,8 @@
         },
         "accordion_UP6zMm": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Ingredients",
@@ -97,6 +189,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": true,
             "selector_type": "block",
@@ -106,29 +199,32 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
           "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "disabled": true,
           "settings": {}
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "feature_icons_bEqrrw": {
+          "type": "feature_icons",
           "settings": {
-            "show_payment_button": true,
-            "show_gift_card_recipient": true,
-            "atc_button_background": "",
-            "atc_button_text_color": "",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
+            "icon_1": "shopify://shop_images/Vector.svg",
+            "text_1": "Cancel anytime no hassle",
+            "icon_2": "shopify://shop_images/image.svg",
+            "text_2": "Free shipping on orders over $50",
+            "text_3": ""
           }
         },
         "separator": {
           "type": "separator",
+          "disabled": true,
           "settings": {}
         },
         "product_variations_ya4kgK": {
           "type": "product_variations",
+          "disabled": true,
           "settings": {
             "option_name": "",
             "option_value_metafield": "",
@@ -138,10 +234,12 @@
         },
         "payment_terms": {
           "type": "payment_terms",
+          "disabled": true,
           "settings": {}
         },
         "complementary_products": {
           "type": "complementary_products",
+          "disabled": true,
           "settings": {
             "title": "Pairs well with",
             "products_count": 2,
@@ -153,10 +251,16 @@
       },
       "block_order": [
         "vendor",
+        "ratings_PRKteR",
         "title",
+        "subtitle_TqJGVn",
+        "short_desc_PCTrwt",
+        "sub_bundle_9YPwfn",
+        "buy_buttons",
         "targetbay_product_reviews_product_stats_pF9gGF",
         "price",
         "description",
+        "accordion_fpKaYb",
         "accordion_N3tiJp",
         "accordion_aM9zjH",
         "accordion_jwzrfA",
@@ -165,13 +269,14 @@
         "variant_picker",
         "quantity_selector",
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
-        "buy_buttons",
+        "feature_icons_bEqrrw",
         "separator",
         "product_variations_ya4kgK",
         "payment_terms",
         "complementary_products"
       ],
       "settings": {
+        "cstm_style": true,
         "container_size": "lg",
         "product_info_size": 50,
         "show_sticky_add_to_cart": false,
@@ -181,7 +286,7 @@
         "mobile_controls": "dots",
         "enable_media_autoplay": false,
         "enable_video_looping": true,
-        "enable_image_zoom": true,
+        "enable_image_zoom": false,
         "max_image_zoom_level": 3
       }
     },

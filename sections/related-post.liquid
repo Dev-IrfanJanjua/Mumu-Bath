@@ -1,0 +1,437 @@
+{% comment %} Related Posts Section {% endcomment %}
+
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+<style>
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.section_bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  /* ── Header row ── */
+  .section-{{ section.id }} .rp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+
+  .section-{{ section.id }} .rp-title.title_title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+  }
+
+  .section-{{ section.id }} .rp-btn.btn_btn {
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding: 14px 30px;
+  }
+
+  .section-{{ section.id }} .rp-btn.btn_btn:hover {
+    background-color: {{ section.settings.btn_hover_bg_color }};
+    color: {{ section.settings.btn_hover_text_color }};
+  }
+
+  /* ── Swiper overrides ── */
+  .section-{{ section.id }} .rp-swiper {
+    overflow: hidden;
+  }
+
+  /* ── Blog card ── */
+  .section-{{ section.id }} .rp-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .section-{{ section.id }} .rp-card__image-wrap {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .section-{{ section.id }} .rp-card__image-wrap img,
+  .section-{{ section.id }} .rp-card__image-wrap svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .section-{{ section.id }} .rp-card:hover .rp-card__image-wrap img {
+    transform: scale(1.04);
+  }
+
+  .section-{{ section.id }} .rp-card__content {
+    background-color: {{ section.settings.card_content_bg }};
+    border-radius: 0 0 8px 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .section-{{ section.id }} .rp-card__date {
+    color: {{ section.settings.date_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0 0 4px;
+  }
+
+  .section-{{ section.id }} .rp-card__title {
+    color: {{ section.settings.card_title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+  }
+
+  .section-{{ section.id }} .rp-card__title:hover {
+    text-decoration: underline;
+  }
+
+  .section-{{ section.id }} .rp-card__excerpt {
+    color: {{ section.settings.excerpt_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .section-{{ section.id }} .swiper-slide {
+        display: flex;
+        height: auto;
+    }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .rp-btn.btn_btn {
+      display: none;
+    }
+
+    .section-{{ section.id }} .rp-header {
+        margin-bottom: 24px;
+        justify-content: center;
+    }
+
+    .section-{{ section.id }} .rp-swiper-{{ section.id }} {
+        margin-right: -16px;
+    }
+
+    .section-{{ section.id }} .rp-card__title {
+        font-size: 16px;
+    }
+
+    .section-{{ section.id }} .rp-card__excerpt {
+        font-size: 14px;
+    }
+
+  }
+</style>
+
+{%- liquid
+  assign current_article_id = article.id | default: 0
+  assign target_blog = blogs[section.settings.blog]
+
+  if target_blog == blank and blog
+    assign target_blog = blog
+  endif
+-%}
+
+<section class="section-{{ section.id }}" id="shopify-section-{{ section.id }}">
+  <div class="page-width">
+
+    <!-- Header -->
+    <div class="rp-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="rp-title title_title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.btn_label != blank -%}
+        {%- assign btn_href = section.settings.btn_url | default: target_blog.url | default: '#' -%}
+        <a href="{{ btn_href }}" class="rp-btn btn_btn">{{ section.settings.btn_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper rp-swiper rp-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- if target_blog != blank -%}
+          {%- assign posts_shown = 0 -%}
+          {%- for post in target_blog.articles limit: 20 -%}
+            {%- if post.id == current_article_id -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- if posts_shown >= section.settings.posts_count -%}
+              {%- break -%}
+            {%- endif -%}
+            {%- assign posts_shown = posts_shown | plus: 1 -%}
+
+            {%- assign truncated_excerpt = post.content | strip_html | truncatewords: 25 -%}
+
+            <div class="swiper-slide">
+              <div class="rp-card">
+
+                <a href="{{ post.url }}" class="rp-card__image-wrap" tabindex="-1" aria-hidden="true">
+                  {%- if post.image -%}
+                    {{
+                      post.image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '400, 600, 800',
+                        sizes: '(max-width: 768px) 90vw, 33vw',
+                        alt: post.image.alt | default: post.title | escape
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag }}
+                  {%- endif -%}
+                </a>
+
+                <div class="rp-card__content">
+                  <p class="rp-card__date">{{ post.published_at | date: '%b %-d, %Y' }}</p>
+                  <a href="{{ post.url }}" class="rp-card__title">{{ post.title }}</a>
+                  {%- if post.content != blank -%}
+                    <p class="rp-card__excerpt">{{ truncated_excerpt }}</p>
+                  {%- endif -%}
+                </div>
+
+              </div>
+            </div>
+
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.rp-swiper-{{ section.id }}', {
+      slidesPerView: 1.1,
+      spaceBetween: 12,
+      speed: 1000,
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        990: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Related Posts",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Related Posts"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog",
+      "info": "Leave blank to use the current page's blog automatically"
+    },
+    {
+      "type": "range",
+      "id": "posts_count",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Max Posts to Show",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL",
+      "info": "Leave blank to use the blog URL automatically"
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Spacing – Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Colors – Section"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Button"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#FBDD40"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_text_color",
+      "label": "Button Hover Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Colors – Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_content_bg",
+      "label": "Card Content Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "date_color",
+      "label": "Date Color",
+      "default": "#1F1F1F"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "excerpt_color",
+      "label": "Excerpt Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Posts"
+    }
+  ]
+}
+{% endschema %}

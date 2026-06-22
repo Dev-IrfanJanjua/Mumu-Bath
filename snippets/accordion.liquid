@@ -24,7 +24,7 @@ Supported parameters
 * block: an optional block to output theme editor attributes
 {%- endcomment -%}
 
-<details class="accordion {% if size %}accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
+<details class="accordion {% if size %}accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open == true %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
   <summary>
     {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
     <span class="accordion__toggle {% if show_title_as_text %}text-lg{% else %}h6{% endif %}">
@@ -39,7 +39,7 @@ Supported parameters
           {{- title -}}
         </span>
       {%- else -%}
-        <span>{{ title }}</span>
+        <span class="text-with--icon">{{ title }}</span>
       {%- endif -%}
 
       {%- if show_arrow -%}
@@ -62,3 +62,41 @@ Supported parameters
     {{- content -}}
   </div>
 </details>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll(
+    'details[is="accordion-disclosure"]'
+  );
+
+  // Handle pre-opened accordions
+  let firstOpenFound = false;
+
+  accordions.forEach((accordion) => {
+    if (accordion.hasAttribute('open')) {
+      if (!firstOpenFound) {
+        firstOpenFound = true;
+      } else {
+        accordion.removeAttribute('open');
+        accordion.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  accordions.forEach((accordion) => {
+    accordion.addEventListener('toggle', () => {
+      if (!accordion.open) return;
+
+      accordions.forEach((other) => {
+        if (other !== accordion && other.open) {
+          other.removeAttribute('open');
+          other.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      accordion.setAttribute('aria-expanded', 'true');
+    });
+  });
+});
+</script>

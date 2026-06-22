@@ -54,28 +54,30 @@
     </div>
   {%- endif -%}
 
-  <div class="article__wrapper container--{{ section.settings.content_width }}">
+  <div class="article__wrapper {% if section.settings.cstm_style %} cstm_article{% endif %} container--{{ section.settings.content_width }}">
     <div class="v-stack gap-10 sm:gap-16">
       <div class="v-stack gap-8 sm:gap-12">
-        <div class="v-stack gap-4.5">
-          {%- if section.settings.show_date or section.settings.show_category and article.tags.size > 0 -%}
-            <div class="h-stack gap-4">
-              {%- if section.settings.show_date -%}
-                <span class="h6 text-subdued"><time>{{- article.published_at | date: format: 'abbreviated_date' -}}</time></span>
-              {%- endif -%}
-
-              {%- if section.settings.show_category and article.tags.size > 0 -%}
+        {% unless section.settings.cstm_style %}
+          <div class="v-stack gap-4.5">
+            {%- if section.settings.show_date or section.settings.show_category and article.tags.size > 0 -%}
+              <div class="h-stack gap-4">
                 {%- if section.settings.show_date -%}
-                  <span class="separator-dot text-subdued"></span>
+                  <span class="h6 text-subdued"><time>{{- article.published_at | date: format: 'abbreviated_date' -}}</time></span>
                 {%- endif -%}
-
-                <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="h6 link-faded">{{ article.tags.first }}</a>
-              {%- endif -%}
-            </div>
-          {%- endif -%}
-
-          <h1 class="h1">{{ article.title }}</h1>
-        </div>
+  
+                {%- if section.settings.show_category and article.tags.size > 0 -%}
+                  {%- if section.settings.show_date -%}
+                    <span class="separator-dot text-subdued"></span>
+                  {%- endif -%}
+  
+                  <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="h6 link-faded">{{ article.tags.first }}</a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+  
+            <h1 class="h1">{{ article.title }}</h1>
+          </div>
+        {% endunless %}
 
         <div class="prose">
           {{- article.content -}}
@@ -184,6 +186,12 @@
   "class": "shopify-section--main-article",
   "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "cstm_style",
+      "label": "Enable Custom Style",
+      "default": true
+    },
     {
       "type": "paragraph",
       "content": "t:sections.main_article.comments_category_info"
@@ -306,3 +314,90 @@
   ]
 }
 {% endschema %}
+
+
+{% if section.settings.cstm_style %}
+
+{% style %}
+
+.article__wrapper.cstm_article {
+    max-width: 928px;
+    width: 100%;
+    padding: 30px 80px 50px;
+}
+
+.article__wrapper.cstm_article .prose li,
+.article__wrapper.cstm_article .prose a,
+.article__wrapper.cstm_article .prose p {
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.article__wrapper.cstm_article .prose h1,
+.article__wrapper.cstm_article .prose h6,
+.article__wrapper.cstm_article .prose h5,
+.article__wrapper.cstm_article .prose h4,
+.article__wrapper.cstm_article .prose h3,
+.article__wrapper.cstm_article .prose h2 {
+    color: var(--Black, #111);
+    font-family: "Mona Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.article__wrapper.cstm_article .prose h1{
+  font-size: 36px;
+}
+
+.article__wrapper.cstm_article .prose h3{
+  font-size: 28px;
+}
+
+.article {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px){
+
+.article__wrapper.cstm_article {
+    padding: 60px 16px 0px;
+    margin: 0;
+}
+
+.article__wrapper.cstm_article .prose li, 
+.article__wrapper.cstm_article .prose a, 
+.article__wrapper.cstm_article .prose p {
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.article__wrapper.cstm_article .prose h1, 
+.article__wrapper.cstm_article .prose h6, 
+.article__wrapper.cstm_article .prose h5, 
+.article__wrapper.cstm_article .prose h4, 
+.article__wrapper.cstm_article .prose h3, 
+.article__wrapper.cstm_article .prose h2 {
+    font-size: 28px;
+}
+
+.article__wrapper.cstm_article .prose h1{
+  font-size: 30px;
+}
+
+.article__wrapper.cstm_article .prose h3{
+  font-size: 24px;
+}
+
+}
+
+{% endstyle %}
+
+{% endif %}

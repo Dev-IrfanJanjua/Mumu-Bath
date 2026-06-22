@@ -35,11 +35,12 @@
   }
 </style>
 
-<div class="section-spacing section-spacing--tight">
+<div class="section-spacing section-spacing--tight {% if section.settings.cstm_style %} main_pdp-sec{% endif %}">
   <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
-    <div class="product">
+    <div class="product {% if section.settings.cstm_style %} main_pdp-wrapper{% endif %}">
       {%- if product.media.size > 0 -%}
-        {%- render 'product-gallery',
+        {% if section.settings.cstm_style %}
+          {%- render 'pdp-gallery',
             product: product,
             desktop_layout: section.settings.desktop_media_layout,
             mobile_controls: section.settings.mobile_controls,
@@ -47,6 +48,16 @@
             enable_video_looping: section.settings.enable_video_looping,
             enable_image_zoom: section.settings.enable_image_zoom,
             max_image_zoom_level: section.settings.max_image_zoom_level -%}
+        {% else %}
+          {%- render 'product-gallery',
+              product: product,
+              desktop_layout: section.settings.desktop_media_layout,
+              mobile_controls: section.settings.mobile_controls,
+              enable_media_autoplay: section.settings.enable_media_autoplay,
+              enable_video_looping: section.settings.enable_video_looping,
+              enable_image_zoom: section.settings.enable_image_zoom,
+              max_image_zoom_level: section.settings.max_image_zoom_level -%}
+        {% endif %}
       {%- endif -%}
 
       {%- render 'product-info', product: product, center_basic_info: section.settings.center_basic_info, has_content_below_gallery: has_content_below_gallery, update_url: true -%}
@@ -71,6 +82,17 @@
                     </div>
                   {%- endif -%}
                 {%- endif -%}
+
+              {%- when 'ratings' -%}
+                <div class="pdp-rating">
+                  <div class="pdp-rating_icon">
+                    {{ block.settings.icon | image_url: width: 100 | image_tag:
+                        alt: "image",
+                        loading: "lazy"
+                    }}
+                  </div>
+                  <span class="pdp-rating-text">{{ block.settings.text }}</span>
+                </div>
 
               {%- when 'accordion' -%}
                 {%- liquid
@@ -178,6 +200,12 @@ quick buy information in a template, that will be extracted in JS, which ensures
   "class": "shopify-section--main-product",
   "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "cstm_style",
+      "label": "Enable Custom Style",
+      "default": true
+    },
     {
       "type": "select",
       "id": "container_size",
@@ -325,6 +353,418 @@ quick buy information in a template, that will be extracted in JS, which ensures
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "subtitle",
+      "name": "Sub Title",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "subtitle",
+          "label": "Subtitle Label"
+        }
+      ]
+    },
+    {
+      "type": "short_desc",
+      "name": "Short Description",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "short_desc",
+          "label": "Short Description"
+        }
+      ]
+    },
+    {
+      "type": "ratings",
+      "name": "Ratings",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Ratings Text"
+        }
+      ]
+    },
+    {
+      "type": "feature_icons",
+      "name": "Feature Icons",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Feature 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Text 1"
+        },
+
+        {
+          "type": "header",
+          "content": "Feature 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Icon 2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Text 2"
+        },
+
+        {
+          "type": "header",
+          "content": "Feature 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "Icon 3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Text 3"
+        }
+      ]
+    },
+    {
+      "type": "sub_bundle",
+      "name": "Subscription Bundle",
+      "settings": [
+        {
+          "type": "header",
+          "content": "── Subscribe & Save Widget ──"
+        },
+        {
+          "type": "select",
+          "id": "default_purchase_type",
+          "label": "Default Selected Purchase Type",
+          "options": [
+            { "value": "subscribe",  "label": "Subscribe & Save" },
+            { "value": "one_time",   "label": "One Time Purchase" }
+          ],
+          "default": "subscribe"
+        },
+        {
+          "type": "number",
+          "id": "default_selected_plan",
+          "label": "Default selected plan index",
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "otp_heading",
+          "label": "One-Time Label",
+          "default": "One Time Purchase"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Subscribe Label",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "range",
+          "id": "sub_discount_pct",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "Subscription Discount %",
+          "default": 8,
+          "info": "Applied to each plan's price when Subscribe is selected"
+        },
+        {
+          "type": "text",
+          "id": "freq_label",
+          "label": "Frequency Label",
+          "default": "DELIVERY FREQUENCY"
+        },
+        {
+          "type": "text",
+          "id": "freq_description",
+          "label": "Frequency Description",
+          "default": "You Will Receive A Shipment Every Two Months"
+        },
+        {
+          "type": "header",
+          "content": "Plan 1"
+        },
+        {
+          "type": "range",
+          "id": "plan_qty_1",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "label": "Plan 1 – Quantity",
+          "default": 1,
+          "info": "Set to 0 to hide this plan"
+        },
+        {
+          "type": "text",
+          "id": "plan_title_1",
+          "label": "Plan 1 – Title",
+          "default": "Pack One",
+          "info": "Leave blank to auto-generate 'Pack of {qty}'"
+        },
+        {
+          "type": "image_picker",
+          "id": "plan_image_1",
+          "label": "Plan 1 – Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_tag_1",
+          "label": "Plan 1 – Tag Badge",
+          "info": "e.g. 'Most Popular' — leave blank to hide"
+        },
+        {
+          "type": "header",
+          "content": "Plan 2"
+        },
+        {
+          "type": "range",
+          "id": "plan_qty_2",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "label": "Plan 2 – Quantity",
+          "default": 2,
+          "info": "Set to 0 to hide this plan"
+        },
+        {
+          "type": "text",
+          "id": "plan_title_2",
+          "label": "Plan 2 – Title",
+          "default": "Pack Two"
+        },
+        {
+          "type": "image_picker",
+          "id": "plan_image_2",
+          "label": "Plan 2 – Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_tag_2",
+          "label": "Plan 2 – Tag Badge",
+          "default": "MOST POPULAR"
+        },
+        {
+          "type": "header",
+          "content": "Plan 3"
+        },
+        {
+          "type": "range",
+          "id": "plan_qty_3",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "label": "Plan 3 – Quantity",
+          "default": 3
+        },
+        {
+          "type": "text",
+          "id": "plan_title_3",
+          "label": "Plan 3 – Title",
+          "default": "Pack Three"
+        },
+        {
+          "type": "image_picker",
+          "id": "plan_image_3",
+          "label": "Plan 3 – Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_tag_3",
+          "label": "Plan 3 – Tag Badge",
+          "default": "BEST VALUE"
+        },
+        {
+          "type": "header",
+          "content": "Plan 4"
+        },
+        {
+          "type": "range",
+          "id": "plan_qty_4",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "label": "Plan 4 – Quantity",
+          "default": 4
+        },
+        {
+          "type": "text",
+          "id": "plan_title_4",
+          "label": "Plan 4 – Title",
+          "default": "Pack Four"
+        },
+        {
+          "type": "image_picker",
+          "id": "plan_image_4",
+          "label": "Plan 4 – Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_tag_4",
+          "label": "Plan 4 – Tag Badge",
+          "info": "Leave blank to hide"
+        },
+        {
+          "type": "header",
+          "content": "Plan 5"
+        },
+        {
+          "type": "range",
+          "id": "plan_qty_5",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "label": "Plan 5 – Quantity",
+          "default": 0,
+          "info": "Set to 0 to hide"
+        },
+        {
+          "type": "text",
+          "id": "plan_title_5",
+          "label": "Plan 5 – Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "plan_image_5",
+          "label": "Plan 5 – Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_tag_5",
+          "label": "Plan 5 – Tag Badge",
+          "info": "Leave blank to hide"
+        },
+        {
+          "type": "header",
+          "content": "Colors – Widget"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "selected_card_bg",
+          "label": "Selected Card Background",
+          "default": "#F8F6EE"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border Color",
+          "default": "#e0e0e0"
+        },
+        {
+          "type": "color",
+          "id": "selected_border_color",
+          "label": "Selected Border Color",
+          "default": "#1A2744"
+        },
+        {
+          "type": "color",
+          "id": "radio_border_color",
+          "label": "Radio Border (inactive)",
+          "default": "#cccccc"
+        },
+        {
+          "type": "color",
+          "id": "radio_active_color",
+          "label": "Radio Active Color",
+          "default": "#FBDD40"
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "label": "Label Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge Background",
+          "default": "#FBDD40"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "freq_label_color",
+          "label": "Frequency Label Color",
+          "default": "#555555"
+        },
+        {
+          "type": "color",
+          "id": "freq_desc_color",
+          "label": "Frequency Description Color",
+          "default": "#777777"
+        },
+        {
+          "type": "color",
+          "id": "select_bg",
+          "label": "Frequency Dropdown Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "plan_title_color",
+          "label": "Plan Title Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "plan_save_color",
+          "label": "Plan Save Text Color",
+          "default": "#555555"
+        },
+        {
+          "type": "color",
+          "id": "price_color",
+          "label": "Price Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "compare_color",
+          "label": "Compare Price Color",
+          "default": "#999999"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "min": 0,
+          "max": 24,
+          "step": 2,
+          "unit": "px",
+          "label": "Card Border Radius",
+          "default": 8
+        }
+      ]
     },
     {
       "type": "vendor",
@@ -718,6 +1158,7 @@ quick buy information in a template, that will be extracted in JS, which ensures
       "name": "t:sections.main_product.blocks.buy_buttons.name",
       "limit": 1,
       "settings": [
+        
         {
           "type": "checkbox",
           "id": "show_payment_button",
@@ -1266,6 +1707,12 @@ quick buy information in a template, that will be extracted in JS, which ensures
       "settings": [
         {
           "type": "checkbox",
+          "id": "default_open",
+          "label": "Open by default",
+          "default": true
+        },
+        {
+          "type": "checkbox",
           "id": "show_below_gallery",
           "label": "t:sections.main_product.blocks.collapsible_text.show_below_gallery",
           "default": true
@@ -1804,3 +2251,7 @@ quick buy information in a template, that will be extracted in JS, which ensures
   ]
 }
 {% endschema %}
+
+{% if section.settings.cstm_style %} 
+{{ 'cstm-pdp.css' | asset_url | stylesheet_tag }}
+{% endif %}

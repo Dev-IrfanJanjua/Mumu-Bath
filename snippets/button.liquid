@@ -51,6 +51,10 @@ Supported variables
       if stretch
         echo ' w-full'
       endif
+
+      if new_class
+        echo ' cstm-buy__btn'
+      endif
     endif
   endcapture
 
@@ -144,3 +148,114 @@ Supported variables
 
 
 
+{% if new_class %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // -----------------------------
+  // Get selected purchase type
+  // -----------------------------
+  function getSelectedPurchaseType() {
+    const selectedRow = document.querySelector('.ssw-purchase-row.is-selected');
+    return selectedRow ? selectedRow.dataset.sswPurchaseRow : 'one_time';
+  }
+
+  // -----------------------------
+  // Get quantity
+  // -----------------------------
+  function getQuantity() {
+    const qtyInput = document.querySelector('[name="quantity"], .quantity-input, input[type="number"]');
+    return qtyInput ? parseInt(qtyInput.value || 1, 10) : 1;
+  }
+
+  // -----------------------------
+  // Get variant ID
+  // (IMPORTANT: adjust selector if needed)
+  // -----------------------------
+  function getVariantId() {
+    const variantInput = document.querySelector('input[name="id"]');
+    return variantInput ? variantInput.value : null;
+  }
+
+  // -----------------------------
+  // Get selling plan ID (subscription only)
+  // -----------------------------
+  function getSellingPlanId() {
+    const select = document.querySelector('[data-ssw-frequency]');
+
+    if (!select) return null;
+
+    // If dropdown exists
+    if (select.tagName === 'SELECT') {
+      return select.value || null;
+    }
+
+    // If hidden input exists
+    const hidden = document.querySelector('input[name="selling_plan"]');
+    return hidden ? hidden.value : null;
+  }
+
+  // -----------------------------
+  // MAIN ADD TO CART FUNCTION
+  // -----------------------------
+  function addToCart() {
+
+    const variantId = getVariantId();
+    const quantity = getQuantity();
+    const type = getSelectedPurchaseType();
+
+    if (!variantId) {
+      console.error('Variant ID not found');
+      return;
+    }
+
+    const payload = {
+      id: variantId,
+      quantity: quantity
+    };
+
+    // Add selling plan only for subscription
+    if (type === 'subscribe') {
+      const sellingPlanId = getSellingPlanId();
+
+      if (sellingPlanId) {
+        payload.selling_plan = sellingPlanId;
+      }
+    }
+
+    console.log('Cart Payload:', payload);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Added to cart successfully:', data);
+
+      // OPTIONAL: trigger cart update event
+      document.dispatchEvent(new CustomEvent('cart:updated', {
+        detail: data
+      }));
+    })
+    .catch(error => {
+      console.error('Add to cart error:', error);
+    });
+  }
+
+  // -----------------------------
+  // BUTTON CLICK BINDING
+  // -----------------------------
+  document.querySelectorAll('.new_class').forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      addToCart();
+    });
+  });
+
+});
+</script>
+{% endif %}

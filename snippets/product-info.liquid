@@ -122,6 +122,33 @@ Supported variables
               {%- render 'vendor' with placeholder_vendor, class: 'h6 link-faded' -%}
             {%- endif -%}
 
+            {%- when 'ratings' -%}
+              <div class="pdp-rating">
+                <div class="pdp-rating_icon">
+                  {{ block.settings.icon | image_url: width: 100 | image_tag:
+                      alt: "image",
+                      loading: "lazy"
+                  }}
+                </div>
+                <span class="pdp-rating-text">{{ block.settings.text }}</span>
+              </div>
+
+          {%- when 'subtitle' -%}
+            <div class="pdp_subtitle">
+              {{ block.settings.subtitle }}
+            </div>
+
+          {%- when 'short_desc' -%}
+            <div class="pdp_shortdesc">
+              {{ block.settings.short_desc }}
+            </div>
+
+            {%- when 'sub_bundle' -%}
+              {% render 'subscription-bundle', block: block, section, section, product: product %}
+
+            {%- when 'feature_icons' -%}
+              {% render 'feature_icons', block: block, section, section %}
+            
           {%- when 'title' -%}
             {%- if product != blank -%}
               {%- assign product_title = product.title -%}
@@ -329,7 +356,8 @@ Supported variables
                 atc_button_background: block.settings.atc_button_background,
                 atc_button_text_color: block.settings.atc_button_text_color,
                 payment_button_background: block.settings.payment_button_background,
-                payment_button_text_color: block.settings.payment_button_text_color
+                payment_button_text_color: block.settings.payment_button_text_color,
+                new_class: block.settings.cstm_class
             -%}
 
           {%- when 'pickup_availability' -%}
@@ -403,7 +431,7 @@ Supported variables
               assign accordion_content = block.settings.page.content | default: block.settings.content
 
               if accordion_title != blank and accordion_content != blank
-                render 'accordion', title: accordion_title, content: accordion_content, prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block
+                render 'accordion', title: accordion_title, content: accordion_content, prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block, open: block.settings.default_open
               endif
             -%}
 

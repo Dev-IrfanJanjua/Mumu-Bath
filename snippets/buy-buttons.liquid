@@ -70,7 +70,7 @@ Supported variables
           {%- assign atc_button_style = 'solid' -%}
         {%- endif -%}
 
-        {%- render 'button', button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', disabled: button_disabled, style: atc_button_style, background: atc_button_background, text_color: atc_button_text_color, stretch: true -%}
+        {%- render 'button', button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', disabled: button_disabled, style: atc_button_style, background: atc_button_background, text_color: atc_button_text_color, stretch: true, new_class: true -%}
 
         {%- if show_payment_button -%}
           {{- form | payment_button -}}

@@ -1,0 +1,174 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+{% style %}
+
+.product-gallery {
+  width: 100%;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.pdp-mainSwiper {
+  width: 100%;
+  cursor: grab;
+}
+
+.pdp-mainSwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: grab;
+  aspect-ratio: 1.1;
+}
+
+.thumbSwiper {
+  height: 100px;
+  box-sizing: border-box;
+}
+
+.thumbSwiper .swiper-slide {
+    width: 100px !important;
+    height: 100px;
+    opacity: 1;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0.5px solid rgba(0, 0, 0, 0.20);
+}
+
+.thumbSwiper .swiper-slide-thumb-active {
+  border-color: #000;
+}
+
+.thumbSwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper.thumbSwiper {
+    margin-left: 0;
+}
+
+.pdp-mainSwiper_navigation {
+    position: absolute;
+    top: 50%;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translatey(-50%);
+}
+
+.pdp-mainSwiper_nav {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdp-mainSwiper_nav.swiper-button-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 768px){
+
+.pdp-mainSwiper_navigation{
+    display: none;
+}
+
+.swiper.thumbSwiper {
+    display: none;
+}
+
+.pdp-mainSwiper img {
+    aspect-ratio: 1;
+}
+
+}
+
+{% endstyle %}
+
+<div class="product-gallery">
+
+  <!-- Main Slider -->
+  <div class="swiper pdp-mainSwiper">
+    <div class="swiper-wrapper">
+      {% for image in product.images %}
+        <div class="swiper-slide">
+          <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt | escape }}">
+        </div>
+      {% endfor %}
+    </div>
+    <div class="pdp-mainSwiper_navigation">
+        <div class="pdp-mainSwiper_nav pdp-mainSwiper_nav-prev">
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5 0C27.165 0 35 7.83502 35 17.5C35 27.165 27.165 35 17.5 35C7.83502 35 0 27.165 0 17.5C0 7.83502 7.83502 0 17.5 0Z" fill="white"/>
+                <path d="M17.5 0.5C26.8888 0.5 34.5 8.11116 34.5 17.5C34.5 26.8888 26.8888 34.5 17.5 34.5C8.11116 34.5 0.5 26.8888 0.5 17.5C0.5 8.11116 8.11116 0.5 17.5 0.5Z" stroke="black"/>
+                <path d="M11.1464 17.8536C10.9512 17.6583 10.9512 17.3417 11.1464 17.1464L14.3284 13.9645C14.5237 13.7692 14.8403 13.7692 15.0355 13.9645C15.2308 14.1597 15.2308 14.4763 15.0355 14.6716L12.2071 17.5L15.0355 20.3284C15.2308 20.5237 15.2308 20.8403 15.0355 21.0355C14.8403 21.2308 14.5237 21.2308 14.3284 21.0355L11.1464 17.8536ZM23.5 17.5L23.5 18L11.5 18L11.5 17.5L11.5 17L23.5 17L23.5 17.5Z" fill="black"/>
+            </svg>
+        </div>
+        <div class="pdp-mainSwiper_nav pdp-mainSwiper_nav-next">
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5 0C7.83502 0 0 7.83502 0 17.5C0 27.165 7.83502 35 17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0Z" fill="white"/>
+                <path d="M17.5 0.5C8.11116 0.5 0.5 8.11116 0.5 17.5C0.5 26.8888 8.11116 34.5 17.5 34.5C26.8888 34.5 34.5 26.8888 34.5 17.5C34.5 8.11116 26.8888 0.5 17.5 0.5Z" stroke="black"/>
+                <path d="M23.8536 17.8536C24.0488 17.6583 24.0488 17.3417 23.8536 17.1464L20.6716 13.9645C20.4763 13.7692 20.1597 13.7692 19.9645 13.9645C19.7692 14.1597 19.7692 14.4763 19.9645 14.6716L22.7929 17.5L19.9645 20.3284C19.7692 20.5237 19.7692 20.8403 19.9645 21.0355C20.1597 21.2308 20.4763 21.2308 20.6716 21.0355L23.8536 17.8536ZM11.5 17.5L11.5 18L23.5 18L23.5 17.5L23.5 17L11.5 17L11.5 17.5Z" fill="black"/>
+            </svg>
+        </div>
+    </div>
+  </div>
+
+  <!-- Thumbnail Slider -->
+  <div class="swiper thumbSwiper">
+    <div class="swiper-wrapper">
+      {% for image in product.images %}
+        <div class="swiper-slide">
+          <img src="{{ image | img_url: '200x200' }}" alt="{{ image.alt | escape }}">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const thumbs = new Swiper(".thumbSwiper", {
+      spaceBetween: 12,
+      slidesPerView: 5,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    const main = new Swiper(".pdp-mainSwiper", {
+      spaceBetween: 8,
+      navigation: false,
+      breakpoints: {
+            0: {
+            slidesPerView: 1.2,
+            },
+            768: {
+            slidesPerView: 1,
+            }
+        },
+      navigation: {
+            nextEl: ".pdp-mainSwiper_nav-next",
+            prevEl: ".pdp-mainSwiper_nav-prev",
+        },
+      thumbs: {
+        swiper: thumbs,
+      },
+    });
+
+  });
+</script>

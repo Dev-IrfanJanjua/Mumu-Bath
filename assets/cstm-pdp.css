@@ -1,0 +1,107 @@
+.main_pdp-wrapper details.accordion.group {
+    border: none;
+    border-bottom: var(--stroke-weight-1, 1px) solid var(--color-grey-91, #E9E8E8);
+    background: transparent;
+}
+
+.main_pdp-wrapper span.accordion__toggle {
+    padding: 10px 0 16px;
+}
+
+.main_pdp-wrapper span.accordion__toggle span.text-with--icon {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.main_pdp-wrapper details.accordion.group .accordion__content.prose {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    padding-bottom: 16px;
+}
+
+.main_pdp-wrapper .product-title {
+    color: #000;
+    font-family: "Mona Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
+
+.pdp-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+span.pdp-rating-text {
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+}
+
+span.pdp-rating-text strong {
+    font-weight: 600;
+}
+
+.pdp_subtitle {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.pdp_shortdesc {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px){
+
+.main_pdp-wrapper .product-title {
+    color: #000;
+    font-family: Mona Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
+
+.pdp_subtitle {
+    font-size: 14px;
+}
+
+.pdp_shortdesc {
+    font-size: 14px;
+    line-height: 120%;
+}
+
+.main_pdp-wrapper span.accordion__toggle span.text-with--icon {
+    font-size: 16px;
+}
+
+}
