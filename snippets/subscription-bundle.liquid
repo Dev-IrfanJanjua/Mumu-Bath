@@ -29,6 +29,16 @@
     margin-top: 32px;
   }
 
+  /* ── Hide the real radio inputs visually ── */
+  .ssw-purchase-row input[type="radio"],
+  .ssw-plan input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
   .ssw-purchase-row {
     border: 1.5px solid {{ block.settings.border_color }};
     border-radius: {{ block.settings.border_radius }}px;
@@ -38,7 +48,8 @@
     background-color: {{ block.settings.card_bg }};
   }
 
-  .ssw-purchase-row.is-selected {
+  /* purchase row — checked state */
+  .ssw-purchase-row:has(input[type="radio"]:checked) {
     border-color: {{ block.settings.selected_border_color }};
     background-color: {{ block.settings.selected_card_bg }};
   }
@@ -61,8 +72,8 @@
     transition: border-color 0.2s ease;
   }
 
-  .ssw-purchase-row.is-selected .ssw-radio {
-    {% comment %} border-color: {{ block.settings.radio_active_color }}; {% endcomment %}
+  /* purchase row radio ring — checked */
+  .ssw-purchase-row:has(input[type="radio"]:checked) .ssw-radio {
     border-color: #000;
   }
 
@@ -75,16 +86,8 @@
     transition: opacity 0.2s ease;
   }
 
-  .ssw-purchase-row.is-selected .ssw-radio__dot {
-    opacity: 1;
-  }
-
-  .ssw-plan.is-selected .ssw-radio {
-    {% comment %} border-color: {{ block.settings.radio_active_color }}; {% endcomment %}
-    border-color: #000;
-  }
-
-  .ssw-plan.is-selected .ssw-radio__dot {
+  /* purchase row radio dot — checked */
+  .ssw-purchase-row:has(input[type="radio"]:checked) .ssw-radio__dot {
     opacity: 1;
   }
 
@@ -202,9 +205,20 @@
     transition: border-color 0.2s ease, background-color 0.2s ease;
   }
 
-  .ssw-plan.is-selected {
+  /* plan card — checked state */
+  .ssw-plan:has(input[type="radio"]:checked) {
     border-color: {{ block.settings.selected_border_color }};
     background-color: {{ block.settings.selected_card_bg }};
+  }
+
+  /* plan card radio ring — checked */
+  .ssw-plan:has(input[type="radio"]:checked) .ssw-radio {
+    border-color: #000;
+  }
+
+  /* plan card radio dot — checked */
+  .ssw-plan:has(input[type="radio"]:checked) .ssw-radio__dot {
+    opacity: 1;
   }
 
   .ssw-plan__image {
@@ -311,33 +325,27 @@
     font-weight: 600;
     line-height: normal;
     margin: 0 0 4px;
-}
+  }
 
-@media screen and (max-width: 768px){
-
-#{{ widget_id }} {
-    margin-top: 20px;
-}
-
-.ssw-purchase-row {
-    border-radius: 8px;
-    padding: 11px 12px;
-}
-
-.ssw-plan {
-    border-radius: 8px;
-    padding: 16px 12px;
-}
-
-.ssw-plan__title,
-.ssw-purchase-row__label,
-.ssw-plan__price {
-    font-size: 14px;
-    line-height: 120%;
-}
-
-}
-
+  @media screen and (max-width: 768px) {
+    #{{ widget_id }} {
+      margin-top: 20px;
+    }
+    .ssw-purchase-row {
+      border-radius: 8px;
+      padding: 11px 12px;
+    }
+    .ssw-plan {
+      border-radius: 8px;
+      padding: 16px 12px;
+    }
+    .ssw-plan__title,
+    .ssw-purchase-row__label,
+    .ssw-plan__price {
+      font-size: 14px;
+      line-height: 120%;
+    }
+  }
 </style>
 
 <div
@@ -354,31 +362,44 @@
 
   <!-- ── One-Time Purchase row ── -->
   {% if block.settings.title != blank %}
-      <h3 class="ssw-purchase-title">{{ block.settings.title }}</h3>
+    <h3 class="ssw-purchase-title">{{ block.settings.title }}</h3>
   {% endif %}
-  <div
-    class="ssw-purchase-row{% if default_purchase_type == 'one_time' %} is-selected{% endif %}"
+
+  <label
+    class="ssw-purchase-row"
     data-ssw-purchase-row="one_time"
     role="radio"
     aria-checked="{% if default_purchase_type == 'one_time' %}true{% else %}false{% endif %}"
     tabindex="0"
   >
+    <input
+      type="radio"
+      name="{{ widget_id }}-purchase-type"
+      value="one_time"
+      {% if default_purchase_type == 'one_time' %}checked{% endif %}
+    >
     <div class="ssw-purchase-row__header">
       <span class="ssw-radio" aria-hidden="true">
         <span class="ssw-radio__dot"></span>
       </span>
       <span class="ssw-purchase-row__label">{{ otp_heading }}</span>
     </div>
-  </div>
+  </label>
 
   <!-- ── Subscribe & Save row ── -->
-  <div
-    class="ssw-purchase-row{% if default_purchase_type == 'subscribe' %} is-selected{% endif %}"
+  <label
+    class="ssw-purchase-row"
     data-ssw-purchase-row="subscribe"
     role="radio"
     aria-checked="{% if default_purchase_type == 'subscribe' %}true{% else %}false{% endif %}"
     tabindex="0"
   >
+    <input
+      type="radio"
+      name="{{ widget_id }}-purchase-type"
+      value="subscribe"
+      {% if default_purchase_type == 'subscribe' %}checked{% endif %}
+    >
     <div class="ssw-purchase-row__header">
       <span class="ssw-radio" aria-hidden="true">
         <span class="ssw-radio__dot"></span>
@@ -396,78 +417,64 @@
           <p class="ssw-freq-label">{{ freq_label }}</p>
 
           {% assign total_plans = 0 %}
-
-            {% for group in product.selling_plan_groups %}
+          {% for group in product.selling_plan_groups %}
             {% assign total_plans = total_plans | plus: group.selling_plans.size %}
-            {% endfor %}
+          {% endfor %}
 
-            {% if total_plans > 1 %}
-
+          {% if total_plans > 1 %}
             <select
-                class="ssw-select"
-                data-ssw-frequency
-                aria-label="Subscription Plan"
+              class="ssw-select"
+              data-ssw-frequency
+              aria-label="Subscription Plan"
             >
-                {% for group in product.selling_plan_groups %}
+              {% for group in product.selling_plan_groups %}
                 {% for plan in group.selling_plans %}
-                    
-                    {% assign discount = 0 %}
-
-                    {% if plan.price_adjustments.first %}
+                  {% assign discount = 0 %}
+                  {% if plan.price_adjustments.first %}
                     {% assign adjustment = plan.price_adjustments.first %}
-
                     {% if adjustment.value_type == 'percentage' %}
-                        {% assign discount = adjustment.value %}
+                      {% assign discount = adjustment.value %}
                     {% endif %}
-                    {% endif %}
-
-                    <option
-                        value="{{ plan.id }}"
-                        data-id="{{ plan.id }}"
-                        data-title="{{ plan.name }}"
-                        data-discount="{{ discount }}%"
-                    >
-                    {{ plan.name }}
-                    </option>
-
-                {% endfor %}
-                {% endfor %}
-            </select>
-
-            {% elsif total_plans == 1 %}
-
-            {% for group in product.selling_plan_groups %}
-                {% for plan in group.selling_plans %}
-
-                {% assign discount = 0 %}
-
-                {% if plan.price_adjustments.first %}
-                    {% assign adjustment = plan.price_adjustments.first %}
-
-                    {% if adjustment.value_type == 'percentage' %}
-                    {% assign discount = adjustment.value %}
-                    {% endif %}
-                {% endif %}
-
-                <input
-                    type="hidden"
-                    name="selling_plan"
+                  {% endif %}
+                  <option
                     value="{{ plan.id }}"
                     data-id="{{ plan.id }}"
                     data-title="{{ plan.name }}"
-                    data-discount="{{ discount }}"
-                >
-
+                    data-discount="{{ discount }}%"
+                  >
+                    {{ plan.name }}
+                  </option>
                 {% endfor %}
-            {% endfor %}
+              {% endfor %}
+            </select>
 
-            {% endif %}
+          {% elsif total_plans == 1 %}
+            {% for group in product.selling_plan_groups %}
+              {% for plan in group.selling_plans %}
+                {% assign discount = 0 %}
+                {% if plan.price_adjustments.first %}
+                  {% assign adjustment = plan.price_adjustments.first %}
+                  {% if adjustment.value_type == 'percentage' %}
+                    {% assign discount = adjustment.value %}
+                  {% endif %}
+                {% endif %}
+                <input
+                  type="hidden"
+                  name="selling_plan"
+                  value="{{ plan.id }}"
+                  data-id="{{ plan.id }}"
+                  data-title="{{ plan.name }}"
+                  data-discount="{{ discount }}"
+                >
+              {% endfor %}
+            {% endfor %}
+          {% endif %}
 
           <p class="ssw-freq-desc" data-ssw-freq-desc>{{ freq_description }}</p>
         </div>
       </div>
     </div>
-  </div>
+  </label>
 
   <!-- ── Plan cards ── -->
   <div class="ssw-plans" role="radiogroup" aria-label="Select a plan" data-ssw-plans>
@@ -485,11 +492,9 @@
 
       {%- if plan_qty > 0 -%}
 
-        {%- comment -%} Prices {%- endcomment -%}
         {%- assign plan_price = variant.price | times: plan_qty -%}
         {%- assign plan_cmp   = variant.compare_at_price | times: plan_qty -%}
 
-        {%- comment -%} One-time savings vs compare_at_price {%- endcomment -%}
         {%- assign otp_save_cents = plan_cmp | minus: plan_price -%}
         {%- if plan_cmp > 0 and otp_save_cents > 0 -%}
           {%- assign otp_save_pct = otp_save_cents | times: 100.0 | divided_by: plan_cmp | round -%}
@@ -497,15 +502,10 @@
           {%- assign otp_save_pct = 0 -%}
         {%- endif -%}
 
-        {%- comment -%} Subscription price = plan_price minus sub_discount_pct {%- endcomment -%}
         {%- assign sub_discount_factor = sub_discount_pct | times: 1.0 | divided_by: 100.0 -%}
         {%- assign sub_discount_cents  = plan_price | times: sub_discount_factor -%}
         {%- assign sub_final_cents     = plan_price | minus: sub_discount_cents | round -%}
 
-        {%- comment -%}
-          Sub save % is relative to compare_at_price when available,
-          otherwise relative to the one-time plan_price.
-        {%- endcomment -%}
         {%- if plan_cmp > 0 -%}
           {%- assign sub_save_vs = plan_cmp -%}
         {%- else -%}
@@ -514,7 +514,6 @@
         {%- assign sub_save_cents = sub_save_vs | minus: sub_final_cents -%}
         {%- assign sub_save_pct   = sub_save_cents | times: 100.0 | divided_by: sub_save_vs | round -%}
 
-        {%- comment -%} Plan title fallback {%- endcomment -%}
         {%- if plan_title != blank -%}
           {%- assign display_title = plan_title -%}
         {%- else -%}
@@ -523,8 +522,8 @@
 
         {% assign selected_plan = block.settings.default_selected_plan | plus: 0 %}
 
-        <div
-          class="ssw-plan{% if forloop.index == selected_plan %} is-selected{% endif %}"
+        <label
+          class="ssw-plan"
           data-ssw-plan
           data-plan-index="{{ i }}"
           data-quantity="{{ plan_qty }}"
@@ -543,6 +542,12 @@
           aria-checked="{% if forloop.index == selected_plan %}true{% else %}false{% endif %}"
           tabindex="0"
         >
+          <input
+            type="radio"
+            name="{{ widget_id }}-plan"
+            value="{{ i }}"
+            {% if forloop.index == selected_plan %}checked{% endif %}
+          >
 
           {%- if plan_tag != blank -%}
             <span class="ssw-plan__tag" data-ssw-plan-tag>{{ plan_tag }}</span>
@@ -577,162 +582,13 @@
             <span class="ssw-plan__compare" data-ssw-plan-compare style="display:none;"></span>
           </div>
 
-        </div>
+        </label>
       {%- endif -%}
     {%- endfor -%}
 
   </div>
 
 </div>
-
-{% comment %} <script>
-(function () {
-  var widget = document.getElementById('{{ widget_id }}');
-  if (!widget) return;
-
-  var moneyFormat = {{ shop.money_format | json }};
-  var isSubscribe = widget.dataset.defaultPurchase === 'subscribe';
-
-  var purchaseRows = widget.querySelectorAll('[data-ssw-purchase-row]');
-  var subContent   = widget.querySelector('[data-ssw-sub-content]');
-  var planCards    = widget.querySelectorAll('[data-ssw-plan]');
-  var qtyInput     = widget.querySelector('[data-ssw-quantity]');
-
-  /* ── Money formatter ── */
-  function formatMoney(cents) {
-    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      return Shopify.formatMoney(cents, moneyFormat);
-    }
-    /* Fallback: basic dollar/cent */
-    return '$' + (cents / 100).toFixed(2);
-  }
-
-  /* ── Re-render all plan cards for the current purchase type ── */
-  function updatePlanPrices() {
-    planCards.forEach(function (card) {
-      var priceCents   = parseInt(card.dataset.priceCents,   10) || 0;
-      var compareCents = parseInt(card.dataset.compareCents, 10) || 0;
-      var subCents     = parseInt(card.dataset.subPriceCents,10) || 0;
-      var otpSavePct   = parseInt(card.dataset.otpSavePct,   10) || 0;
-      var subSavePct   = parseInt(card.dataset.subSavePct,   10) || 0;
-
-      var priceEl   = card.querySelector('[data-ssw-plan-price]');
-      var compareEl = card.querySelector('[data-ssw-plan-compare]');
-      var saveEl    = card.querySelector('[data-ssw-plan-save]');
-
-      if (isSubscribe) {
-        /* ── Subscribe mode ── */
-        /* Main price = discounted subscription price */
-        if (priceEl) priceEl.textContent = formatMoney(subCents);
-
-        /* Compare = original one-time price (struck through) */
-        if (compareEl) {
-          if (priceCents > 0 && subCents < priceCents) {
-            compareEl.textContent    = formatMoney(priceCents);
-            compareEl.style.display  = '';
-          } else {
-            compareEl.style.display = 'none';
-          }
-        }
-
-        /* Save text = sub save % vs compare_at / one-time */
-        if (saveEl) {
-          if (subSavePct > 0) {
-            saveEl.textContent  = 'Save ' + subSavePct + '%';
-            saveEl.style.display = '';
-          } else {
-            saveEl.style.display = 'none';
-          }
-        }
-
-      } else {
-        /* ── One-time mode ── */
-        if (priceEl) priceEl.textContent = formatMoney(priceCents);
-
-        if (compareEl) {
-          if (compareCents > 0 && compareCents > priceCents) {
-            compareEl.textContent   = formatMoney(compareCents);
-            compareEl.style.display = '';
-          } else {
-            compareEl.style.display = 'none';
-          }
-        }
-
-        if (saveEl) {
-          if (otpSavePct > 0) {
-            saveEl.textContent   = 'Save ' + otpSavePct + '%';
-            saveEl.style.display = '';
-          } else {
-            saveEl.style.display = 'none';
-          }
-        }
-      }
-    });
-  }
-
-  /* ── Switch purchase type ── */
-  function selectPurchaseType(type) {
-    isSubscribe = (type === 'subscribe');
-    widget.dataset.activePurchase = type;
-
-    purchaseRows.forEach(function (row) {
-      var active = row.dataset.sswPurchaseRow === type;
-      row.classList.toggle('is-selected', active);
-      row.setAttribute('aria-checked', active ? 'true' : 'false');
-    });
-
-    if (subContent) subContent.classList.toggle('is-visible', isSubscribe);
-
-    updatePlanPrices();
-  }
-
-  /* ── Select a plan card ── */
-  function selectPlan(card) {
-    planCards.forEach(function (c) {
-      c.classList.remove('is-selected');
-      c.setAttribute('aria-checked', 'false');
-    });
-    card.classList.add('is-selected');
-    card.setAttribute('aria-checked', 'true');
-
-    if (qtyInput) qtyInput.value = card.dataset.quantity || 1;
-  }
-
-  /* ── Event listeners ── */
-  purchaseRows.forEach(function (row) {
-    row.addEventListener('click', function () {
-      selectPurchaseType(row.dataset.sswPurchaseRow);
-    });
-    row.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectPurchaseType(row.dataset.sswPurchaseRow);
-      }
-    });
-  });
-
-  planCards.forEach(function (card) {
-    card.addEventListener('click', function () { selectPlan(card); });
-    card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectPlan(card);
-      }
-    });
-  });
-
-  /* ── Init ── */
-  selectPurchaseType(widget.dataset.defaultPurchase || 'subscribe');
-  var defaultSelected = widget.querySelector('.ssw-plan.is-selected');
-
-    if (defaultSelected) {
-    selectPlan(defaultSelected);
-    } else if (planCards.length > 0) {
-    selectPlan(planCards[0]);
-    }
-
-})();
-</script> {% endcomment %}
 
 <script>
 (function () {
@@ -749,12 +605,10 @@
   var subContent     = widget.querySelector('[data-ssw-sub-content]');
   var planCards      = widget.querySelectorAll('[data-ssw-plan]');
 
-  // The three top inputs this widget owns
-  var qtyInput         = widget.querySelector('[data-ssw-quantity]');       // .wid__varient__qty
-  var variantInput     = widget.querySelector('[data-ssw-variant]');        // .wid__varient__id
-  var sellingPlanInput = widget.querySelector('.wid__selling_plan');        // .wid__selling_plan
+  var qtyInput         = widget.querySelector('[data-ssw-quantity]');
+  var variantInput     = widget.querySelector('[data-ssw-variant]');
+  var sellingPlanInput = widget.querySelector('.wid__selling_plan');
 
-  // Frequency controls (select = multiple plans, hidden input = single plan)
   var freqSelect = widget.querySelector('[data-ssw-frequency]');
   var freqHidden = widget.querySelector('input[name="selling_plan"]:not(.wid__selling_plan)');
 
@@ -770,8 +624,6 @@
 
   /* ─────────────────────────────────────────
      GET ACTIVE SELLING PLAN ID
-     Reads from the <select> if multiple plans,
-     or the hidden input if only one plan exists.
   ───────────────────────────────────────── */
   function getActivePlanId() {
     if (freqSelect) return freqSelect.value || '';
@@ -781,26 +633,14 @@
 
   /* ─────────────────────────────────────────
      SYNC THE SELLING PLAN INPUT
-     - Subscribe selected  → write plan ID
-     - One-time selected   → write empty string
-       (empty string = Shopify ignores it, 
-        treats as one-time purchase)
   ───────────────────────────────────────── */
   function syncSellingPlanInput() {
     if (!sellingPlanInput) return;
-
-    if (isSubscribe) {
-      var planId = getActivePlanId();
-      sellingPlanInput.value = planId;
-    } else {
-      sellingPlanInput.value = '';
-    }
+    sellingPlanInput.value = isSubscribe ? getActivePlanId() : '';
   }
 
   /* ─────────────────────────────────────────
      UPDATE PLAN CARD PRICES
-     Swaps price / compare / save text for every
-     plan card based on current purchase type.
   ───────────────────────────────────────── */
   function updatePlanPrices() {
     planCards.forEach(function (card) {
@@ -815,10 +655,7 @@
       var saveEl    = card.querySelector('[data-ssw-plan-save]');
 
       if (isSubscribe) {
-        // Main price = subscription discounted price
         if (priceEl) priceEl.textContent = formatMoney(subCents);
-
-        // Strikethrough = original one-time price (only if sub is actually cheaper)
         if (compareEl) {
           if (priceCents > 0 && subCents < priceCents) {
             compareEl.textContent   = formatMoney(priceCents);
@@ -827,8 +664,6 @@
             compareEl.style.display = 'none';
           }
         }
-
-        // Save label = sub saving %
         if (saveEl) {
           if (subSavePct > 0) {
             saveEl.textContent   = 'Save ' + subSavePct + '%';
@@ -837,12 +672,8 @@
             saveEl.style.display = 'none';
           }
         }
-
       } else {
-        // Main price = full one-time price
         if (priceEl) priceEl.textContent = formatMoney(priceCents);
-
-        // Strikethrough = compare_at_price from Shopify (only if higher)
         if (compareEl) {
           if (compareCents > 0 && compareCents > priceCents) {
             compareEl.textContent   = formatMoney(compareCents);
@@ -851,8 +682,6 @@
             compareEl.style.display = 'none';
           }
         }
-
-        // Save label = savings vs compare_at_price
         if (saveEl) {
           if (otpSavePct > 0) {
             saveEl.textContent   = 'Save ' + otpSavePct + '%';
@@ -867,58 +696,50 @@
 
   /* ─────────────────────────────────────────
      SELECT PURCHASE TYPE
-     Handles the Subscribe / One-time toggle rows.
   ───────────────────────────────────────── */
   function selectPurchaseType(type) {
     isSubscribe = (type === 'subscribe');
     widget.dataset.activePurchase = type;
 
-    // Toggle selected state on the two rows
+    // Check the correct radio input and update aria
     purchaseRows.forEach(function (row) {
       var active = row.dataset.sswPurchaseRow === type;
-      row.classList.toggle('is-selected', active);
+      var radio  = row.querySelector('input[type="radio"]');
+      if (radio) radio.checked = active;
       row.setAttribute('aria-checked', active ? 'true' : 'false');
     });
 
-    // Show / hide frequency accordion
-    if (subContent) {
-      subContent.classList.toggle('is-visible', isSubscribe);
-    }
+    if (subContent) subContent.classList.toggle('is-visible', isSubscribe);
 
-    // Update the selling_plan input and all card prices
     syncSellingPlanInput();
     updatePlanPrices();
   }
 
   /* ─────────────────────────────────────────
      SELECT A PLAN CARD
-     Updates quantity input and card selection state.
   ───────────────────────────────────────── */
   function selectPlan(card) {
     planCards.forEach(function (c) {
-      c.classList.remove('is-selected');
+      var radio = c.querySelector('input[type="radio"]');
+      if (radio) radio.checked = false;
       c.setAttribute('aria-checked', 'false');
     });
 
-    card.classList.add('is-selected');
+    var activeRadio = card.querySelector('input[type="radio"]');
+    if (activeRadio) activeRadio.checked = true;
     card.setAttribute('aria-checked', 'true');
 
-    // Write quantity to the hidden qty input
     if (qtyInput) qtyInput.value = card.dataset.quantity || 1;
   }
 
   /* ─────────────────────────────────────────
      FREQUENCY SELECT CHANGE
-     When user picks a different subscription
-     frequency, update the selling_plan input.
   ───────────────────────────────────────── */
   if (freqSelect) {
     freqSelect.addEventListener('change', function () {
-      // Auto-switch to subscribe mode if they pick a plan
       if (!isSubscribe) {
         selectPurchaseType('subscribe');
       } else {
-        // Already in subscribe mode — just update the input
         syncSellingPlanInput();
       }
     });
@@ -955,15 +776,208 @@
   /* ─────────────────────────────────────────
      INIT
   ───────────────────────────────────────── */
-  // Set purchase type from Liquid default (runs updatePlanPrices + syncSellingPlanInput)
   selectPurchaseType(widget.dataset.defaultPurchase || 'one_time');
 
-  // Select the default plan card
-  var defaultSelected = widget.querySelector('.ssw-plan.is-selected');
+  var defaultSelected = widget.querySelector('.ssw-plan input[type="radio"]:checked');
   if (defaultSelected) {
-    selectPlan(defaultSelected);
+    selectPlan(defaultSelected.closest('[data-ssw-plan]'));
   } else if (planCards.length > 0) {
     selectPlan(planCards[0]);
+  }
+
+})();
+</script>
+
+
+{% comment %} ==== add to cart script ===== {% endcomment %}
+
+ <script>
+(function() {
+
+  function getWidget() {
+    return document.querySelector('[data-widget="subscribe-save"]');
+  }
+
+  function getWidgetValues() {
+
+    const widget = getWidget();
+    if (!widget) return null;
+
+    const checkedPlan = widget.querySelector(
+      '[data-ssw-plan] input[type="radio"]:checked'
+    );
+
+    let qty = "1";
+
+    if (checkedPlan) {
+      const card = checkedPlan.closest('[data-ssw-plan]');
+      qty = card?.dataset.quantity || "1";
+    } else {
+      qty = widget.querySelector('.wid__varient__qty')?.value || "1";
+    }
+
+    return {
+      qty,
+      plan: widget.querySelector('.wid__selling_plan')?.value || "",
+      productId: widget.dataset.productId || ""
+    };
+  }
+
+  function syncBuyInputs() {
+
+    const vals = getWidgetValues();
+    if (!vals) return;
+
+    const productSelector = vals.productId
+      ? `[data-product-id="${vals.productId}"]`
+      : '';
+
+    // -------------------------
+    // QTY SYNC (ONLY THIS PRODUCT)
+    // -------------------------
+    document.querySelectorAll(
+      `.buy_product__qty${productSelector},
+       .form__qty${productSelector}`
+    ).forEach(input => {
+      input.value = vals.qty;
+      input.setAttribute('value', vals.qty);
+    });
+
+    // -------------------------
+    // SELLING PLAN SYNC (ONLY THIS PRODUCT)
+    // -------------------------
+    document.querySelectorAll(
+      `.buy_product__selling_plan${productSelector},
+       .form__selling_plan${productSelector}`
+    ).forEach(input => {
+
+      if (vals.plan) {
+        input.value = vals.plan;
+        input.setAttribute('value', vals.plan);
+      } else {
+        input.value = '';
+        input.removeAttribute('value');
+      }
+
+    });
+
+    console.log(
+      '[SSW Sync]',
+      'product:', vals.productId,
+      'qty:', vals.qty,
+      'plan:', vals.plan || '(none)'
+    );
+  }
+
+  // -------------------------
+  // INIT (on page load)
+  // -------------------------
+  window.addEventListener('load', function() {
+    setTimeout(syncBuyInputs, 150);
+  });
+
+  // -------------------------
+  // UI EVENTS
+  // -------------------------
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-widget="subscribe-save"]')) {
+      setTimeout(syncBuyInputs, 0);
+    }
+  });
+
+  document.addEventListener('change', function(e) {
+    if (e.target.closest('[data-widget="subscribe-save"]')) {
+      setTimeout(syncBuyInputs, 0);
+    }
+  });
+
+  // custom event from widget
+  document.addEventListener('ssw:updated', syncBuyInputs);
+
+  // -------------------------
+  // FETCH INTERCEPT (/cart/add)
+  // -------------------------
+  if (!window.fetch.__cartPatched) {
+
+    const originalFetch = window.fetch;
+
+    window.fetch = function(input, init) {
+
+      const url =
+        typeof input === 'string'
+          ? input
+          : input?.url || '';
+
+      if (url.includes('/cart/add')) {
+
+        const vals = getWidgetValues();
+
+        if (vals) {
+
+          if (init?.body instanceof FormData) {
+
+            init.body.set('quantity', vals.qty);
+
+            if (vals.plan) {
+              init.body.set('selling_plan', vals.plan);
+            } else {
+              init.body.delete('selling_plan');
+            }
+
+          } else if (typeof init?.body === 'string') {
+
+            try {
+
+              const json = JSON.parse(init.body);
+
+              json.quantity = parseInt(vals.qty, 10);
+
+              if (vals.plan) {
+                json.selling_plan = vals.plan;
+              } else {
+                delete json.selling_plan;
+              }
+
+              init = {
+                ...init,
+                body: JSON.stringify(json)
+              };
+
+            } catch(err) {
+
+              const params = new URLSearchParams(init.body);
+
+              params.set('quantity', vals.qty);
+
+              if (vals.plan) {
+                params.set('selling_plan', vals.plan);
+              } else {
+                params.delete('selling_plan');
+              }
+
+              init = {
+                ...init,
+                body: params.toString()
+              };
+
+            }
+          }
+
+          syncBuyInputs();
+
+          console.log(
+            '[Cart Add]',
+            'product:', vals.productId,
+            'qty:', vals.qty,
+            'plan:', vals.plan || '(none)'
+          );
+        }
+      }
+
+      return originalFetch.call(this, input, init);
+    };
+
+    window.fetch.__cartPatched = true;
   }
 
 })();

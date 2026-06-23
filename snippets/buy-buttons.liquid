@@ -24,9 +24,9 @@ Supported variables
 
   {%- form 'product', product, is: 'product-form', id: form_id -%}
     <input type="hidden" class="form__variant__id" {% if variant_picker_block != blank %}disabled{% endif %} name="id" value="{{ product.selected_or_first_available_variant.id }}">
-    
-    <input class="form__qty" type="hidden" name="quantity" value="1">
-    <input class="form__selling_plan" type="hidden" name="selling_plan" value="{{ product.selling_plan_groups.first.selling_plans.first.id }}">
+
+    <input class="form__qty" type="hidden" name="quantity" value="1" data-product-id="{{ product.id }}">
+    <input class="form__selling_plan" type="hidden" name="selling_plan" value="{{ product.selling_plan_groups.first.selling_plans.first.id }}" data-product-id="{{ product.id }}">
 
     {% liquid
       assign button_disabled = false
