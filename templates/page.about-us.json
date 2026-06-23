@@ -9,6 +9,49 @@
  */
 {
   "sections": {
+    "routed_ritual_fW6RUr": {
+      "type": "routed-ritual",
+      "name": "About Ritual Section",
+      "settings": {
+        "add_class": "about-us",
+        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image_alt": "About image",
+        "heading": "A Ritual Rooted In Taiwan",
+        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
+        "signature_alt": "",
+        "founder_name": "",
+        "button_label": "",
+        "button_link": "",
+        "bg_color": "#f8f6ee",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "missin_banner_VKpRdp": {
+      "type": "missin-banner",
+      "name": "Mission Banner",
+      "settings": {
+        "tag": "OUR MISSION",
+        "heading": "<p>Crafted to make daily care feel special.</p>",
+        "description": "<p>Whether you're lighting a candle, using a handmade soap, applying body butter, or building a gift set — Mumu Bath makes small moments feel thoughtful. Our products are made for people who want natural care with personality, comfort, and a little everyday delight.</p>",
+        "hide_description_desktop": true,
+        "desktop_image": "shopify://shop_images/Section.png",
+        "mobile_image": "shopify://shop_images/Frame_2147241468_2.png",
+        "desktop_height": 450,
+        "mobile_height": 350,
+        "section_bg": "#ffffff",
+        "placeholder_bg": "#e5e5e5",
+        "heading_color": "#ffffff",
+        "tag_color": "#ffffff",
+        "description_color": "#ffffff",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -149,6 +192,8 @@
     }
   },
   "order": [
+    "routed_ritual_fW6RUr",
+    "missin_banner_VKpRdp",
     "main",
     "featured_product_wwFrGx",
     "174228070476985170"

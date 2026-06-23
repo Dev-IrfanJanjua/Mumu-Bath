@@ -72,17 +72,17 @@
             "plan_title_5": "",
             "plan_tag_5": "",
             "card_bg": "#ffffff",
-            "selected_card_bg": "#F9F6EE",
+            "selected_card_bg": "#f9f6ee",
             "border_color": "#e0e0e0",
             "selected_border_color": "#000000",
             "radio_border_color": "#cccccc",
             "radio_active_color": "#fbdd40",
             "label_color": "#000000",
-            "badge_bg": "#FBDD40",
+            "badge_bg": "#fbdd40",
             "badge_text_color": "#000000",
             "freq_label_color": "#555555",
             "freq_desc_color": "#101010",
-            "select_bg": "#FFFFFF",
+            "select_bg": "#ffffff",
             "plan_title_color": "#000000",
             "plan_save_color": "#000000",
             "price_color": "#000000",
@@ -99,6 +99,16 @@
             "atc_button_text_color": "",
             "payment_button_background": "",
             "payment_button_text_color": ""
+          }
+        },
+        "feature_icons_bEqrrw": {
+          "type": "feature_icons",
+          "settings": {
+            "icon_1": "shopify://shop_images/Vector.svg",
+            "text_1": "Cancel anytime no hassle",
+            "icon_2": "shopify://shop_images/image.svg",
+            "text_2": "Free shipping on orders over $50",
+            "text_3": ""
           }
         },
         "targetbay_product_reviews_product_stats_pF9gGF": {
@@ -207,16 +217,6 @@
           "disabled": true,
           "settings": {}
         },
-        "feature_icons_bEqrrw": {
-          "type": "feature_icons",
-          "settings": {
-            "icon_1": "shopify://shop_images/Vector.svg",
-            "text_1": "Cancel anytime no hassle",
-            "icon_2": "shopify://shop_images/image.svg",
-            "text_2": "Free shipping on orders over $50",
-            "text_3": ""
-          }
-        },
         "separator": {
           "type": "separator",
           "disabled": true,
@@ -257,6 +257,7 @@
         "short_desc_PCTrwt",
         "sub_bundle_9YPwfn",
         "buy_buttons",
+        "feature_icons_bEqrrw",
         "targetbay_product_reviews_product_stats_pF9gGF",
         "price",
         "description",
@@ -269,7 +270,6 @@
         "variant_picker",
         "quantity_selector",
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
-        "feature_icons_bEqrrw",
         "separator",
         "product_variations_ya4kgK",
         "payment_terms",

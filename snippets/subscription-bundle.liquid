@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 32px;
   }
 
   .ssw-purchase-row {
@@ -301,6 +302,42 @@
   #{{ widget_id }}-variant-input {
     display: none !important;
   }
+
+  h3.ssw-purchase-title {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 4px;
+}
+
+@media screen and (max-width: 768px){
+
+#{{ widget_id }} {
+    margin-top: 20px;
+}
+
+.ssw-purchase-row {
+    border-radius: 8px;
+    padding: 11px 12px;
+}
+
+.ssw-plan {
+    border-radius: 8px;
+    padding: 16px 12px;
+}
+
+.ssw-plan__title,
+.ssw-purchase-row__label,
+.ssw-plan__price {
+    font-size: 14px;
+    line-height: 120%;
+}
+
+}
+
 </style>
 
 <div
@@ -311,22 +348,14 @@
   data-product-id="{{ product.id }}"
 >
 
-  <input
-    type="hidden"
-    name="quantity"
-    id="{{ widget_id }}-qty-input"
-    value="1"
-    data-ssw-quantity
-  >
-  <input
-    type="hidden"
-    name="id"
-    id="{{ widget_id }}-variant-input"
-    value="{{ product.selected_or_first_available_variant.id }}"
-    data-ssw-variant
-  >
+  <input class="wid__varient__qty" type="hidden" name="quantity" id="{{ widget_id }}-qty-input" value="1" data-ssw-quantity>
+  <input class="wid__varient__id" type="hidden" name="id" id="{{ widget_id }}-variant-input" value="{{ variant.id }}" data-ssw-variant>
+  <input class="wid__selling_plan" type="hidden" name="selling_plan" value="{{ product.selling_plan_groups.first.selling_plans.first.id }}">
 
   <!-- ── One-Time Purchase row ── -->
+  {% if block.settings.title != blank %}
+      <h3 class="ssw-purchase-title">{{ block.settings.title }}</h3>
+  {% endif %}
   <div
     class="ssw-purchase-row{% if default_purchase_type == 'one_time' %} is-selected{% endif %}"
     data-ssw-purchase-row="one_time"
@@ -556,7 +585,7 @@
 
 </div>
 
-<script>
+{% comment %} <script>
 (function () {
   var widget = document.getElementById('{{ widget_id }}');
   if (!widget) return;
@@ -701,6 +730,241 @@
     } else if (planCards.length > 0) {
     selectPlan(planCards[0]);
     }
+
+})();
+</script> {% endcomment %}
+
+<script>
+(function () {
+  var widget = document.getElementById('{{ widget_id }}');
+  if (!widget) return;
+
+  /* ─────────────────────────────────────────
+     ELEMENT REFS
+  ───────────────────────────────────────── */
+  var moneyFormat  = {{ shop.money_format | json }};
+  var isSubscribe  = widget.dataset.defaultPurchase === 'subscribe';
+
+  var purchaseRows   = widget.querySelectorAll('[data-ssw-purchase-row]');
+  var subContent     = widget.querySelector('[data-ssw-sub-content]');
+  var planCards      = widget.querySelectorAll('[data-ssw-plan]');
+
+  // The three top inputs this widget owns
+  var qtyInput         = widget.querySelector('[data-ssw-quantity]');       // .wid__varient__qty
+  var variantInput     = widget.querySelector('[data-ssw-variant]');        // .wid__varient__id
+  var sellingPlanInput = widget.querySelector('.wid__selling_plan');        // .wid__selling_plan
+
+  // Frequency controls (select = multiple plans, hidden input = single plan)
+  var freqSelect = widget.querySelector('[data-ssw-frequency]');
+  var freqHidden = widget.querySelector('input[name="selling_plan"]:not(.wid__selling_plan)');
+
+  /* ─────────────────────────────────────────
+     MONEY FORMATTER
+  ───────────────────────────────────────── */
+  function formatMoney(cents) {
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+      return Shopify.formatMoney(cents, moneyFormat);
+    }
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  /* ─────────────────────────────────────────
+     GET ACTIVE SELLING PLAN ID
+     Reads from the <select> if multiple plans,
+     or the hidden input if only one plan exists.
+  ───────────────────────────────────────── */
+  function getActivePlanId() {
+    if (freqSelect) return freqSelect.value || '';
+    if (freqHidden) return freqHidden.value || '';
+    return '';
+  }
+
+  /* ─────────────────────────────────────────
+     SYNC THE SELLING PLAN INPUT
+     - Subscribe selected  → write plan ID
+     - One-time selected   → write empty string
+       (empty string = Shopify ignores it, 
+        treats as one-time purchase)
+  ───────────────────────────────────────── */
+  function syncSellingPlanInput() {
+    if (!sellingPlanInput) return;
+
+    if (isSubscribe) {
+      var planId = getActivePlanId();
+      sellingPlanInput.value = planId;
+    } else {
+      sellingPlanInput.value = '';
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     UPDATE PLAN CARD PRICES
+     Swaps price / compare / save text for every
+     plan card based on current purchase type.
+  ───────────────────────────────────────── */
+  function updatePlanPrices() {
+    planCards.forEach(function (card) {
+      var priceCents   = parseInt(card.dataset.priceCents,    10) || 0;
+      var compareCents = parseInt(card.dataset.compareCents,  10) || 0;
+      var subCents     = parseInt(card.dataset.subPriceCents, 10) || 0;
+      var otpSavePct   = parseInt(card.dataset.otpSavePct,    10) || 0;
+      var subSavePct   = parseInt(card.dataset.subSavePct,    10) || 0;
+
+      var priceEl   = card.querySelector('[data-ssw-plan-price]');
+      var compareEl = card.querySelector('[data-ssw-plan-compare]');
+      var saveEl    = card.querySelector('[data-ssw-plan-save]');
+
+      if (isSubscribe) {
+        // Main price = subscription discounted price
+        if (priceEl) priceEl.textContent = formatMoney(subCents);
+
+        // Strikethrough = original one-time price (only if sub is actually cheaper)
+        if (compareEl) {
+          if (priceCents > 0 && subCents < priceCents) {
+            compareEl.textContent   = formatMoney(priceCents);
+            compareEl.style.display = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+
+        // Save label = sub saving %
+        if (saveEl) {
+          if (subSavePct > 0) {
+            saveEl.textContent   = 'Save ' + subSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+
+      } else {
+        // Main price = full one-time price
+        if (priceEl) priceEl.textContent = formatMoney(priceCents);
+
+        // Strikethrough = compare_at_price from Shopify (only if higher)
+        if (compareEl) {
+          if (compareCents > 0 && compareCents > priceCents) {
+            compareEl.textContent   = formatMoney(compareCents);
+            compareEl.style.display = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+
+        // Save label = savings vs compare_at_price
+        if (saveEl) {
+          if (otpSavePct > 0) {
+            saveEl.textContent   = 'Save ' + otpSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     SELECT PURCHASE TYPE
+     Handles the Subscribe / One-time toggle rows.
+  ───────────────────────────────────────── */
+  function selectPurchaseType(type) {
+    isSubscribe = (type === 'subscribe');
+    widget.dataset.activePurchase = type;
+
+    // Toggle selected state on the two rows
+    purchaseRows.forEach(function (row) {
+      var active = row.dataset.sswPurchaseRow === type;
+      row.classList.toggle('is-selected', active);
+      row.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
+
+    // Show / hide frequency accordion
+    if (subContent) {
+      subContent.classList.toggle('is-visible', isSubscribe);
+    }
+
+    // Update the selling_plan input and all card prices
+    syncSellingPlanInput();
+    updatePlanPrices();
+  }
+
+  /* ─────────────────────────────────────────
+     SELECT A PLAN CARD
+     Updates quantity input and card selection state.
+  ───────────────────────────────────────── */
+  function selectPlan(card) {
+    planCards.forEach(function (c) {
+      c.classList.remove('is-selected');
+      c.setAttribute('aria-checked', 'false');
+    });
+
+    card.classList.add('is-selected');
+    card.setAttribute('aria-checked', 'true');
+
+    // Write quantity to the hidden qty input
+    if (qtyInput) qtyInput.value = card.dataset.quantity || 1;
+  }
+
+  /* ─────────────────────────────────────────
+     FREQUENCY SELECT CHANGE
+     When user picks a different subscription
+     frequency, update the selling_plan input.
+  ───────────────────────────────────────── */
+  if (freqSelect) {
+    freqSelect.addEventListener('change', function () {
+      // Auto-switch to subscribe mode if they pick a plan
+      if (!isSubscribe) {
+        selectPurchaseType('subscribe');
+      } else {
+        // Already in subscribe mode — just update the input
+        syncSellingPlanInput();
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     EVENT LISTENERS — purchase type rows
+  ───────────────────────────────────────── */
+  purchaseRows.forEach(function (row) {
+    row.addEventListener('click', function () {
+      selectPurchaseType(row.dataset.sswPurchaseRow);
+    });
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPurchaseType(row.dataset.sswPurchaseRow);
+      }
+    });
+  });
+
+  /* ─────────────────────────────────────────
+     EVENT LISTENERS — plan cards
+  ───────────────────────────────────────── */
+  planCards.forEach(function (card) {
+    card.addEventListener('click', function () { selectPlan(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPlan(card);
+      }
+    });
+  });
+
+  /* ─────────────────────────────────────────
+     INIT
+  ───────────────────────────────────────── */
+  // Set purchase type from Liquid default (runs updatePlanPrices + syncSellingPlanInput)
+  selectPurchaseType(widget.dataset.defaultPurchase || 'one_time');
+
+  // Select the default plan card
+  var defaultSelected = widget.querySelector('.ssw-plan.is-selected');
+  if (defaultSelected) {
+    selectPlan(defaultSelected);
+  } else if (planCards.length > 0) {
+    selectPlan(planCards[0]);
+  }
 
 })();
 </script>

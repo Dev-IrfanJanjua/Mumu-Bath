@@ -36,12 +36,14 @@
     line-height: 120%;
     text-transform: capitalize;
     letter-spacing: 0;
+    margin-bottom: 16px;
 }
 
 .pdp-rating {
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-bottom: 16px;
 }
 
 span.pdp-rating-text {
@@ -65,7 +67,7 @@ span.pdp-rating-text strong {
     font-weight: 600;
     line-height: 120%;
     text-transform: capitalize;
-    margin: 0;
+    margin: 0 0 16px;
 }
 
 .pdp_shortdesc {
@@ -78,21 +80,44 @@ span.pdp-rating-text strong {
     margin: 0;
 }
 
+.cstm-buy__btn {
+    border-radius: 41px;
+    background: var(--Yellow, #FBDD40);
+    padding: 18px 30px;
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 148%;
+    text-transform: capitalize;
+    margin: 32px 0 16px;
+    transition: all 0.3s ease;
+}
+
+.cstm-buy__btn:hover{
+    transform: translatey(-3px);
+}
+
+.product.main_pdp-wrapper .product-info__block-item {
+    margin: 0;
+}
+
+.main_pdp-wrapper .product-info__block-group.accordion-group {
+    margin-top: 22px;
+}
+
 @media screen and (max-width: 768px){
 
 .main_pdp-wrapper .product-title {
-    color: #000;
-    font-family: Mona Sans;
     font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 120%;
-    text-transform: capitalize;
-    letter-spacing: 0;
+    margin-bottom: 12px;
 }
 
 .pdp_subtitle {
     font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .pdp_shortdesc {
@@ -102,6 +127,18 @@ span.pdp-rating-text strong {
 
 .main_pdp-wrapper span.accordion__toggle span.text-with--icon {
     font-size: 16px;
+}
+
+.pdp-rating {
+    margin-bottom: 12px;
+}
+
+.cstm-buy__btn {
+    margin: 20px 0 16px;
+}
+
+.main_pdp-wrapper .product-info__block-group.accordion-group {
+    margin-top: 10px ;
 }
 
 }

@@ -113,6 +113,58 @@ line-height: 22px; /* 122.222% */
   max-width: calc(50% - 25px);
 }
 
+.about-us-{{ section.id }} .about-ritual__grid {
+    gap: 40px;
+    flex-direction: row-reverse;
+}
+
+.about-us-{{ section.id }} .about-ritual__image {
+    max-width: 52%;
+}
+
+.about-us-{{ section.id }} .about-ritual__content {
+    padding: 0 40px;
+    max-width: calc(48% - 40px);
+}
+
+.about-us-{{ section.id }} .hair__heading {
+    font-family: "Mona Sans";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+}
+
+.about-us-{{ section.id }} .about-ritual__content .desc {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px){
+
+.about-us-{{ section.id }} .about-ritual__grid {
+    gap: 24px;
+    flex-direction: column;
+}
+
+.about-us-{{ section.id }} .about-ritual__content,
+.about-us-{{ section.id }} .about-ritual__image {
+    max-width: 100%;
+}
+
+.about-us-{{ section.id }} .about-ritual__content {
+    padding: 0 16px;
+}
+
+.about-us-{{ section.id }} .hair__heading {
+    margin: 0 auto 16px;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+}
+
 
 @media (max-width: 768px) {
 
@@ -166,7 +218,7 @@ a.about-ritual__btn {
 
 {% endstyle %}
 
-<section class="about-ritual-{{ section.id }}  fade-in-section">
+<section class="about-ritual-{{ section.id }}  fade-in-section {{ section.settings.add_class }}-{{ section.id }}">
   <div class="about-ritual__container">
     <div class="about-ritual__grid">
 
@@ -223,6 +275,11 @@ a.about-ritual__btn {
 {
   "name": "About Ritual Section",
   "settings": [
+    {
+      "type": "text",
+      "id": "add_class",
+      "label": "Add Extra Class"
+    },
     {
       "type": "image_picker",
       "id": "image",

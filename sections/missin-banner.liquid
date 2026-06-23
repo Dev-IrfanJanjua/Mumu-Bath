@@ -1,0 +1,341 @@
+{% style %}
+  .section-{{ section.id }} {
+    background: {{ section.settings.section_bg }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  .section-{{ section.id }} .mission-banner {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: {{ section.settings.desktop_height }}px;
+  }
+
+  .section-{{ section.id }} .mission-banner__media,
+  .section-{{ section.id }} .mission-banner__placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-{{ section.id }} .mission-banner__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .section-{{ section.id }} .mission-banner__placeholder {
+    background: {{ section.settings.placeholder_bg }};
+  }
+
+  .section-{{ section.id }} .mission-banner__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .section-{{ section.id }} .mission-banner__content {
+    max-width: 700px;
+  }
+
+  .section-{{ section.id }} .mission-banner__tag {
+    margin: 0 0 12px;
+    color: {{ section.settings.tag_color }};
+    font-family: "Mona Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+
+  .section-{{ section.id }} .mission-banner__heading {
+    margin: 0;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .section-{{ section.id }} .mission-banner__description {
+    margin: 16px auto 0;
+    max-width: 600px;
+    color: {{ section.settings.description_color }};
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  {% if section.settings.hide_description_desktop %}
+    .section-{{ section.id }} .mission-banner__description {
+      display: none;
+    }
+  {% endif %}
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .section-{{ section.id }} .mission-banner {
+      min-height: {{ section.settings.mobile_height }}px;
+    }
+
+    .section-{{ section.id }} .mission-banner__overlay {
+      padding: 20px;
+    }
+
+    {% if section.settings.hide_description_desktop %}
+      .section-{{ section.id }} .mission-banner__description {
+        display: block;
+      }
+    {% endif %}
+  }
+{% endstyle %}
+
+<section class="mission-banner-section section-{{ section.id }}">
+  <div class="page-width">
+    <div class="mission-banner">
+
+      {% liquid
+        assign banner_image = section.settings.desktop_image
+
+        if request.device_type == 'mobile' and section.settings.mobile_image != blank
+          assign banner_image = section.settings.mobile_image
+        endif
+      %}
+
+      {% if banner_image != blank %}
+        <div class="mission-banner__media">
+          {{
+            banner_image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'lazy',
+              alt: banner_image.alt
+          }}
+        </div>
+      {% elsif section.settings.placeholder_image != blank %}
+        <div class="mission-banner__media">
+          {{
+            section.settings.placeholder_image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'lazy',
+              alt: 'Placeholder'
+          }}
+        </div>
+      {% else %}
+        <div class="mission-banner__placeholder"></div>
+      {% endif %}
+
+      <div class="mission-banner__overlay">
+        <div class="mission-banner__content">
+
+          {% if section.settings.tag != blank %}
+            <div class="mission-banner__tag tag_tag">
+              {{ section.settings.tag }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <div class="mission-banner__heading title_title">
+              {{
+                section.settings.heading
+                | replace: '<p>', ''
+                | replace: '</p>', ''
+              }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="mission-banner__description">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mission Banner",
+  "class": "shopify-section-mission-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "OUR MISSION"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Crafted To Make Daily Care Feel Special.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Add your description here.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_description_desktop",
+      "label": "Hide description on desktop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "placeholder_image",
+      "label": "Fallback Placeholder Image"
+    },
+    {
+      "type": "header",
+      "content": "Image Height"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop Min Height",
+      "min": 250,
+      "max": 900,
+      "step": 10,
+      "default": 450,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile Min Height",
+      "min": 200,
+      "max": 700,
+      "step": 10,
+      "default": 350,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_bg",
+      "label": "Placeholder Background",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 30,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mission Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

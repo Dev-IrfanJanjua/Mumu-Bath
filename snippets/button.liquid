@@ -149,113 +149,282 @@ Supported variables
 
 
 {% if new_class %}
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+{% comment %} <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-  // -----------------------------
-  // Get selected purchase type
-  // -----------------------------
-  function getSelectedPurchaseType() {
-    const selectedRow = document.querySelector('.ssw-purchase-row.is-selected');
-    return selectedRow ? selectedRow.dataset.sswPurchaseRow : 'one_time';
-  }
+  const widget = document.querySelector('[data-widget="subscribe-save"]');
+  if (!widget) return;
 
-  // -----------------------------
-  // Get quantity
-  // -----------------------------
-  function getQuantity() {
-    const qtyInput = document.querySelector('[name="quantity"], .quantity-input, input[type="number"]');
-    return qtyInput ? parseInt(qtyInput.value || 1, 10) : 1;
-  }
+  // BUY BUTTON INPUTS
+  const buyBtn = document.querySelector(".cstm-buy__btn");
+  const buyQtyInput = document.querySelector(".buy_product__qty");
+  const buyIdInput = document.querySelector(".buy_product__id");
+  const buySellingPlanInput = document.querySelector(".buy_product__selling_plan");
 
-  // -----------------------------
-  // Get variant ID
-  // (IMPORTANT: adjust selector if needed)
-  // -----------------------------
-  function getVariantId() {
-    const variantInput = document.querySelector('input[name="id"]');
-    return variantInput ? variantInput.value : null;
-  }
+  // WIDGET INPUTS
+  const qtyInput = widget.querySelector("[data-ssw-quantity]");
+  const variantInput = widget.querySelector("[data-ssw-variant]");
+  const frequencySelect = widget.querySelector("[data-ssw-frequency]");
 
-  // -----------------------------
-  // Get selling plan ID (subscription only)
-  // -----------------------------
-  function getSellingPlanId() {
-    const select = document.querySelector('[data-ssw-frequency]');
+  // STATE
+  let state = {
+    quantity: parseInt(qtyInput?.value || 1),
+    variantId: variantInput?.value || null,
+    purchaseType: "one_time",
+    sellingPlan: null
+  };
 
-    if (!select) return null;
+  // -------------------------
+  // UPDATE BUY BUTTON INPUTS
+  // -------------------------
+  function syncToBuyButton() {
+    if (buyQtyInput) buyQtyInput.value = state.quantity;
+    if (buyIdInput) buyIdInput.value = state.variantId;
 
-    // If dropdown exists
-    if (select.tagName === 'SELECT') {
-      return select.value || null;
+    // selling plan logic
+    if (state.purchaseType === "subscribe" && state.sellingPlan) {
+      buySellingPlanInput.value = state.sellingPlan;
+      buySellingPlanInput.disabled = false;
+    } else {
+      buySellingPlanInput.value = "";
+      buySellingPlanInput.disabled = true;
     }
-
-    // If hidden input exists
-    const hidden = document.querySelector('input[name="selling_plan"]');
-    return hidden ? hidden.value : null;
   }
 
-  // -----------------------------
-  // MAIN ADD TO CART FUNCTION
-  // -----------------------------
-  function addToCart() {
+  // -------------------------
+  // QUANTITY CHANGE (from plans)
+  // -------------------------
+  function bindPlanClicks() {
+    const plans = widget.querySelectorAll("[data-ssw-plan]");
 
-    const variantId = getVariantId();
-    const quantity = getQuantity();
-    const type = getSelectedPurchaseType();
+    plans.forEach(plan => {
+      plan.addEventListener("click", () => {
+        plans.forEach(p => p.classList.remove("is-selected"));
+        plan.classList.add("is-selected");
 
-    if (!variantId) {
-      console.error('Variant ID not found');
-      return;
-    }
+        state.quantity = parseInt(plan.dataset.quantity || 1);
+        qtyInput.value = state.quantity;
 
-    const payload = {
-      id: variantId,
-      quantity: quantity
+        syncToBuyButton();
+      });
+    });
+  }
+
+  // -------------------------
+  // PURCHASE TYPE SWITCH
+  // -------------------------
+  function bindPurchaseType() {
+    const rows = widget.querySelectorAll("[data-ssw-purchase-row]");
+
+    rows.forEach(row => {
+      row.addEventListener("click", () => {
+        rows.forEach(r => r.classList.remove("is-selected"));
+        row.classList.add("is-selected");
+
+        state.purchaseType = row.dataset.sswPurchaseRow;
+
+        if (state.purchaseType === "subscribe") {
+          const plan = frequencySelect?.value;
+          state.sellingPlan = plan || null;
+        } else {
+          state.sellingPlan = null;
+        }
+
+        syncToBuyButton();
+      });
+    });
+  }
+
+  // -------------------------
+  // SUBSCRIPTION PLAN CHANGE
+  // -------------------------
+  function bindFrequencyChange() {
+    if (!frequencySelect) return;
+
+    frequencySelect.addEventListener("change", (e) => {
+      state.sellingPlan = e.target.value;
+
+      // auto switch to subscribe mode if user selects plan
+      state.purchaseType = "subscribe";
+
+      const subscribeRow = widget.querySelector('[data-ssw-purchase-row="subscribe"]');
+      const oneTimeRow = widget.querySelector('[data-ssw-purchase-row="one_time"]');
+
+      subscribeRow?.classList.add("is-selected");
+      oneTimeRow?.classList.remove("is-selected");
+
+      syncToBuyButton();
+    });
+  }
+
+  // -------------------------
+  // INITIAL SYNC
+  // -------------------------
+  function init() {
+    state.variantId = variantInput?.value;
+    state.quantity = parseInt(qtyInput?.value || 1);
+
+    const selectedRow = widget.querySelector(".ssw-purchase-row.is-selected");
+    state.purchaseType = selectedRow?.dataset.sswPurchaseRow || "one_time";
+
+    state.sellingPlan = frequencySelect?.value || null;
+
+    bindPlanClicks();
+    bindPurchaseType();
+    bindFrequencyChange();
+
+    syncToBuyButton();
+  }
+
+  init();
+});
+</script> {% endcomment %}
+
+{% comment %} <script>
+(function() {
+
+  // If fetch is already patched by us, do not wrap again
+  if (window.fetch.__cartPatched) return;
+
+  function getWidgetValues() {
+    const widget = document.querySelector('[data-widget="subscribe-save"]');
+    if (!widget) return null;
+    return {
+      qty:  widget.querySelector(".wid__varient__qty")?.value || "1",
+      plan: widget.querySelector(".wid__selling_plan")?.value || ""
     };
+  }
 
-    // Add selling plan only for subscription
-    if (type === 'subscribe') {
-      const sellingPlanId = getSellingPlanId();
+  const _fetch = window.fetch;
 
-      if (sellingPlanId) {
-        payload.selling_plan = sellingPlanId;
+  window.fetch = function(input, init) {
+    const url = typeof input === "string" ? input : input?.url || "";
+
+    if (url.includes("/cart/add")) {
+      const vals = getWidgetValues();
+      if (vals) {
+        if (init?.body instanceof FormData) {
+          init.body.set("quantity", vals.qty);
+          vals.plan ? init.body.set("selling_plan", vals.plan) : init.body.delete("selling_plan");
+          console.log("[CartIntercept] ✅ FormData patched → qty:", vals.qty, "plan:", vals.plan);
+
+        } else if (typeof init?.body === "string") {
+          try {
+            const json = JSON.parse(init.body);
+            json.quantity = parseInt(vals.qty);
+            if (vals.plan) json.selling_plan = vals.plan;
+            init = { ...init, body: JSON.stringify(json) };
+            console.log("[CartIntercept] ✅ JSON patched →", json);
+          } catch(e) {
+            const p = new URLSearchParams(init.body);
+            p.set("quantity", vals.qty);
+            vals.plan ? p.set("selling_plan", vals.plan) : p.delete("selling_plan");
+            init = { ...init, body: p.toString() };
+            console.log("[CartIntercept] ✅ URL-encoded patched →", p.toString());
+          }
+        }
       }
     }
 
-    console.log('Cart Payload:', payload);
+    return _fetch.call(this, input, init);
+  };
 
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Added to cart successfully:', data);
+  // Mark so no other instance wraps it again
+  window.fetch.__cartPatched = true;
 
-      // OPTIONAL: trigger cart update event
-      document.dispatchEvent(new CustomEvent('cart:updated', {
-        detail: data
-      }));
-    })
-    .catch(error => {
-      console.error('Add to cart error:', error);
+  console.log("[CartIntercept] ✅ Single instance active");
+
+})();
+</script> {% endcomment %}
+
+<script>
+(function() {
+
+  if (window.fetch.__cartPatched) return;
+
+  function getWidgetValues() {
+    const widget = document.querySelector('[data-widget="subscribe-save"]');
+    if (!widget) return null;
+    return {
+      qty:  widget.querySelector(".wid__varient__qty")?.value || "1",
+      plan: widget.querySelector(".wid__selling_plan")?.value || ""
+    };
+  }
+
+  function syncDOM(qty, plan) {
+    // Find the form the button submits
+    const buyBtn = document.querySelector(".cstm-buy__btn");
+    if (!buyBtn) return;
+
+    const formId = buyBtn.closest("buy-buttons")?.getAttribute("form");
+    const form   = formId ? document.getElementById(formId) : buyBtn.closest("form");
+
+    // Update every input inside the actual form
+    if (form) {
+      form.querySelectorAll('input[name="quantity"]').forEach(inp => {
+        inp.value = qty;
+        inp.setAttribute("value", qty);
+      });
+      form.querySelectorAll('input[name="selling_plan"]').forEach(inp => {
+        inp.value = plan;
+        inp.setAttribute("value", plan);
+      });
+    }
+
+    // Also update any standalone buy_product__ inputs outside the form
+    document.querySelectorAll('.buy_product__qty, .form__qty').forEach(inp => {
+      inp.value = qty;
+      inp.setAttribute("value", qty);
+    });
+    document.querySelectorAll('.buy_product__selling_plan, .form__selling_plan').forEach(inp => {
+      inp.value = plan;
+      inp.setAttribute("value", plan);
     });
   }
 
-  // -----------------------------
-  // BUTTON CLICK BINDING
-  // -----------------------------
-  document.querySelectorAll('.new_class').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault();
-      addToCart();
-    });
-  });
+  const _fetch = window.fetch;
 
-});
+  window.fetch = function(input, init) {
+    const url = typeof input === "string" ? input : input?.url || "";
+
+    if (url.includes("/cart/add")) {
+      const vals = getWidgetValues();
+
+      if (vals) {
+        // ── FormData ─────────────────────────────────────────────
+        if (init?.body instanceof FormData) {
+          init.body.set("quantity", vals.qty);
+          vals.plan
+            ? init.body.set("selling_plan", vals.plan)
+            : init.body.delete("selling_plan");
+
+        // ── JSON string ──────────────────────────────────────────
+        } else if (typeof init?.body === "string") {
+          try {
+            const json = JSON.parse(init.body);
+            json.quantity = parseInt(vals.qty);
+            if (vals.plan) json.selling_plan = vals.plan;
+            init = { ...init, body: JSON.stringify(json) };
+          } catch(e) {
+            const p = new URLSearchParams(init.body);
+            p.set("quantity", vals.qty);
+            vals.plan ? p.set("selling_plan", vals.plan) : p.delete("selling_plan");
+            init = { ...init, body: p.toString() };
+          }
+        }
+
+        // Sync DOM to match submitted values
+        syncDOM(vals.qty, vals.plan);
+
+        console.log("[CartIntercept] ✅ qty:", vals.qty, "| plan:", vals.plan);
+      }
+    }
+
+    return _fetch.call(this, input, init);
+  };
+
+  window.fetch.__cartPatched = true;
+
+})();
 </script>
 {% endif %}

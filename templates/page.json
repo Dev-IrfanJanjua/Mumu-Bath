@@ -9,8 +9,29 @@
  */
 {
   "sections": {
+    "routed_ritual_jhyBLY": {
+      "type": "routed-ritual",
+      "name": "About Ritual Section",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image_alt": "About image",
+        "heading": "A Ritual Rooted In Taiwan",
+        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
+        "signature": "shopify://shop_images/image_21.png",
+        "signature_alt": "Founder signature",
+        "founder_name": "Founder",
+        "button_label": "Discover Our Story",
+        "button_link": "",
+        "bg_color": "#f8f6ee",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "show_title": true,
         "page_width": "xs"
@@ -139,6 +160,7 @@
         "targetbay_product_reviews_tb_common_KmJPmp",
         "targetbay_product_reviews_site_reviews_PW4UJL"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -147,6 +169,7 @@
     }
   },
   "order": [
+    "routed_ritual_jhyBLY",
     "main",
     "featured_product_wwFrGx",
     "174228070476985170"
