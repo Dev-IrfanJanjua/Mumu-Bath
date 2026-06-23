@@ -169,10 +169,17 @@
         width: 100%;
         margin-top: 8px;
     }
+
+    .faq-banner-{{ section.id }} a.cb-btn.btn_btn {
+        font-size: 18px;
+        line-height: 140%;
+        margin-top: 14px;
+    }
+
   }
 </style>
 
-<section class="section-{{ section.id }}" id="shopify-section-{{ section.id }}">
+<section class="section-{{ section.id }} {{ section.settings.add_class }}-{{ section.id }}" id="shopify-section-{{ section.id }}">
 
   <!-- Absolute background images -->
   <div class="cb-bg" aria-hidden="true">
@@ -263,6 +270,11 @@
   "name": "Collection Banner",
   "tag": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "add_class",
+      "label": "Add Extra Class"
+    },
     {
       "type": "header",
       "content": "Content"

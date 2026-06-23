@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "featured_product_wwFrGx": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_dLyxUp": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_768FDf": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_PMKyFx": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_c6eE6y": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_MXLwrd": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_pjRHYf": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator_ayyxz4": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_KWWmGP": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false
+          }
+        },
+        "variant_picker_bEekJY": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_3VcKTe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_f7qB8f": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_Lpzg7w": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_dLyxUp",
+        "title_768FDf",
+        "badges_PMKyFx",
+        "price_c6eE6y",
+        "rating_MXLwrd",
+        "payment_terms_pjRHYf",
+        "separator_ayyxz4",
+        "description_KWWmGP",
+        "variant_picker_bEekJY",
+        "quantity_selector_3VcKTe",
+        "buy_buttons_f7qB8f",
+        "pickup_availability_Lpzg7w"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured_product.presets.featured_product.name",
+      "settings": {
+        "product": "",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "Featured product",
+        "content": ""
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_product_wwFrGx",
+    "174228070476985170"
+  ]
+}

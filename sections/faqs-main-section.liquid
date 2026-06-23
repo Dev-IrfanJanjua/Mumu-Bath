@@ -11,14 +11,14 @@
   .section-{{ section.id }} .faq-main-title.title_title {
     color: {{ section.settings.title_color }};
     text-align: center;
-    margin: 0 0 48px;
+    margin: 0 0 50px;
   }
 
   /* ── Two-column layout ── */
   .section-{{ section.id }} .faq-body {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 48px;
+    grid-template-columns: 410px 1fr;
+    gap: 50px;
     align-items: start;
   }
 
@@ -34,7 +34,7 @@
     font-size: 26px;
     font-weight: 600;
     line-height: normal;
-    margin: 0 0 16px;
+    margin: 20px 0 20px;
   }
 
   .section-{{ section.id }} .faq-tabs__list {
@@ -47,6 +47,8 @@
 
   .section-{{ section.id }} .faq-tabs__item {
     border-top: 1px solid {{ section.settings.divider_color }};
+    padding: 0;
+    margin: 0;
   }
 
   .section-{{ section.id }} .faq-tabs__item:last-child {
@@ -58,7 +60,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 12px;
+    padding: 20px;
     background: none;
     border: none;
     cursor: pointer;
@@ -68,8 +70,8 @@
     font-size: 20px;
     font-weight: 400;
     line-height: normal;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+    border-radius: 100px;
+    transition: all 0.2s ease;
   }
 
   .section-{{ section.id }} .faq-tabs__btn[aria-selected="true"] {
@@ -79,10 +81,15 @@
     font-weight: 400;
   }
 
+  .section-{{ section.id }} li.faq-tabs__item:has(.faq-tabs__btn[aria-selected="true"]),
+  .section-{{ section.id }} li.faq-tabs__item:has(.faq-tabs__btn[aria-selected="true"]) + li.faq-tabs__item {
+        border: none !important;
+    }
+
   /* Radio indicator */
   .section-{{ section.id }} .faq-tabs__radio {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     border: 2px solid {{ section.settings.tab_radio_border }};
     flex-shrink: 0;
@@ -97,8 +104,8 @@
   }
 
   .section-{{ section.id }} .faq-tabs__radio-dot {
-    width: 8px;
-    height: 8px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background-color: {{ section.settings.tab_radio_active_color }};
     opacity: 0;
@@ -128,13 +135,13 @@
     font-size: 26px;
     font-weight: 600;
     line-height: normal;
-    margin: 0 0 12px;
+    margin: 20px 0 30px;
   }
 
   .section-{{ section.id }} .faq-panel__divider {
     border: none;
     border-top: 1px solid {{ section.settings.divider_color }};
-    margin: 0 0 4px;
+    margin: 0px;
   }
 
   /* ── Accordion items ── */
@@ -148,12 +155,17 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 18px 0;
+    padding: 30px 0;
     background: none;
     border: none;
     cursor: pointer;
     text-align: left;
+    transition: all 0.3s ease;
   }
+
+  .section-{{ section.id }} .faq-item.is-open .faq-item__trigger {
+        padding-bottom: 15px;
+    }
 
   .section-{{ section.id }} .faq-item__question {
     color: {{ section.settings.question_color }};
@@ -180,10 +192,22 @@
     width: 20px;
     height: 20px;
     stroke: currentColor;
+    transition: all 0.3s ease;
   }
 
-  .section-{{ section.id }} .faq-item.is-open .faq-item__icon {
-    transform: rotate(45deg);
+  .section-{{ section.id }} .faq-item__icon_minus{
+        display: none;
+        opacity: 0;
+    }
+
+  .section-{{ section.id }} .faq-item.is-open .faq-item__icon_plus {
+    display: none;
+    opacity: 0;
+  }
+
+  .section-{{ section.id }} .faq-item.is-open .faq-item__icon_minus {
+    display: block;
+    opacity: 1;
   }
 
   /* Smooth height animation */
@@ -208,7 +232,7 @@
     font-weight: 400;
     line-height: 24px;
     margin: 0;
-    padding: 0 0 18px;
+    padding: 0px 24px 20px 0;
   }
 
   /* ── Mobile ── */
@@ -219,17 +243,70 @@
     }
 
     .section-{{ section.id }} .faq-main-title.title_title {
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
 
     .section-{{ section.id }} .faq-body {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 16px;
     }
 
     .section-{{ section.id }} .faq-tabs {
       position: static;
+      min-width: 0;
     }
+
+    .section-{{ section.id }} .faq-tabs__heading {
+        font-size: 20px;
+        margin: 16px 0 20px;
+    }
+
+    .section-{{ section.id }} .faq-tabs__list {
+        flex-direction: row;
+        overflow-x: scroll;
+        padding: 2px 0;
+        gap: 8px;
+        align-items: center;
+        margin-right: -16px;
+        padding-right: 16px;
+        scrollbar-width: none;
+    }
+
+    .section-{{ section.id }} .faq-tabs__btn {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 100px;
+        border: 1px solid #D1D1D1;
+        gap: 12px;
+    }
+
+    .section-{{ section.id }} .faq-tabs__btn[aria-selected="true"] {
+        font-size: 18px;
+    }
+
+    .section-{{ section.id }} .faq-tabs__item {
+        border: none !important;
+    }
+
+    .section-{{ section.id }} .faq-panel__heading {
+        font-size: 24px;
+        margin: 16px 0;
+    }
+
+    .section-{{ section.id }} .faq-item__trigger {
+        padding: 16px 0;
+        padding-right: 10px;
+    }
+
+    .section-{{ section.id }} .faq-item__question {
+        font-size: 14px;
+    }
+
+    .section-{{ section.id }} .faq-item__answer {
+        font-size: 14px;
+        padding: 0px 24px 16px 0;
+    }
+
   }
 </style>
 
@@ -306,9 +383,19 @@
                     >
                       <span class="faq-item__question">{{ faq_q }}</span>
                       <span class="faq-item__icon" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="faq-item__icon_plus" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <line x1="10" y1="3" x2="10" y2="17" stroke-width="1.6" stroke-linecap="round"/>
                           <line x1="3" y1="10" x2="17" y2="10" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="faq-item__icon_minus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_884_11785)">
+                            <path d="M11.502 11.3105H11.3112H3.03125V12.6905H11.3112H12.6912H20.9713V11.3105H12.6912H11.502Z" fill="black"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_884_11785">
+                            <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                            </defs>
                         </svg>
                       </span>
                     </button>

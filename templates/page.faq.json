@@ -9,6 +9,224 @@
  */
 {
   "sections": {
+    "new_collection_banner_YpPXwa": {
+      "type": "new-collection-banner",
+      "name": "Collection Banner",
+      "settings": {
+        "add_class": "faq-banner",
+        "custom_title": "<p>Questions? <br/>We're Here To Help.</p>",
+        "subtitle": "Find answers about ordering, shipping, returns, wholesale, product care, and how to get the most out of your Mumu Bath rituals.",
+        "btn_label": "Shop Best Sellers",
+        "btn_url": "shopify://collections/face-body",
+        "bg_image_desktop": "shopify://shop_images/1_fc1d4b1e-79be-4195-8fd8-ec3ad79b6591.png",
+        "bg_position": "center center",
+        "bg_image_mobile": "shopify://shop_images/Frame_2147243422.png",
+        "bg_position_mobile": "center bottom",
+        "overlay_opacity": 0,
+        "min_height_desktop": 540,
+        "min_height_mobile": 720,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 300,
+        "section_bg_color": "#eeeadf",
+        "overlay_color": "#000000",
+        "title_color": "#000000",
+        "subtitle_color": "#000000",
+        "btn_bg_color": "#fbdd3f",
+        "btn_text_color": "#000000"
+      }
+    },
+    "faqs_main_section_ziemcx": {
+      "type": "faqs-main-section",
+      "blocks": {
+        "tab_BGRwCt": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Orders",
+            "faq_q_1": "Do you offer gift cards?",
+            "faq_a_1": "Yes, gift cards are available through the Mumu Bath gift shop.",
+            "faq_q_2": "Can I order gifts for a team or event?",
+            "faq_a_2": "Can I order gifts for a team or event?",
+            "faq_q_3": "Can I include a note with my gift?",
+            "faq_a_3": "Can I include a note with my gift?",
+            "faq_q_4": "",
+            "faq_a_4": "",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        },
+        "tab_GXBFct": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Shipping",
+            "faq_q_1": "How much do you charge for shipping?",
+            "faq_a_1": "How much do you charge for shipping?",
+            "faq_q_2": "How long does shipping take?",
+            "faq_a_2": "How long does shipping take?",
+            "faq_q_3": "Do you ship internationally?",
+            "faq_a_3": "Do you ship internationally?",
+            "faq_q_4": "What should I do if my package is delayed?",
+            "faq_a_4": "What should I do if my package is delayed?",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        },
+        "tab_Ph9h7m": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Returns",
+            "faq_q_1": "What is your return policy?",
+            "faq_a_1": "What is your return policy?",
+            "faq_q_2": "Can children take these gummies?",
+            "faq_a_2": "Can children take these gummies?",
+            "faq_q_3": "Can I exchange a product?",
+            "faq_a_3": "Can I exchange a product?",
+            "faq_q_4": "",
+            "faq_a_4": "",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        },
+        "tab_HdkYbh": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Products",
+            "faq_q_1": "Do you offer gift cards?",
+            "faq_a_1": "Yes, gift cards are available through the Mumu Bath gift shop.",
+            "faq_q_2": "Can I order gifts for a team or event?",
+            "faq_a_2": "",
+            "faq_q_3": "Can I include a note with my gift?",
+            "faq_a_3": "",
+            "faq_q_4": "",
+            "faq_a_4": "",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        },
+        "tab_AFYHLe": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Wholesale",
+            "faq_q_1": "Do you offer gift cards?",
+            "faq_a_1": "Yes, gift cards are available through the Mumu Bath gift shop.",
+            "faq_q_2": "Can I order gifts for a team or event?",
+            "faq_a_2": "",
+            "faq_q_3": "Can I include a note with my gift?",
+            "faq_a_3": "",
+            "faq_q_4": "",
+            "faq_a_4": "",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        },
+        "tab_PQWK64": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Gifting",
+            "faq_q_1": "Do you offer gift cards?",
+            "faq_a_1": "Yes, gift cards are available through the Mumu Bath gift shop.",
+            "faq_q_2": "Can I order gifts for a team or event?",
+            "faq_a_2": "",
+            "faq_q_3": "Can I include a note with my gift?",
+            "faq_a_3": "",
+            "faq_q_4": "",
+            "faq_a_4": "",
+            "faq_q_5": "",
+            "faq_a_5": "",
+            "faq_q_6": "",
+            "faq_a_6": "",
+            "faq_q_7": "",
+            "faq_a_7": "",
+            "faq_q_8": "",
+            "faq_a_8": "",
+            "faq_q_9": "",
+            "faq_a_9": "",
+            "faq_q_10": "",
+            "faq_a_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_BGRwCt",
+        "tab_GXBFct",
+        "tab_Ph9h7m",
+        "tab_HdkYbh",
+        "tab_AFYHLe",
+        "tab_PQWK64"
+      ],
+      "name": "FAQ Tabs",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "tabs_heading": "FAQ's",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "section_bg_color": "#ffffff",
+        "title_color": "#111111",
+        "secondary_title_color": "#000000",
+        "tab_text_color": "#000000",
+        "tab_active_bg": "#fbdd40",
+        "tab_active_text_color": "#000000",
+        "tab_radio_border": "#d1d1d1",
+        "tab_radio_active_color": "#000000",
+        "question_color": "#000000",
+        "answer_color": "#000000",
+        "icon_color": "#000000",
+        "divider_color": "#d1d1d1"
+      }
+    },
     "rich_text_BVCF67": {
       "type": "rich-text",
       "blocks": {
@@ -38,6 +256,7 @@
         "liquid_GniyiF",
         "richtext_eacpn4"
       ],
+      "disabled": true,
       "settings": {
         "reserve-rich-text-id": "",
         "separate_section_with_border": true,
@@ -48,6 +267,7 @@
     },
     "custom_liquid_YzCdat": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -153,6 +373,7 @@
         "question_UcLcUn",
         "question_TLY9gb"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": false,
         "show_categories": false,
@@ -177,6 +398,7 @@
         "targetbay_product_reviews_tb_common_UDNFBq",
         "targetbay_product_reviews_site_reviews_JKP8W9"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -185,6 +407,8 @@
     }
   },
   "order": [
+    "new_collection_banner_YpPXwa",
+    "faqs_main_section_ziemcx",
     "rich_text_BVCF67",
     "custom_liquid_YzCdat",
     "faq",
