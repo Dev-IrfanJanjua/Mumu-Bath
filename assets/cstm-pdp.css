@@ -93,6 +93,7 @@ span.pdp-rating-text strong {
     text-transform: capitalize;
     margin: 32px 0 16px;
     transition: all 0.3s ease;
+    letter-spacing: 0;
 }
 
 .cstm-buy__btn:hover{
@@ -105,6 +106,11 @@ span.pdp-rating-text strong {
 
 .main_pdp-wrapper .product-info__block-group.accordion-group {
     margin-top: 22px;
+}
+
+.main_pdp-wrapper .product-gallery {
+    position: sticky;
+    top: 40px;
 }
 
 @media screen and (max-width: 768px){
@@ -139,6 +145,10 @@ span.pdp-rating-text strong {
 
 .main_pdp-wrapper .product-info__block-group.accordion-group {
     margin-top: 10px ;
+}
+
+.main_pdp-wrapper .product-gallery {
+    position: static;
 }
 
 }

@@ -29,6 +29,56 @@
         "padding_bottom_mobile": 40
       }
     },
+    "marquee_about_4B6yV3": {
+      "type": "marquee-about",
+      "blocks": {
+        "feature_rKJjEL": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2974_Vectorized.svg",
+            "title": "Natural ingredients"
+          }
+        },
+        "feature_zwfYQP": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2974_Vectorized.svg",
+            "title": "Taiwanese inspired"
+          }
+        },
+        "feature_aVj3p6": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2976_Vectorized.svg",
+            "title": "Handcrafted care"
+          }
+        },
+        "feature_yxbwjX": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2977_Vectorized.svg",
+            "title": "Joyful rituals"
+          }
+        }
+      },
+      "block_order": [
+        "feature_rKJjEL",
+        "feature_zwfYQP",
+        "feature_aVj3p6",
+        "feature_yxbwjX"
+      ],
+      "name": "Scrolling Feature Icons",
+      "settings": {
+        "customclass": "about-us",
+        "title": "",
+        "mob_title": "",
+        "bg_color": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "mobile_padding_top": 6,
+        "mobile_padding_bottom": 0
+      }
+    },
     "missin_banner_VKpRdp": {
       "type": "missin-banner",
       "name": "Mission Banner",
@@ -46,7 +96,7 @@
         "heading_color": "#ffffff",
         "tag_color": "#ffffff",
         "description_color": "#ffffff",
-        "padding_top_desktop": 100,
+        "padding_top_desktop": 60,
         "padding_bottom_desktop": 0,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 0
@@ -99,10 +149,10 @@
         "heading": "<p>Our core values</p>",
         "subtitle": "These values guide how we create, source, serve, and show up for our community.",
         "columns_desktop": 4,
-        "section_bg": "#FFFFFF",
+        "section_bg": "#ffffff",
         "heading_color": "#111111",
         "subtitle_color": "#000000",
-        "card_bg": "#F8F6EE",
+        "card_bg": "#f8f6ee",
         "card_title_color": "#111111",
         "card_subtitle_color": "#000000",
         "card_radius": 10,
@@ -151,14 +201,14 @@
         "tag": "— Ingredient Philosophy",
         "heading": "<p>Thoughtful ingredients, beautiful rituals.</p>",
         "description": "<p>We choose every ingredient with purpose  to nourish the skin, elevate the senses, and bring more meaning into your daily routine.<br/><br/>From soft body care to comforting scents, each product is made to feel thoughtful, gentle, and beautifully sensory.</p>",
-        "section_bg": "#FFFFFF",
-        "content_bg": "#F8F6EE",
+        "section_bg": "#ffffff",
+        "content_bg": "#f8f6ee",
         "tag_color": "#000000",
         "heading_color": "#111111",
         "description_color": "#000000",
         "card_title_color": "#000000",
         "card_subtitle_color": "#000000",
-        "divider_color": "#D9D3C3",
+        "divider_color": "#d9d3c3",
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 0,
         "padding_top_mobile": 0,
@@ -258,15 +308,15 @@
         "subtitle": "<p>Explore natural bath, body, and skincare essentials crafted to bring comfort, care, and a little joy into your everyday routine.</p>",
         "button_text": "Shop Mumu Bath",
         "button_link": "#",
-        "section_bg": "#FFFFFF",
-        "wrapper_bg": "#F8F6EE",
+        "section_bg": "#ffffff",
+        "wrapper_bg": "#f8f6ee",
         "tag_color": "#000000",
         "heading_color": "#111111",
         "subtitle_color": "#000000",
-        "button_bg": "#F4D236",
+        "button_bg": "#f4d236",
         "button_color": "#111111",
         "button_hover_bg": "#111111",
-        "button_hover_color": "#FFFFFF",
+        "button_hover_color": "#ffffff",
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 20,
         "padding_top_mobile": 0,
@@ -414,6 +464,7 @@
   },
   "order": [
     "routed_ritual_fW6RUr",
+    "marquee_about_4B6yV3",
     "missin_banner_VKpRdp",
     "core_values_Qq9mjW",
     "ingrediant_philosophy_QgTGxE",

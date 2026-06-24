@@ -1,0 +1,252 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "routed_ritual_jhyBLY": {
+      "type": "routed-ritual",
+      "disabled": true,
+      "name": "About Ritual Section",
+      "settings": {
+        "add_class": "",
+        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image_alt": "About image",
+        "heading": "A Ritual Rooted In Taiwan",
+        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
+        "signature": "shopify://shop_images/image_21.png",
+        "signature_alt": "Founder signature",
+        "founder_name": "Founder",
+        "button_label": "Discover Our Story",
+        "button_link": "",
+        "bg_color": "#f8f6ee",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "location_banner_mxcXCW": {
+      "type": "location-banner",
+      "name": "Location Banner",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147243719.png",
+        "title": "Our Brooklyn Store ",
+        "subtitle": "We’re excited to welcome you to our first shop in Dumbo, Brooklyn  explore our body care, soaps, oils, scrubs, and gifts made for healthy, beautiful skin.",
+        "button_text": "Get Directions",
+        "button_link": "#",
+        "section_bg": "#ffffff",
+        "content_bg": "#f8f6ee",
+        "heading_color": "#000000",
+        "subtitle_color": "#000000",
+        "button_bg": "#fbdd3f",
+        "button_color": "#000000",
+        "button_hover_bg": "#000000",
+        "button_hover_color": "#ffffff",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "visit_location_6YfCYf": {
+      "type": "visit-location",
+      "blocks": {
+        "location_info_e9cgtH": {
+          "type": "location_info",
+          "settings": {
+            "icon": "shopify://shop_images/image_2987.png",
+            "title": "ADDRESS",
+            "subtitle": "<p>72 Jay St, Brooklyn, NY 11201</p>"
+          }
+        },
+        "location_info_CdE8wf": {
+          "type": "location_info",
+          "settings": {
+            "icon": "shopify://shop_images/image_2988.png",
+            "title": "Opening Hours",
+            "subtitle": "<p>Open every Saturday and Sunday<br/>9am-3pm</p>"
+          }
+        }
+      },
+      "block_order": [
+        "location_info_e9cgtH",
+        "location_info_CdE8wf"
+      ],
+      "name": "Visit Location",
+      "settings": {
+        "heading": "<p>Plan Your Visit</p>",
+        "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1512.3378281607938!2d-73.9878382!3d40.7031404!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6d369d182885635%3A0x2119e776793f31ee!2sMumu%20Bath!5e0!3m2!1sen!2s!4v1782302082357!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+        "tag": "LOCATIONS",
+        "content_title": "ADDRESS",
+        "button_text": "Get Directions",
+        "button_link": "#",
+        "section_bg": "#ffffff",
+        "heading_color": "#000000",
+        "tag_color": "#000000",
+        "content_title_color": "#000000",
+        "block_title_color": "#000000",
+        "block_subtitle_color": "#000000",
+        "button_bg": "#fbdd3f",
+        "button_color": "#000000",
+        "button_hover_bg": "#000000",
+        "button_hover_color": "#ffffff",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "featured_product_wwFrGx": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_dLyxUp": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_768FDf": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_PMKyFx": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_c6eE6y": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_MXLwrd": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_pjRHYf": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator_ayyxz4": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_KWWmGP": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false
+          }
+        },
+        "variant_picker_bEekJY": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_3VcKTe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_f7qB8f": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_Lpzg7w": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_dLyxUp",
+        "title_768FDf",
+        "badges_PMKyFx",
+        "price_c6eE6y",
+        "rating_MXLwrd",
+        "payment_terms_pjRHYf",
+        "separator_ayyxz4",
+        "description_KWWmGP",
+        "variant_picker_bEekJY",
+        "quantity_selector_3VcKTe",
+        "buy_buttons_f7qB8f",
+        "pickup_availability_Lpzg7w"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured_product.presets.featured_product.name",
+      "settings": {
+        "product": "",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "Featured product",
+        "content": ""
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "routed_ritual_jhyBLY",
+    "location_banner_mxcXCW",
+    "visit_location_6YfCYf",
+    "main",
+    "featured_product_wwFrGx",
+    "174228070476985170"
+  ]
+}

@@ -1,0 +1,456 @@
+{% style %}
+.section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .visit-location__heading {
+  color: {{ section.settings.heading_color }};
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-{{ section.id }} .visit-location__wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.section-{{ section.id }} .visit-location__map {
+  width: 62.5%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.section-{{ section.id }} .visit-location__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
+  border: 0;
+  display: block;
+}
+
+.section-{{ section.id }} .visit-location__content {
+  width: 34.56%;
+  border-radius: 8px;
+  background: #F8F6EE;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.section-{{ section.id }} .visit-location__tag {
+  color: {{ section.settings.tag_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17.8px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-{{ section.id }} .visit-location__title {
+  color: {{ section.settings.content_title_color }};
+  font-family: "Mona Sans";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0px;
+  margin-bottom: 30px;
+}
+
+.section-{{ section.id }} .visit-location__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-{{ section.id }} .visit-location__block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.section-{{ section.id }} .visit-location__icon {
+  flex-shrink: 0;
+}
+
+.section-{{ section.id }} .visit-location__icon img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+.section-{{ section.id }} .visit-location__block-title {
+  color: {{ section.settings.block_title_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.section-{{ section.id }} .visit-location__block-subtitle {
+  color: {{ section.settings.block_subtitle_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0px;
+}
+
+.section-{{ section.id }} .visit-location__button {
+  display: flex;
+}
+
+.section-{{ section.id }} .visit-location__button .btn_btn {
+  width: 100%;
+  justify-content: center;
+  background: {{ section.settings.button_bg }};
+  color: {{ section.settings.button_color }};
+  transition: all .3s ease;
+  display: flex;
+}
+
+.section-{{ section.id }} .visit-location__button .btn_btn:hover {
+  background: {{ section.settings.button_hover_bg }};
+  color: {{ section.settings.button_hover_color }};
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .visit-location__heading {
+    margin-bottom: 24px;
+  }
+
+  .section-{{ section.id }} .visit-location__wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section-{{ section.id }} .visit-location__map,
+  .section-{{ section.id }} .visit-location__content {
+    width: 100%;
+  }
+
+  .section-{{ section.id }} .visit-location__map iframe {
+    min-height: 320px;
+  }
+
+  .section-{{ section.id }} .visit-location__content {
+    padding: 20px 12px;
+  }
+
+  .section-{{ section.id }} .visit-location__title {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .section-{{ section.id }} .visit-location__block-title {
+    font-size: 16px;
+  }
+
+  .section-{{ section.id }} .visit-location__block-subtitle {
+    font-size: 14px;
+  }
+
+  .section-{{ section.id }} .visit-location__tag {
+        margin-bottom: 12px;
+    }
+
+    .section-{{ section.id }} .visit-location__blocks {
+        gap: 24px;
+    }
+
+    .section-{{ section.id }} .visit-location__block {
+        gap: 12px;
+    }
+
+    .section-{{ section.id }} .visit-location__button .btn_btn {
+        font-size: 16px;
+    }
+
+}
+{% endstyle %}
+
+<section class="visit-location section-{{ section.id }}">
+  <div class="page-width">
+
+    {% if section.settings.heading != blank %}
+      <div class="visit-location__heading title_title">
+        {{
+          section.settings.heading
+          | replace: '<p>', ''
+          | replace: '</p>', ''
+        }}
+      </div>
+    {% endif %}
+
+    <div class="visit-location__wrapper">
+
+      {% if section.settings.map_embed != blank %}
+        <div class="visit-location__map">
+          {{ section.settings.map_embed }}
+        </div>
+      {% endif %}
+
+      <div class="visit-location__content">
+        <div class="visit-location__content_top">
+            {% if section.settings.tag != blank %}
+              <div class="visit-location__tag">
+                {{ section.settings.tag }}
+              </div>
+            {% endif %}
+    
+            {% if section.settings.content_title != blank %}
+              <h2 class="visit-location__title">
+                {{ section.settings.content_title }}
+              </h2>
+            {% endif %}
+    
+            {% if section.blocks.size > 0 %}
+              <div class="visit-location__blocks">
+                {% for block in section.blocks %}
+                  <div class="visit-location__block" {{ block.shopify_attributes }}>
+    
+                    <div class="visit-location__icon">
+                      {% if block.settings.icon != blank %}
+                        {{
+                          block.settings.icon
+                          | image_url: width: 100
+                          | image_tag:
+                            widths: '36,72,100',
+                            loading: 'lazy',
+                            alt: block.settings.title
+                        }}
+                      {% endif %}
+                    </div>
+    
+                    <div class="visit-location__info">
+    
+                      {% if block.settings.title != blank %}
+                        <div class="visit-location__block-title">
+                          {{ block.settings.title }}
+                        </div>
+                      {% endif %}
+    
+                      {% if block.settings.subtitle != blank %}
+                        <div class="visit-location__block-subtitle">
+                          {{ block.settings.subtitle | replace: '<p>', '' | replace: '</p>', ''  }}
+                        </div>
+                      {% endif %}
+    
+                    </div>
+    
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+        </div>
+
+        {% if section.settings.button_text != blank %}
+          <div class="visit-location__button">
+            <a
+              href="{{ section.settings.button_link }}"
+              class="btn_btn"
+            >
+              {{ section.settings.button_text }}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Visit Location",
+  "tag": "section",
+  "class": "shopify-section-visit-location",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "map_embed",
+      "label": "Google Maps Embed Iframe"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag"
+    },
+    {
+      "type": "text",
+      "id": "content_title",
+      "label": "Content Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "content_title_color",
+      "label": "Content Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "Block Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_subtitle_color",
+      "label": "Block Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#FFD63D"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button Hover Background"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Text Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location_info",
+      "name": "Location Info",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visit Location",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

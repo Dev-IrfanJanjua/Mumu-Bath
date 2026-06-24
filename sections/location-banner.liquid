@@ -1,0 +1,301 @@
+{% style %}
+.section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .page-width{
+    padding: 0;
+}
+
+.section-{{ section.id }} .location-banner__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section-{{ section.id }} .location-banner__content {
+  background: {{ section.settings.content_bg }};
+  padding: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.section-{{ section.id }} .location-banner__title {
+  color: {{ section.settings.heading_color }};
+  font-family: "Mona Sans";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  margin: 0 0 8px;
+}
+
+.section-{{ section.id }} .location-banner__subtitle {
+  color: {{ section.settings.subtitle_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0;
+  margin: 0 0 30px;
+}
+
+.section-{{ section.id }} .location-banner__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-{{ section.id }} .location-banner__button.btn_btn {
+  background: {{ section.settings.button_bg }};
+  color: {{ section.settings.button_color }};
+  transition: all .3s ease;
+}
+
+.section-{{ section.id }} .location-banner__button.btn_btn:hover {
+  background: {{ section.settings.button_hover_bg }};
+  color: {{ section.settings.button_hover_color }};
+}
+
+.section-{{ section.id }} .location-banner__image {
+  height: 100%;
+}
+
+.section-{{ section.id }} .location-banner__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .location-banner__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .section-{{ section.id }} .location-banner__image {
+    order: 1;
+  }
+
+  .section-{{ section.id }} .location-banner__content {
+    order: 2;
+    padding: 24px 16px 60px;
+  }
+
+  .section-{{ section.id }} .location-banner__content-inner {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .location-banner__title {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-{{ section.id }} .location-banner__subtitle {
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+{% endstyle %}
+
+<section class="location-banner section-{{ section.id }}">
+  <div class="page-width">
+    <div class="location-banner__wrapper">
+
+      <div class="location-banner__content">
+        <div class="location-banner__content-inner">
+
+          {% if section.settings.title != blank %}
+            <h1 class="location-banner__title">
+              {{ section.settings.title }}
+            </h1>
+          {% endif %}
+
+          {% if section.settings.subtitle != blank %}
+            <div class="location-banner__subtitle">
+              {{ section.settings.subtitle }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+            <a
+              href="{{ section.settings.button_link }}"
+              class="location-banner__button btn_btn"
+            >
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="location-banner__image">
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'eager',
+              alt: 'image'
+          }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Location Banner",
+  "tag": "section",
+  "class": "shopify-section-location-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Brooklyn Store"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Directions"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "content_bg",
+      "label": "Content Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#FFD53D"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button Hover Background"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Text Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
