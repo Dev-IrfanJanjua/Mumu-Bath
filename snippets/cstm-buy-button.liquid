@@ -23,7 +23,10 @@ Supported variables
   {%- assign variant_picker_block = section.blocks | where: 'type', 'variant_picker' | first -%}
 
   {%- form 'product', product, is: 'product-form', id: form_id -%}
-    <input type="hidden" {% if variant_picker_block != blank %}disabled{% endif %} name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    {% comment %} <input type="hidden" class="form__variant__id" {% if variant_picker_block != blank %}disabled{% endif %} name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+      <input class="form__qty" type="hidden" name="quantity" value="1" data-product-id="{{ product.id }}">
+      <input class="form__selling_plan" type="hidden" name="selling_plan" value="{{ product.selling_plan_groups.first.selling_plans.first.id }}" data-product-id="{{ product.id }}"> {% endcomment %}
 
     {% liquid
       assign button_disabled = false
@@ -70,7 +73,7 @@ Supported variables
           {%- assign atc_button_style = 'solid' -%}
         {%- endif -%}
 
-        {%- render 'button', button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', disabled: button_disabled, style: atc_button_style, background: atc_button_background, text_color: atc_button_text_color, stretch: true -%}
+        {%- render 'cstm-button', button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', disabled: button_disabled, style: atc_button_style, background: atc_button_background, text_color: atc_button_text_color, stretch: true, has_subscription_bundle: has_subscription_bundle -%}
 
         {%- if show_payment_button -%}
           {{- form | payment_button -}}
@@ -97,6 +100,6 @@ Supported variables
 {%- else -%}
   <buy-buttons class="buy-buttons hi8" template="{{ product.template_suffix | escape }}" form="{{ form_id }}">
     {%- assign button_content = 'product.general.add_to_cart_button' | t -%}
-    {%- render 'button',button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', background: variant_picker_block.settings.atc_button_background, text_color: variant_picker.settings.atc_button_text_color, stretch: true -%}
+    {%- render 'cstm-button',button_text: show_button_icon, btn_icon: show_icon, content: button_content, type: 'submit', background: variant_picker_block.settings.atc_button_background, text_color: variant_picker.settings.atc_button_text_color, stretch: true, has_subscription_bundle: has_subscription_bundle -%}
   </buy-buttons>
 {%- endif -%}

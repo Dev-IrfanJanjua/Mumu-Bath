@@ -1,0 +1,346 @@
+{% style %}
+.section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .core-values__header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+.section-{{ section.id }} .core-values__heading {
+  color: {{ section.settings.heading_color }};
+  margin: 0;
+}
+
+.section-{{ section.id }} .core-values__subtitle {
+  color: {{ section.settings.subtitle_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 12px 0 0;
+}
+
+.section-{{ section.id }} .core-values__grid {
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+  gap: 12px;
+}
+
+.section-{{ section.id }} .core-values__card {
+  background: {{ section.settings.card_bg }};
+  padding: 20px 12px;
+  border-radius: {{ section.settings.card_radius }}px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-{{ section.id }} .core-values__icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.section-{{ section.id }} .core-values__icon img,
+.section-{{ section.id }} .core-values__icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.section-{{ section.id }} .core-values__card-title {
+  color: {{ section.settings.card_title_color }};
+  font-family: "Mona Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  margin: 0 0 12px;
+}
+
+.section-{{ section.id }} .core-values__card-subtitle {
+  color: {{ section.settings.card_subtitle_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .core-values__header {
+    margin-bottom: 20px;
+  }
+
+  .section-{{ section.id }} .core-values__grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+
+  .section-{{ section.id }} .core-values__subtitle {
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  .section-{{ section.id }} .core-values__card-title {
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+
+  .section-{{ section.id }} .core-values__card {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .section-{{ section.id }} .core-values__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+}
+{% endstyle %}
+
+<section class="core-values section-{{ section.id }}">
+  <div class="page-width">
+
+    {% if section.settings.heading != blank or section.settings.subtitle != blank %}
+      <div class="core-values__header">
+
+        {% if section.settings.heading != blank %}
+          <div class="core-values__heading title_title">
+            {{
+              section.settings.heading
+              | replace: '<p>', ''
+              | replace: '</p>', ''
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="core-values__subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="core-values__grid">
+        {% for block in section.blocks %}
+          <div class="core-values__card" {{ block.shopify_attributes }}>
+
+            {% if block.settings.icon != blank %}
+              <div class="core-values__icon">
+                {{
+                  block.settings.icon
+                  | image_url: width: 200
+                  | image_tag:
+                    widths: '50,100,150,200',
+                    loading: 'lazy',
+                    alt: block.settings.title
+                }}
+              </div>
+            {% endif %}
+            <div class="core-values__card-content">
+                {% if block.settings.title != blank %}
+                  <h3 class="core-values__card-title">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+    
+                {% if block.settings.subtitle != blank %}
+                  <div class="core-values__card-subtitle">
+                    {{ block.settings.subtitle }}
+                  </div>
+                {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Core Values",
+  "tag": "section",
+  "class": "shopify-section-core-values",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Desktop Columns"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "card_subtitle_color",
+      "label": "Card Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12,
+      "label": "Card Border Radius"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "label": "Padding Bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Card Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Core Values",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

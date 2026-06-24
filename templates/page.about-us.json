@@ -39,17 +39,238 @@
         "hide_description_desktop": true,
         "desktop_image": "shopify://shop_images/Section.png",
         "mobile_image": "shopify://shop_images/Frame_2147241468_2.png",
-        "desktop_height": 450,
-        "mobile_height": 350,
+        "desktop_height": 490,
+        "mobile_height": 490,
         "section_bg": "#ffffff",
         "placeholder_bg": "#e5e5e5",
         "heading_color": "#ffffff",
         "tag_color": "#ffffff",
         "description_color": "#ffffff",
-        "padding_top_desktop": 40,
-        "padding_bottom_desktop": 40,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "core_values_Qq9mjW": {
+      "type": "core-values",
+      "blocks": {
+        "value_zyfCPr": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2979_Vectorized_1.svg",
+            "title": "Quality Craftsmanship",
+            "subtitle": "Thoughtfully crafted formulas that feel as good as they perform."
+          }
+        },
+        "value_Ntg94a": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2982_Vectorized.svg",
+            "title": "Sustainable Apothecary",
+            "subtitle": "Conscious ingredients and materials made kinder for people and the planet."
+          }
+        },
+        "value_e7WVD8": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2981_Vectorized.svg",
+            "title": "Cultural Connection",
+            "subtitle": "Inspired by Taiwanese heritage, rich scents, and meaningful self-care rituals."
+          }
+        },
+        "value_D3znfx": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2980_Vectorized.svg",
+            "title": "Customer-First Care",
+            "subtitle": "We listen, learn, and improve to make every experience feel personal."
+          }
+        }
+      },
+      "block_order": [
+        "value_zyfCPr",
+        "value_Ntg94a",
+        "value_e7WVD8",
+        "value_D3znfx"
+      ],
+      "name": "Core Values",
+      "settings": {
+        "heading": "<p>Our core values</p>",
+        "subtitle": "These values guide how we create, source, serve, and show up for our community.",
+        "columns_desktop": 4,
+        "section_bg": "#FFFFFF",
+        "heading_color": "#111111",
+        "subtitle_color": "#000000",
+        "card_bg": "#F8F6EE",
+        "card_title_color": "#111111",
+        "card_subtitle_color": "#000000",
+        "card_radius": 10,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "ingrediant_philosophy_QgTGxE": {
+      "type": "ingrediant-philosophy",
+      "blocks": {
+        "feature_UEPnYx": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2983_Vectorized.svg",
+            "title": "Skin-Loving Care",
+            "subtitle": "Formulas designed to nourish, soften, and comfort."
+          }
+        },
+        "feature_pUtxNn": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2984_Vectorized.svg",
+            "title": "Inspired Scents",
+            "subtitle": "Unique fragrance stories rooted in Asian inspiration."
+          }
+        },
+        "feature_696TyE": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2985_Vectorized.svg",
+            "title": "Ritual-Friendly",
+            "subtitle": "Easy-to-use essentials for bath, body, face, and gifting."
+          }
+        }
+      },
+      "block_order": [
+        "feature_UEPnYx",
+        "feature_pUtxNn",
+        "feature_696TyE"
+      ],
+      "name": "Ingredient Philosophy",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147243719.png",
+        "tag": "— Ingredient Philosophy",
+        "heading": "<p>Thoughtful ingredients, beautiful rituals.</p>",
+        "description": "<p>We choose every ingredient with purpose  to nourish the skin, elevate the senses, and bring more meaning into your daily routine.<br/><br/>From soft body care to comforting scents, each product is made to feel thoughtful, gentle, and beautifully sensory.</p>",
+        "section_bg": "#FFFFFF",
+        "content_bg": "#F8F6EE",
+        "tag_color": "#000000",
+        "heading_color": "#111111",
+        "description_color": "#000000",
+        "card_title_color": "#000000",
+        "card_subtitle_color": "#000000",
+        "divider_color": "#D9D3C3",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "hair_reviews_3Ci9Ly": {
+      "type": "hair-reviews",
+      "blocks": {
+        "review_DUJWVH": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person relaxing in bath",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_e3tkX6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_aMGYnz": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_3893d264-217f-4a63-bbdf-6987603b64b8.png",
+            "image_alt": "Osmanthus Flower candle product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_tKj3rr": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person in bath lifestyle shot",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_Dq9gAJ": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        }
+      },
+      "block_order": [
+        "review_DUJWVH",
+        "review_e3tkX6",
+        "review_aMGYnz",
+        "review_tKj3rr",
+        "review_Dq9gAJ"
+      ],
+      "name": "Reviews Swiper",
+      "settings": {
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#ffffff",
+        "badge_rating_image": "shopify://shop_images/Container_1.svg",
+        "badge_rating_image_alt": "Five gold stars",
+        "badge_text": "10,500+ 5-Star Reviews",
+        "heading": "Amazing Reviews For Mumu Bath"
+      }
+    },
+    "ritual_cta_WTjifr": {
+      "type": "ritual-cta",
+      "name": "Ritual CTA",
+      "settings": {
+        "mobile_image": "shopify://shop_images/Frame_2147243887.png",
+        "top_left_image": "shopify://shop_images/Rectangle_172.png",
+        "top_right_image": "shopify://shop_images/Rectangle_174.png",
+        "bottom_left_image": "shopify://shop_images/Rectangle_171.png",
+        "bottom_right_image": "shopify://shop_images/Rectangle_173.png",
+        "tag": "— Begin Your Ritual",
+        "heading": "<p>Ready To Begin Your Ritual?</p>",
+        "subtitle": "<p>Explore natural bath, body, and skincare essentials crafted to bring comfort, care, and a little joy into your everyday routine.</p>",
+        "button_text": "Shop Mumu Bath",
+        "button_link": "#",
+        "section_bg": "#FFFFFF",
+        "wrapper_bg": "#F8F6EE",
+        "tag_color": "#000000",
+        "heading_color": "#111111",
+        "subtitle_color": "#000000",
+        "button_bg": "#F4D236",
+        "button_color": "#111111",
+        "button_hover_bg": "#111111",
+        "button_hover_color": "#FFFFFF",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 24
       }
     },
     "main": {
@@ -194,6 +415,10 @@
   "order": [
     "routed_ritual_fW6RUr",
     "missin_banner_VKpRdp",
+    "core_values_Qq9mjW",
+    "ingrediant_philosophy_QgTGxE",
+    "hair_reviews_3Ci9Ly",
+    "ritual_cta_WTjifr",
     "main",
     "featured_product_wwFrGx",
     "174228070476985170"

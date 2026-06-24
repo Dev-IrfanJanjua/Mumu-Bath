@@ -109,6 +109,15 @@ Supported variables
         endif
       -%}
 
+      {% assign has_subscription_bundle = false %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'sub_bundle' %}
+          {% assign has_subscription_bundle = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
       {%- capture block_content -%}
         {%- case block.type -%}
           {%- when '@app' -%}
@@ -348,7 +357,7 @@ Supported variables
             -%}
 
           {%- when 'buy_buttons' -%}
-            {%- render 'buy-buttons',
+            {%- render 'cstm-buy-button',
                 product: product,
                 form_id: product_form_id,
                 show_payment_button: block.settings.show_payment_button,
@@ -357,7 +366,7 @@ Supported variables
                 atc_button_text_color: block.settings.atc_button_text_color,
                 payment_button_background: block.settings.payment_button_background,
                 payment_button_text_color: block.settings.payment_button_text_color,
-                new_class: block.settings.cstm_class
+                has_subscription_bundle: has_subscription_bundle
             -%}
 
           {%- when 'pickup_availability' -%}

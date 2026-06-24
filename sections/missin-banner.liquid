@@ -47,7 +47,7 @@
   }
 
   .section-{{ section.id }} .mission-banner__tag {
-    margin: 0 0 12px;
+    margin: 0 0 16px;
     color: {{ section.settings.tag_color }};
     font-family: "Mona Sans";
     font-size: 14px;
@@ -91,7 +91,11 @@
     }
 
     .section-{{ section.id }} .mission-banner__overlay {
-      padding: 20px;
+      padding: 20px 12px;
+    }
+
+    .section-{{ section.id }} .mission-banner__tag {
+        margin: 0px 0 12px;
     }
 
     {% if section.settings.hide_description_desktop %}

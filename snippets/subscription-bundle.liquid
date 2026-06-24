@@ -590,7 +590,7 @@
 
 </div>
 
-<script>
+ {% comment %} <script>
 (function () {
   var widget = document.getElementById('{{ widget_id }}');
   if (!widget) return;
@@ -786,71 +786,90 @@
   }
 
 })();
-</script>
-
-
-{% comment %} ==== add to cart script ===== {% endcomment %}
+</script> 
 
  <script>
 (function() {
+
+  // Only run on product pages
+  if (!window.location.pathname.includes('/products/')) return;
 
   function getWidget() {
     return document.querySelector('[data-widget="subscribe-save"]');
   }
 
+  /* ─────────────────────────────────────────
+     READ CURRENT WIDGET STATE
+  ───────────────────────────────────────── */
   function getWidgetValues() {
-
-    const widget = getWidget();
+    var widget = getWidget();
     if (!widget) return null;
 
-    const checkedPlan = widget.querySelector(
-      '[data-ssw-plan] input[type="radio"]:checked'
-    );
-
-    let qty = "1";
-
-    if (checkedPlan) {
-      const card = checkedPlan.closest('[data-ssw-plan]');
-      qty = card?.dataset.quantity || "1";
+    // Read qty from the checked plan card's data-quantity
+    var checkedPlanRadio = widget.querySelector('[data-ssw-plan] input[type="radio"]:checked');
+    var qty = '1';
+    if (checkedPlanRadio) {
+      var card = checkedPlanRadio.closest('[data-ssw-plan]');
+      qty = card ? (card.dataset.quantity || '1') : '1';
     } else {
-      qty = widget.querySelector('.wid__varient__qty')?.value || "1";
+      qty = (widget.querySelector('.wid__varient__qty') || {}).value || '1';
     }
 
     return {
-      qty,
-      plan: widget.querySelector('.wid__selling_plan')?.value || "",
-      productId: widget.dataset.productId || ""
+      qty:       qty,
+      plan:      (widget.querySelector('.wid__selling_plan') || {}).value || '',
+      productId: widget.dataset.productId || ''
     };
   }
 
-  function syncBuyInputs() {
+  /* ─────────────────────────────────────────
+     FIND THE FORM LINKED TO #pdp_atc--btn
+     The button lives inside <buy-buttons> which
+     is OUTSIDE the <form>. The button carries a
+     form="<id>" attribute that links it back.
+     We must use that id to find the form —
+     btn.closest('form') will always be null.
+  ───────────────────────────────────────── */
+  function getAtcForm() {
+    var btn = document.getElementById('pdp_atc--btn');
+    if (!btn) return null;
 
-    const vals = getWidgetValues();
+    // 1. Check the button's own form attribute
+    var formId = btn.getAttribute('form');
+
+    // 2. If not on the button, check the parent <buy-buttons> element
+    if (!formId) {
+      var buyButtonsEl = btn.closest('buy-buttons');
+      if (buyButtonsEl) formId = buyButtonsEl.getAttribute('form');
+    }
+
+    if (formId) return document.getElementById(formId);
+
+    // 3. Last resort — walk up (handles edge case where button IS inside form)
+    return btn.closest('form');
+  }
+
+  /* ─────────────────────────────────────────
+     SYNC WIDGET VALUES → FORM INPUTS
+     Only touches form__qty and form__selling_plan
+     inside the single product main section form.
+     Does NOT affect any other cart forms.
+  ───────────────────────────────────────── */
+  function syncBuyInputs() {
+    var vals = getWidgetValues();
     if (!vals) return;
 
-    const productSelector = vals.productId
-      ? `[data-product-id="${vals.productId}"]`
-      : '';
+    var form = getAtcForm();
+    if (!form) return;
 
-    // -------------------------
-    // QTY SYNC (ONLY THIS PRODUCT)
-    // -------------------------
-    document.querySelectorAll(
-      `.buy_product__qty${productSelector},
-       .form__qty${productSelector}`
-    ).forEach(input => {
+    // Sync quantity
+    form.querySelectorAll('.form__qty').forEach(function(input) {
       input.value = vals.qty;
       input.setAttribute('value', vals.qty);
     });
 
-    // -------------------------
-    // SELLING PLAN SYNC (ONLY THIS PRODUCT)
-    // -------------------------
-    document.querySelectorAll(
-      `.buy_product__selling_plan${productSelector},
-       .form__selling_plan${productSelector}`
-    ).forEach(input => {
-
+    // Sync selling plan — empty string = one-time (Shopify ignores empty selling_plan)
+    form.querySelectorAll('.form__selling_plan').forEach(function(input) {
       if (vals.plan) {
         input.value = vals.plan;
         input.setAttribute('value', vals.plan);
@@ -858,126 +877,489 @@
         input.value = '';
         input.removeAttribute('value');
       }
-
     });
 
-    console.log(
-      '[SSW Sync]',
-      'product:', vals.productId,
-      'qty:', vals.qty,
-      'plan:', vals.plan || '(none)'
-    );
+    console.log('[SSW Sync] product:', vals.productId, '| qty:', vals.qty, '| plan:', vals.plan || '(none)');
   }
 
-  // -------------------------
-  // INIT (on page load)
-  // -------------------------
-  window.addEventListener('load', function() {
-    setTimeout(syncBuyInputs, 150);
-  });
+  /* ─────────────────────────────────────────
+     FETCH INTERCEPT — /cart/add safety net
+     Patches the request body at the last moment
+     in case the theme serialises the form fresh
+     at submit time (some themes do this).
+     Scoped: only fires when widget is on the page.
+  ───────────────────────────────────────── */
+  if (!window.fetch.__cartPatched) {
 
-  // -------------------------
-  // UI EVENTS
-  // -------------------------
+    var _fetch = window.fetch;
+
+    window.fetch = function(input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url ? input.url : '');
+
+      if (url.includes('/cart/add')) {
+
+        // Sync DOM first so the form already reflects the correct values
+        syncBuyInputs();
+
+        var widget = getWidget();
+        if (widget) {
+          var vals = getWidgetValues();
+
+          if (vals) {
+
+            // FormData (most Shopify themes use this)
+            if (init && init.body instanceof FormData) {
+              init.body.set('quantity', vals.qty);
+              if (vals.plan) {
+                init.body.set('selling_plan', vals.plan);
+              } else {
+                init.body.delete('selling_plan');
+              }
+
+            // JSON body
+            } else if (init && typeof init.body === 'string') {
+              try {
+                var json = JSON.parse(init.body);
+                json.quantity = parseInt(vals.qty, 10);
+                if (vals.plan) {
+                  json.selling_plan = vals.plan;
+                } else {
+                  delete json.selling_plan;
+                }
+                init = Object.assign({}, init, { body: JSON.stringify(json) });
+
+              } catch(e) {
+                // URL-encoded fallback
+                var p = new URLSearchParams(init.body);
+                p.set('quantity', vals.qty);
+                if (vals.plan) {
+                  p.set('selling_plan', vals.plan);
+                } else {
+                  p.delete('selling_plan');
+                }
+                init = Object.assign({}, init, { body: p.toString() });
+              }
+            }
+
+            console.log('[Cart Add] product:', vals.productId, '| qty:', vals.qty, '| plan:', vals.plan || '(none)');
+          }
+        }
+      }
+
+      return _fetch.call(this, input, init);
+    };
+
+    window.fetch.__cartPatched = true;
+  }
+
+  /* ─────────────────────────────────────────
+     EVENT WIRING
+     Sync immediately on any widget interaction.
+     No setTimeout needed — widget JS updates
+     its hidden inputs synchronously on click.
+  ───────────────────────────────────────── */
   document.addEventListener('click', function(e) {
     if (e.target.closest('[data-widget="subscribe-save"]')) {
-      setTimeout(syncBuyInputs, 0);
+      syncBuyInputs();
     }
   });
 
   document.addEventListener('change', function(e) {
     if (e.target.closest('[data-widget="subscribe-save"]')) {
-      setTimeout(syncBuyInputs, 0);
+      syncBuyInputs();
     }
   });
 
-  // custom event from widget
+  // Custom event hook for external triggers
   document.addEventListener('ssw:updated', syncBuyInputs);
 
-  // -------------------------
-  // FETCH INTERCEPT (/cart/add)
-  // -------------------------
+  /* ─────────────────────────────────────────
+     INIT — sync once DOM is ready
+  ───────────────────────────────────────── */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncBuyInputs);
+  } else {
+    syncBuyInputs();
+  }
+
+})();
+</script>  {% endcomment %}
+<script>
+(function () {
+  var widget = document.getElementById('{{ widget_id }}');
+  if (!widget) return;
+
+  /* ─────────────────────────────────────────
+      ELEMENT REFS
+  ───────────────────────────────────────── */
+  var moneyFormat  = {{ shop.money_format | json }};
+  var isSubscribe  = widget.dataset.defaultPurchase === 'subscribe';
+
+  var purchaseRows   = widget.querySelectorAll('[data-ssw-purchase-row]');
+  var subContent     = widget.querySelector('[data-ssw-sub-content]');
+  var planCards      = widget.querySelectorAll('[data-ssw-plan]');
+
+  var qtyInput         = widget.querySelector('[data-ssw-quantity]');
+  var variantInput     = widget.querySelector('[data-ssw-variant]');
+  var sellingPlanInput = widget.querySelector('.wid__selling_plan');
+
+  var freqSelect = widget.querySelector('[data-ssw-frequency]');
+  var freqHidden = widget.querySelector('input[name="selling_plan"]:not(.wid__selling_plan)');
+
+  /* ─────────────────────────────────────────
+      MONEY FORMATTER
+  ───────────────────────────────────────── */
+  function formatMoney(cents) {
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+      return Shopify.formatMoney(cents, moneyFormat);
+    }
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  /* ─────────────────────────────────────────
+      GET ACTIVE SELLING PLAN ID
+  ───────────────────────────────────────── */
+  function getActivePlanId() {
+    if (freqSelect) return freqSelect.value || '';
+    if (freqHidden) return freqHidden.value || '';
+    return '';
+  }
+
+  /* ─────────────────────────────────────────
+      SYNC THE SELLING PLAN INPUT
+  ───────────────────────────────────────── */
+  function syncSellingPlanInput() {
+    if (!sellingPlanInput) return;
+    sellingPlanInput.value = isSubscribe ? getActivePlanId() : '';
+  }
+
+  /* ─────────────────────────────────────────
+      UPDATE PLAN CARD PRICES
+  ───────────────────────────────────────── */
+  function updatePlanPrices() {
+    planCards.forEach(function (card) {
+      var priceCents   = parseInt(card.dataset.priceCents,    10) || 0;
+      var compareCents = parseInt(card.dataset.compareCents,  10) || 0;
+      var subCents     = parseInt(card.dataset.subPriceCents, 10) || 0;
+      var otpSavePct   = parseInt(card.dataset.otpSavePct,    10) || 0;
+      var subSavePct   = parseInt(card.dataset.subSavePct,    10) || 0;
+
+      var priceEl   = card.querySelector('[data-ssw-plan-price]');
+      var compareEl = card.querySelector('[data-ssw-plan-compare]');
+      var saveEl    = card.querySelector('[data-ssw-plan-save]');
+
+      if (isSubscribe) {
+        if (priceEl) priceEl.textContent = formatMoney(subCents);
+        if (compareEl) {
+          if (priceCents > 0 && subCents < priceCents) {
+            compareEl.textContent   = formatMoney(priceCents);
+            compareEl.style.display = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+        if (saveEl) {
+          if (subSavePct > 0) {
+            saveEl.textContent   = 'Save ' + subSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+      } else {
+        if (priceEl) priceEl.textContent = formatMoney(priceCents);
+        if (compareEl) {
+          if (compareCents > 0 && compareCents > priceCents) {
+            compareEl.textContent   = formatMoney(compareCents);
+            compareEl.style.display = '';
+          } else {
+            compareEl.style.display = 'none';
+          }
+        }
+        if (saveEl) {
+          if (otpSavePct > 0) {
+            saveEl.textContent   = 'Save ' + otpSavePct + '%';
+            saveEl.style.display = '';
+          } else {
+            saveEl.style.display = 'none';
+          }
+        }
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+      SELECT PURCHASE TYPE
+  ───────────────────────────────────────── */
+  function selectPurchaseType(type) {
+    isSubscribe = (type === 'subscribe');
+    widget.dataset.activePurchase = type;
+
+    purchaseRows.forEach(function (row) {
+      var active = row.dataset.sswPurchaseRow === type;
+      var radio  = row.querySelector('input[type="radio"]');
+      if (radio) radio.checked = active;
+      row.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
+
+    if (subContent) subContent.classList.toggle('is-visible', isSubscribe);
+
+    syncSellingPlanInput();
+    updatePlanPrices();
+  }
+
+  /* ─────────────────────────────────────────
+      SELECT A PLAN CARD
+  ───────────────────────────────────────── */
+  function selectPlan(card) {
+    planCards.forEach(function (c) {
+      var radio = c.querySelector('input[type="radio"]');
+      if (radio) radio.checked = false;
+      c.setAttribute('aria-checked', 'false');
+    });
+
+    var activeRadio = card.querySelector('input[type="radio"]');
+    if (activeRadio) activeRadio.checked = true;
+    card.setAttribute('aria-checked', 'true');
+
+    if (qtyInput) qtyInput.value = card.dataset.quantity || 1;
+  }
+
+  /* ─────────────────────────────────────────
+      FREQUENCY SELECT CHANGE
+  ───────────────────────────────────────── */
+  if (freqSelect) {
+    freqSelect.addEventListener('change', function () {
+      if (!isSubscribe) {
+        selectPurchaseType('subscribe');
+      } else {
+        syncSellingPlanInput();
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+      EVENT LISTENERS — purchase type rows
+  ───────────────────────────────────────── */
+  purchaseRows.forEach(function (row) {
+    row.addEventListener('click', function () {
+      selectPurchaseType(row.dataset.sswPurchaseRow);
+    });
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPurchaseType(row.dataset.sswPurchaseRow);
+      }
+    });
+  });
+
+  /* ─────────────────────────────────────────
+      EVENT LISTENERS — plan cards
+  ───────────────────────────────────────── */
+  planCards.forEach(function (card) {
+    card.addEventListener('click', function () { selectPlan(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPlan(card);
+      }
+    });
+  });
+
+  /* ─────────────────────────────────────────
+      INIT
+  ───────────────────────────────────────── */
+  selectPurchaseType(widget.dataset.defaultPurchase || 'one_time');
+
+  var defaultSelected = widget.querySelector('.ssw-plan input[type="radio"]:checked');
+  if (defaultSelected) {
+    selectPlan(defaultSelected.closest('[data-ssw-plan]'));
+  } else if (planCards.length > 0) {
+    selectPlan(planCards[0]);
+  }
+
+})();
+</script> 
+
+<script>
+(function() {
+
+  // Only run on product pages
+  if (!window.location.pathname.includes('/products/')) return;
+
+  function getWidget() {
+    return document.querySelector('[data-widget="subscribe-save"]');
+  }
+
+  /* ─────────────────────────────────────────
+      READ CURRENT WIDGET STATE
+  ───────────────────────────────────────── */
+  function getWidgetValues() {
+    var widget = getWidget();
+    if (!widget) return null;
+
+    var checkedPlanRadio = widget.querySelector('[data-ssw-plan] input[type="radio"]:checked');
+    var qty = '1';
+    if (checkedPlanRadio) {
+      var card = checkedPlanRadio.closest('[data-ssw-plan]');
+      qty = card ? (card.dataset.quantity || '1') : '1';
+    } else {
+      qty = (widget.querySelector('.wid__varient__qty') || {}).value || '1';
+    }
+
+    return {
+      qty:       qty,
+      plan:      (widget.querySelector('.wid__selling_plan') || {}).value || '',
+      productId: widget.dataset.productId || ''
+    };
+  }
+
+  /* ─────────────────────────────────────────
+      FIND THE FORM LINKED TO #pdp_atc--btn
+  ───────────────────────────────────────── */
+  function getAtcForm() {
+    var btn = document.getElementById('pdp_atc--btn');
+    if (!btn) return null;
+
+    var formId = btn.getAttribute('form');
+
+    if (!formId) {
+      var buyButtonsEl = btn.closest('buy-buttons');
+      if (buyButtonsEl) formId = buyButtonsEl.getAttribute('form');
+    }
+
+    if (formId) return document.getElementById(formId);
+
+    return btn.closest('form');
+  }
+
+  /* ─────────────────────────────────────────
+      SYNC WIDGET VALUES → FORM INPUTS
+  ───────────────────────────────────────── */
+  function syncBuyInputs() {
+    var vals = getWidgetValues();
+    if (!vals) return;
+
+    var form = getAtcForm();
+    if (!form) return;
+
+    // Sync quantity
+    form.querySelectorAll('.form__qty').forEach(function(input) {
+      input.value = vals.qty;
+      input.setAttribute('value', vals.qty);
+    });
+
+    // Sync selling plan
+    form.querySelectorAll('.form__selling_plan').forEach(function(input) {
+      if (vals.plan) {
+        input.value = vals.plan;
+        input.setAttribute('value', vals.plan);
+      } else {
+        input.value = '';
+        input.removeAttribute('value');
+      }
+    });
+
+    console.log('[SSW Sync] product:', vals.productId, '| qty:', vals.qty, '| plan:', vals.plan || '(none)');
+  }
+
+  /* ─────────────────────────────────────────
+      TRACK IF MAIN ATC WAS CLICKED RECENTLY
+  ───────────────────────────────────────── */
+  var isMainAtcTriggered = false;
+  
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#pdp_atc--btn')) {
+      isMainAtcTriggered = true;
+      setTimeout(function() { isMainAtcTriggered = false; }, 500);
+    }
+  }, true);
+
+  /* ─────────────────────────────────────────
+      FETCH INTERCEPT — Scoped only to main ATC
+  ───────────────────────────────────────── */
   if (!window.fetch.__cartPatched) {
 
-    const originalFetch = window.fetch;
+    var _fetch = window.fetch;
 
     window.fetch = function(input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url ? input.url : '');
 
-      const url =
-        typeof input === 'string'
-          ? input
-          : input?.url || '';
+      // Check if it's a cart add request AND triggered by our specific button click
+      if (url.includes('/cart/add') && isMainAtcTriggered) {
 
-      if (url.includes('/cart/add')) {
+        syncBuyInputs();
 
-        const vals = getWidgetValues();
+        var widget = getWidget();
+        if (widget) {
+          var vals = getWidgetValues();
 
-        if (vals) {
-
-          if (init?.body instanceof FormData) {
-
-            init.body.set('quantity', vals.qty);
-
-            if (vals.plan) {
-              init.body.set('selling_plan', vals.plan);
-            } else {
-              init.body.delete('selling_plan');
-            }
-
-          } else if (typeof init?.body === 'string') {
-
-            try {
-
-              const json = JSON.parse(init.body);
-
-              json.quantity = parseInt(vals.qty, 10);
-
+          if (vals) {
+            // FormData handling
+            if (init && init.body instanceof FormData) {
+              init.body.set('quantity', vals.qty);
               if (vals.plan) {
-                json.selling_plan = vals.plan;
+                init.body.set('selling_plan', vals.plan);
               } else {
-                delete json.selling_plan;
+                init.body.delete('selling_plan');
               }
 
-              init = {
-                ...init,
-                body: JSON.stringify(json)
-              };
+            // JSON body handling
+            } else if (init && typeof init.body === 'string') {
+              try {
+                var json = JSON.parse(init.body);
+                json.quantity = parseInt(vals.qty, 10);
+                if (vals.plan) {
+                  json.selling_plan = vals.plan;
+                } else {
+                  delete json.selling_plan;
+                }
+                init = Object.assign({}, init, { body: JSON.stringify(json) });
 
-            } catch(err) {
-
-              const params = new URLSearchParams(init.body);
-
-              params.set('quantity', vals.qty);
-
-              if (vals.plan) {
-                params.set('selling_plan', vals.plan);
-              } else {
-                params.delete('selling_plan');
+              } catch(e) {
+                // URL-encoded fallback
+                var p = new URLSearchParams(init.body);
+                p.set('quantity', vals.qty);
+                if (vals.plan) {
+                  p.set('selling_plan', vals.plan);
+                } else {
+                  p.delete('selling_plan');
+                }
+                init = Object.assign({}, init, { body: p.toString() });
               }
-
-              init = {
-                ...init,
-                body: params.toString()
-              };
-
             }
+            console.log('[Cart Add Intercepted] for #pdp_atc--btn');
           }
-
-          syncBuyInputs();
-
-          console.log(
-            '[Cart Add]',
-            'product:', vals.productId,
-            'qty:', vals.qty,
-            'plan:', vals.plan || '(none)'
-          );
         }
       }
 
-      return originalFetch.call(this, input, init);
+      return _fetch.call(this, input, init);
     };
 
     window.fetch.__cartPatched = true;
+  }
+
+  /* ─────────────────────────────────────────
+      EVENT WIRING
+  ───────────────────────────────────────── */
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-widget="subscribe-save"]')) {
+      syncBuyInputs();
+    }
+  });
+
+  document.addEventListener('change', function(e) {
+    if (e.target.closest('[data-widget="subscribe-save"]')) {
+      syncBuyInputs();
+    }
+  });
+
+  document.addEventListener('ssw:updated', syncBuyInputs);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncBuyInputs);
+  } else {
+    syncBuyInputs();
   }
 
 })();

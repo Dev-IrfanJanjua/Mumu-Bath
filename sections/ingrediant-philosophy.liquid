@@ -1,0 +1,454 @@
+{% style %}
+.section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+
+.section-{{ section.id }} .page-width{
+    padding: 0;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__wrapper {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__image {
+  height: 100%;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__content {
+  background: {{ section.settings.content_bg }};
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__tag {
+  color: {{ section.settings.tag_color }};
+  font-family: "Mona Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__heading {
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 16px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__description {
+  color: {{ section.settings.description_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  max-width: 702px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__description p {
+  margin: 0 0 20px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__description p:last-child {
+  margin-bottom: 0;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__cards {
+    display: flex;
+    margin-top: 33px;
+    justify-content: center;
+    gap: 13px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card {
+    display: flex;
+    gap: 16px;
+    padding-right: 0;
+    flex-direction: column;
+    position: relative;
+    max-width: 33%;
+    width: 100%;
+    padding-right: 13px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card:not(:last-child):after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    background: {{ section.settings.divider_color }};
+    height: 70%;
+    right: 0;
+    top: 50%;
+    transform: translatey(-50%);
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-content {
+  flex: 1;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-title {
+  color: {{ section.settings.card_title_color }};
+  font-family: "Mona Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  margin: 0 0 16px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-subtitle {
+  color: {{ section.settings.card_subtitle_color }};
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.section-{{ section.id }} .ingredient-philosophy__card-subtitle p,
+.section-{{ section.id }} .ingredient-philosophy__card-subtitle {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__content {
+    padding: 30px 16px 60px;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__cards {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__card {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0 !important;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__heading {
+    margin-bottom: 12px;
+  }
+
+  .section-{{ section.id }} .ingredient-philosophy__description {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .section-{{ section.id }} .ingredient-philosophy__card {
+        padding-right: 0;
+        max-width: 100%;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .section-{{ section.id }} .ingredient-philosophy__card:not(:last-child):after{
+        display: none;
+    }
+
+    .section-{{ section.id }} .ingredient-philosophy__card-title {
+        font-size: 16px;
+        margin: 0 0 8px;
+    }
+
+}
+{% endstyle %}
+
+<section class="ingredient-philosophy section-{{ section.id }}">
+  <div class="page-width">
+    <div class="ingredient-philosophy__wrapper">
+
+      {% if section.settings.image != blank %}
+        <div class="ingredient-philosophy__image">
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'lazy',
+              alt: 'image'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="ingredient-philosophy__content">
+
+        {% if section.settings.tag != blank %}
+          <div class="ingredient-philosophy__tag">
+            {{ section.settings.tag }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <div class="ingredient-philosophy__heading title_title">
+            {{
+              section.settings.heading
+              | replace: '<p>', ''
+              | replace: '</p>', ''
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="ingredient-philosophy__description">
+            {{
+              section.settings.description
+              | replace: '<p></p>', ''
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="ingredient-philosophy__cards">
+            {% for block in section.blocks %}
+              <div
+                class="ingredient-philosophy__card"
+                {{ block.shopify_attributes }}
+              >
+
+                <div class="ingredient-philosophy__card-icon">
+                  {% if block.settings.icon != blank %}
+                    {{
+                      block.settings.icon
+                      | image_url: width: 100
+                      | image_tag:
+                        widths: '36,72,100',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                    }}
+                  {% endif %}
+                </div>
+
+                <div class="ingredient-philosophy__card-content">
+
+                  {% if block.settings.title != blank %}
+                    <h3 class="ingredient-philosophy__card-title">
+                      {{ block.settings.title }}
+                    </h3>
+                  {% endif %}
+
+                  {% if block.settings.subtitle != blank %}
+                    <div class="ingredient-philosophy__card-subtitle">
+                      {{ block.settings.subtitle }}
+                    </div>
+                  {% endif %}
+
+                </div>
+
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient Philosophy",
+  "tag": "section",
+  "class": "shopify-section-ingredient-philosophy",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "Ingredient Philosophy"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "content_bg",
+      "label": "Content Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_subtitle_color",
+      "label": "Card Subtitle Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider Color",
+      "default": "#D9D3C3"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "label": "Padding Bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Philosophy",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

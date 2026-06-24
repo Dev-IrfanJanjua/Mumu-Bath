@@ -51,7 +51,10 @@ Supported variables
       if stretch
         echo ' w-full'
       endif
-      
+
+      if has_subscription_bundle
+        echo ' cstm-buy__btn'
+      endif
     endif
   endcapture
 
@@ -127,7 +130,7 @@ Supported variables
     {{- button_content -}}
   </a>
 {% elsif button_text or btn_icon %}
-  <button type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
+  <button {% if has_subscription_bundle %} {% endif %} type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
  
    <div class=add-btn>
     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -137,7 +140,12 @@ Supported variables
    </div>
   </button>
 {%- else -%}
-  <button type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
+  <input type="hidden" class="form__variant__id" {% if variant_picker_block != blank %}disabled{% endif %} name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+      <input class="form__qty" type="hidden" name="quantity" value="1" data-product-id="{{ product.id }}">
+      <input class="form__selling_plan" type="hidden" name="selling_plan" value="{{ product.selling_plan_groups.first.selling_plans.first.id }}" data-product-id="{{ product.id }}">
+
+  <button {% if has_subscription_bundle %}  id="pdp_atc--btn" {% endif %} type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }} >
     {{- button_content -}}
   </button>
 {%- endif -%}
