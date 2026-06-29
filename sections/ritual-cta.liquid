@@ -74,7 +74,7 @@
 .section-{{ section.id }} .ritual-cta__corner-image {
   position: absolute;
   z-index: 1;
-  max-width: 180px;
+  max-width: 200px;
 }
 
 .section-{{ section.id }} .ritual-cta__corner-image img {
@@ -158,7 +158,7 @@
 }
 {% endstyle %}
 
-<section class="ritual-cta section-{{ section.id }}">
+<section class="ritual-cta section-{{ section.id }} fade-in-section">
   <div class="page-width">
     <div class="ritual-cta__wrapper">
 
@@ -236,7 +236,7 @@
         {% endif %}
 
         {% if section.settings.heading != blank %}
-          <div class="ritual-cta__heading title_title">
+          <div class="ritual-cta__heading title_title fade-in-up">
             {{
               section.settings.heading
               | replace: '<p>', ''
@@ -246,7 +246,7 @@
         {% endif %}
 
         {% if section.settings.subtitle != blank %}
-          <div class="ritual-cta__subtitle">
+          <div class="ritual-cta__subtitle fade-in-up">
             {{
               section.settings.subtitle
               | replace: '<p></p>', ''

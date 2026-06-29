@@ -149,7 +149,7 @@
 
 
 <div class="cs-feature-scroll-container-mf fade-in-section sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
-    <div class="page-width">
+    {% comment %} <div class="page-width"> {% endcomment %}
         <div class="cs-feature-scroll-wrapper">
             <div class="cs-feature-scroll-track-mf">
               {% comment %} Original set {% endcomment %}
@@ -195,7 +195,7 @@
               {% endfor %}
             </div>
         </div>
-    </div>
+    {% comment %} </div> {% endcomment %}
 </div>
 
 {% schema %}

@@ -157,14 +157,14 @@
 }
 {% endstyle %}
 
-<section class="core-values section-{{ section.id }} {% if section.settings.add_class %} event-page-{{ section.id }}{% endif %}">
+<section class="core-values section-{{ section.id }} {% if section.settings.add_class %} event-page-{{ section.id }}{% endif %} fade-in-section">
   <div class="page-width">
 
     {% if section.settings.heading != blank or section.settings.subtitle != blank %}
       <div class="core-values__header">
 
         {% if section.settings.heading != blank %}
-          <div class="core-values__heading title_title">
+          <div class="core-values__heading title_title fade-in-up">
             {{
               section.settings.heading
               | replace: '<p>', ''
@@ -174,7 +174,7 @@
         {% endif %}
 
         {% if section.settings.subtitle != blank %}
-          <div class="core-values__subtitle">
+          <div class="core-values__subtitle fade-in-up">
             {{ section.settings.subtitle }}
           </div>
         {% endif %}
@@ -185,7 +185,7 @@
     {% if section.blocks.size > 0 %}
       <div class="core-values__grid">
         {% for block in section.blocks %}
-          <div class="core-values__card" {{ block.shopify_attributes }}>
+          <div class="core-values__card fade-in-item" {{ block.shopify_attributes }}>
 
             {% if block.settings.icon != blank %}
               <div class="core-values__icon">

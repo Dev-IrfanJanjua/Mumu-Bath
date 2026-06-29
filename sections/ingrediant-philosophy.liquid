@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 810px;
 }
 
 .section-{{ section.id }} .ingredient-philosophy__tag {
@@ -195,8 +196,8 @@
 }
 {% endstyle %}
 
-<section class="ingredient-philosophy section-{{ section.id }}">
-  <div class="page-width">
+<section class="ingredient-philosophy section-{{ section.id }} fade-in-section">
+  {% comment %} <div class="page-width"> {% endcomment %}
     <div class="ingredient-philosophy__wrapper">
 
       {% if section.settings.image != blank %}
@@ -221,7 +222,7 @@
         {% endif %}
 
         {% if section.settings.heading != blank %}
-          <div class="ingredient-philosophy__heading title_title">
+          <div class="ingredient-philosophy__heading title_title fade-in-up">
             {{
               section.settings.heading
               | replace: '<p>', ''
@@ -231,7 +232,7 @@
         {% endif %}
 
         {% if section.settings.description != blank %}
-          <div class="ingredient-philosophy__description">
+          <div class="ingredient-philosophy__description fade-in-up">
             {{
               section.settings.description
               | replace: '<p></p>', ''
@@ -243,7 +244,7 @@
           <div class="ingredient-philosophy__cards">
             {% for block in section.blocks %}
               <div
-                class="ingredient-philosophy__card"
+                class="ingredient-philosophy__card fade-in-item"
                 {{ block.shopify_attributes }}
               >
 
@@ -283,7 +284,7 @@
 
       </div>
     </div>
-  </div>
+  {% comment %} </div> {% endcomment %}
 </section>
 
 {% schema %}
