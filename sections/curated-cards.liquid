@@ -1,0 +1,436 @@
+{% comment %} ==== Curated Cards Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .cc-head {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.sec-{{ section.id }} .cc-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.sec-{{ section.id }} .cc-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: 20px;
+}
+
+.sec-{{ section.id }} .cc-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background: {{ section.settings.card_bg_color }};
+}
+
+.sec-{{ section.id }} .cc-card-image {
+    overflow: hidden;
+    aspect-ratio: {{ section.settings.image_ratio }};
+}
+
+.sec-{{ section.id }} .cc-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.sec-{{ section.id }} .cc-card:hover .cc-card-image img {
+    transform: scale(1.01);
+}
+
+.sec-{{ section.id }} .cc-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 16px;
+    background: {{ section.settings.card_content_bg_color }};
+    flex: 1;
+}
+
+.sec-{{ section.id }} .cc-card-title {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .cc-card-subtitle {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .cc-card-bestfor {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .cc-card-bestfor strong {
+    font-weight: 700;
+}
+
+.sec-{{ section.id }} .cc-card-btn {
+    display: inline-block;
+    position: relative;
+    color: #16100C;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: auto;
+}
+
+.sec-{{ section.id }} .cc-card-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1.76px;
+    background-color: #16100C;
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+.sec-{{ section.id }} .cc-card-btn:hover::after {
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .cc-head {
+        margin-bottom: 24px;
+    }
+
+    .sec-{{ section.id }} .cc-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .sec-{{ section.id }} .cc-card-title {
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0;
+    }
+
+    .sec-{{ section.id }} .cc-card-subtitle {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    .sec-{{ section.id }} .cc-card-bestfor {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    .sec-{{ section.id }} .cc-card-btn {
+        font-size: 14px;
+        line-height: 120%;
+        margin-top: 6px;
+    }
+
+    .sec-{{ section.id }} .cc-card-btn::after {
+        height: 1.54px;
+    }
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+
+        {% if section.settings.title != blank %}
+            <div class="cc-head">
+                <h2 class="cc-title title_title">{{ section.settings.title }}</h2>
+            </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+            <div class="cc-grid">
+                {% for block in section.blocks %}
+                    {% if block.type == 'card' %}
+                        <div class="cc-card" {{ block.shopify_attributes }}>
+
+                            {% if block.settings.image %}
+                                <div class="cc-card-image">
+                                    <img
+                                        src="{{ block.settings.image | image_url: width: 900 }}"
+                                        alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                                        width="{{ block.settings.image.width }}"
+                                        height="{{ block.settings.image.height }}"
+                                        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                                        {% if forloop.first %}fetchpriority="high"{% endif %}
+                                    >
+                                </div>
+                            {% endif %}
+
+                            <div class="cc-card-body">
+
+                                {% if block.settings.title != blank %}
+                                    <h3 class="cc-card-title">{{ block.settings.title }}</h3>
+                                {% endif %}
+
+                                {% if block.settings.subtitle != blank %}
+                                    <p class="cc-card-subtitle">{{ block.settings.subtitle }}</p>
+                                {% endif %}
+
+                                {% if block.settings.bestfor != blank %}
+                                    <div class="cc-card-bestfor">{{ block.settings.bestfor }}</div>
+                                {% endif %}
+
+                                {% if block.settings.btn_label != blank %}
+                                    
+                                    <a    href="{{ block.settings.btn_url }}"class="cc-card-btn">
+                                        {{ block.settings.btn_label }}
+                                    </a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Curated Cards",
+  "tag": "section",
+  "class": "curated-cards-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Curated For Every Recipient"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns (Desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image Ratio",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "3 / 4", "label": "Portrait (3:4)" },
+        { "value": "16 / 9", "label": "Wide (16:9)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "card_content_bg_color",
+      "label": "Card Content Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Mindful Kits"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Card Subtitle",
+          "default": "A simple, thoughtful way to send self-care essentials that feel ready to gift."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "bestfor",
+          "label": "Best For Text",
+          "default": "<strong>Best for:</strong> Employee appreciation, wellness gifts, client thank-you gifts."
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label",
+          "default": "Request Kit Options"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Curated Cards",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Mindful Kits",
+            "subtitle": "A simple, thoughtful way to send self-care essentials that feel ready to gift.",
+            "bestfor": "<strong>Best for:</strong> Employee appreciation, wellness gifts, client thank-you gifts.",
+            "btn_label": "Request Kit Options"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Soap & Body Care Sets",
+            "subtitle": "Handmade soaps, scrubs, body butters, and bath essentials bundled into beautiful gift sets.",
+            "bestfor": "<strong>Best for:</strong> Holidays, conferences, birthdays, team gifting.",
+            "btn_label": "Explore Sets"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Candle & Ritual Gifts",
+            "subtitle": "Comforting scent-led gifts designed to bring calm, warmth, and joy into daily routines.",
+            "bestfor": "<strong>Best for:</strong> Premium client gifting, festive gifting, partner gifts.",
+            "btn_label": "Build a Gift"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

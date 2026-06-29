@@ -9,6 +9,173 @@
  */
 {
   "sections": {
+    "corporate_banner_BzLJxR": {
+      "type": "corporate-banner",
+      "blocks": {
+        "feature_PmYFVn": {
+          "type": "feature",
+          "settings": {
+            "text": "Minimum 10 Gifts"
+          }
+        },
+        "feature_3jbFJY": {
+          "type": "feature",
+          "settings": {
+            "text": "Custom Notes Available"
+          }
+        },
+        "feature_eGPpj7": {
+          "type": "feature",
+          "settings": {
+            "text": "Discounts on 30+ Recipients"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PmYFVn",
+        "feature_3jbFJY",
+        "feature_eGPpj7"
+      ],
+      "name": "Corporate Banner",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Thoughtful Gifts<br/>That Feel Personal</p>",
+        "subtitle": "Send beautifully curated bath, body, and self-care gifts made with natural ingredients, Taiwanese-inspired scents, and thoughtful packaging your team, clients, and partners will remember.",
+        "block_icon": "shopify://shop_images/Vector_5da993f0-97cc-4901-9f76-89d2bfdf1919.svg",
+        "btn_primary_label": "Request A Quote",
+        "btn_primary_url": "#",
+        "btn_primary_bg": "#f5e44a",
+        "btn_primary_text": "#000000",
+        "btn_primary_hover_bg": "#000000",
+        "btn_primary_hover_text": "#ffffff",
+        "btn_secondary_label": "Explore Gift Options",
+        "btn_secondary_url": "#",
+        "btn_secondary_bg": "rgba(0,0,0,0)",
+        "btn_secondary_text": "#000000",
+        "btn_secondary_border": "#000000",
+        "btn_secondary_hover_bg": "#000000",
+        "btn_secondary_hover_text": "#ffffff",
+        "hide_secondary_mobile": true,
+        "image": "shopify://shop_images/Container.png",
+        "bg_color": "#f8f6ee",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 40
+      }
+    },
+    "log0_marquee_NU9XDC": {
+      "type": "log0-marquee",
+      "blocks": {
+        "feature_HLaHrQ": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_6_BuzzFeed_2_1_Vectorized.svg"
+          }
+        },
+        "feature_NEiVqA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_7_Logo_1_2_1_Vectorized.svg"
+          }
+        },
+        "feature_Lnjq9z": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_12_channel_4_a9568d1d-e962-4e06-bc8e-41c084f06a3d_1_Vectorized.svg"
+          }
+        },
+        "feature_8cX9Jn": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_11_vanity_fair_607d8e3b-d83c-4eed-a819-f3cca8792b53_2_Vectorized.svg"
+          }
+        },
+        "feature_jVGm6D": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_94_Glamour_logo_1_Vectorized.svg"
+          }
+        },
+        "feature_tmxxh6": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/imgi_8_pix_1_1_Vectorized.svg"
+          }
+        }
+      },
+      "block_order": [
+        "feature_HLaHrQ",
+        "feature_NEiVqA",
+        "feature_Lnjq9z",
+        "feature_8cX9Jn",
+        "feature_jVGm6D",
+        "feature_tmxxh6"
+      ],
+      "name": "Scrolling Logo Marquee",
+      "settings": {
+        "hide": false,
+        "pdp": false
+      }
+    },
+    "sticky_feature_m4dcUY": {
+      "type": "sticky-feature",
+      "blocks": {
+        "feature_mKKhQE": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2996_Vectorized_1.svg",
+            "text": "Employee Appreciation",
+            "link": ""
+          }
+        },
+        "feature_n4wHmD": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2993_Vectorized_1.svg",
+            "text": "Client Thank You Gifts",
+            "link": ""
+          }
+        },
+        "feature_xBhfVM": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2998_Vectorized_3.svg",
+            "text": "Event & Conference Gifts",
+            "link": ""
+          }
+        },
+        "feature_FRLgEr": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/image_2998_Vectorized_2.svg",
+            "text": "Holiday & Milestone Gifting",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_mKKhQE",
+        "feature_n4wHmD",
+        "feature_xBhfVM",
+        "feature_FRLgEr"
+      ],
+      "name": "Sticky Feature List",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Make Every Thank You<br/>Feel Thoughtful</p>",
+        "title_color": "#000000",
+        "subtitle": "Generic gifts are easy to forget. Mumu Bath helps you create gifting moments that feel warm, useful, and personal — whether you're celebrating employees, thanking clients, welcoming partners, or sending seasonal appreciation.",
+        "sticky_offset": 80,
+        "block_bg_color": "#faf7ef",
+        "block_border_color": "#faf7ef",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
     "core_values_fCDLWf": {
       "type": "core-values",
       "blocks": {
@@ -82,10 +249,226 @@
         "card_title_color": "#000000",
         "card_subtitle_color": "#000000",
         "card_radius": 8,
-        "padding_top_desktop": 100,
-        "padding_bottom_desktop": 100,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60
+      }
+    },
+    "curated_cards_BFRGjT": {
+      "type": "curated-cards",
+      "blocks": {
+        "card_YbgKME": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316.png",
+            "title": "Mindful Kits",
+            "subtitle": "A simple, thoughtful way to send self-care essentials that feel ready to gift.",
+            "bestfor": "<strong>Best for:</strong> Employee appreciation, wellness gifts, client thank-you gifts.",
+            "btn_label": "Request Kit Options",
+            "btn_url": "#"
+          }
+        },
+        "card_Tg7XQb": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316_57f2f41b-6dae-47fb-ab20-f94f68ce11e5.png",
+            "title": "Soap & Body Care Sets",
+            "subtitle": "Handmade soaps, scrubs, body butters, and bath essentials bundled into beautiful gift sets.",
+            "bestfor": "<strong>Best for:</strong> Holidays, conferences, birthdays, team gifting.",
+            "btn_label": "Explore Sets",
+            "btn_url": "#"
+          }
+        },
+        "card_BKk4R9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316_be42fd0c-9761-4020-9f0c-c54620c5def9.png",
+            "title": "Candle & Ritual Gifts",
+            "subtitle": "Comforting scent-led gifts designed to bring calm, warmth, and joy into daily routines.",
+            "bestfor": "<strong>Best for:</strong> Premium client gifting, festive gifting, partner gifts.",
+            "btn_label": "Build a Gift",
+            "btn_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_YbgKME",
+        "card_Tg7XQb",
+        "card_BKk4R9"
+      ],
+      "name": "Curated Cards",
+      "settings": {
+        "customclass": "",
+        "title": "Curated For Every Recipient",
+        "title_color": "#000000",
+        "columns": "3",
+        "image_ratio": "4 / 3",
+        "card_bg_color": "#f8f6ee",
+        "card_content_bg_color": "#f8f6ee",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "steps_swipper_JV7wAq": {
+      "type": "steps-swipper",
+      "blocks": {
+        "step_zMYtK9": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243867.svg",
+            "title": "Share Your Needs",
+            "text": "Tell us your occasion, quantity, budget, timeline, and recipient details."
+          }
+        },
+        "step_krdnzC": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868.svg",
+            "title": "We Curate Options",
+            "text": "Our team recommends gift ideas that match your goals and budget."
+          }
+        },
+        "step_WAXmDK": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_3.svg",
+            "title": "Customize The Details",
+            "text": "Choose products, notes, packaging, and any special touches."
+          }
+        },
+        "step_aN4DWP": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_1.svg",
+            "title": "Confirm Your Order",
+            "text": "Approve the final selection, quantity, and delivery details."
+          }
+        },
+        "step_cEX4Mz": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_2.svg",
+            "title": "We Handle The Rest",
+            "text": "Your gifts are prepared with care and sent out beautifully."
+          }
+        }
+      },
+      "block_order": [
+        "step_zMYtK9",
+        "step_krdnzC",
+        "step_WAXmDK",
+        "step_aN4DWP",
+        "step_cEX4Mz"
+      ],
+      "name": "Steps Swiper",
+      "settings": {
+        "customclass": "",
+        "hide_page": true,
+        "title": "Simple, Seamless, Thoughtful",
+        "title_color": "#000000",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#ffffff",
+        "bg_color": "#f8f6ee",
+        "pagination_color": "#000000",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "faq_section_yAUg4x": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_NAdctW": {
+          "type": "faq",
+          "settings": {
+            "question": "Is there a minimum order quantity?",
+            "answer": "<p>Is there a minimum order quantity?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_Q7h4yH": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer discounts for larger orders?",
+            "answer": "<p>Do you offer discounts for larger orders?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_qMwJUF": {
+          "type": "faq",
+          "settings": {
+            "question": "Can we include a custom note or special packaging?",
+            "answer": "<p>Can we include a custom note or special packaging?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_7xjUyT": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does the process take?",
+            "answer": "<p>How long does the process take?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_JbgbdA": {
+          "type": "faq",
+          "settings": {
+            "question": "Can we choose products from the full collection?",
+            "answer": "<p>Can we choose products from the full collection?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_YNNbfg": {
+          "type": "faq",
+          "settings": {
+            "question": "Who should I contact for corporate gifting?",
+            "answer": "<p>Who should I contact for corporate gifting?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_4YRL4X": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "question": "How long does one soap bar last?",
+            "answer": "<p>How long does one soap bar last?</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_NAdctW",
+        "faq_Q7h4yH",
+        "faq_qMwJUF",
+        "faq_7xjUyT",
+        "faq_JbgbdA",
+        "faq_YNNbfg",
+        "faq_4YRL4X"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Corporate Gifting FAQs</p>",
+        "title_color": "#000000",
+        "content_max_width": 960,
+        "divider_color": "#e0e0e0",
+        "question_color": "#000000",
+        "question_size": 18,
+        "mobile_question_size": 16,
+        "answer_color": "#333333",
+        "answer_size": 16,
+        "mobile_answer_size": 14,
+        "icon_color": "#000000",
+        "bg_color": "#f9f6ee",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
       }
     },
     "main": {
@@ -394,7 +777,13 @@
     }
   },
   "order": [
+    "corporate_banner_BzLJxR",
+    "log0_marquee_NU9XDC",
+    "sticky_feature_m4dcUY",
     "core_values_fCDLWf",
+    "curated_cards_BFRGjT",
+    "steps_swipper_JV7wAq",
+    "faq_section_yAUg4x",
     "main",
     "slideshow_rmwVbb",
     "collection_list_RDEhhA",

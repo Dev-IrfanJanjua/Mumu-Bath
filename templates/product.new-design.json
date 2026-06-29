@@ -45,6 +45,7 @@
         "sub_bundle_9YPwfn": {
           "type": "sub_bundle",
           "settings": {
+            "title": "Subscribe & Save",
             "default_purchase_type": "subscribe",
             "default_selected_plan": 2,
             "otp_heading": "One Time Purchase",
@@ -80,7 +81,7 @@
             "label_color": "#000000",
             "badge_bg": "#fbdd40",
             "badge_text_color": "#000000",
-            "freq_label_color": "#555555",
+            "freq_label_color": "#101010",
             "freq_desc_color": "#101010",
             "select_bg": "#ffffff",
             "plan_title_color": "#000000",
@@ -93,6 +94,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "cstm_class": true,
             "show_payment_button": false,
             "show_gift_card_recipient": true,
             "atc_button_background": "",
