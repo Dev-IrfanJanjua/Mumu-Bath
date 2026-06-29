@@ -1,0 +1,408 @@
+{% comment %} ==== Event Banner Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+}
+
+.sec-{{ section.id }} .eb-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.sec-{{ section.id }} .eb-content {
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_horizontal }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_horizontal }}px;
+    background-color: {{ section.settings.content_bg_color }};
+}
+
+.sec-{{ section.id }} .eb-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.sec-{{ section.id }} .eb-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sec-{{ section.id }} .eb-title {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+    margin: 0 0 16px;
+    max-width: 540px;
+}
+
+.sec-{{ section.id }} .eb-subtitle {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0 0 24px;
+    max-width: 555px;
+}
+
+.sec-{{ section.id }} .eb-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sec-{{ section.id }} .eb-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0;
+}
+
+.sec-{{ section.id }} .eb-feature-item img,
+.sec-{{ section.id }} .eb-feature-item svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+}
+
+.sec-{{ section.id }} .eb-feature-text {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.sec-{{ section.id }} .eb_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    border-color: {{ section.settings.btn_bg_color }};
+    margin-top: 34px;
+}
+
+.sec-{{ section.id }} .eb_btn:hover {
+    background-color: {{ section.settings.btn_hover_bg_color }};
+    color: {{ section.settings.btn_hover_text_color }};
+    border-color: {{ section.settings.btn_hover_bg_color }};
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} .eb-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .sec-{{ section.id }} .eb-image {
+        order: -1;
+        height: 300px;
+    }
+
+    .sec-{{ section.id }} .eb-content {
+        padding: {{ section.settings.mobile_padding_top }}px {{ section.settings.mobile_padding_horizontal }}px {{ section.settings.mobile_padding_bottom }}px {{ section.settings.mobile_padding_horizontal }}px;
+    }
+
+    .sec-{{ section.id }} .eb-title {
+        font-size: 36px;
+        line-height: 42px;
+        margin-bottom: 12px;
+    }
+
+    .sec-{{ section.id }} .eb-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+        margin-bottom: 16px;
+    }
+
+    .sec-{{ section.id }} .eb-feature-text {
+        font-size: 16px;
+    }
+
+    .sec-{{ section.id }} .eb_btn {
+        margin-top: 24px;
+        font-size: 16px;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="eb-inner">
+
+        {% comment %} Left: Content {% endcomment %}
+        <div class="eb-content">
+
+            {% if section.settings.title != blank %}
+                <h1 class="eb-title">{{ section.settings.title }}</h1>
+            {% endif %}
+
+            {% if section.settings.subtitle != blank %}
+                <p class="eb-subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+
+            {% if section.blocks.size > 0 %}
+                <ul class="eb-features">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'feature' %}
+                            <li class="eb-feature-item" {{ block.shopify_attributes }}>
+                                {% if section.settings.icon %}
+                                    <img
+                                        src="{{ section.settings.icon | image_url }}"
+                                        alt="{{ section.settings.icon.alt | default: 'image' }}"
+                                        width="20"
+                                        height="20"
+                                        loading="eager"
+                                    >
+                                {% else %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                        <path d="M4 10L8 14L16 6" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                {% endif %}
+                                {% if block.settings.text != blank %}
+                                    <span class="eb-feature-text">{{ block.settings.text }}</span>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if section.settings.btn_label != blank %}
+                
+                <a href="{{ section.settings.btn_url }}"class="btn_btn eb_btn">
+                    {{ section.settings.btn_label }}
+                </a>
+            {% endif %}
+
+        </div>
+
+        {% comment %} Right: Image {% endcomment %}
+        <div class="eb-image">
+            {% if section.settings.image %}
+                <img
+                    src="{{ section.settings.image | image_url: width: 1200 }}"
+                    alt="{{ section.settings.image.alt | default: section.settings.title }}"
+                    width="{{ section.settings.image.width }}"
+                    height="{{ section.settings.image.height }}"
+                    loading="eager"
+                    fetchpriority="high"
+                >
+            {% else %}
+                {{ 'image' | placeholder_svg_tag: 'eb-placeholder' }}
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Event Banner",
+  "tag": "section",
+  "class": "event-banner-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Host A Private DIY Bath Bomb Party In NYC"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Create your own bath bombs & skincare in just 90 minutes – Fun for Kids, Teens & Adults!"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Book Your Party"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#F5E44A"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Side Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon (leave blank for checkmark)"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Content Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding Horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_horizontal",
+      "label": "Mobile Padding Horizontal",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text",
+          "default": "Birthday Parties"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Event Banner",
+      "category": "Custom",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Birthday Parties" } },
+        { "type": "feature", "settings": { "text": "Bachelor Celebrations" } },
+        { "type": "feature", "settings": { "text": "Team-Building Activities" } },
+        { "type": "feature", "settings": { "text": "Family Gatherings" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

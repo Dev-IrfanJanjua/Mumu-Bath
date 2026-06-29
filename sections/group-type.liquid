@@ -1,0 +1,472 @@
+{% comment %} ==== Group Type Cards Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .page-width{
+    padding-inline: 80px;
+}
+
+.sec-{{ section.id }} .gtc-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.sec-{{ section.id }} .gtc-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+}
+
+.sec-{{ section.id }} .gtc-subtitle {
+    color: #101010;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 636px;
+    margin: 0 auto;
+}
+
+.sec-{{ section.id }} .gtc-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: 50px;
+    margin-bottom: 48px;
+}
+
+.sec-{{ section.id }} .gtc-card {
+    display: flex;
+    align-items: stretch;
+    border-radius: 12px;
+    background: {{ section.settings.card_bg_color }};
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.sec-{{ section.id }} .gtc-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 0px 0 0px 20px;
+}
+
+.sec-{{ section.id }} .gtc-card-image {
+    max-width: 46%;
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0 12px 12px 0;
+}
+
+.sec-{{ section.id }} .gtc-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sec-{{ section.id }} .gtc-card-title {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .gtc-card-age {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .gtc-card-text {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0px;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .gtc-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sec-{{ section.id }} .gtc-bottom-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.sec-{{ section.id }} .gtc-bottom-text {
+    color: {{ section.settings.bottom_text_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .page-width{
+        padding-inline: 16px;
+    }
+
+    .sec-{{ section.id }} .gtc-head {
+        margin-bottom: 24px;
+    }
+
+    .sec-{{ section.id }} .gtc-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+        color: #000;
+    }
+
+    .sec-{{ section.id }} .gtc-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 24px;
+    }
+
+    .sec-{{ section.id }} .gtc-card {
+        flex-direction: column;
+    }
+
+    .sec-{{ section.id }} .gtc-card-body {
+        padding: 16px 20px 20px 20px;
+    }
+
+    .sec-{{ section.id }} .gtc-card-image {
+        height: 233px;
+        border-radius: 12px 12px 0 0;
+        order: -1;
+        max-width: 100%;
+    }
+
+    .sec-{{ section.id }} .gtc-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+    }
+
+    .sec-{{ section.id }} .gtc-card-age {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 120%;
+        text-transform: capitalize;
+    }
+
+    .sec-{{ section.id }} .gtc-card-text {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+
+    .sec-{{ section.id }} .gtc-bottom-text {
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.1px;
+    }
+
+    .sec-{{ section.id }} .gtc-title {
+        color: #000000;
+        margin: 0;
+        max-width: 278px;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+
+        {% comment %} Section Head {% endcomment %}
+        <div class="gtc-head">
+            {% if section.settings.title != blank %}
+                <h2 class="gtc-title title_title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+                <p class="gtc-subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+        </div>
+
+        {% comment %} Cards Grid {% endcomment %}
+        {% if section.blocks.size > 0 %}
+            <div class="gtc-grid">
+                {% for block in section.blocks %}
+                    {% if block.type == 'card' %}
+                        <div class="gtc-card" {{ block.shopify_attributes }}>
+
+                            <div class="gtc-card-body">
+                                {% if block.settings.title != blank %}
+                                    <h3 class="gtc-card-title">{{ block.settings.title }}</h3>
+                                {% endif %}
+                                {% if block.settings.age != blank %}
+                                    <p class="gtc-card-age">{{ block.settings.age }}</p>
+                                {% endif %}
+                                {% if block.settings.text != blank %}
+                                    <p class="gtc-card-text">{{ block.settings.text }}</p>
+                                {% endif %}
+                            </div>
+
+                            {% if block.settings.image %}
+                                <div class="gtc-card-image">
+                                    <img
+                                        src="{{ block.settings.image | image_url: width: 600 }}"
+                                        alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                                        width="{{ block.settings.image.width }}"
+                                        height="{{ block.settings.image.height }}"
+                                        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                                        {% if forloop.first %}fetchpriority="high"{% endif %}
+                                    >
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% comment %} Bottom Note {% endcomment %}
+        {% if section.settings.bottom_text != blank %}
+            <div class="gtc-bottom">
+                {% if section.settings.bottom_icon %}
+                    <img
+                        src="{{ section.settings.bottom_icon | image_url }}"
+                        alt="{{ section.settings.bottom_icon.alt | default: '' }}"
+                        width="24"
+                        height="24"
+                        class="gtc-bottom-icon"
+                        loading="lazy"
+                    >
+                {% endif %}
+                <p class="gtc-bottom-text">{{ section.settings.bottom_text }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Group Type Cards",
+  "tag": "section",
+  "class": "group-type-cards-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Section Head"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Choose The Right Group Type"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Each party is organized for one age group — teaching style and content are tailored accordingly."
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns (Desktop)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#FAF7EF"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Note"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon",
+      "label": "Bottom Icon"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "Each party should be organized for a specific age group, as the teaching content and approach will vary."
+    },
+    {
+      "type": "color",
+      "id": "bottom_text_color",
+      "label": "Bottom Text Color",
+      "default": "#27500A"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Group Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Kids Party"
+        },
+        {
+          "type": "text",
+          "id": "age",
+          "label": "Age Range",
+          "default": "Ages 6 – 13"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Card Text",
+          "default": "Minimum 8 · Maximum 16 per session"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Group Type Cards",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Kids Party",
+            "age": "Ages 6 – 13",
+            "text": "Minimum 8 · Maximum 16 per session"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Teen & Adult Party",
+            "age": "Ages 14 And Up",
+            "text": "Minimum 8 · Maximum 16 per session"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

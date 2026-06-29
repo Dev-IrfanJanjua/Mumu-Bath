@@ -1,0 +1,575 @@
+{% comment %} ==== Self-Care Products Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .scp-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+}
+
+.sec-{{ section.id }} .scp-image {
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sec-{{ section.id }} .scp-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.sec-{{ section.id }} .scp-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sec-{{ section.id }} .scp-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.sec-{{ section.id }} .scp-subtitle {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .scp-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 14px;
+    border-radius: 5px;
+    background: {{ section.settings.tag_bg_color }};
+    width: fit-content;
+}
+
+.sec-{{ section.id }} .scp-tag img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.sec-{{ section.id }} .scp-tag-text {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .scp-blocks {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.sec-{{ section.id }} .scp-block-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    flex: 1;
+    min-width: 80px;
+}
+
+.sec-{{ section.id }} .scp-block-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background: {{ section.settings.block_img_bg_color }};
+}
+
+.sec-{{ section.id }} .scp-block-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sec-{{ section.id }} .scp-block-text {
+    color: #001116;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .scp-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sec-{{ section.id }} .scp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    border-color: {{ section.settings.btn_bg_color }};
+}
+
+.sec-{{ section.id }} .scp-btn:hover {
+    background-color: {{ section.settings.btn_hover_bg_color }};
+    color: {{ section.settings.btn_hover_text_color }};
+    border-color: {{ section.settings.btn_hover_bg_color }};
+}
+
+.sec-{{ section.id }} .scp-bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sec-{{ section.id }} .scp-bottom img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.sec-{{ section.id }} .scp-bottom-text {
+    color: {{ section.settings.bottom_text_color }};
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .scp-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sec-{{ section.id }} .scp-image {
+        width: 100%;
+    }
+
+    .sec-{{ section.id }} .scp-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .sec-{{ section.id }} .scp-tag-text {
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+
+    .sec-{{ section.id }} .scp-block-text {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .sec-{{ section.id }} .scp-bottom-text {
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+
+    .sec-{{ section.id }} .scp-tag {
+        padding: 6px 12px;
+    }
+
+    .sec-{{ section.id }} .scp-tag img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sec-{{ section.id }} .scp-blocks {
+        gap: 17px;
+    }
+
+    .sec-{{ section.id }} .scp-block-item {
+        gap: 6px;
+        min-width: 70px;
+    }
+
+    .sec-{{ section.id }} .scp-btn {
+        font-size: 16px;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+        <div class="scp-inner">
+
+            {% comment %} Left: Image {% endcomment %}
+            <div class="scp-image">
+                {% if section.settings.image %}
+                    <img
+                        src="{{ section.settings.image | image_url: width: 1000 }}"
+                        alt="{{ section.settings.image.alt | default: section.settings.title }}"
+                        width="{{ section.settings.image.width }}"
+                        height="{{ section.settings.image.height }}"
+                        loading="eager"
+                        fetchpriority="high"
+                    >
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag }}
+                {% endif %}
+            </div>
+
+            {% comment %} Right: Content {% endcomment %}
+            <div class="scp-content">
+
+                {% if section.settings.title != blank %}
+                    <h2 class="scp-title title_title">{{ section.settings.title }}</h2>
+                {% endif %}
+
+                {% if section.settings.subtitle != blank %}
+                    <p class="scp-subtitle">{{ section.settings.subtitle }}</p>
+                {% endif %}
+
+                {% if section.settings.tag_text != blank %}
+                    <div class="scp-tag">
+                        {% if section.settings.tag_icon %}
+                            <img
+                                src="{{ section.settings.tag_icon | image_url }}"
+                                alt="{{ section.settings.tag_icon.alt | default: '' }}"
+                                width="28"
+                                height="28"
+                                loading="eager"
+                            >
+                        {% endif %}
+                        <span class="scp-tag-text">{{ section.settings.tag_text }}</span>
+                    </div>
+                {% endif %}
+
+                {% if section.blocks.size > 0 %}
+                    <div class="scp-blocks">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'product_item' %}
+                                {% if block.settings.link != blank %}
+                                    <a href="{{ block.settings.link }}" class="scp-block-item" {{ block.shopify_attributes }}>
+                                {% else %}
+                                    <div class="scp-block-item" {{ block.shopify_attributes }}>
+                                {% endif %}
+
+                                {% if block.settings.image %}
+                                    <div class="scp-block-image">
+                                        <img
+                                            src="{{ block.settings.image | image_url: width: 300 }}"
+                                            alt="{{ block.settings.image.alt | default: block.settings.text }}"
+                                            width="300"
+                                            height="300"
+                                            loading="lazy"
+                                        >
+                                    </div>
+                                {% endif %}
+
+                                {% if block.settings.text != blank %}
+                                    <span class="scp-block-text">{{ block.settings.text }}</span>
+                                {% endif %}
+
+                                {% if block.settings.link != blank %}
+                                    </a>
+                                {% else %}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="scp-btn-wrap">
+                    {% if section.settings.btn_label != blank %}
+                        
+                        <a   href="{{ section.settings.btn_url }}"class="btn_btn scp-btn">
+                            {{ section.settings.btn_label }}
+                        </a>
+                    {% endif %}
+
+                    {% if section.settings.bottom_text != blank %}
+                        <div class="scp-bottom">
+                            {% if section.settings.bottom_icon %}
+                                <img
+                                    src="{{ section.settings.bottom_icon | image_url }}"
+                                    alt="{{ section.settings.bottom_icon.alt | default: '' }}"
+                                    width="28"
+                                    height="28"
+                                    loading="lazy"
+                                >
+                            {% endif %}
+                            <p class="scp-bottom-text">{{ section.settings.bottom_text }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Self-Care Products",
+  "tag": "section",
+  "class": "self-care-products-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Everyone Leaves With Handmade Self-Care Products"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home."
+    },
+    {
+      "type": "header",
+      "content": "Tag"
+    },
+    {
+      "type": "image_picker",
+      "id": "tag_icon",
+      "label": "Tag Icon (28×28)"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Tag Text",
+      "default": "Make 2 products in 90 minutes!"
+    },
+    {
+      "type": "color",
+      "id": "tag_bg_color",
+      "label": "Tag Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "header",
+      "content": "Product Blocks"
+    },
+    {
+      "type": "color",
+      "id": "block_img_bg_color",
+      "label": "Block Image Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Book Your Party — $65/Person"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#F5E44A"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Note"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon",
+      "label": "Bottom Icon (28×28)"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "All tools and materials will be provided, so no preparation is needed!"
+    },
+    {
+      "type": "color",
+      "id": "bottom_text_color",
+      "label": "Bottom Text Color",
+      "default": "#27500A"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Product Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Product Name",
+          "default": "Bath Bomb"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Self-Care Products",
+      "category": "Custom",
+      "blocks": [
+        { "type": "product_item", "settings": { "text": "Bath Bomb" } },
+        { "type": "product_item", "settings": { "text": "Body Butter" } },
+        { "type": "product_item", "settings": { "text": "Bath Bomb" } },
+        { "type": "product_item", "settings": { "text": "Face Mist" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

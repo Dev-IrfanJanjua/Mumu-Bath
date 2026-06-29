@@ -1,0 +1,713 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "event_banner_PQxRLq": {
+      "type": "event-banner",
+      "blocks": {
+        "feature_feCPip": {
+          "type": "feature",
+          "settings": {
+            "text": "Birthday Parties"
+          }
+        },
+        "feature_q3tX3N": {
+          "type": "feature",
+          "settings": {
+            "text": "Bachelor Celebrations"
+          }
+        },
+        "feature_cpKnzh": {
+          "type": "feature",
+          "settings": {
+            "text": "Team-Building Activities"
+          }
+        },
+        "feature_T36LQm": {
+          "type": "feature",
+          "settings": {
+            "text": "Family Gatherings"
+          }
+        }
+      },
+      "block_order": [
+        "feature_feCPip",
+        "feature_q3tX3N",
+        "feature_cpKnzh",
+        "feature_T36LQm"
+      ],
+      "name": "Event Banner",
+      "settings": {
+        "customclass": "",
+        "title": "Host A Private DIY Bath Bomb Party In NYC",
+        "subtitle": "Create your own bath bombs & skincare in just 90 minutes – Fun for Kids, Teens & Adults!",
+        "btn_label": "Book Your Party",
+        "btn_url": "#",
+        "btn_bg_color": "#fbdd3f",
+        "btn_text_color": "#000000",
+        "btn_hover_bg_color": "#000000",
+        "btn_hover_text_color": "#ffffff",
+        "image": "shopify://shop_images/Frame_2147243190_2.png",
+        "icon": "shopify://shop_images/Vector_1.svg",
+        "bg_color": "#f8f6ee",
+        "content_bg_color": "#f8f6ee",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_horizontal": 40,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 60,
+        "mobile_padding_horizontal": 16
+      }
+    },
+    "state_icons_jMidtT": {
+      "type": "state-icons",
+      "blocks": {
+        "stat_e4CxaC": {
+          "type": "stat",
+          "settings": {
+            "icon": "shopify://shop_images/image_2979_Vectorized_2.svg",
+            "title": "$65 / Person",
+            "subtitle": "Includes materials & tools"
+          }
+        },
+        "stat_BiAcfM": {
+          "type": "stat",
+          "settings": {
+            "icon": "shopify://shop_images/image_2982_Vectorized_1.svg",
+            "title": "90 Minutes",
+            "subtitle": "Guided DIY experience"
+          }
+        },
+        "stat_KRQCDg": {
+          "type": "stat",
+          "settings": {
+            "icon": "shopify://shop_images/image_2981_Vectorized_1.svg",
+            "title": "8–16 Guests",
+            "subtitle": "Perfect group size"
+          }
+        },
+        "stat_wgy7gz": {
+          "type": "stat",
+          "settings": {
+            "icon": "shopify://shop_images/image_2980_Vectorized_1.svg",
+            "title": "Brooklyn, NYC",
+            "subtitle": "72 Jay St location"
+          }
+        }
+      },
+      "block_order": [
+        "stat_e4CxaC",
+        "stat_BiAcfM",
+        "stat_KRQCDg",
+        "stat_wgy7gz"
+      ],
+      "name": "Stats Icons",
+      "settings": {
+        "customclass": "",
+        "columns": "4",
+        "bg_color": "#ffffff",
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "self_care_9EMHef": {
+      "type": "self-care",
+      "blocks": {
+        "product_item_nU8xaT": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_498.png",
+            "text": "Bath Bomb",
+            "link": ""
+          }
+        },
+        "product_item_ezRc7R": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_499.png",
+            "text": "Body Butter",
+            "link": ""
+          }
+        },
+        "product_item_A6dfWW": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_500.png",
+            "text": "Bath Bomb",
+            "link": ""
+          }
+        },
+        "product_item_gEmVGh": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_501.png",
+            "text": "Face Mist",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_item_nU8xaT",
+        "product_item_ezRc7R",
+        "product_item_A6dfWW",
+        "product_item_gEmVGh"
+      ],
+      "name": "Self-Care Products",
+      "settings": {
+        "customclass": "",
+        "image": "shopify://shop_images/Rectangle_3467775_1.png",
+        "title": "Everyone Leaves With Handmade Self-Care Products",
+        "title_color": "#000000",
+        "subtitle": "In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.",
+        "tag_icon": "shopify://shop_images/Capa_1.svg",
+        "tag_text": "Make 2 products in 90 minutes!",
+        "tag_bg_color": "#F8F6EE",
+        "block_img_bg_color": "#F8F6EE",
+        "btn_label": "Book Your Party — $65/Person",
+        "btn_url": "#",
+        "btn_bg_color": "#FBDD40",
+        "btn_text_color": "#000000",
+        "btn_hover_bg_color": "#000000",
+        "btn_hover_text_color": "#ffffff",
+        "bottom_icon": "shopify://shop_images/svg435.svg",
+        "bottom_text": "All tools and materials will be provided, so no preparation is needed!",
+        "bottom_text_color": "#27500A",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "party_cards_4Kc4h8": {
+      "type": "party-cards",
+      "blocks": {
+        "card_DzXFML": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243801.png",
+            "title": "Birthday Party",
+            "subtitle": "Celebrate with a fun handcrafted workshop and make unforgettable memories with friends — perfect for all ages!"
+          }
+        },
+        "card_HtTmCt": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243802.png",
+            "title": "Team Building",
+            "subtitle": "Strengthen team bonds through creative hands-on workshops that bring everyone together."
+          }
+        },
+        "card_gVrRV8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243803.png",
+            "title": "We Also Do...",
+            "subtitle": "From bachelor parties to family gatherings and networking events, we tailor the bath bomb making class to your unique occasion."
+          }
+        }
+      },
+      "block_order": [
+        "card_DzXFML",
+        "card_HtTmCt",
+        "card_gVrRV8"
+      ],
+      "name": "Party Type Cards",
+      "settings": {
+        "customclass": "",
+        "title": "Choose The Perfect Party For Your Group",
+        "title_color": "#000000",
+        "title_size": 48,
+        "mobile_title_size": 30,
+        "subtitle": "From birthdays to team events, every Mumu Bath workshop is customized to fit your group, theme, and vibe.",
+        "columns": "3",
+        "card_bg_color": "#ffffff",
+        "card_radius": 10,
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "core_values_NCQJja": {
+      "type": "core-values",
+      "blocks": {
+        "value_zh8eEt": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2996_Vectorized.svg",
+            "title": "Fun & Creative Experience",
+            "subtitle": "Our bath bomb making class turns anygathering into a joyful hands-on experience. Everyone gets to mix, mold, anddesign their own bath bombs while enjoying quality time together."
+          }
+        },
+        "value_aKdDXU": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2993_Vectorized.svg",
+            "title": "Personalized & Memorable",
+            "subtitle": "Each guest can customize scents, colors, and stylesto match their personality. It’s the perfect way to create keepsakes that areboth beautiful and useful."
+          }
+        },
+        "value_NFP8NF": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2998_Vectorized.svg",
+            "title": "Relaxing & Therapeutic Activity",
+            "subtitle": "Our bath bomb making workshop is more thancrafting - it’s self-care in action. The soothing scents and colors make it acalming escape from the everyday rush."
+          }
+        },
+        "value_jt8rze": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2997_Vectorized.svg",
+            "title": "Perfect for Any Occasion",
+            "subtitle": "Whether it’s a birthday, bridal shower, or teamevent, our private sessions are designed to fit your vibe. Every group leaveswith smiles, laughter, and beautiful handmade creations."
+          }
+        },
+        "value_cznJfy": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2995_Vectorized.svg",
+            "title": "Hassle-Free Hosting",
+            "subtitle": "We bring all materials and handle the setup andcleanup. You simply enjoy the experience while we take care of every detail."
+          }
+        },
+        "value_qwC3tJ": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized.svg",
+            "title": "Premium Ingredients",
+            "subtitle": "We use natural, skin-loving materials to ensuresafe and beautiful results."
+          }
+        }
+      },
+      "block_order": [
+        "value_zh8eEt",
+        "value_aKdDXU",
+        "value_NFP8NF",
+        "value_jt8rze",
+        "value_cznJfy",
+        "value_qwC3tJ"
+      ],
+      "name": "Core Values",
+      "settings": {
+        "add_class": true,
+        "heading": "<p>Why Host a Private Bath Bomb Party</p>",
+        "subtitle": "In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.",
+        "columns_desktop": 3,
+        "section_bg": "#faf7ef",
+        "heading_color": "#000000",
+        "subtitle_color": "#000000",
+        "card_bg": "#ffffff",
+        "card_title_color": "#000000",
+        "card_subtitle_color": "#000000",
+        "card_radius": 8,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "time_booking_idjcKN": {
+      "type": "time-booking",
+      "blocks": {
+        "row_qVxBAR": {
+          "type": "row",
+          "settings": {
+            "label": "Duration",
+            "value": "90 Minutes"
+          }
+        },
+        "row_midJ4C": {
+          "type": "row",
+          "settings": {
+            "label": "Weekdays",
+            "value": "After 7 PM"
+          }
+        },
+        "row_UrfiV6": {
+          "type": "row",
+          "settings": {
+            "label": "Friday–Sunday",
+            "value": "Before 12 PM Or 2–5 PM"
+          }
+        },
+        "row_fFB4mW": {
+          "type": "row",
+          "settings": {
+            "label": "Lead Time",
+            "value": "Book 2–4 Weeks In Advance"
+          }
+        },
+        "row_CGrXqL": {
+          "type": "row",
+          "settings": {
+            "label": "Deposit",
+            "value": "50% To Reserve"
+          }
+        },
+        "row_AkdXyg": {
+          "type": "row",
+          "settings": {
+            "label": "Balance",
+            "value": "Due Before Party"
+          }
+        },
+        "row_EfnCrh": {
+          "type": "row",
+          "settings": {
+            "label": "Cleaning Fee",
+            "value": "$60 Applies"
+          }
+        }
+      },
+      "block_order": [
+        "row_qVxBAR",
+        "row_midJ4C",
+        "row_UrfiV6",
+        "row_fFB4mW",
+        "row_CGrXqL",
+        "row_AkdXyg",
+        "row_EfnCrh"
+      ],
+      "name": "Party Time & Booking",
+      "settings": {
+        "customclass": "",
+        "image": "shopify://shop_images/Rectangle_3467775.png",
+        "title": "Party Time & Booking",
+        "title_color": "#000000",
+        "subtitle": "We schedule one party per slot so your group gets full attention. Below are the windows that work best for us flexibility within reason.",
+        "btn_label": "Book Your Party",
+        "btn_url": "#",
+        "btn_bg_color": "#fbdd40",
+        "btn_text_color": "#000000",
+        "btn_hover_bg_color": "#000000",
+        "btn_hover_text_color": "#ffffff",
+        "bg_color": "#ffffff",
+        "table_bg_color": "#f8f6ee",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "group_type_cHAkAM": {
+      "type": "group-type",
+      "blocks": {
+        "card_f7MzNK": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243795.png",
+            "title": "Kids Party",
+            "age": "Ages 6 – 13",
+            "text": "Minimum 8 · Maximum 16 per session"
+          }
+        },
+        "card_rYntBa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243795.png",
+            "title": "Teen & Adult Party",
+            "age": "Ages 14 And Up",
+            "text": "Minimum 8 · Maximum 16 per session"
+          }
+        }
+      },
+      "block_order": [
+        "card_f7MzNK",
+        "card_rYntBa"
+      ],
+      "name": "Group Type Cards",
+      "settings": {
+        "customclass": "",
+        "title": "Choose The Right Group Type",
+        "title_color": "#000000",
+        "subtitle": "Each party is organized for one age group — teaching style and content are tailored accordingly.",
+        "columns": "2",
+        "card_bg_color": "#faf7ef",
+        "bottom_icon": "shopify://shop_images/svg435.svg",
+        "bottom_text": "Each party should be organized for a specific age group, as the teaching content and approach will vary.",
+        "bottom_text_color": "#27500a",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "faq_section_Kmdqkd": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_CyBYjU": {
+          "type": "faq",
+          "settings": {
+            "question": "Is Kiss Me Sunshine suitable for sensitive skin?",
+            "answer": "<p>Yes, our formula is gentle and designed to work with all skin types, including sensitive skin.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_H3HcyW": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use this soap on both face and body?",
+            "answer": "<p>Absolutely — it's crafted to be gentle enough for your face while effective for full-body use.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_mUA4Y6": {
+          "type": "faq",
+          "settings": {
+            "question": "What ingredients are used in Kiss Me Sunshine?",
+            "answer": "<p>We use a blend of natural oils, botanical extracts, and skin-loving butters — free from harsh chemicals.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_LFGV7a": {
+          "type": "faq",
+          "settings": {
+            "question": "Is Kiss Me Sunshine handmade?",
+            "answer": "<p>Is Kiss Me Sunshine handmade?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_AGeBw3": {
+          "type": "faq",
+          "settings": {
+            "question": "Will this soap dry out my skin?",
+            "answer": "<p>Will this soap dry out my skin?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_itKELe": {
+          "type": "faq",
+          "settings": {
+            "question": "Is Kiss Me Sunshine vegan and cruelty-free?",
+            "answer": "<p>Is Kiss Me Sunshine vegan and cruelty-free?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_g94pGz": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does one soap bar last?",
+            "answer": "<p>How long does one soap bar last?</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_CyBYjU",
+        "faq_H3HcyW",
+        "faq_mUA4Y6",
+        "faq_LFGV7a",
+        "faq_AGeBw3",
+        "faq_itKELe",
+        "faq_g94pGz"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Got Questions?<br/>We've Got You Covered.</p>",
+        "title_color": "#000000",
+        "content_max_width": 960,
+        "divider_color": "#e0e0e0",
+        "question_color": "#000000",
+        "question_size": 18,
+        "mobile_question_size": 16,
+        "answer_color": "#333333",
+        "answer_size": 16,
+        "mobile_answer_size": 14,
+        "icon_color": "#000000",
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "routed_ritual_jhyBLY": {
+      "type": "routed-ritual",
+      "disabled": true,
+      "name": "About Ritual Section",
+      "settings": {
+        "add_class": "",
+        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image_alt": "About image",
+        "heading": "A Ritual Rooted In Taiwan",
+        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
+        "signature": "shopify://shop_images/image_21.png",
+        "signature_alt": "Founder signature",
+        "founder_name": "Founder",
+        "button_label": "Discover Our Story",
+        "button_link": "",
+        "bg_color": "#f8f6ee",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "featured_product_wwFrGx": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_dLyxUp": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_768FDf": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_PMKyFx": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_c6eE6y": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_MXLwrd": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_pjRHYf": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator_ayyxz4": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_KWWmGP": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false
+          }
+        },
+        "variant_picker_bEekJY": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_3VcKTe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_f7qB8f": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_Lpzg7w": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_dLyxUp",
+        "title_768FDf",
+        "badges_PMKyFx",
+        "price_c6eE6y",
+        "rating_MXLwrd",
+        "payment_terms_pjRHYf",
+        "separator_ayyxz4",
+        "description_KWWmGP",
+        "variant_picker_bEekJY",
+        "quantity_selector_3VcKTe",
+        "buy_buttons_f7qB8f",
+        "pickup_availability_Lpzg7w"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured_product.presets.featured_product.name",
+      "settings": {
+        "product": "",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "Featured product",
+        "content": ""
+      }
+    },
+    "174228070476985170": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_KmJPmp": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_PW4UJL": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_KmJPmp",
+        "targetbay_product_reviews_site_reviews_PW4UJL"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    }
+  },
+  "order": [
+    "event_banner_PQxRLq",
+    "state_icons_jMidtT",
+    "self_care_9EMHef",
+    "party_cards_4Kc4h8",
+    "core_values_NCQJja",
+    "time_booking_idjcKN",
+    "group_type_cHAkAM",
+    "faq_section_Kmdqkd",
+    "routed_ritual_jhyBLY",
+    "main",
+    "featured_product_wwFrGx",
+    "174228070476985170"
+  ]
+}

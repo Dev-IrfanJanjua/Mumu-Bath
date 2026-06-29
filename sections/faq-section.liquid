@@ -1,0 +1,483 @@
+{% comment %} ==== FAQ Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .faq-head {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.sec-{{ section.id }} .faq-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+}
+
+.sec-{{ section.id }} .faq-list {
+    display: flex;
+    flex-direction: column;
+    max-width: {{ section.settings.content_max_width }}px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.sec-{{ section.id }} .faq-item {
+    border-bottom: 1px solid {{ section.settings.divider_color }};
+}
+
+.sec-{{ section.id }} .faq-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.sec-{{ section.id }} .faq-question {
+    color: {{ section.settings.question_color }};
+    font-size: {{ section.settings.question_size }}px;
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px;
+}
+
+.sec-{{ section.id }} .faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec-{{ section.id }} .faq-icon::before,
+.sec-{{ section.id }} .faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: {{ section.settings.icon_color }};
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.sec-{{ section.id }} .faq-icon::before {
+    width: 18px;
+    height: 2px;
+}
+
+.sec-{{ section.id }} .faq-icon::after {
+    width: 2px;
+    height: 18px;
+}
+
+.sec-{{ section.id }} .faq-item.is-open .faq-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.sec-{{ section.id }} .faq-body {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sec-{{ section.id }} .faq-answer {
+    color: {{ section.settings.answer_color }};
+    font-size: {{ section.settings.answer_size }}px;
+    padding: 0px 40px 12px 16px;
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.sec-{{ section.id }} .faq-answer a {
+    color: {{ section.settings.answer_color }};
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .faq-trigger {
+        padding: 0 0 16px;
+    }
+
+    .sec-{{ section.id }} .faq-question {
+        font-size: {{ section.settings.mobile_question_size }}px;
+    }
+
+    .sec-{{ section.id }} .faq-answer {
+        font-size: {{ section.settings.mobile_answer_size }}px;
+        padding: 0 0px 12px 0;
+    }
+
+    .sec-{{ section.id }} .faq-list {
+        gap: 16px;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+
+        {% if section.settings.title != blank %}
+            <div class="faq-head">
+                <div class="faq-title title_title">
+                    {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+            <div class="faq-list" id="faq-list-{{ section.id }}">
+                {% for block in section.blocks %}
+                    {% if block.type == 'faq' %}
+                        <div
+                            class="faq-item{% if block.settings.open_by_default %} is-open{% endif %}"
+                            id="faq-item-{{ section.id }}-{{ forloop.index }}"
+                            {{ block.shopify_attributes }}
+                        >
+                            <button
+                                class="faq-trigger"
+                                aria-expanded="{% if block.settings.open_by_default %}true{% else %}false{% endif %}"
+                                aria-controls="faq-body-{{ section.id }}-{{ forloop.index }}"
+                            >
+                                <span class="faq-question">{{ block.settings.question }}</span>
+                                <span class="faq-icon" aria-hidden="true"></span>
+                            </button>
+                            <div
+                                class="faq-body"
+                                id="faq-body-{{ section.id }}-{{ forloop.index }}"
+                                role="region"
+                            >
+                                <div class="faq-answer">{{ block.settings.answer }}</div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<script>
+(function () {
+    var listEl = document.getElementById('faq-list-{{ section.id }}');
+    if (!listEl) return;
+
+    function setHeight(bodyEl, open) {
+        if (open) {
+            bodyEl.style.height = bodyEl.scrollHeight + 'px';
+        } else {
+            bodyEl.style.height = bodyEl.scrollHeight + 'px';
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    bodyEl.style.height = '0px';
+                });
+            });
+        }
+    }
+
+    function closeItem(item) {
+        var body = item.querySelector('.faq-body');
+        var trigger = item.querySelector('.faq-trigger');
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        setHeight(body, false);
+    }
+
+    function openItem(item) {
+        var body = item.querySelector('.faq-body');
+        var trigger = item.querySelector('.faq-trigger');
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        setHeight(body, true);
+    }
+
+    // Set initial heights
+    listEl.querySelectorAll('.faq-item').forEach(function (item) {
+        var body = item.querySelector('.faq-body');
+        if (item.classList.contains('is-open')) {
+            body.style.height = body.scrollHeight + 'px';
+        } else {
+            body.style.height = '0px';
+        }
+    });
+
+    // Handle transitionend to allow natural scrollHeight changes
+    listEl.querySelectorAll('.faq-body').forEach(function (body) {
+        body.addEventListener('transitionend', function () {
+            var item = body.closest('.faq-item');
+            if (item && item.classList.contains('is-open')) {
+                body.style.height = 'auto';
+            }
+        });
+    });
+
+    listEl.addEventListener('click', function (e) {
+        var trigger = e.target.closest('.faq-trigger');
+        if (!trigger) return;
+
+        var item = trigger.closest('.faq-item');
+        var isOpen = item.classList.contains('is-open');
+
+        // Close all open items first
+        listEl.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
+            var openBody = openItem.querySelector('.faq-body');
+            // Reset from auto so transition works
+            if (openBody.style.height === 'auto') {
+                openBody.style.height = openBody.scrollHeight + 'px';
+            }
+            closeItem(openItem);
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+            openItem(item);
+        }
+    });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Got Questions?<br>We've Got You Covered.</p>"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "FAQ Style"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content Max Width",
+      "min": 600,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 840
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider Color",
+      "default": "#E0E0E0"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "question_size",
+      "label": "Question Font Size (Desktop)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_question_size",
+      "label": "Question Font Size (Mobile)",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "answer_size",
+      "label": "Answer Font Size (Desktop)",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_answer_size",
+      "label": "Answer Font Size (Mobile)",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Plus / Minus Icon Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is this product suitable for sensitive skin?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Yes, our products are formulated with gentle, natural ingredients that are suitable for sensitive skin types.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is Kiss Me Sunshine suitable for sensitive skin?",
+            "answer": "<p>Yes, our formula is gentle and designed to work with all skin types, including sensitive skin.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use this soap on both face and body?",
+            "answer": "<p>Absolutely — it's crafted to be gentle enough for your face while effective for full-body use.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What ingredients are used in Kiss Me Sunshine?",
+            "answer": "<p>We use a blend of natural oils, botanical extracts, and skin-loving butters — free from harsh chemicals.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

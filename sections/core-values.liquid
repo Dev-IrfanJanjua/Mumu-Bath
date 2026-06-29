@@ -24,6 +24,8 @@
   font-weight: 400;
   line-height: 22px;
   margin: 12px 0 0;
+  max-width: 830px;
+  margin-inline: auto;
 }
 
 .section-{{ section.id }} .core-values__grid {
@@ -113,10 +115,49 @@
         height: 36px;
     }
 
+    .event-page-{{ section.id }} .core-values__subtitle {
+        padding: 0 10px;
+        margin-top: 24px;
+    }
+
+    .event-page-{{ section.id }} .core-values__grid {
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-right: -16px;
+        padding-right: 16px;
+    }
+
+    .event-page-{{ section.id }} .core-values__card {
+        padding: 16px 12px;
+        min-width: 346px;
+        height: auto;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .event-page-{{ section.id }} .core-values__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .event-page-{{ section.id }} .core-values__card-title {
+        font-size: 18px;
+        margin: 0 0 12px;
+    }
+
+    .event-page-{{ section.id }} .core-values__card-subtitle {
+        font-size: 14px;
+    }
+
+    .event-page-{{ section.id }} .core-values__header {
+        margin-bottom: 24px;
+    }
+
 }
 {% endstyle %}
 
-<section class="core-values section-{{ section.id }}">
+<section class="core-values section-{{ section.id }} {% if section.settings.add_class %} event-page-{{ section.id }}{% endif %}">
   <div class="page-width">
 
     {% if section.settings.heading != blank or section.settings.subtitle != blank %}
@@ -186,6 +227,11 @@
   "tag": "section",
   "class": "shopify-section-core-values",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "add_class",
+      "label": "Even page style"
+    },
     {
       "type": "richtext",
       "id": "heading",

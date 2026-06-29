@@ -1,0 +1,396 @@
+{% comment %} ==== Party Time & Booking Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .ptb-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.sec-{{ section.id }} .ptb-image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sec-{{ section.id }} .ptb-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.sec-{{ section.id }} .ptb-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sec-{{ section.id }} .ptb-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+}
+
+.sec-{{ section.id }} .ptb-subtitle {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0px;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .ptb-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-bottom: none;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: {{ section.settings.table_bg_color }};
+}
+
+.sec-{{ section.id }} .ptb-row {
+    display: flex;
+    padding: 16px 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.sec-{{ section.id }} .ptb-row-left {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.sec-{{ section.id }} .ptb-row-right {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+    text-align: right;
+}
+
+.sec-{{ section.id }} .ptb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    border-color: {{ section.settings.btn_bg_color }};
+    padding: 12px 30px;
+}
+
+.sec-{{ section.id }} .ptb-btn:hover {
+    background-color: {{ section.settings.btn_hover_bg_color }};
+    color: {{ section.settings.btn_hover_text_color }};
+    border-color: {{ section.settings.btn_hover_bg_color }};
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .ptb-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .sec-{{ section.id }} .ptb-image {
+        width: 100%;
+        max-height: 360px;
+    }
+
+    .sec-{{ section.id }} .ptb-image img {
+        max-height: 360px;
+    }
+
+    .sec-{{ section.id }} .ptb-row-left,
+    .sec-{{ section.id }} .ptb-row-right {
+        font-size: 14px;
+    }
+
+    .sec-{{ section.id }} .ptb-row {
+        padding: 16px 12px;
+    }
+
+    .sec-{{ section.id }} .ptb-content {
+        gap: 24px;
+    }
+
+    .sec-{{ section.id }} .ptb-subtitle {
+        font-size: 14px;
+        margin: -8px 0;
+    }
+
+    .sec-{{ section.id }} .ptb-btn {
+        font-size: 18px;
+        line-height: 148%;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+        <div class="ptb-inner">
+
+            {% comment %} Left: Image {% endcomment %}
+            <div class="ptb-image">
+                {% if section.settings.image %}
+                    <img
+                        src="{{ section.settings.image | image_url: width: 1000 }}"
+                        alt="{{ section.settings.image.alt | default: section.settings.title }}"
+                        width="{{ section.settings.image.width }}"
+                        height="{{ section.settings.image.height }}"
+                        loading="eager"
+                        fetchpriority="high"
+                    >
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag }}
+                {% endif %}
+            </div>
+
+            {% comment %} Right: Content {% endcomment %}
+            <div class="ptb-content">
+
+                {% if section.settings.title != blank %}
+                    <h2 class="ptb-title title_title">{{ section.settings.title }}</h2>
+                {% endif %}
+
+                {% if section.settings.subtitle != blank %}
+                    <p class="ptb-subtitle">{{ section.settings.subtitle }}</p>
+                {% endif %}
+
+                {% if section.blocks.size > 0 %}
+                    <div class="ptb-table">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'row' %}
+                                <div class="ptb-row" {{ block.shopify_attributes }}>
+                                    <span class="ptb-row-left">{{ block.settings.label }}</span>
+                                    <span class="ptb-row-right">{{ block.settings.value }}</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if section.settings.btn_label != blank %}
+                    
+                      <a  href="{{ section.settings.btn_url }}"class="btn_btn ptb-btn">
+                        {{ section.settings.btn_label }}
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Party Time & Booking",
+  "tag": "section",
+  "class": "party-booking-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Party Time & Booking"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We schedule one party per slot so your group gets full attention. Below are the windows that work best for us flexibility within reason."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Book Your Party"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#F5E44A"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "table_bg_color",
+      "label": "Table Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Table Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Left Text",
+          "default": "Duration"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Right Text",
+          "default": "90 Minutes"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Party Time & Booking",
+      "category": "Custom",
+      "blocks": [
+        { "type": "row", "settings": { "label": "Duration", "value": "90 Minutes" } },
+        { "type": "row", "settings": { "label": "Weekdays", "value": "After 7 PM" } },
+        { "type": "row", "settings": { "label": "Friday–Sunday", "value": "Before 12 PM Or 2–5 PM" } },
+        { "type": "row", "settings": { "label": "Lead Time", "value": "Book 2–4 Weeks In Advance" } },
+        { "type": "row", "settings": { "label": "Deposit", "value": "50% To Reserve" } },
+        { "type": "row", "settings": { "label": "Balance", "value": "Due Before Party" } },
+        { "type": "row", "settings": { "label": "Cleaning Fee", "value": "$60 Applies" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

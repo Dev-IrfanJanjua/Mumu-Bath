@@ -9,6 +9,85 @@
  */
 {
   "sections": {
+    "core_values_fCDLWf": {
+      "type": "core-values",
+      "blocks": {
+        "value_e8KDWY": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized.svg",
+            "title": "Premium Ingredients",
+            "subtitle": "Bath and body essentials made with skin-loving,\nnatural ingredients for everyday self-care."
+          }
+        },
+        "value_Y78ceJ": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized_2.svg",
+            "title": "Taiwanese-Inspired Scents",
+            "subtitle": "Unique scent stories inspired by Taiwanese\nheritage, botanicals, and meaningful rituals."
+          }
+        },
+        "value_mGKVAw": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2998_Vectorized_1.svg",
+            "title": "Small-Batch Craftsmanship",
+            "subtitle": "Handmade products created with attention to\ntexture, scent, quality, and presentation."
+          }
+        },
+        "value_RPzi3w": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2993_Vectorized.svg",
+            "title": "Thoughtful Packaging",
+            "subtitle": "Gift-ready packaging with options for notes,\nspecial presentation, and custom touches."
+          }
+        },
+        "value_xdMghR": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2995_Vectorized_1.svg",
+            "title": "Hassle-Free Hosting",
+            "subtitle": "We bring all materials and handle the setup andcleanup. You simply enjoy the experience while we take care of every detail."
+          }
+        },
+        "value_QfdrkL": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized_1.svg",
+            "title": "Easy Corporate Support",
+            "subtitle": "Our team helps curate the right gifts based on your\nquantity, budget, occasion, and timeline."
+          }
+        }
+      },
+      "block_order": [
+        "value_e8KDWY",
+        "value_Y78ceJ",
+        "value_mGKVAw",
+        "value_RPzi3w",
+        "value_xdMghR",
+        "value_QfdrkL"
+      ],
+      "name": "Core Values",
+      "settings": {
+        "add_class": true,
+        "heading": "<p>Gifts With Care, Culture, and Quality</p>",
+        "subtitle": "In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.",
+        "columns_desktop": 3,
+        "section_bg": "#faf7ef",
+        "heading_color": "#000000",
+        "subtitle_color": "#000000",
+        "card_bg": "#ffffff",
+        "card_title_color": "#000000",
+        "card_subtitle_color": "#000000",
+        "card_radius": 8,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -51,6 +130,7 @@
       "block_order": [
         "image_aemFdm"
       ],
+      "disabled": true,
       "settings": {
         "allow_transparent_header": false,
         "show_next_section_button": false,
@@ -125,6 +205,7 @@
         "collection_wwdQyW",
         "collection_3FDDL7"
       ],
+      "disabled": true,
       "name": "t:sections.collection_list.presets.collection_list.name",
       "settings": {
         "separate_section_with_border": true,
@@ -191,6 +272,7 @@
         "logo_bD37X6",
         "logo_PRzmJD"
       ],
+      "disabled": true,
       "name": "t:sections.logo_list.presets.logo_list.name",
       "settings": {
         "custom_class": "mb-logo-list",
@@ -204,6 +286,7 @@
     },
     "custom_liquid_UUK739": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": false,
         "remove_vertical_spacing": false,
@@ -266,6 +349,7 @@
         "question_krFmxT",
         "question_ArVnXm"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": false,
         "show_categories": false,
@@ -290,6 +374,7 @@
         "targetbay_product_reviews_tb_common_x4neF9",
         "targetbay_product_reviews_site_reviews_n4A66C"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -309,6 +394,7 @@
     }
   },
   "order": [
+    "core_values_fCDLWf",
     "main",
     "slideshow_rmwVbb",
     "collection_list_RDEhhA",

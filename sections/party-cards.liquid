@@ -1,0 +1,384 @@
+{% comment %} ==== Party Types Cards Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .ptc-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.sec-{{ section.id }} .ptc-title {
+    color: {{ section.settings.title_color }};
+    font-size: {{ section.settings.title_size }}px;
+}
+
+.sec-{{ section.id }} .ptc-subtitle {
+    color: #101010;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 484px;
+    margin: 0 auto;
+}
+
+.sec-{{ section.id }} .ptc-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: 16px;
+}
+
+.sec-{{ section.id }} .ptc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: {{ section.settings.card_bg_color }};
+    overflow: hidden;
+}
+
+.sec-{{ section.id }} .ptc-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 2.8;
+    overflow: hidden;
+    border-radius: {{ section.settings.card_radius }}px;
+}
+
+.sec-{{ section.id }} .ptc-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sec-{{ section.id }} .ptc-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sec-{{ section.id }} .ptc-card-title {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .ptc-card-subtitle {
+    color: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .ptc-head {
+        margin-bottom: 32px;
+        gap: 12px;
+    }
+
+    .sec-{{ section.id }} .ptc-title {
+        font-size: {{ section.settings.mobile_title_size }}px;
+    }
+
+    .sec-{{ section.id }} .ptc-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+        color: #000;
+    }
+
+    .sec-{{ section.id }} .ptc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sec-{{ section.id }} .ptc-card-title {
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0px;
+    }
+
+    .sec-{{ section.id }} .ptc-card-subtitle {
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: 0px;
+    }
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+
+        {% comment %} Section Head {% endcomment %}
+        <div class="ptc-head">
+            {% if section.settings.title != blank %}
+                <h2 class="ptc-title title_title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+                <p class="ptc-subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+        </div>
+
+        {% comment %} Cards Grid {% endcomment %}
+        {% if section.blocks.size > 0 %}
+            <div class="ptc-grid">
+                {% for block in section.blocks %}
+                    {% if block.type == 'card' %}
+                        <div class="ptc-card" {{ block.shopify_attributes }}>
+
+                            {% if block.settings.image %}
+                                <div class="ptc-card-image">
+                                    <img
+                                        src="{{ block.settings.image | image_url: width: 800 }}"
+                                        alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                                        width="{{ block.settings.image.width }}"
+                                        height="{{ block.settings.image.height }}"
+                                        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                                        {% if forloop.first %}fetchpriority="high"{% endif %}
+                                    >
+                                </div>
+                            {% else %}
+                                <div class="ptc-card-image">
+                                    {{ 'image' | placeholder_svg_tag }}
+                                </div>
+                            {% endif %}
+
+                            <div class="ptc-card-body">
+                                {% if block.settings.title != blank %}
+                                    <h3 class="ptc-card-title">{{ block.settings.title }}</h3>
+                                {% endif %}
+                                {% if block.settings.subtitle != blank %}
+                                    <p class="ptc-card-subtitle">{{ block.settings.subtitle }}</p>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Party Type Cards",
+  "tag": "section",
+  "class": "party-type-cards-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Section Head"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Choose The Perfect Party For Your Group"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title Font Size (Desktop)",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Title Font Size (Mobile)",
+      "min": 20,
+      "max": 52,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "From birthdays to team events, every Mumu Bath workshop is customized to fit your group, theme, and vibe."
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns (Desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#F8F6EE"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card Border Radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Birthday Party"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Card Subtitle",
+          "default": "Celebrate with a fun handcrafted workshop and make unforgettable memories with friends — perfect for all ages!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Party Type Cards",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Birthday Party",
+            "subtitle": "Celebrate with a fun handcrafted workshop and make unforgettable memories with friends — perfect for all ages!"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Team Building",
+            "subtitle": "Strengthen team bonds through creative hands-on workshops that bring everyone together."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "We Also Do...",
+            "subtitle": "From bachelor parties to family gatherings and networking events, we tailor the bath bomb making class to your unique occasion."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
