@@ -9,77 +9,25 @@
  */
 {
   "sections": {
-    "host_workshop_PhtVY9": {
-      "type": "host-workshop",
-      "blocks": {
-        "feature_QmhTUG": {
-          "type": "feature",
-          "settings": {
-            "text": "Skincare and bath/body makers"
-          }
-        },
-        "feature_LN8eey": {
-          "type": "feature",
-          "settings": {
-            "text": "Wellness practitioners"
-          }
-        },
-        "feature_JtG388": {
-          "type": "feature",
-          "settings": {
-            "text": "Artists and craft instructors"
-          }
-        },
-        "feature_eCpMGR": {
-          "type": "feature",
-          "settings": {
-            "text": "Local gift brands"
-          }
-        },
-        "feature_cDRYar": {
-          "type": "feature",
-          "settings": {
-            "text": "Cultural or seasonal experiences"
-          }
-        },
-        "feature_wr7jim": {
-          "type": "feature",
-          "settings": {
-            "text": "Community-focused small businesses"
-          }
-        }
-      },
-      "block_order": [
-        "feature_QmhTUG",
-        "feature_LN8eey",
-        "feature_JtG388",
-        "feature_eCpMGR",
-        "feature_cDRYar",
-        "feature_wr7jim"
-      ],
-      "name": "Host Workshop",
+    "workshop_banner_8fBXwU": {
+      "type": "workshop-banner",
+      "name": "Workshop Banner",
       "settings": {
         "customclass": "",
-        "image": "shopify://shop_images/Frame_2147243719_971f2ba9-eabd-411f-b53c-65f2eb1edee7.png",
-        "title": "Host Your Workshop Or Pop-Up At Mumu Bath.",
-        "title_color": "#000000",
-        "subtitle": "We welcome small businesses, makers, artists, and wellness brands that share our values. If your experience is thoughtful, creative, and community-centered, we'd love to hear from you.",
-        "card_bg_color": "#FAF7EF",
-        "card_title": "Good Fit For",
-        "card_title_color": "#000000",
-        "block_icon": "shopify://shop_images/Background.svg",
-        "block_columns": "2",
-        "btn_label": "Apply To Host An Event",
-        "btn_url": "#",
+        "title": "<p>Create, Connect, & Celebrate at <br/>Mumu Bath.</p>",
+        "subtitle": "Join hands-on bath, body, and self-care workshops — or bring your own creative pop-up to our welcoming community space in Brooklyn.",
+        "btn_label": "Host With Us",
+        "btn_url": "",
         "btn_bg_color": "#FBDD3F",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
         "btn_hover_text_color": "#ffffff",
-        "bg_color": "#ffffff",
+        "image": "shopify://shop_images/Frame_2147243191.png",
+        "bg_color": "#F8F6EE",
         "padding_top": 80,
         "padding_bottom": 80,
-        "mobile_padding_top": 48,
-        "mobile_padding_bottom": 48
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 60
       }
     },
     "curated_cards_pRNWeX": {
@@ -221,6 +169,79 @@
         "padding_bottom_mobile": 60
       }
     },
+    "host_workshop_PhtVY9": {
+      "type": "host-workshop",
+      "blocks": {
+        "feature_QmhTUG": {
+          "type": "feature",
+          "settings": {
+            "text": "Skincare and bath/body makers"
+          }
+        },
+        "feature_LN8eey": {
+          "type": "feature",
+          "settings": {
+            "text": "Wellness practitioners"
+          }
+        },
+        "feature_JtG388": {
+          "type": "feature",
+          "settings": {
+            "text": "Artists and craft instructors"
+          }
+        },
+        "feature_eCpMGR": {
+          "type": "feature",
+          "settings": {
+            "text": "Local gift brands"
+          }
+        },
+        "feature_cDRYar": {
+          "type": "feature",
+          "settings": {
+            "text": "Cultural or seasonal experiences"
+          }
+        },
+        "feature_wr7jim": {
+          "type": "feature",
+          "settings": {
+            "text": "Community-focused small businesses"
+          }
+        }
+      },
+      "block_order": [
+        "feature_QmhTUG",
+        "feature_LN8eey",
+        "feature_JtG388",
+        "feature_eCpMGR",
+        "feature_cDRYar",
+        "feature_wr7jim"
+      ],
+      "name": "Host Workshop",
+      "settings": {
+        "customclass": "",
+        "image": "shopify://shop_images/Frame_2147243719_971f2ba9-eabd-411f-b53c-65f2eb1edee7.png",
+        "title": "Host Your Workshop Or Pop-Up At Mumu Bath.",
+        "title_color": "#000000",
+        "subtitle": "We welcome small businesses, makers, artists, and wellness brands that share our values. If your experience is thoughtful, creative, and community-centered, we'd love to hear from you.",
+        "card_bg_color": "#faf7ef",
+        "card_title": "Good Fit For",
+        "card_title_color": "#000000",
+        "block_icon": "shopify://shop_images/Background.svg",
+        "block_columns": "2",
+        "btn_label": "Apply To Host An Event",
+        "btn_url": "#",
+        "btn_bg_color": "#fbdd3f",
+        "btn_text_color": "#000000",
+        "btn_hover_bg_color": "#000000",
+        "btn_hover_text_color": "#ffffff",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
     "steps_swipper_b976Fy": {
       "type": "steps-swipper",
       "blocks": {
@@ -283,9 +304,9 @@
         "card_border_color": "#faf7ef",
         "bg_color": "#ffffff",
         "pagination_color": "#000000",
-        "padding_top": 80,
+        "padding_top": 0,
         "padding_bottom": 80,
-        "mobile_padding_top": 60,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 60
       }
     },
@@ -564,9 +585,10 @@
     }
   },
   "order": [
-    "host_workshop_PhtVY9",
+    "workshop_banner_8fBXwU",
     "curated_cards_pRNWeX",
     "core_values_epcekR",
+    "host_workshop_PhtVY9",
     "steps_swipper_b976Fy",
     "faq_section_AnQhXy",
     "main",
