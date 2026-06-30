@@ -403,7 +403,7 @@
           "type": "faq",
           "settings": {
             "question": "Do you currently have workshops available?",
-            "answer": "<p>Do you currently have workshops available?</p>",
+            "answer": "<p>We periodically offer workshops and special events. Check our website or follow us for the latest updates.</p>",
             "open_by_default": false
           }
         },
@@ -411,7 +411,7 @@
           "type": "faq",
           "settings": {
             "question": "Can I host my own workshop at Mumu Bath?",
-            "answer": "<p>Can I host my own workshop at Mumu Bath?</p>",
+            "answer": "<p>Yes, we welcome private workshop inquiries for groups and special occasions.</p>",
             "open_by_default": false
           }
         },
@@ -419,7 +419,7 @@
           "type": "faq",
           "settings": {
             "question": "What kind of events are a good fit?",
-            "answer": "<p>What kind of events are a good fit?</p>",
+            "answer": "<p>Our workshops are perfect for team building, birthdays, bridal showers, wellness events, and other private gatherings.</p>",
             "open_by_default": false
           }
         },
@@ -427,7 +427,7 @@
           "type": "faq",
           "settings": {
             "question": "Can I book a private group experience?",
-            "answer": "<p>Can I book a private group experience?</p>",
+            "answer": "<p>Yes, private group bookings are available. Contact us to discuss your event and preferred date.</p>",
             "open_by_default": false
           }
         },
@@ -435,7 +435,7 @@
           "type": "faq",
           "settings": {
             "question": "What will guests take home?",
-            "answer": "<p>What will guests take home?</p>",
+            "answer": "<p>Guests will take home the items they create during the workshop, along with a memorable hands-on experience.</p>",
             "open_by_default": false
           }
         },
@@ -443,7 +443,7 @@
           "type": "faq",
           "settings": {
             "question": "How do I get started?",
-            "answer": "<p>How do I get started?</p>",
+            "answer": "<p>Simply reach out through our Contact page, and our team will help you plan your workshop or event.</p>",
             "open_by_default": false
           }
         },

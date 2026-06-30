@@ -809,6 +809,22 @@ a.link-faded-reverse:last-child {
   color: #fff;
 }
 
+.csp-header .header__menu-disclosure summary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.csp-header .header__menu-disclosure summary:after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23333333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 @media screen and (max-width: 768px){
 
 .title_title{
@@ -822,3 +838,4 @@ a.link-faded-reverse:last-child {
 }
 
 }
+

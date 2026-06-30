@@ -430,7 +430,7 @@
           "type": "faq",
           "settings": {
             "question": "Is there a minimum order quantity?",
-            "answer": "<p>Is there a minimum order quantity?</p>",
+            "answer": "<p>Minimum order quantities may apply depending on your request. Please contact us for details.</p>",
             "open_by_default": false
           }
         },
@@ -438,7 +438,7 @@
           "type": "faq",
           "settings": {
             "question": "Do you offer discounts for larger orders?",
-            "answer": "<p>Do you offer discounts for larger orders?</p>",
+            "answer": "<p>Yes, we offer volume discounts on eligible bulk and corporate orders.</p>",
             "open_by_default": false
           }
         },
@@ -446,7 +446,7 @@
           "type": "faq",
           "settings": {
             "question": "Can we include a custom note or special packaging?",
-            "answer": "<p>Can we include a custom note or special packaging?</p>",
+            "answer": "<p>Yes, personalized gift notes and custom packaging options are available for qualifying orders.</p>",
             "open_by_default": false
           }
         },
@@ -454,7 +454,7 @@
           "type": "faq",
           "settings": {
             "question": "How long does the process take?",
-            "answer": "<p>How long does the process take?</p>",
+            "answer": "<p>Production and delivery times vary based on order size and customization. We'll provide an estimated timeline when your order is confirmed.</p>",
             "open_by_default": false
           }
         },
@@ -462,7 +462,7 @@
           "type": "faq",
           "settings": {
             "question": "Can we choose products from the full collection?",
-            "answer": "<p>Can we choose products from the full collection?</p>",
+            "answer": "<p>Yes, you can select from our available collection, subject to product availability.</p>",
             "open_by_default": false
           }
         },
@@ -470,7 +470,7 @@
           "type": "faq",
           "settings": {
             "question": "Who should I contact for corporate gifting?",
-            "answer": "<p>Who should I contact for corporate gifting?</p>",
+            "answer": "<p>Please contact our customer support team through our Contact page, and we'll be happy to assist with your corporate gifting needs.</p>",
             "open_by_default": false
           }
         },

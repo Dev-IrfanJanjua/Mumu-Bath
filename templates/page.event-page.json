@@ -49,7 +49,7 @@
         "title": "Host A Private DIY Bath Bomb Party In NYC",
         "subtitle": "Create your own bath bombs & skincare in just 90 minutes – Fun for Kids, Teens & Adults!",
         "btn_label": "Book Your Party",
-        "btn_url": "#",
+        "btn_url": "#party-form-section",
         "btn_bg_color": "#fbdd3f",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
@@ -173,7 +173,7 @@
         "tag_bg_color": "#f8f6ee",
         "block_img_bg_color": "#f8f6ee",
         "btn_label": "Book Your Party — $65/Person",
-        "btn_url": "#",
+        "btn_url": "#party-form-section",
         "btn_bg_color": "#fbdd40",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
@@ -388,7 +388,7 @@
         "title_color": "#000000",
         "subtitle": "We schedule one party per slot so your group gets full attention. Below are the windows that work best for us flexibility within reason.",
         "btn_label": "Book Your Party",
-        "btn_url": "#",
+        "btn_url": "#party-form-section",
         "btn_bg_color": "#fbdd40",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
@@ -517,7 +517,7 @@
           "type": "faq",
           "settings": {
             "question": "Is Kiss Me Sunshine handmade?",
-            "answer": "<p>Is Kiss Me Sunshine handmade?</p>",
+            "answer": "<p>Yes, each bar is thoughtfully handcrafted with care and attention to quality.</p>",
             "open_by_default": false
           }
         },
@@ -525,7 +525,7 @@
           "type": "faq",
           "settings": {
             "question": "Will this soap dry out my skin?",
-            "answer": "<p>Will this soap dry out my skin?</p>",
+            "answer": "<p>No, Kiss Me Sunshine is designed to cleanse while helping maintain your skin's natural moisture balance.</p>",
             "open_by_default": false
           }
         },
@@ -533,7 +533,7 @@
           "type": "faq",
           "settings": {
             "question": "Is Kiss Me Sunshine vegan and cruelty-free?",
-            "answer": "<p>Is Kiss Me Sunshine vegan and cruelty-free?</p>",
+            "answer": "<p>Yes, Kiss Me Sunshine is vegan and cruelty-free, with no animal-derived ingredients or animal testing.</p>",
             "open_by_default": false
           }
         },
@@ -541,7 +541,7 @@
           "type": "faq",
           "settings": {
             "question": "How long does one soap bar last?",
-            "answer": "<p>How long does one soap bar last?</p>",
+            "answer": "<p>The lifespan of each bar depends on usage and storage, but with proper care, it typically lasts several weeks. To extend its life, keep it dry between uses.</p>",
             "open_by_default": false
           }
         }
