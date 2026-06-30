@@ -124,6 +124,57 @@
     transform-origin: right;
 }
 
+.sec-{{ section.id }} p.cc-subtitle {
+    color: #000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.workshop-{{ section.id }} .cc-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.workshop-{{ section.id }} .cc-title {
+    text-align: left;
+}
+
+.workshop-{{ section.id }} .cc-card-btn {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 18px 24px;
+    border-radius: 41px;
+    background: #FBDD3F;
+    max-width: 242px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.workshop-{{ section.id }} .cc-card-btn:hover{
+    background: #000;
+    color: #fff;
+}
+
+.workshop-{{ section.id }} .cc-card-btn::after{
+    display: none;
+}
+
+.workshop-{{ section.id }} .cc-card-subtitle {
+    max-width: 540px;
+}
+
 @media (max-width: 768px) {
     .sec-{{ section.id }} {
         padding-top: {{ section.settings.mobile_padding_top }}px;
@@ -164,6 +215,26 @@
     .sec-{{ section.id }} .cc-card-btn::after {
         height: 1.54px;
     }
+
+    .sec-{{ section.id }} p.cc-subtitle {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .workshop-{{ section.id }} .cc-head{
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: center;
+    }
+
+    .workshop-{{ section.id }} .cc-title {
+        text-align: center;
+    }
+
+    .workshop-{{ section.id }} .cc-card-btn {
+        font-size: 16px;
+    }
+
 }
 {% endstyle %}
 
@@ -172,7 +243,12 @@
 
         {% if section.settings.title != blank %}
             <div class="cc-head">
-                <h2 class="cc-title title_title">{{ section.settings.title }}</h2>
+                {% if section.settings.title != blank %}
+                    <h2 class="cc-title title_title">{{ section.settings.title }}</h2>
+                {% endif %}
+                {% if section.settings.subtitle != blank %}
+                    <p class="cc-subtitle">{{ section.settings.subtitle }}</p>
+                {% endif %}
             </div>
         {% endif %}
 
@@ -239,7 +315,8 @@
     {
       "type": "text",
       "id": "customclass",
-      "label": "Custom Class"
+      "label": "Custom Class",
+      "info": "use 'workshop' class on workshop page to apply its stylling. "
     },
     {
       "type": "header",
@@ -250,6 +327,11 @@
       "id": "title",
       "label": "Title",
       "default": "Curated For Every Recipient"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sub Title"
     },
     {
       "type": "color",

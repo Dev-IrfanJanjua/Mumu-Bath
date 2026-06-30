@@ -1,0 +1,452 @@
+{% comment %} ==== Host Workshop Section ===== {% endcomment %}
+
+{% style %}
+.sec-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.sec-{{ section.id }} .hw-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.sec-{{ section.id }} .hw-image {
+    flex: 0 0 46%;
+    max-width: 46%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sec-{{ section.id }} .hw-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.sec-{{ section.id }} .hw-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 40px;
+}
+
+.sec-{{ section.id }} .hw-title {
+    color: {{ section.settings.title_color }};
+    margin: 0;
+}
+
+.sec-{{ section.id }} .hw-subtitle {
+    color: #221811;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.sec-{{ section.id }} .hw-card {
+    border-radius: 8px;
+    background: {{ section.settings.card_bg_color }};
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sec-{{ section.id }} .hw-card-title {
+    color: {{ section.settings.card_title_color }};
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .hw-blocks {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.block_columns }}, 1fr);
+    gap: 12px;
+}
+
+.sec-{{ section.id }} .hw-block-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sec-{{ section.id }} .hw-block-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+}
+
+.sec-{{ section.id }} .hw-block-text {
+    color: #221811;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+}
+
+.sec-{{ section.id }} .hw-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    border-color: {{ section.settings.btn_bg_color }};
+}
+
+.sec-{{ section.id }} .hw-card-btn:hover {
+    background-color: {{ section.settings.btn_hover_bg_color }};
+    color: {{ section.settings.btn_hover_text_color }};
+    border-color: {{ section.settings.btn_hover_bg_color }};
+}
+
+@media (max-width: 768px) {
+    .sec-{{ section.id }} {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .sec-{{ section.id }} .hw-inner {
+        flex-direction: column;
+        gap: 34px;
+    }
+
+    .sec-{{ section.id }} .hw-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+        aspect-ratio: 1.1;
+    }
+
+    .sec-{{ section.id }} .hw-content {
+        padding: 0;
+    }
+
+    .sec-{{ section.id }} .hw-subtitle {
+        font-size: 14px;
+    }
+
+    .sec-{{ section.id }} .hw-card-title {
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    .sec-{{ section.id }} .hw-blocks {
+        grid-template-columns: 1fr;
+    }
+
+    .sec-{{ section.id }} .hw-block-text {
+        font-size: 14px;
+    }
+
+    .sec-{{ section.id }} .hw-card-btn {
+        font-size: 16px;
+    }
+
+}
+{% endstyle %}
+
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+    <div class="page-width">
+        <div class="hw-inner">
+
+            {% comment %} Left: Image {% endcomment %}
+            <div class="hw-image">
+                {% if section.settings.image %}
+                    <img
+                        src="{{ section.settings.image | image_url: width: 1200 }}"
+                        alt="{{ section.settings.image.alt | default: section.settings.title }}"
+                        width="{{ section.settings.image.width }}"
+                        height="{{ section.settings.image.height }}"
+                        loading="eager"
+                        fetchpriority="high"
+                    >
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag }}
+                {% endif %}
+            </div>
+
+            {% comment %} Right: Content {% endcomment %}
+            <div class="hw-content">
+
+                <div>
+                    {% if section.settings.title != blank %}
+                        <h2 class="hw-title title_title">{{ section.settings.title }}</h2>
+                    {% endif %}
+                    {% if section.settings.subtitle != blank %}
+                        <p class="hw-subtitle">{{ section.settings.subtitle }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="hw-card">
+                    {% if section.settings.card_title != blank %}
+                        <h3 class="hw-card-title">{{ section.settings.card_title }}</h3>
+                    {% endif %}
+
+                    {% if section.blocks.size > 0 %}
+                        <div class="hw-blocks">
+                            {% for block in section.blocks %}
+                                {% if block.type == 'feature' %}
+                                    <div class="hw-block-item" {{ block.shopify_attributes }}>
+                                        {% if section.settings.block_icon %}
+                                            <img
+                                                src="{{ section.settings.block_icon | image_url }}"
+                                                alt=""
+                                                width="20"
+                                                height="20"
+                                                class="hw-block-icon"
+                                                loading="lazy"
+                                                aria-hidden="true"
+                                            >
+                                        {% endif %}
+                                        {% if block.settings.text != blank %}
+                                            <span class="hw-block-text">{{ block.settings.text }}</span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.btn_label != blank %}
+                        <a    href="{{ section.settings.btn_url }}"class="hw-card-btn btn_btn">
+                            {{ section.settings.btn_label }}
+                        </a>
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Host Workshop",
+  "tag": "section",
+  "class": "host-workshop-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "customclass",
+      "label": "Custom Class"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Host Your Workshop Or Pop-Up At Mumu Bath."
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We welcome small businesses, makers, artists, and wellness brands that share our values. If your experience is thoughtful, creative, and community-centered, we'd love to hear from you."
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#FAF7EF"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "Card Title",
+      "default": "Good Fit For"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Feature Blocks"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_icon",
+      "label": "Icon (shared across all blocks, 20×20)"
+    },
+    {
+      "type": "select",
+      "id": "block_columns",
+      "label": "Columns (Desktop)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Apply To Host An Event"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#F5E44A"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Skincare and bath/body makers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Host Workshop",
+      "category": "Custom",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Skincare and bath/body makers" } },
+        { "type": "feature", "settings": { "text": "Wellness practitioners" } },
+        { "type": "feature", "settings": { "text": "Artists and craft instructors" } },
+        { "type": "feature", "settings": { "text": "Local gift brands" } },
+        { "type": "feature", "settings": { "text": "Cultural or seasonal experiences" } },
+        { "type": "feature", "settings": { "text": "Community-focused small businesses" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

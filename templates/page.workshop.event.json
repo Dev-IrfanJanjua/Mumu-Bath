@@ -9,8 +9,380 @@
  */
 {
   "sections": {
+    "host_workshop_PhtVY9": {
+      "type": "host-workshop",
+      "blocks": {
+        "feature_QmhTUG": {
+          "type": "feature",
+          "settings": {
+            "text": "Skincare and bath/body makers"
+          }
+        },
+        "feature_LN8eey": {
+          "type": "feature",
+          "settings": {
+            "text": "Wellness practitioners"
+          }
+        },
+        "feature_JtG388": {
+          "type": "feature",
+          "settings": {
+            "text": "Artists and craft instructors"
+          }
+        },
+        "feature_eCpMGR": {
+          "type": "feature",
+          "settings": {
+            "text": "Local gift brands"
+          }
+        },
+        "feature_cDRYar": {
+          "type": "feature",
+          "settings": {
+            "text": "Cultural or seasonal experiences"
+          }
+        },
+        "feature_wr7jim": {
+          "type": "feature",
+          "settings": {
+            "text": "Community-focused small businesses"
+          }
+        }
+      },
+      "block_order": [
+        "feature_QmhTUG",
+        "feature_LN8eey",
+        "feature_JtG388",
+        "feature_eCpMGR",
+        "feature_cDRYar",
+        "feature_wr7jim"
+      ],
+      "name": "Host Workshop",
+      "settings": {
+        "customclass": "",
+        "image": "shopify://shop_images/Frame_2147243719_971f2ba9-eabd-411f-b53c-65f2eb1edee7.png",
+        "title": "Host Your Workshop Or Pop-Up At Mumu Bath.",
+        "title_color": "#000000",
+        "subtitle": "We welcome small businesses, makers, artists, and wellness brands that share our values. If your experience is thoughtful, creative, and community-centered, we'd love to hear from you.",
+        "card_bg_color": "#FAF7EF",
+        "card_title": "Good Fit For",
+        "card_title_color": "#000000",
+        "block_icon": "shopify://shop_images/Background.svg",
+        "block_columns": "2",
+        "btn_label": "Apply To Host An Event",
+        "btn_url": "#",
+        "btn_bg_color": "#FBDD3F",
+        "btn_text_color": "#000000",
+        "btn_hover_bg_color": "#000000",
+        "btn_hover_text_color": "#ffffff",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48
+      }
+    },
+    "curated_cards_pRNWeX": {
+      "type": "curated-cards",
+      "blocks": {
+        "card_pQjM8B": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316.png",
+            "title": "Attend a Workshop",
+            "subtitle": "Explore guided, hands-on experiences where you can discover scents,\ncreate bath and body rituals, and take home something you made\nyourself.",
+            "bestfor": "",
+            "btn_label": "Book now",
+            "btn_url": "#"
+          }
+        },
+        "card_9pTdcA": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316_57f2f41b-6dae-47fb-ab20-f94f68ce11e5.png",
+            "title": "Host a Pop-Up",
+            "subtitle": "Have a creative workshop, wellness experience, or small business pop-\nup in mind? We welcome aligned makers and brands into our space.",
+            "bestfor": "",
+            "btn_label": "APPLY TO HOST",
+            "btn_url": "#"
+          }
+        },
+        "card_mHGiY4": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147230316_be42fd0c-9761-4020-9f0c-c54620c5def9.png",
+            "title": "Candle & Ritual Gifts",
+            "subtitle": "Comforting scent-led gifts designed to bring calm, warmth, and joy into daily routines.",
+            "bestfor": "<strong>Best for:</strong> Premium client gifting, festive gifting, partner gifts.",
+            "btn_label": "Build a Gift",
+            "btn_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_pQjM8B",
+        "card_9pTdcA",
+        "card_mHGiY4"
+      ],
+      "name": "Curated Cards",
+      "settings": {
+        "customclass": "workshop",
+        "title": "Two ways to be part of ourcommunity.",
+        "subtitle": "Whether you want to make, gather, or share — there's a place for you at Mumu\nBath.",
+        "title_color": "#000000",
+        "columns": "2",
+        "image_ratio": "4 / 3",
+        "card_bg_color": "#f8f6ee",
+        "card_content_bg_color": "#f8f6ee",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "core_values_epcekR": {
+      "type": "core-values",
+      "blocks": {
+        "value_fUCinx": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized_31d411f5-46c1-4159-9cb2-4d4dd635e3fa.svg",
+            "title": "Bath Bomb Making",
+            "subtitle": "Create your own fizzy bath treats using color, scent,\nand skin-loving ingredients."
+          }
+        },
+        "value_nr6Rgt": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized_1_0934a169-6b92-4548-86aa-71bf371b939c.svg",
+            "title": "Soap Cutting & Scent Bar",
+            "subtitle": "Explore fragrance notes, textures, and the beauty of\nhandmade soap."
+          }
+        },
+        "value_3TLd7w": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2998_Vectorized_ce51243c-2404-44c9-b8c7-aad7bee81095.svg",
+            "title": "Body Ritual Workshop",
+            "subtitle": "Build a self-care ritual with soaps, scrubs, oils, and\nbath essentials."
+          }
+        },
+        "value_aKqqGL": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2993_Vectorized.svg",
+            "title": "Gift Wrapping Session",
+            "subtitle": "Create thoughtful, ready-to-gift bundles with\nbeautiful wrapping."
+          }
+        },
+        "value_4bQBMe": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2995_Vectorized_8917790b-55a5-434e-a86d-bb6e020dc713.svg",
+            "title": "Seasonal Pop-Ups",
+            "subtitle": "Limited-time collaborations with local makers,\nartists, and wellness brands."
+          }
+        },
+        "value_hztQBa": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/image_2994_Vectorized_1.svg",
+            "title": "Private Group Sessions",
+            "subtitle": "Celebrate birthdays, team outings, bridal showers,\nand meaningful gatherings."
+          }
+        }
+      },
+      "block_order": [
+        "value_fUCinx",
+        "value_nr6Rgt",
+        "value_3TLd7w",
+        "value_aKqqGL",
+        "value_4bQBMe",
+        "value_hztQBa"
+      ],
+      "name": "Core Values",
+      "settings": {
+        "add_class": true,
+        "heading": "<p>Experiences we're<br/>building for our community.</p>",
+        "subtitle": "",
+        "columns_desktop": 3,
+        "section_bg": "#faf7ef",
+        "heading_color": "#000000",
+        "subtitle_color": "#000000",
+        "card_bg": "#ffffff",
+        "card_title_color": "#000000",
+        "card_subtitle_color": "#000000",
+        "card_radius": 8,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "steps_swipper_b976Fy": {
+      "type": "steps-swipper",
+      "blocks": {
+        "step_Ji77q4": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243867.svg",
+            "title": "Choose Your Path",
+            "text": "Pick a workshop to attend, request a private group session, or apply to host your own event."
+          }
+        },
+        "step_rUjQm9": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868.svg",
+            "title": "Share the Details",
+            "text": "Tell us your date, group size, event\nidea, or workshop interest. "
+          }
+        },
+        "step_XtTYPm": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_3.svg",
+            "title": "Plan the Experience",
+            "text": "Our team helps coordinate the next steps so the event feels clear and easy."
+          }
+        },
+        "step_VHxyYw": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_1.svg",
+            "title": "Create Together",
+            "text": "Show up, connect, make something meaningful, and enjoy the experience."
+          }
+        },
+        "step_eG7d8X": {
+          "type": "step",
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147243868_2.svg",
+            "title": "We Handle The Rest",
+            "text": "Your gifts are prepared with care and sent out beautifully."
+          }
+        }
+      },
+      "block_order": [
+        "step_Ji77q4",
+        "step_rUjQm9",
+        "step_XtTYPm",
+        "step_VHxyYw",
+        "step_eG7d8X"
+      ],
+      "name": "Steps Swiper",
+      "settings": {
+        "customclass": "",
+        "hide_page": true,
+        "title": "Simple steps to join or host.",
+        "title_color": "#000000",
+        "card_bg_color": "#faf7ef",
+        "card_border_color": "#faf7ef",
+        "bg_color": "#ffffff",
+        "pagination_color": "#000000",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "faq_section_AnQhXy": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_rEV7zB": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you currently have workshops available?",
+            "answer": "<p>Do you currently have workshops available?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_pRR7VF": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I host my own workshop at Mumu Bath?",
+            "answer": "<p>Can I host my own workshop at Mumu Bath?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_m3NjRN": {
+          "type": "faq",
+          "settings": {
+            "question": "What kind of events are a good fit?",
+            "answer": "<p>What kind of events are a good fit?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_qLM3Ty": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I book a private group experience?",
+            "answer": "<p>Can I book a private group experience?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_rtAbje": {
+          "type": "faq",
+          "settings": {
+            "question": "What will guests take home?",
+            "answer": "<p>What will guests take home?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_9PEHBV": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I get started?",
+            "answer": "<p>How do I get started?</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_hQaUQ6": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "question": "How long does one soap bar last?",
+            "answer": "<p>How long does one soap bar last?</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_rEV7zB",
+        "faq_pRR7VF",
+        "faq_m3NjRN",
+        "faq_qLM3Ty",
+        "faq_rtAbje",
+        "faq_9PEHBV",
+        "faq_hQaUQ6"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Workshops & pop-ups, answered.</p>",
+        "title_color": "#000000",
+        "content_max_width": 960,
+        "divider_color": "#e0e0e0",
+        "question_color": "#000000",
+        "question_size": 18,
+        "mobile_question_size": 16,
+        "answer_color": "#333333",
+        "answer_size": 16,
+        "mobile_answer_size": 14,
+        "icon_color": "#000000",
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 60
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "show_title": true,
         "page_width": "xs"
@@ -183,6 +555,7 @@
         "targetbay_product_reviews_tb_common_KmJPmp",
         "targetbay_product_reviews_site_reviews_PW4UJL"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -191,6 +564,11 @@
     }
   },
   "order": [
+    "host_workshop_PhtVY9",
+    "curated_cards_pRNWeX",
+    "core_values_epcekR",
+    "steps_swipper_b976Fy",
+    "faq_section_AnQhXy",
     "main",
     "tabs_VTmnDV",
     "featured_product_KXi3hx",
