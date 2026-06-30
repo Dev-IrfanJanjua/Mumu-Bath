@@ -687,6 +687,23 @@
         "cs-btn": true
       }
     },
+    "17828123203f41bcde": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_product_reviews_4rGUWh": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_product_reviews_4rGUWh"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
     "logo_list_xHnX8R": {
       "type": "logo-list",
       "blocks": {
@@ -832,6 +849,7 @@
     "hair_reviews_j9UcQj",
     "comparison_table_8XELjr",
     "custom_featured_collection_WxBGjD",
+    "17828123203f41bcde",
     "logo_list_xHnX8R",
     "custom_liquid_jdrn4z",
     "1742279709b3f4ee9a",

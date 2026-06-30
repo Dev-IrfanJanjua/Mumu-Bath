@@ -56,7 +56,8 @@
         "btn_secondary_hover_bg": "#000000",
         "btn_secondary_hover_text": "#ffffff",
         "hide_secondary_mobile": true,
-        "image": "shopify://shop_images/Container.png",
+        "image": "shopify://shop_images/Container_1.png",
+        "image_abs": "shopify://shop_images/Overlay_Blur.png",
         "bg_color": "#f8f6ee",
         "padding_top": 60,
         "padding_bottom": 60,
@@ -301,6 +302,7 @@
       "settings": {
         "customclass": "",
         "title": "Curated For Every Recipient",
+        "subtitle": "",
         "title_color": "#000000",
         "columns": "3",
         "image_ratio": "4 / 3",

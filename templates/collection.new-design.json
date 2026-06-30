@@ -32,10 +32,11 @@
       "type": "new-collection-banner",
       "name": "Collection Banner",
       "settings": {
+        "add_class": "",
         "custom_title": "<p>Naturally radiant, <br/>Never greasy</p>",
         "subtitle": "Skin-loving essentials that deliver a healthy natural glow with a smooth, breathable finish.",
         "btn_label": "Shop Now",
-        "btn_url": "#",
+        "btn_url": "shopify://collections/all",
         "bg_image_desktop": "shopify://shop_images/Plant_People_Desktop_28477748-8fdf-43f2-bbfe-7b96a9048f46.png",
         "bg_position": "center center",
         "bg_image_mobile": "shopify://shop_images/Frame_2147243421.png",

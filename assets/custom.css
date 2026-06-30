@@ -188,7 +188,7 @@ img.blog-post-card__image {
       font-style: normal;
       font-weight: 500;
       line-height: 38px; /* 126.667% */
-      letter-spacing: -0.86px;
+      letter-spacing: 0;
       text-transform: capitalize;
   }
 

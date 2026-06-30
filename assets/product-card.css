@@ -145,6 +145,7 @@ letter-spacing: var(--letter-spacing-0_08, 0.08px);
 text-decoration-line: line-through;
 margin:0px;
 }
+
 .atc-btn button {
   display: flex;
 max-width: 190px;
@@ -169,9 +170,18 @@ letter-spacing: 0.086px;
   transition:.3s;
 }
 
+.atc-btn button:hover{
+  background: #000;
+  color: #fff; 
+}
 
+.atc-btn button svg path{
+  transition: all 0.3s ease; 
+}
 
-
+.atc-btn button:hover svg path{
+  fill: #fff; 
+}
 
 .hair-featured-collection__footer{
   text-align:center;

@@ -69,7 +69,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
   }
 
   /* purchase row radio ring — checked */
@@ -83,7 +84,11 @@
     border-radius: 50%;
     background-color: {{ block.settings.radio_active_color }};
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   /* purchase row radio dot — checked */
