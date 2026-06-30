@@ -18,16 +18,61 @@
         "subtitle": "Join hands-on bath, body, and self-care workshops — or bring your own creative pop-up to our welcoming community space in Brooklyn.",
         "btn_label": "Host With Us",
         "btn_url": "",
-        "btn_bg_color": "#FBDD3F",
+        "btn_bg_color": "#fbdd3f",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
         "btn_hover_text_color": "#ffffff",
         "image": "shopify://shop_images/Frame_2147243191.png",
-        "bg_color": "#F8F6EE",
+        "bg_color": "#f8f6ee",
         "padding_top": 80,
         "padding_bottom": 80,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 60
+      }
+    },
+    "1782819526a4f80c6f": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_X9HkeV": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "disabled": true,
+          "settings": {
+            "form_uuid": "Iz4bs-1pbDUOc0WoaAPkfw",
+            "form_settings": false,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#fff",
+            "input_background_color_focus": "#f4dada",
+            "input_border_radius": 1,
+            "input_border_color": "#ebe9e9",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#121212",
+            "border_radius": 2,
+            "border": 1,
+            "fill_color": "#ebe9e9",
+            "padding": 35,
+            "form_width": 600,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#3f3333",
+            "sub_btn_font_size": 14,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 3,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Times New Roman"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_X9HkeV"
+      ],
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
       }
     },
     "curated_cards_pRNWeX": {
@@ -36,7 +81,7 @@
         "card_pQjM8B": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147230316.png",
+            "image": "shopify://shop_images/Frame_2147230316_c089689a-a3e7-43c7-8933-fb4b3ecc3b1f.png",
             "title": "Attend a Workshop",
             "subtitle": "Explore guided, hands-on experiences where you can discover scents,\ncreate bath and body rituals, and take home something you made\nyourself.",
             "bestfor": "",
@@ -47,7 +92,7 @@
         "card_9pTdcA": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_2147230316_57f2f41b-6dae-47fb-ab20-f94f68ce11e5.png",
+            "image": "shopify://shop_images/Frame_2147230316_1.png",
             "title": "Host a Pop-Up",
             "subtitle": "Have a creative workshop, wellness experience, or small business pop-\nup in mind? We welcome aligned makers and brands into our space.",
             "bestfor": "",
@@ -310,6 +355,47 @@
         "mobile_padding_bottom": 60
       }
     },
+    "inquiry_form_JtGhdq": {
+      "type": "inquiry-form",
+      "blocks": {
+        "contact_item_gbQeHF": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2999_Vectorized.svg",
+            "text": "sasha.chou@mumubath.com",
+            "link": "mailto:sasha.chou@mumubath.com"
+          }
+        },
+        "contact_item_7kif84": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2987_Vectorized.svg",
+            "text": "72 Jay St, Brooklyn, NY 11201",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_gbQeHF",
+        "contact_item_7kif84"
+      ],
+      "name": "Plan Your Party",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Want to attend, host, or collaborate?</p>",
+        "title_color": "#000000",
+        "subtitle": "Share a few details and our gifting team will respond with\ncurated recommendations shaped around your recipients, occasion, and budget.",
+        "card_bg_color": "#ffffff",
+        "response_text": "Average response time: 1–2 business days",
+        "response_text_color": "#27500a",
+        "form_code": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"Iz4bs-1pbDUOc0WoaAPkfw\"></div>",
+        "bg_color": "#f8f6ee",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
     "faq_section_AnQhXy": {
       "type": "faq-section",
       "blocks": {
@@ -395,9 +481,9 @@
         "mobile_answer_size": 14,
         "icon_color": "#000000",
         "bg_color": "#ffffff",
-        "padding_top": 0,
+        "padding_top": 80,
         "padding_bottom": 80,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 60,
         "mobile_padding_bottom": 60
       }
     },
@@ -586,10 +672,12 @@
   },
   "order": [
     "workshop_banner_8fBXwU",
+    "1782819526a4f80c6f",
     "curated_cards_pRNWeX",
     "core_values_epcekR",
     "host_workshop_PhtVY9",
     "steps_swipper_b976Fy",
+    "inquiry_form_JtGhdq",
     "faq_section_AnQhXy",
     "main",
     "tabs_VTmnDV",

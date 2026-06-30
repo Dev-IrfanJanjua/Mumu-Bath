@@ -175,6 +175,10 @@
     max-width: 540px;
 }
 
+.workshop-{{ section.id }} .cc-card-image {
+    aspect-ratio: 4 / 2.1;
+}
+
 @media (max-width: 768px) {
     .sec-{{ section.id }} {
         padding-top: {{ section.settings.mobile_padding_top }}px;
@@ -233,6 +237,10 @@
 
     .workshop-{{ section.id }} .cc-card-btn {
         font-size: 16px;
+    }
+    
+    .workshop-{{ section.id }} .cc-card-image {
+        aspect-ratio: 4 / 3.5;
     }
 
 }

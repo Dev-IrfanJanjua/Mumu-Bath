@@ -170,17 +170,17 @@
         "subtitle": "In this 90-minute workshop, You'll make your own bath bomb plus one skincare item (either a body scrub or face mist)—two handcrafted items you'll get to take home.",
         "tag_icon": "shopify://shop_images/Capa_1.svg",
         "tag_text": "Make 2 products in 90 minutes!",
-        "tag_bg_color": "#F8F6EE",
-        "block_img_bg_color": "#F8F6EE",
+        "tag_bg_color": "#f8f6ee",
+        "block_img_bg_color": "#f8f6ee",
         "btn_label": "Book Your Party — $65/Person",
         "btn_url": "#",
-        "btn_bg_color": "#FBDD40",
+        "btn_bg_color": "#fbdd40",
         "btn_text_color": "#000000",
         "btn_hover_bg_color": "#000000",
         "btn_hover_text_color": "#ffffff",
         "bottom_icon": "shopify://shop_images/svg435.svg",
         "bottom_text": "All tools and materials will be provided, so no preparation is needed!",
-        "bottom_text_color": "#27500A",
+        "bottom_text_color": "#27500a",
         "bg_color": "#ffffff",
         "padding_top": 80,
         "padding_bottom": 80,
@@ -445,6 +445,47 @@
         "mobile_padding_bottom": 60
       }
     },
+    "inquiry_form_miV4fN": {
+      "type": "inquiry-form",
+      "blocks": {
+        "contact_item_gWT4WD": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2999_Vectorized.svg",
+            "text": "sasha.chou@mumubath.com",
+            "link": "mailto:sasha.chou@mumubath.com"
+          }
+        },
+        "contact_item_ynrM6t": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2987_Vectorized.svg",
+            "text": "72 Jay St, Brooklyn, NY 11201",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_gWT4WD",
+        "contact_item_ynrM6t"
+      ],
+      "name": "Plan Your Party",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Plan Your Bath Bomb Party</p>",
+        "title_color": "#000000",
+        "subtitle": "Share a few details and our gifting team will respond with\ncurated recommendations shaped around your recipients, occasion, and budget.",
+        "card_bg_color": "#ffffff",
+        "response_text": "Average response time: 1–2 business days",
+        "response_text_color": "#27500a",
+        "form_code": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"Iz4bs-1pbDUOc0WoaAPkfw\"></div>",
+        "bg_color": "#f8f6ee",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
     "faq_section_Kmdqkd": {
       "type": "faq-section",
       "blocks": {
@@ -529,9 +570,9 @@
         "mobile_answer_size": 14,
         "icon_color": "#000000",
         "bg_color": "#ffffff",
-        "padding_top": 0,
+        "padding_top": 80,
         "padding_bottom": 80,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 60,
         "mobile_padding_bottom": 60
       }
     },
@@ -704,6 +745,7 @@
     "core_values_NCQJja",
     "time_booking_idjcKN",
     "group_type_cHAkAM",
+    "inquiry_form_miV4fN",
     "faq_section_Kmdqkd",
     "routed_ritual_jhyBLY",
     "main",

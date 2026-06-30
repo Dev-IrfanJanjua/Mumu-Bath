@@ -382,6 +382,47 @@
         "mobile_padding_bottom": 60
       }
     },
+    "inquiry_form_pgqW3n": {
+      "type": "inquiry-form",
+      "blocks": {
+        "contact_item_y99Wpe": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2999_Vectorized.svg",
+            "text": "sasha.chou@mumubath.com",
+            "link": "mailto:sasha.chou@mumubath.com"
+          }
+        },
+        "contact_item_gcBEUJ": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/image_2987_Vectorized.svg",
+            "text": "72 Jay St, Brooklyn, NY 11201",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_y99Wpe",
+        "contact_item_gcBEUJ"
+      ],
+      "name": "Plan Your Party",
+      "settings": {
+        "customclass": "",
+        "title": "<p>Let's Build the<br/>Right Gift Together</p>",
+        "title_color": "#000000",
+        "subtitle": "Share a few details and our gifting team will respond with\ncurated recommendations shaped around your recipients, occasion, and budget.",
+        "card_bg_color": "#ffffff",
+        "response_text": "Average response time: 1–2 business days",
+        "response_text_color": "#27500a",
+        "form_code": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"Iz4bs-1pbDUOc0WoaAPkfw\"></div>",
+        "bg_color": "#f8f6ee",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
+      }
+    },
     "faq_section_yAUg4x": {
       "type": "faq-section",
       "blocks": {
@@ -785,6 +826,7 @@
     "core_values_fCDLWf",
     "curated_cards_BFRGjT",
     "steps_swipper_JV7wAq",
+    "inquiry_form_pgqW3n",
     "faq_section_yAUg4x",
     "main",
     "slideshow_rmwVbb",
