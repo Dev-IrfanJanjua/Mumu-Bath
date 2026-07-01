@@ -116,17 +116,17 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
         <div class="sfl-inner">
 
             {% comment %} Left: Sticky Content {% endcomment %}
             <div class="sfl-left">
                 {% if section.settings.title != blank %}
-                    <h2 class="sfl-title title_title">{{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}</h2>
+                    <h2 class="sfl-title title_title fade-in-up">{{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}</h2>
                 {% endif %}
                 {% if section.settings.subtitle != blank %}
-                    <p class="sfl-subtitle">{{ section.settings.subtitle }}</p>
+                    <p class="sfl-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
                 {% endif %}
             </div>
 
@@ -136,9 +136,9 @@
                     {% for block in section.blocks %}
                         {% if block.type == 'feature' %}
                             {% if block.settings.link != blank %}
-                                <a href="{{ block.settings.link }}" class="sfl-block-item" {{ block.shopify_attributes }}>
+                                <a href="{{ block.settings.link }}" class="sfl-block-item fade-in-item" {{ block.shopify_attributes }}>
                             {% else %}
-                                <div class="sfl-block-item" {{ block.shopify_attributes }}>
+                                <div class="sfl-block-item fade-in-item" {{ block.shopify_attributes }}>
                             {% endif %}
 
                             {% if block.settings.icon %}

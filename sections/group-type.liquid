@@ -109,6 +109,7 @@
 .sec-{{ section.id }} .gtc-bottom {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
@@ -193,6 +194,7 @@
         font-size: 14px;
         line-height: 120%;
         letter-spacing: -0.1px;
+        align-items: center;
     }
 
     .sec-{{ section.id }} .gtc-title {
@@ -204,16 +206,16 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
 
         {% comment %} Section Head {% endcomment %}
         <div class="gtc-head">
             {% if section.settings.title != blank %}
-                <h2 class="gtc-title title_title">{{ section.settings.title }}</h2>
+                <h2 class="gtc-title title_title fade-in-up">{{ section.settings.title }}</h2>
             {% endif %}
             {% if section.settings.subtitle != blank %}
-                <p class="gtc-subtitle">{{ section.settings.subtitle }}</p>
+                <p class="gtc-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
             {% endif %}
         </div>
 
@@ -222,7 +224,7 @@
             <div class="gtc-grid">
                 {% for block in section.blocks %}
                     {% if block.type == 'card' %}
-                        <div class="gtc-card" {{ block.shopify_attributes }}>
+                        <div class="gtc-card fade-in-item" {{ block.shopify_attributes }}>
 
                             <div class="gtc-card-body">
                                 {% if block.settings.title != blank %}

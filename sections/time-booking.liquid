@@ -151,7 +151,7 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
         <div class="ptb-inner">
 
@@ -175,18 +175,18 @@
             <div class="ptb-content">
 
                 {% if section.settings.title != blank %}
-                    <h2 class="ptb-title title_title">{{ section.settings.title }}</h2>
+                    <h2 class="ptb-title title_title fade-in-up">{{ section.settings.title }}</h2>
                 {% endif %}
 
                 {% if section.settings.subtitle != blank %}
-                    <p class="ptb-subtitle">{{ section.settings.subtitle }}</p>
+                    <p class="ptb-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
                 {% endif %}
 
                 {% if section.blocks.size > 0 %}
                     <div class="ptb-table">
                         {% for block in section.blocks %}
                             {% if block.type == 'row' %}
-                                <div class="ptb-row" {{ block.shopify_attributes }}>
+                                <div class="ptb-row fade-in-item" {{ block.shopify_attributes }}>
                                     <span class="ptb-row-left">{{ block.settings.label }}</span>
                                     <span class="ptb-row-right">{{ block.settings.value }}</span>
                                 </div>

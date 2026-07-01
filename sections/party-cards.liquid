@@ -124,16 +124,16 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
 
         {% comment %} Section Head {% endcomment %}
         <div class="ptc-head">
             {% if section.settings.title != blank %}
-                <h2 class="ptc-title title_title">{{ section.settings.title }}</h2>
+                <h2 class="ptc-title title_title fade-in-up">{{ section.settings.title }}</h2>
             {% endif %}
             {% if section.settings.subtitle != blank %}
-                <p class="ptc-subtitle">{{ section.settings.subtitle }}</p>
+                <p class="ptc-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
             {% endif %}
         </div>
 
@@ -142,7 +142,7 @@
             <div class="ptc-grid">
                 {% for block in section.blocks %}
                     {% if block.type == 'card' %}
-                        <div class="ptc-card" {{ block.shopify_attributes }}>
+                        <div class="ptc-card fade-in-item" {{ block.shopify_attributes }}>
 
                             {% if block.settings.image %}
                                 <div class="ptc-card-image">

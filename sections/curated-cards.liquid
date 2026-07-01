@@ -246,16 +246,16 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
 
         {% if section.settings.title != blank %}
             <div class="cc-head">
                 {% if section.settings.title != blank %}
-                    <h2 class="cc-title title_title">{{ section.settings.title }}</h2>
+                    <h2 class="cc-title title_title fade-in-up">{{ section.settings.title }}</h2>
                 {% endif %}
                 {% if section.settings.subtitle != blank %}
-                    <p class="cc-subtitle">{{ section.settings.subtitle }}</p>
+                    <p class="cc-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
                 {% endif %}
             </div>
         {% endif %}
@@ -264,7 +264,7 @@
             <div class="cc-grid">
                 {% for block in section.blocks %}
                     {% if block.type == 'card' %}
-                        <div class="cc-card" {{ block.shopify_attributes }}>
+                        <div class="cc-card fade-in-item" {{ block.shopify_attributes }}>
 
                             {% if block.settings.image %}
                                 <div class="cc-card-image">

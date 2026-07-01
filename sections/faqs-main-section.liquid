@@ -310,11 +310,11 @@
   }
 </style>
 
-<section class="section-{{ section.id }}" id="shopify-section-{{ section.id }}">
+<section class="section-{{ section.id }} fade-in-section" id="shopify-section-{{ section.id }}">
   <div class="page-width">
 
     {%- if section.settings.title != blank -%}
-      <h2 class="faq-main-title title_title">{{ section.settings.title }}</h2>
+      <h2 class="faq-main-title title_title fade-in-up">{{ section.settings.title }}</h2>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
@@ -328,7 +328,7 @@
 
           <ul class="faq-tabs__list">
             {%- for block in section.blocks -%}
-              <li class="faq-tabs__item" role="presentation">
+              <li class="faq-tabs__item fade-in-item" role="presentation">
                 <button
                   class="faq-tabs__btn"
                   role="tab"
@@ -351,7 +351,7 @@
         <div class="faq-panels">
           {%- for block in section.blocks -%}
             <div
-              class="faq-panel{% if forloop.first %} is-active{% endif %}"
+              class="faq-panel{% if forloop.first %} is-active{% endif %} fade-in-item"
               id="faq-panel-{{ section.id }}-{{ forloop.index }}"
               role="tabpanel"
               aria-labelledby="faq-tab-{{ section.id }}-{{ forloop.index }}"
@@ -375,7 +375,7 @@
                     {%- assign item_open = true -%}
                     {%- assign first_open_set = true -%}
                   {%- endunless -%}
-                  <div class="faq-item{% if item_open %} is-open{% endif %}">
+                  <div class="faq-item{% if item_open %} is-open{% endif %} fade-in-item">
                     <button
                       class="faq-item__trigger"
                       aria-expanded="{{ item_open }}"

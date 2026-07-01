@@ -161,7 +161,7 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
         <div class="hw-inner">
 
@@ -186,23 +186,23 @@
 
                 <div>
                     {% if section.settings.title != blank %}
-                        <h2 class="hw-title title_title">{{ section.settings.title }}</h2>
+                        <h2 class="hw-title title_title fade-in-up">{{ section.settings.title }}</h2>
                     {% endif %}
                     {% if section.settings.subtitle != blank %}
-                        <p class="hw-subtitle">{{ section.settings.subtitle }}</p>
+                        <p class="hw-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
                     {% endif %}
                 </div>
 
                 <div class="hw-card">
                     {% if section.settings.card_title != blank %}
-                        <h3 class="hw-card-title">{{ section.settings.card_title }}</h3>
+                        <h3 class="hw-card-title fade-in-up">{{ section.settings.card_title }}</h3>
                     {% endif %}
 
                     {% if section.blocks.size > 0 %}
                         <div class="hw-blocks">
                             {% for block in section.blocks %}
                                 {% if block.type == 'feature' %}
-                                    <div class="hw-block-item" {{ block.shopify_attributes }}>
+                                    <div class="hw-block-item fade-in-item" {{ block.shopify_attributes }}>
                                         {% if section.settings.block_icon %}
                                             <img
                                                 src="{{ section.settings.block_icon | image_url }}"

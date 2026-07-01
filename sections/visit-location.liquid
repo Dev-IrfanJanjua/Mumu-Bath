@@ -187,11 +187,11 @@
 }
 {% endstyle %}
 
-<section class="visit-location section-{{ section.id }}">
+<section class="visit-location section-{{ section.id }} fade-in-section">
   <div class="page-width">
 
     {% if section.settings.heading != blank %}
-      <div class="visit-location__heading title_title">
+      <div class="visit-location__heading title_title fade-in-up">
         {{
           section.settings.heading
           | replace: '<p>', ''
@@ -208,7 +208,7 @@
         </div>
       {% endif %}
 
-      <div class="visit-location__content">
+      <div class="visit-location__content fade-in-up">
         <div class="visit-location__content_top">
             {% if section.settings.tag != blank %}
               <div class="visit-location__tag">

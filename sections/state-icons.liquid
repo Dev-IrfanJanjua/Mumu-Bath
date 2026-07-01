@@ -76,13 +76,13 @@
 }
 {% endstyle %}
 
-<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %}">
+<div class="sec-{{ section.id }}{% if section.settings.customclass != blank %} {{ section.settings.customclass }}-{{ section.id }}{% endif %} fade-in-section">
     <div class="page-width">
         {% if section.blocks.size > 0 %}
             <div class="si-grid">
                 {% for block in section.blocks %}
                     {% if block.type == 'stat' %}
-                        <div class="si-card" {{ block.shopify_attributes }}>
+                        <div class="si-card fade-in-item" {{ block.shopify_attributes }}>
                             {% if block.settings.icon %}
                                 <img
                                     src="{{ block.settings.icon | image_url }}"

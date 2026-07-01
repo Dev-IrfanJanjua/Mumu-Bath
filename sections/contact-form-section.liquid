@@ -188,7 +188,7 @@
 
 {%- assign form_id = 'contact-form-' | append: section.id -%}
 
-<section class="section-{{ section.id }}" id="shopify-section-{{ section.id }}">
+<section class="section-{{ section.id }} fade-in-section" id="shopify-section-{{ section.id }}">
   <div class="page-width">
     <div class="cf-wrapper">
 
@@ -197,10 +197,10 @@
 
         <div class="cf-header">
           {%- if section.settings.title != blank -%}
-            <h2 class="cf-title title_title">{{ section.settings.title }}</h2>
+            <h2 class="cf-title title_title fade-in-up">{{ section.settings.title }}</h2>
           {%- endif -%}
           {%- if section.settings.subtitle != blank -%}
-            <p class="cf-subtitle">{{ section.settings.subtitle }}</p>
+            <p class="cf-subtitle fade-in-up">{{ section.settings.subtitle }}</p>
           {%- endif -%}
         </div>
 

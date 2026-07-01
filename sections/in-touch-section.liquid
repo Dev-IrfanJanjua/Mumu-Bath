@@ -136,12 +136,12 @@
 }
 {% endstyle %}
 
-<section class="in-touch-section section-{{ section.id }}">
+<section class="in-touch-section section-{{ section.id }} fade-in-section">
   <div class="page-width">
     <div class="in-touch-wrapper">
 
       {% if section.settings.heading != blank %}
-        <div class="in-touch-title">
+        <div class="in-touch-title fade-in-up">
           {{
             section.settings.heading
             | replace: '<p>', ''
@@ -155,7 +155,7 @@
 
           {% for block in section.blocks %}
             <li
-              class="in-touch-block"
+              class="in-touch-block fade-in-item"
               {{ block.shopify_attributes }}
             >
               
