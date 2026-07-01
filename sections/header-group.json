@@ -233,7 +233,7 @@
         "logo_mobile_max_width": 160,
         "menu": "blinix-main-menu",
         "sidebar_menu": "blinix-main-menu",
-        "menu_open_trigger": "click",
+        "menu_open_trigger": "hover",
         "enable_search": true,
         "sidebar_text_font": "heading",
         "sidebar_show_dividers": false,

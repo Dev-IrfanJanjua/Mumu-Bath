@@ -244,15 +244,21 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 .cart_drawe_btns button.button {
     border-radius: 33.19px;
     background: var(--Yellow, #FBDD40);
-    padding: 14px 24px;
     color: #000;
+    padding: 12px 24px;
     font-family: "Plus Jakarta Sans";
     font-size: 14.571px;
     font-style: normal;
     font-weight: 500;
-    line-height: 148%;
+    line-height: 120%;
     text-transform: capitalize;
     letter-spacing: 0;
+    transition: all 0.3s ease;
+}
+
+.cart_drawe_btns button.button:hover {
+    background: #000;
+    color: #FFF !important;
 }
 
 .cart_checkout_text {

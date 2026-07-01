@@ -138,6 +138,7 @@
       "type": "routed-ritual",
       "name": "About Ritual Section",
       "settings": {
+        "add_class": "",
         "image": "shopify://shop_images/Frame_2147241350.png",
         "image_alt": "About image",
         "heading": "A Ritual Rooted In Taiwan",
@@ -153,12 +154,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 40
       }
-    },
-    "marquee_new_kREtdd": {
-      "type": "marquee-new",
-      "disabled": true,
-      "name": "Marqee New",
-      "settings": {}
     },
     "log0_marquee_34RXJi": {
       "type": "log0-marquee",
@@ -1137,7 +1132,6 @@
         "targetbay_product_reviews_site_reviews_PYqqXk",
         "targetbay_product_reviews_tb_common_KHXDpz"
       ],
-      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -1196,7 +1190,6 @@
     "shop_by_categeory_irn6JN",
     "custom_featured_collection_3JMW8E",
     "routed_ritual_UqNeyg",
-    "marquee_new_kREtdd",
     "log0_marquee_34RXJi",
     "tab_collections_YVcprf",
     "product_featured_icons_QT9QUK",
