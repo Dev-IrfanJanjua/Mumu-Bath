@@ -17,9 +17,15 @@
       {%- endfor -%}
     </div>
 
-    {%- unless cart.empty? -%}
+    {% comment %} {%- unless cart.empty? -%}
       {% render 'cart-upsell', section: section, products: settings.upsell_products %}
-    {%- endunless -%}
+    {%- endunless -%} {% endcomment %}
+
+    <div class="cc-footer-upsell_main" slot="footer">
+      {%- unless cart.empty? -%}
+        {% render 'cart-upsell', section: section, products: settings.upsell_products %}
+      {%- endunless -%}
+    </div>
 
     <form action="{{ routes.cart_url }}" method="POST" class="cart-drawer__footer" slot="footer">
       <input type="hidden" name="attributes[products_mobile_grid_mode]" value="">
@@ -224,7 +230,7 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 }
 
 .cart-drawer::part(header) {
-    padding: 24px 24px 16px;
+    padding: 16px 24px 10px;
     border: none;
 }
 
@@ -232,6 +238,7 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
     padding: 24px;
     background: #F7F3ED;
     border: none;
+    padding-top: 0 !important;
 }
 
 .cart_drawe_btns button.button {

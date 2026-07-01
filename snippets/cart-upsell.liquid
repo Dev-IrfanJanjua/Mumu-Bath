@@ -1,30 +1,53 @@
 {% style %}
 
 .cart-upsell-products {
-    margin-bottom: 20px;
+    background: #fff;
+    margin: 0 -24px 10px;
+    padding: 10px 24px;
 }
 
 h4.cart-upsell-title {
     color: var(--Green-girls-Black, #0A180A);
     font-family: "Mona Sans";
-    font-size: 22px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
 }
 
 .cart-upsell-swiper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 20px;
+}
+
+.cart-upsell-products .hair-product-card__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F8F6EE;
+    height: 130px;
+    aspect-ratio: unset;
+}
+
+.cart-upsell-products .hair-product-card__image-wrapper img{
+    max-width: 130px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 768px){
 
+.cart-upsell-products {
+    background: #fff;
+    margin: 0 -16px 10px;
+    padding: 10px 16px;
+}
+
 h4.cart-upsell-title {
-    font-size: 18px;
-    margin: 0 0 12px;
+    font-size: 16px;
+    margin: 0 0 10px;
 }
 
 }
