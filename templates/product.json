@@ -17,33 +17,137 @@
           "disabled": true,
           "settings": {}
         },
+        "ratings_PRKteR": {
+          "type": "ratings",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_36.svg",
+            "text": "<strong>4.45</strong>  (5.3k) reviews"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
             "heading_tag": "h3"
           }
         },
+        "subtitle_TqJGVn": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Brightening Citrus Olive Oil Soap Bar"
+          }
+        },
+        "short_desc_PCTrwt": {
+          "type": "short_desc",
+          "settings": {
+            "short_desc": "Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin."
+          }
+        },
+        "sub_bundle_9YPwfn": {
+          "type": "sub_bundle",
+          "settings": {
+            "title": "Subscribe & Save",
+            "default_purchase_type": "subscribe",
+            "default_selected_plan": 2,
+            "otp_heading": "One Time Purchase",
+            "sub_heading": "Subscribe & Save",
+            "sub_discount_pct": 8,
+            "freq_label": "DELIVERY FREQUENCY",
+            "freq_description": "You Will Receive A Shipment Every Two Months",
+            "plan_qty_1": 1,
+            "plan_title_1": "Pack One",
+            "plan_image_1": "shopify://shop_images/image_1595.png",
+            "plan_tag_1": "",
+            "plan_qty_2": 2,
+            "plan_title_2": "Pack Two",
+            "plan_image_2": "shopify://shop_images/Frame_2147243318.png",
+            "plan_tag_2": "MOST POPULAR",
+            "plan_qty_3": 3,
+            "plan_title_3": "Pack Three",
+            "plan_image_3": "shopify://shop_images/Frame_2147243318_1.png",
+            "plan_tag_3": "BEST VALUE",
+            "plan_qty_4": 4,
+            "plan_title_4": "Pack Four",
+            "plan_image_4": "shopify://shop_images/Frame_2147243318_2.png",
+            "plan_tag_4": "",
+            "plan_qty_5": 0,
+            "plan_title_5": "",
+            "plan_tag_5": "",
+            "card_bg": "#ffffff",
+            "selected_card_bg": "#f9f6ee",
+            "border_color": "#e0e0e0",
+            "selected_border_color": "#000000",
+            "radio_border_color": "#cccccc",
+            "radio_active_color": "#fbdd40",
+            "label_color": "#000000",
+            "badge_bg": "#fbdd40",
+            "badge_text_color": "#000000",
+            "freq_label_color": "#101010",
+            "freq_desc_color": "#101010",
+            "select_bg": "#ffffff",
+            "plan_title_color": "#000000",
+            "plan_save_color": "#000000",
+            "price_color": "#000000",
+            "compare_color": "#999999",
+            "border_radius": 12
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "cstm_class": true,
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "feature_icons_bEqrrw": {
+          "type": "feature_icons",
+          "settings": {
+            "icon_1": "shopify://shop_images/Vector.svg",
+            "text_1": "Cancel anytime no hassle",
+            "icon_2": "shopify://shop_images/image.svg",
+            "text_2": "Free shipping on orders over $50",
+            "text_3": ""
+          }
+        },
         "targetbay_product_reviews_product_stats_pF9gGF": {
           "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "disabled": true,
           "settings": {}
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_taxes_notice": false
           }
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "collapse_content": false,
             "show_below_gallery": false
           }
         },
+        "accordion_fpKaYb": {
+          "type": "accordion",
+          "settings": {
+            "default_open": true,
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Description",
+            "content": "<p>Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin. Organic olive and coconut oils deeply hydrate without clogging pores, while organic orange essential oil delivers a burst of citrusy freshness to awaken your senses. <br/><br/>Infused with organic paprika, this bar offers a natural boost of antioxidants and Vitamin C, helping to protect and enhance your skin’s natural radiance.</p>",
+            "page": ""
+          }
+        },
         "accordion_N3tiJp": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Benefits",
@@ -53,8 +157,8 @@
         },
         "accordion_aM9zjH": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "How to Use",
@@ -64,8 +168,8 @@
         },
         "accordion_jwzrfA": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Scent",
@@ -75,8 +179,8 @@
         },
         "accordion_Tzq7CP": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Suitable for",
@@ -86,8 +190,8 @@
         },
         "accordion_UP6zMm": {
           "type": "accordion",
-          "disabled": true,
           "settings": {
+            "default_open": false,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Ingredients",
@@ -97,6 +201,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": true,
             "selector_type": "block",
@@ -106,29 +211,22 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
           "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "disabled": true,
           "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": true,
-            "show_gift_card_recipient": true,
-            "atc_button_background": "",
-            "atc_button_text_color": "",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
-          }
         },
         "separator": {
           "type": "separator",
+          "disabled": true,
           "settings": {}
         },
         "product_variations_ya4kgK": {
           "type": "product_variations",
+          "disabled": true,
           "settings": {
             "option_name": "",
             "option_value_metafield": "",
@@ -138,10 +236,12 @@
         },
         "payment_terms": {
           "type": "payment_terms",
+          "disabled": true,
           "settings": {}
         },
         "complementary_products": {
           "type": "complementary_products",
+          "disabled": true,
           "settings": {
             "title": "Pairs well with",
             "products_count": 2,
@@ -153,10 +253,17 @@
       },
       "block_order": [
         "vendor",
+        "ratings_PRKteR",
         "title",
+        "subtitle_TqJGVn",
+        "short_desc_PCTrwt",
+        "sub_bundle_9YPwfn",
+        "buy_buttons",
+        "feature_icons_bEqrrw",
         "targetbay_product_reviews_product_stats_pF9gGF",
         "price",
         "description",
+        "accordion_fpKaYb",
         "accordion_N3tiJp",
         "accordion_aM9zjH",
         "accordion_jwzrfA",
@@ -165,13 +272,13 @@
         "variant_picker",
         "quantity_selector",
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
-        "buy_buttons",
         "separator",
         "product_variations_ya4kgK",
         "payment_terms",
         "complementary_products"
       ],
       "settings": {
+        "cstm_style": true,
         "container_size": "lg",
         "product_info_size": 50,
         "show_sticky_add_to_cart": false,
@@ -181,8 +288,420 @@
         "mobile_controls": "dots",
         "enable_media_autoplay": false,
         "enable_video_looping": true,
-        "enable_image_zoom": true,
+        "enable_image_zoom": false,
         "max_image_zoom_level": 3
+      }
+    },
+    "product_featured_icons_EgaPdM": {
+      "type": "Product-featured-icons",
+      "blocks": {
+        "feature_cPhriY": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_6.png",
+            "title": "Natural & Vegan"
+          }
+        },
+        "feature_y6WBKQ": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_1.png",
+            "title": "Scents Of Taiwan"
+          }
+        },
+        "feature_FNjVHx": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_2.png",
+            "title": "Joyful Shower Rituals"
+          }
+        },
+        "feature_C7Pyy3": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_3.png",
+            "title": "Handmade With Care"
+          }
+        },
+        "feature_8Bzcbt": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_4.png",
+            "title": "Sustainably Sourced"
+          }
+        },
+        "feature_zHphfY": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243070_5.png",
+            "title": "Cruelty-Free"
+          }
+        }
+      },
+      "block_order": [
+        "feature_cPhriY",
+        "feature_y6WBKQ",
+        "feature_FNjVHx",
+        "feature_C7Pyy3",
+        "feature_8Bzcbt",
+        "feature_zHphfY"
+      ],
+      "name": "Icon Features",
+      "settings": {
+        "background_color": "#f8f6ee",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "benefit_showcase_kGiCwU": {
+      "type": "benefit-showcase",
+      "blocks": {
+        "benefit_zLJfmA": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2952.png",
+            "title": "Gently Cleanses",
+            "text": "<p>Removes daily buildup without leaving skin tight or stripped.</p>",
+            "title_height": 57
+          }
+        },
+        "benefit_ra4kKm": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2953.png",
+            "title": "Hydrates While You Wash",
+            "text": "<p>Olive and coconut oils help skin feel soft and nourished.</p>",
+            "title_height": 57
+          }
+        },
+        "benefit_zxkwEG": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2954.png",
+            "title": "Brightens the Look",
+            "text": "<p>Paprika brings antioxidant-rich care for a fresh, radiant glow.</p>",
+            "title_height": 57
+          }
+        },
+        "benefit_rJHCHi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2955.png",
+            "title": "Soothes Sensitive Skin",
+            "text": "<p>A mild, plant-based formula for delicate<br/>everyday cleansing.</p>",
+            "title_height": 57
+          }
+        },
+        "benefit_Yan6kE": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2956.png",
+            "title": "Long-Lasting Bar",
+            "text": "<p>Cold-processed for ingredient quality and a harder, longer-lasting bar.</p>",
+            "title_height": 20
+          }
+        },
+        "benefit_XiLAYM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/image_2957.png",
+            "title": "Face + Body",
+            "text": "<p>One bar, two purposes  simplify your shower routine.</p>",
+            "title_height": 20
+          }
+        }
+      },
+      "block_order": [
+        "benefit_zLJfmA",
+        "benefit_ra4kKm",
+        "benefit_zxkwEG",
+        "benefit_rJHCHi",
+        "benefit_Yan6kE",
+        "benefit_XiLAYM"
+      ],
+      "name": "Benefits Showcase",
+      "settings": {
+        "image": "shopify://shop_images/Frame_2147243043_727827c8-613d-4211-8892-c2e77c1eaacb.png",
+        "tag": "Benefits",
+        "heading": "<p>A Daily Soap Bar That Does More Than Cleanse</p>",
+        "subtitle": "<p>Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin.</p>",
+        "bg_color": "#ffffff",
+        "heading_color": "#000000",
+        "tag_color": "#000000",
+        "text_color": "#101010",
+        "card_heading_color": "#001116",
+        "card_text_color": "#101010",
+        "card_border_color": "#0000001A",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "botanical_section_UFttB8": {
+      "type": "botanical-section",
+      "blocks": {
+        "ingredient_hPEAd3": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243341.png",
+            "title": "Organic Olive Oil",
+            "description": "Paprika brings antioxidant-rich care for a fresh, radiant glow."
+          }
+        },
+        "ingredient_cRKECx": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243341_1.png",
+            "title": "Organic Coconut Oil",
+            "description": "Creates a rich cleanse while keeping skin moisturized."
+          }
+        },
+        "ingredient_hD3yVE": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243341_4.png",
+            "title": "Orange Essential Oil",
+            "description": "A bright citrus scent that makes your shower feel fresh."
+          }
+        },
+        "ingredient_GiiTVY": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243341_2.png",
+            "title": "Organic Paprika",
+            "description": "Antioxidants and Vitamin C to support a healthy glow."
+          }
+        },
+        "ingredient_EGrAaP": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147243341_3.png",
+            "title": "Sustainable Palm Oil",
+            "description": "Helps create a creamy lather and a longer-lasting bar."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_hPEAd3",
+        "ingredient_cRKECx",
+        "ingredient_hD3yVE",
+        "ingredient_GiiTVY",
+        "ingredient_EGrAaP"
+      ],
+      "name": "Botanicals Grid",
+      "settings": {
+        "title": "<p>Powered By <br/>Skin-Loving Botanicals</p>",
+        "subtitle": "Most soaps focus only on cleansing. Kiss Me Sunshine is made to refresh your skin while helping maintain softness, moisture, and comfort.",
+        "card_gap": 32,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "section_bg_color": "#faf7ef",
+        "title_color": "#000000",
+        "subtitle_color": "#101010",
+        "card_title_color": "#001116",
+        "card_desc_color": "#101010",
+        "image_placeholder_bg": "#e8e4da"
+      }
+    },
+    "hair_reviews_j9UcQj": {
+      "type": "hair-reviews",
+      "blocks": {
+        "review_AFDqbH": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person relaxing in bath",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_c6CFLg": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_tttzAw": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_3893d264-217f-4a63-bbdf-6987603b64b8.png",
+            "image_alt": "Osmanthus Flower candle product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_qE7xRy": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_23ae9f9d-cf13-4a8a-818c-6cf4de4958ad.png",
+            "image_alt": "Person in bath lifestyle shot",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "I work with athletes who are training hard year-round. Anything I suggest has to be something they can use consistently without feeling wired or burned out. This fit in really smoothly.",
+            "client_name": "Emily R.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        },
+        "review_ejpXY6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/8_6a973383-e726-46ec-a066-8d76ec65e86d.png",
+            "image_alt": "Mt. Ali Taiwanese Tea Soap product",
+            "rating_image": "shopify://shop_images/Container_1.svg",
+            "review_text": "The scents feel natural, not overpowering. It makes my shower feel like a small spa moment every morning.",
+            "client_name": "Sarah M.",
+            "verified_icon": "shopify://shop_images/CheckCircle.svg"
+          }
+        }
+      },
+      "block_order": [
+        "review_AFDqbH",
+        "review_c6CFLg",
+        "review_tttzAw",
+        "review_qE7xRy",
+        "review_ejpXY6"
+      ],
+      "name": "Reviews Swiper",
+      "settings": {
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#ffffff",
+        "badge_rating_image": "shopify://shop_images/Container_1.svg",
+        "badge_rating_image_alt": "Five gold stars",
+        "badge_text": "10,500+ 5-Star Reviews",
+        "heading": "Amazing Reviews For Mumu Bath"
+      }
+    },
+    "comparison_table_8XELjr": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_NDY3MV": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Gentle, Non-Stripping",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        "row_TQAmcT": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Face + Body Friendly",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        "row_KF74nR": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Citrus Essential Oils",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        "row_UxjYR7": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Cleanses + Nourishes",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        "row_aap34X": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Handmade, Plant-Based",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        },
+        "row_NJp74C": {
+          "type": "row",
+          "settings": {
+            "feature_label": "Suitable For Sensitive Skin",
+            "brand_has_feature": true,
+            "others_has_feature": false
+          }
+        }
+      },
+      "block_order": [
+        "row_NDY3MV",
+        "row_TQAmcT",
+        "row_KF74nR",
+        "row_UxjYR7",
+        "row_aap34X",
+        "row_NJp74C"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "title": "Why Switch From Ordinary Soap?",
+        "subtitle": "Most soaps strip your skin and leave it feeling dry. Kiss Me Sunshine is crafted to gently cleanse while nourishing your skin.",
+        "col_features_label": "Features",
+        "brand_logo": "shopify://shop_images/Mask_group.png",
+        "brand_name": "mumu bath",
+        "col_others_label": "Others",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "section_bg_color": "#f8f6ee",
+        "title_color": "#000000",
+        "subtitle_color": "#000000",
+        "brand_col_color": "#fbdd40",
+        "header_text_color": "#001116",
+        "others_text_color": "#001116",
+        "feature_text_color": "#101010",
+        "row_divider_color": "#00000066"
+      }
+    },
+    "custom_featured_collection_WxBGjD": {
+      "type": "custom_featured_collection",
+      "name": "Featured Collection Slider",
+      "settings": {
+        "pdp_style": true,
+        "collection": "face-body",
+        "heading": "Related products",
+        "rating_image": "shopify://shop_images/ab28715c7240b1e3df945cdf2f537305.svg",
+        "rating_text": "<p><strong>4.7</strong> (240)</p>",
+        "button_text": "",
+        "bg_color": "#ffffff",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "cs-btn": true
+      }
+    },
+    "17828123203f41bcde": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_product_reviews_4rGUWh": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_product_reviews_4rGUWh"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
       }
     },
     "logo_list_xHnX8R": {
@@ -254,6 +773,7 @@
         "logo_46Rrm3",
         "logo_BibnEe"
       ],
+      "disabled": true,
       "settings": {
         "custom_class": "",
         "separate_section_with_border": true,
@@ -266,6 +786,7 @@
     },
     "custom_liquid_jdrn4z": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": false,
         "remove_vertical_spacing": true,
@@ -295,6 +816,7 @@
         "targetbay_product_reviews_product_reviews_ELQQWa",
         "targetbay_product_reviews_site_reviews_68ahqC"
       ],
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -303,6 +825,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "hide_product_information": false,
@@ -320,6 +843,13 @@
   },
   "order": [
     "main",
+    "product_featured_icons_EgaPdM",
+    "benefit_showcase_kGiCwU",
+    "botanical_section_UFttB8",
+    "hair_reviews_j9UcQj",
+    "comparison_table_8XELjr",
+    "custom_featured_collection_WxBGjD",
+    "17828123203f41bcde",
     "logo_list_xHnX8R",
     "custom_liquid_jdrn4z",
     "1742279709b3f4ee9a",

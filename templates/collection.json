@@ -28,6 +28,34 @@
         "overlay_opacity": 0
       }
     },
+    "new_collection_banner_DxjF6a": {
+      "type": "new-collection-banner",
+      "name": "Collection Banner",
+      "settings": {
+        "add_class": "",
+        "custom_title": "<p>Naturally radiant, <br/>Never greasy</p>",
+        "subtitle": "Skin-loving essentials that deliver a healthy natural glow with a smooth, breathable finish.",
+        "btn_label": "Shop Now",
+        "btn_url": "shopify://collections/all",
+        "bg_image_desktop": "shopify://shop_images/Plant_People_Desktop_28477748-8fdf-43f2-bbfe-7b96a9048f46.png",
+        "bg_position": "center center",
+        "bg_image_mobile": "shopify://shop_images/Frame_2147243421.png",
+        "bg_position_mobile": "center bottom",
+        "overlay_opacity": 0,
+        "min_height_desktop": 560,
+        "min_height_mobile": 540,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 300,
+        "section_bg_color": "#eee7dd",
+        "overlay_color": "#000000",
+        "title_color": "#000000",
+        "subtitle_color": "#000000",
+        "btn_bg_color": "#fbdd3f",
+        "btn_text_color": "#000000"
+      }
+    },
     "slideshow_8AqcGQ": {
       "type": "slideshow",
       "settings": {
@@ -44,16 +72,18 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
-        "products_per_page": 34,
+        "products_per_page": 8,
         "products_per_row_mobile": "2",
         "products_size_desktop": "medium",
-        "show_grid_mode_selector": true,
+        "show_grid_mode_selector": false,
         "horizontal_spacing_factor": 0.5,
         "vertical_spacing_factor": 1,
         "filter_layout": "sidebar",
         "quick_links_menu": "",
-        "show_sort_by": true,
+        "show_sort_by": false,
         "show_filters": true,
         "show_results_count": true,
         "show_filter_group_name": false,
@@ -65,6 +95,7 @@
     },
     "custom_liquid_7iapzB": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
@@ -98,6 +129,7 @@
   },
   "order": [
     "collection-banner",
+    "new_collection_banner_DxjF6a",
     "slideshow_8AqcGQ",
     "main",
     "custom_liquid_7iapzB",
