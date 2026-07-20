@@ -41,6 +41,7 @@
       "blocks": {
         "contact_item_8kwBk7": {
           "type": "contact_item",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/Frame_2147228986.svg",
             "title": "Call us at:",
@@ -61,8 +62,17 @@
           "type": "contact_item",
           "settings": {
             "icon": "shopify://shop_images/Frame_2147228988.svg",
-            "title": "Address1:",
+            "title": "Mumu Bath DUMBO",
             "link_text": "72 Jay St, Brooklyn, NY 11201",
+            "link": ""
+          }
+        },
+        "contact_item_XVq369": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Frame_2147228988.svg",
+            "title": "Mumu Bath Downtown Brooklyn",
+            "link_text": "94 Willoughby St, Brooklyn, NY 11201",
             "link": ""
           }
         }
@@ -70,7 +80,8 @@
       "block_order": [
         "contact_item_8kwBk7",
         "contact_item_m4eYFt",
-        "contact_item_iDXBhn"
+        "contact_item_iDXBhn",
+        "contact_item_XVq369"
       ],
       "name": "In Touch",
       "settings": {

@@ -36,7 +36,7 @@
             "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_14.png",
             "mobile_image": "shopify://shop_images/homepage-bodybutter.png",
             "subheading": "",
-            "title": "<h1>Body Butters</h1>\n<br>\n<p>\nDiscover the ultimate solution for dry, thirsty skin with Mumu Bath's exquisite Body Butter range. Our unique formula combines the rich nourishment of a butter with the lightweight feel of a lotion, leaving your skin soft and smooth without any greasy residue.</p>",
+            "title": "<h1>Body Butters<br>\n</h1><p>\nDiscover the ultimate solution for dry, thirsty skin with Mumu Bath's exquisite Body Butter range. Our unique formula combines the rich nourishment of a butter with the lightweight feel of a lotion, leaving your skin soft and smooth without any greasy residue.</p>",
             "mobile_text_position": "place-self-start-center text-center",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 440,
@@ -75,6 +75,8 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
         "products_per_page": 34,
         "products_per_row_mobile": "2",

@@ -70,7 +70,7 @@
           "settings": {
             "icon": "shopify://shop_images/image_2988.png",
             "title": "Opening Hours",
-            "subtitle": "<p>Open every Saturday and Sunday<br/>9am-3pm</p>"
+            "subtitle": "<p>Open Daily<br/>11:30am-7:00pm</p>"
           }
         }
       },
@@ -85,7 +85,55 @@
         "tag": "LOCATIONS",
         "content_title": "ADDRESS",
         "button_text": "Get Directions",
-        "button_link": "#",
+        "button_link": "https://maps.app.goo.gl/XHspuiy3d1s4ZZvh9",
+        "section_bg": "#ffffff",
+        "heading_color": "#000000",
+        "tag_color": "#000000",
+        "content_title_color": "#000000",
+        "block_title_color": "#000000",
+        "block_subtitle_color": "#000000",
+        "button_bg": "#fbdd3f",
+        "button_color": "#000000",
+        "button_hover_bg": "#000000",
+        "button_hover_color": "#ffffff",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "visit_location_XVeHnb": {
+      "type": "visit-location",
+      "blocks": {
+        "location_info_eJWzcc": {
+          "type": "location_info",
+          "settings": {
+            "icon": "shopify://shop_images/image_2987.png",
+            "title": "ADDRESS",
+            "subtitle": "<p>94 Willoughby St, Brooklyn, NY 11201</p>"
+          }
+        },
+        "location_info_K87c6F": {
+          "type": "location_info",
+          "settings": {
+            "icon": "shopify://shop_images/image_2988.png",
+            "title": "Opening Hours",
+            "subtitle": "<p>Open Daily<br/>11:30am-7:00pm</p>"
+          }
+        }
+      },
+      "block_order": [
+        "location_info_eJWzcc",
+        "location_info_K87c6F"
+      ],
+      "name": "Visit Location",
+      "settings": {
+        "heading": "<p>Plan Your Visit</p>",
+        "map_embed": "<iframe src=\"https://www.google.com/maps?q=94%20Willoughby%20St%2C%20Brooklyn%2C%20NY%2011201&output=embed\" width=\"600\" height=\"450\" style=\"border: 0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">\n</iframe>",
+        "tag": "LOCATIONS",
+        "content_title": "ADDRESS",
+        "button_text": "Get Directions",
+        "button_link": "https://maps.app.goo.gl/tfM6KjzeXLip7qfK6",
         "section_bg": "#ffffff",
         "heading_color": "#000000",
         "tag_color": "#000000",
@@ -245,6 +293,7 @@
     "routed_ritual_jhyBLY",
     "location_banner_mxcXCW",
     "visit_location_6YfCYf",
+    "visit_location_XVeHnb",
     "main",
     "featured_product_wwFrGx",
     "174228070476985170"

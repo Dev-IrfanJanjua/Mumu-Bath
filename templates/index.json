@@ -35,9 +35,9 @@
         "button_text_color": "#1a1a1a",
         "button_hover_bg_color": "#1a1a1a",
         "button_hover_text_color": "#ffffff",
-        "desktop_banner_image": "shopify://shop_images/Plant_People_Desktop.png",
+        "desktop_banner_image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
         "desktop_banner_image_alt": "Banner Image",
-        "hero_image": "shopify://shop_images/Plant_People_Desktop_1.png",
+        "hero_image": "shopify://shop_images/homepage_new_banner-_mobile.png",
         "hero_image_alt": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals",
         "hero_image_width": 900,
         "hero_image_height": 700,
@@ -50,38 +50,41 @@
         "category_card_4djwkQ": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/ACCESSORIES-TILE_jpg.png",
-            "image_mobile": "shopify://shop_images/ACCESSORIES-TILE.jpg_3.png",
+            "image": "shopify://shop_images/soaps-pc-1_acc35660-dbaa-401f-a6f4-9d8941f87a84.png",
+            "image_mobile": "shopify://shop_images/soap-pc-1.png",
             "image_alt": "Collection of natural soap bars",
             "label": "<p>Soaps</p>",
-            "collection_url": ""
+            "collection_url": "shopify://collections/all-soaps"
           }
         },
         "category_card_ABeGwD": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/MOISTURIZING-TILE.jpg_1.png",
+            "image": "shopify://shop_images/body_butter-pc_cover.png",
+            "image_mobile": "shopify://shop_images/body_butter_cover.png",
             "image_alt": "Body butter and cream products",
             "label": "<p>Body Butter & <br/>Body Creams</p>",
-            "collection_url": ""
+            "collection_url": "shopify://collections/body-butters"
           }
         },
         "category_card_HrtrCx": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/TREATMENTS-TILE_png.png",
+            "image": "shopify://shop_images/facial_products-pc-1.png",
+            "image_mobile": "shopify://shop_images/facial_products-pc-1.png",
             "image_alt": "Face care products",
             "label": "<p>Face</p>",
-            "collection_url": ""
+            "collection_url": "shopify://collections/facial-skincare"
           }
         },
         "category_card_iHTMyF": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/ACCESSORIES-TILE.jpg_1.png",
+            "image": "shopify://shop_images/candle_cover-pc-1.png",
+            "image_mobile": "shopify://shop_images/candle_cover-pc.png",
             "image_alt": "Candles and fragrance collection",
             "label": "<p>Candles & Fragrance</p>",
-            "collection_url": ""
+            "collection_url": "shopify://collections/scented-candles"
           }
         },
         "category_card_YPRMQ4": {
@@ -90,7 +93,7 @@
             "image": "shopify://shop_images/ACCESSORIES-TILE.jpg_2.png",
             "image_alt": "Bath and body accessories",
             "label": "<p>Accessories</p>",
-            "collection_url": ""
+            "collection_url": "shopify://collections/accessories"
           }
         }
       },
@@ -147,7 +150,7 @@
         "signature_alt": "Founder signature",
         "founder_name": "Founder",
         "button_label": "Discover Our Story",
-        "button_link": "",
+        "button_link": "shopify://pages/story",
         "bg_color": "#f8f6ee",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -1145,11 +1148,11 @@
           "type": "location",
           "settings": {
             "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189.04262745736534!2d-73.98746269073791!3d40.702999842536535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6d369d182885635%3A0x2119e776793f31ee!2sMumu%20Bath!5e0!3m2!1sen!2s!4v1780994233696!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "location_heading": "Directions to Our Oldsmar Location",
-            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "location_heading": "Mumu Bath DUMBO",
+            "address": "72 Jay St, Brooklyn, NY 11201",
             "hours_heading": "Opening Hours",
-            "days": "Open every Saturday & Sunday",
-            "hours": "9:00 AM - 6:00 PM",
+            "days": "Open daily",
+            "hours": "11:30 AM-7:00 PM",
             "direction_icon": "shopify://shop_images/Frame_2147227530.svg",
             "direction_url": "https://maps.app.goo.gl/eU3T1873486eM2fT6",
             "direction_text": "Get Directions"
@@ -1158,14 +1161,14 @@
         "location_h7xDAw": {
           "type": "location",
           "settings": {
-            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189.04262745736534!2d-73.98746269073791!3d40.702999842536535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6d369d182885635%3A0x2119e776793f31ee!2sMumu%20Bath!5e0!3m2!1sen!2s!4v1780994233696!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "location_heading": "Directions to Our Oldsmar Location",
-            "address": "Oldsmar Flea Market - 180 Racetrack Road N",
+            "map_embed": "<iframe\n  src=\"https://www.google.com/maps?q=94%20Willoughby%20St%2C%20Brooklyn%2C%20NY%2011201&output=embed\"\n  width=\"600\"\n  height=\"450\"\n  style=\"border: 0;\"\n  allowfullscreen=\"\"\n  loading=\"lazy\"\n  referrerpolicy=\"no-referrer-when-downgrade\">\n</iframe></iframe>",
+            "location_heading": "Mumu Bath Downtown Brooklyn",
+            "address": "94 Willoughby St, Brooklyn, NY 11201",
             "hours_heading": "Opening Hours",
-            "days": "Open every Saturday & Sunday",
-            "hours": "9:00 AM - 6:00 PM",
+            "days": "Open daily",
+            "hours": "11:30 AM-7:00 PM",
             "direction_icon": "shopify://shop_images/Frame_2147227530.svg",
-            "direction_url": "https://maps.app.goo.gl/eU3T1873486eM2fT6",
+            "direction_url": "https://maps.app.goo.gl/7kC8r7YvpxnDkveV7",
             "direction_text": "Get Directions"
           }
         }
@@ -1176,7 +1179,7 @@
       ],
       "name": "Store Locations",
       "settings": {
-        "heading": "Visit Mumu Bath Near You",
+        "heading": "Visit Our Brooklyn Stores",
         "bg_color": "#ffffff",
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 100,

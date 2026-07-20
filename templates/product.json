@@ -140,7 +140,7 @@
             "show_below_gallery": false,
             "icon": "none",
             "title": "Description",
-            "content": "<p>Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin. Organic olive and coconut oils deeply hydrate without clogging pores, while organic orange essential oil delivers a burst of citrusy freshness to awaken your senses. <br/><br/>Infused with organic paprika, this bar offers a natural boost of antioxidants and Vitamin C, helping to protect and enhance your skin’s natural radiance.</p>",
+            "content": "{{ product.description }}",
             "page": ""
           }
         },

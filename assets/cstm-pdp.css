@@ -27,6 +27,43 @@
     padding-bottom: 16px;
 }
 
+.main_pdp-wrapper details.accordion.group .accordion__content.prose a, 
+.main_pdp-wrapper details.accordion.group .accordion__content.prose span {
+    color: #101010 !important;
+}
+
+.main_pdp-wrapper .toggle-wrap label.toggle-label img {
+    margin: 0;
+}
+
+.main_pdp-wrapper .toggle-wrap .toggle-content {
+    margin: 0;
+}
+
+.main_pdp-wrapper .toggle-wrap .toggle-content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main_pdp-wrapper .toggle-wrap {
+    margin-top: 10px !important;
+}
+
+.main_pdp-wrapper .toggle-label {
+    color: #101010;
+    font-family: Plus Jakarta Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.main_pdp-wrapper details.accordion.group .accordion__content.prose strong,
+.main_pdp-wrapper .toggle-wrap .toggle-content ul strong {
+    font-weight: 600;
+}
+
 .main_pdp-wrapper .product-title {
     color: #000;
     font-family: "Mona Sans";
@@ -184,6 +221,10 @@ span.pdp-rating-text strong {
 
 .main_pdp-wrapper details.accordion.group .accordion__content.prose {
     font-size: 12px;
+}
+
+.main_pdp-wrapper .toggle-label {
+    font-size: 16px;
 }
 
 }
