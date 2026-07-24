@@ -42,6 +42,15 @@
             "short_desc": "Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin."
           }
         },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": true,
+            "selector_type": "block",
+            "color_selector_type": "color",
+            "size_chart_page": ""
+          }
+        },
         "sub_bundle_9YPwfn": {
           "type": "sub_bundle",
           "settings": {
@@ -146,6 +155,7 @@
         },
         "accordion_N3tiJp": {
           "type": "accordion",
+          "disabled": true,
           "settings": {
             "default_open": false,
             "show_below_gallery": false,
@@ -157,6 +167,7 @@
         },
         "accordion_aM9zjH": {
           "type": "accordion",
+          "disabled": true,
           "settings": {
             "default_open": false,
             "show_below_gallery": false,
@@ -168,6 +179,7 @@
         },
         "accordion_jwzrfA": {
           "type": "accordion",
+          "disabled": true,
           "settings": {
             "default_open": false,
             "show_below_gallery": false,
@@ -179,6 +191,7 @@
         },
         "accordion_Tzq7CP": {
           "type": "accordion",
+          "disabled": true,
           "settings": {
             "default_open": false,
             "show_below_gallery": false,
@@ -190,6 +203,7 @@
         },
         "accordion_UP6zMm": {
           "type": "accordion",
+          "disabled": true,
           "settings": {
             "default_open": false,
             "show_below_gallery": false,
@@ -197,16 +211,6 @@
             "title": "Ingredients",
             "content": "<p>Organic Castor Oil, Organic Cocoa butter, Carnauba Wax, Candelilla Wax, Flavor Oil</p>",
             "page": ""
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": true,
-            "selector_type": "block",
-            "color_selector_type": "color",
-            "size_chart_page": ""
           }
         },
         "quantity_selector": {
@@ -257,6 +261,7 @@
         "title",
         "subtitle_TqJGVn",
         "short_desc_PCTrwt",
+        "variant_picker",
         "sub_bundle_9YPwfn",
         "buy_buttons",
         "feature_icons_bEqrrw",
@@ -269,7 +274,6 @@
         "accordion_jwzrfA",
         "accordion_Tzq7CP",
         "accordion_UP6zMm",
-        "variant_picker",
         "quantity_selector",
         "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
         "separator",

@@ -76,6 +76,57 @@
     margin-bottom: 16px;
 }
 
+.main_pdp-wrapper  variant-picker.variant-picker {
+    margin-top: 32px;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker legend {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 4px;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker .h-stack {
+    line-height: normal;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker .variant-picker__option-values {
+    gap: 12px;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker .variant-picker__option-values label.block-swatch {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker fieldset.variant-picker__option {
+    gap: 12px;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker .variant-picker__option-values label.block-swatch span{
+    color: #000000;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+}
+
+.main_pdp-wrapper variant-picker.variant-picker .variant-picker__option-values label.block-swatch:hover,
+.main_pdp-wrapper variant-picker.variant-picker :checked+.block-swatch {
+    border-color: #000 !important;
+    background-color: #f9f6ee !important;
+}
+
 .pdp-rating {
     display: flex;
     align-items: center;
