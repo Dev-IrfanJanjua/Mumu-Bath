@@ -59,7 +59,7 @@
             "default_selected_plan": 2,
             "otp_heading": "One Time Purchase",
             "sub_heading": "Subscribe & Save",
-            "sub_discount_pct": 8,
+            "sub_discount_pct": 5,
             "freq_label": "DELIVERY FREQUENCY",
             "freq_description": "You Will Receive A Shipment Every Two Months",
             "plan_qty_1": 1,

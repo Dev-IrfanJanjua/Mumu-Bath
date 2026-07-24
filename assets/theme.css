@@ -2604,8 +2604,8 @@ th {
   opacity: .6;
   line-height: 1.7;
   font-size: var(--text-h6);
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
+  font-family: var(--banner-font);
+  font-weight: var(--banner-weight);
   font-style: var(--heading-font-style);
   letter-spacing: var(--heading-letter-spacing);
   text-transform: var(--heading-text-transform);
@@ -3233,8 +3233,8 @@ tfoot td {
 
 .badge {
   width: max-content;
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
+  font-family: var(--banner-font);
+  font-weight: var(--banner-weight);
   font-style: var(--heading-font-style);
   letter-spacing: var(--heading-letter-spacing);
   text-transform: uppercase;
@@ -4306,8 +4306,8 @@ tfoot td {
 }
 
 .countdown-condensed__timer {
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
+  font-family: var(--banner-font);
+  font-weight: var(--banner-weight);
   font-style: var(--heading-font-style);
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -4678,8 +4678,8 @@ tfoot td {
   background: rgb(var(--text-color));
   color: #0000;
   font-size: var(--text-h6);
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
+  font-family: var(--banner-font);
+  font-weight: var(--banner-weight);
   font-style: var(--heading-font-style);
   letter-spacing: var(--heading-letter-spacing);
   text-transform: var(--heading-text-transform);
@@ -7434,8 +7434,8 @@ tfoot td {
 }
 
 .heading, .h1, .h2, .h3, .h4, .h5, .h6, .prose :where(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
+  font-family: var(--banner-font);
+  font-weight: var(--banner-weight);
   font-style: var(--heading-font-style);
   letter-spacing: var(--heading-letter-spacing);
   text-transform: var(--heading-text-transform);
