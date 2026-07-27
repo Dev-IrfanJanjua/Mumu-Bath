@@ -1,0 +1,625 @@
+{% comment %}
+  ============================================================
+  Subscribe & Save Widget — snippet
+  ============================================================
+  Usage: {% render 'subscribe-save-widget', product: product, section: section %}
+{% endcomment %}
+
+{%- liquid
+  assign widget_id = 'ssw-' | append: section.id
+
+  assign default_purchase_type = block.settings.default_purchase_type | default: 'subscribe'
+
+  assign variant = product.selected_or_first_available_variant
+
+  assign sub_heading = block.settings.sub_heading | default: 'Subscribe & Save'
+  assign otp_heading = block.settings.otp_heading | default: 'One Time Purchase'
+  assign freq_label = block.settings.freq_label | default: 'DELIVERY FREQUENCY'
+  assign freq_description = block.settings.freq_description | default: 'You Will Receive A Shipment Every Two Months'
+  assign sub_discount_pct = block.settings.sub_discount_pct | default: 0
+-%}
+
+<style>
+  #{{ widget_id }} {
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  /* ── Hide the real radio inputs visually ── */
+  .ssw-purchase-row input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .ssw-purchase-row {
+    border: 1.5px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    background-color: {{ block.settings.card_bg }};
+  }
+
+  /* purchase row — checked state */
+  .ssw-purchase-row:has(input[type="radio"]:checked) {
+    border-color: {{ block.settings.selected_border_color }};
+    background-color: {{ block.settings.selected_card_bg }};
+  }
+
+  .ssw-purchase-row__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ssw-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid {{ block.settings.radio_border_color }};
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  /* purchase row radio ring — checked */
+  .ssw-purchase-row:has(input[type="radio"]:checked) .ssw-radio {
+    border-color: #000;
+  }
+
+  .ssw-radio__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: {{ block.settings.radio_active_color }};
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* purchase row radio dot — checked */
+  .ssw-purchase-row:has(input[type="radio"]:checked) .ssw-radio__dot {
+    opacity: 1;
+  }
+
+  .ssw-purchase-row__label {
+    color: {{ block.settings.label_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 44px;
+    background-color: {{ block.settings.badge_bg }};
+    color: {{ block.settings.badge_text_color }};
+    font-family: "Plus Jakarta Sans";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ssw-sub-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s ease;
+    margin-top: 0;
+  }
+
+  .ssw-sub-content.is-visible {
+    grid-template-rows: 1fr;
+  }
+
+  .ssw-sub-content__inner {
+    overflow: hidden;
+  }
+
+  .ssw-sub-content__body {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 28px;
+  }
+
+  .ssw-freq-label {
+    color: {{ block.settings.freq_label_color }};
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-select {
+    background-color: {{ block.settings.select_bg }};
+    border: 1px solid {{ block.settings.border_color }};
+    color: {{ block.settings.label_color }};
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 6px;
+    padding: 12px 36px 12px 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23333' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    width: fit-content;
+    min-width: 200px;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .ssw-freq-desc {
+    color: {{ block.settings.freq_desc_color }};
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 148%;
+    text-transform: capitalize;
+  }
+
+  #{{ widget_id }}-qty-input,
+  #{{ widget_id }}-variant-input {
+    display: none !important;
+  }
+
+  h3.ssw-purchase-title {
+    color: #101010;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 4px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #{{ widget_id }} {
+      margin-top: 20px;
+    }
+    .ssw-purchase-row {
+      border-radius: 8px;
+      padding: 11px 12px;
+    }
+  }
+</style>
+
+<div
+  id="{{ widget_id }}"
+  data-widget="subscribe-save"
+  data-default-purchase="{{ default_purchase_type }}"
+  data-sub-discount="{{ sub_discount_pct }}"
+  data-product-id="{{ product.id }}"
+>
+  <input
+    class="wid__varient__qty"
+    type="hidden"
+    name="quantity"
+    id="{{ widget_id }}-qty-input"
+    value="1"
+    data-ssw-quantity
+  >
+  <input
+    class="wid__varient__id"
+    type="hidden"
+    name="id"
+    id="{{ widget_id }}-variant-input"
+    value="{{ variant.id }}"
+    data-ssw-variant
+  >
+  <input
+    class="wid__selling_plan"
+    type="hidden"
+    name="selling_plan"
+    value="{{ product.selling_plan_groups.first.selling_plans.first.id }}"
+  >
+
+  {% if block.settings.title != blank %}
+    <h3 class="ssw-purchase-title">{{ block.settings.title }}</h3>
+  {% endif %}
+
+  <!-- ── One-Time Purchase row ── -->
+  <label
+    class="ssw-purchase-row"
+    data-ssw-purchase-row="one_time"
+    role="radio"
+    aria-checked="{% if default_purchase_type == 'one_time' %}true{% else %}false{% endif %}"
+    tabindex="0"
+  >
+    <input
+      type="radio"
+      name="{{ widget_id }}-purchase-type"
+      value="one_time"
+      {% if default_purchase_type == 'one_time' %}
+        checked
+      {% endif %}
+    >
+    <div class="ssw-purchase-row__header">
+      <span class="ssw-radio" aria-hidden="true">
+        <span class="ssw-radio__dot"></span>
+      </span>
+      <span class="ssw-purchase-row__label">{{ otp_heading }}</span>
+    </div>
+  </label>
+
+  <!-- ── Subscribe & Save row ── -->
+  <label
+    class="ssw-purchase-row"
+    data-ssw-purchase-row="subscribe"
+    role="radio"
+    aria-checked="{% if default_purchase_type == 'subscribe' %}true{% else %}false{% endif %}"
+    tabindex="0"
+  >
+    <input
+      type="radio"
+      name="{{ widget_id }}-purchase-type"
+      value="subscribe"
+      {% if default_purchase_type == 'subscribe' %}
+        checked
+      {% endif %}
+    >
+    <div class="ssw-purchase-row__header">
+      <span class="ssw-radio" aria-hidden="true">
+        <span class="ssw-radio__dot"></span>
+      </span>
+      <span class="ssw-purchase-row__label">{{ sub_heading }}</span>
+      <span class="ssw-badge" data-ssw-sub-badge data-check="{{ sub_discount_pct }}">save {{ sub_discount_pct }}%</span>
+    </div>
+
+    <div
+      class="ssw-sub-content{% if default_purchase_type == 'subscribe' %} is-visible{% endif %}"
+      data-ssw-sub-content
+    >
+      <div class="ssw-sub-content__inner">
+        <div class="ssw-sub-content__body">
+          <p class="ssw-freq-label">{{ freq_label }}</p>
+
+          {% assign total_plans = 0 %}
+          {% for group in product.selling_plan_groups %}
+            {% assign total_plans = total_plans | plus: group.selling_plans.size %}
+          {% endfor %}
+
+          {% if total_plans > 1 %}
+            <select
+              class="ssw-select"
+              data-ssw-frequency
+              aria-label="Subscription Plan"
+            >
+              {% for group in product.selling_plan_groups %}
+                {% for plan in group.selling_plans %}
+                  {% assign discount = 0 %}
+                  {% if plan.price_adjustments.first %}
+                    {% assign adjustment = plan.price_adjustments.first %}
+                    {% if adjustment.value_type == 'percentage' %}
+                      {% assign discount = adjustment.value %}
+                    {% endif %}
+                  {% endif %}
+                  <option
+                    value="{{ plan.id }}"
+                    data-id="{{ plan.id }}"
+                    data-title="{{ plan.name }}"
+                    data-discount="{{ discount }}%"
+                  >
+                    {{ plan.name }}
+                  </option>
+                {% endfor %}
+              {% endfor %}
+            </select>
+
+          {% elsif total_plans == 1 %}
+            {% for group in product.selling_plan_groups %}
+              {% for plan in group.selling_plans %}
+                {% assign discount = 0 %}
+                {% if plan.price_adjustments.first %}
+                  {% assign adjustment = plan.price_adjustments.first %}
+                  {% if adjustment.value_type == 'percentage' %}
+                    {% assign discount = adjustment.value %}
+                  {% endif %}
+                {% endif %}
+                <input
+                  type="hidden"
+                  name="selling_plan"
+                  value="{{ plan.id }}"
+                  data-id="{{ plan.id }}"
+                  data-title="{{ plan.name }}"
+                  data-discount="{{ discount }}"
+                >
+              {% endfor %}
+            {% endfor %}
+          {% endif %}
+
+          <p class="ssw-freq-desc" data-ssw-freq-desc>{{ freq_description }}</p>
+        </div>
+      </div>
+    </div>
+  </label>
+
+</div>
+
+<script>
+  (function () {
+    var widget = document.getElementById('{{ widget_id }}');
+    if (!widget) return;
+
+    /* ─────────────────────────────────────────
+        ELEMENT REFS
+    ───────────────────────────────────────── */
+    var isSubscribe  = widget.dataset.defaultPurchase === 'subscribe';
+
+    var purchaseRows   = widget.querySelectorAll('[data-ssw-purchase-row]');
+    var subContent     = widget.querySelector('[data-ssw-sub-content]');
+
+    var sellingPlanInput = widget.querySelector('.wid__selling_plan');
+
+    var freqSelect = widget.querySelector('[data-ssw-frequency]');
+    var freqHidden = widget.querySelector('input[name="selling_plan"]:not(.wid__selling_plan)');
+
+    /* ─────────────────────────────────────────
+        GET ACTIVE SELLING PLAN ID
+    ───────────────────────────────────────── */
+    function getActivePlanId() {
+      if (freqSelect) return freqSelect.value || '';
+      if (freqHidden) return freqHidden.value || '';
+      return '';
+    }
+
+    /* ─────────────────────────────────────────
+        SYNC THE SELLING PLAN INPUT
+    ───────────────────────────────────────── */
+    function syncSellingPlanInput() {
+      if (!sellingPlanInput) return;
+      sellingPlanInput.value = isSubscribe ? getActivePlanId() : '';
+    }
+
+    /* ─────────────────────────────────────────
+        SELECT PURCHASE TYPE
+    ───────────────────────────────────────── */
+    function selectPurchaseType(type) {
+      isSubscribe = (type === 'subscribe');
+      widget.dataset.activePurchase = type;
+
+      purchaseRows.forEach(function (row) {
+        var active = row.dataset.sswPurchaseRow === type;
+        var radio  = row.querySelector('input[type="radio"]');
+        if (radio) radio.checked = active;
+        row.setAttribute('aria-checked', active ? 'true' : 'false');
+      });
+
+      if (subContent) subContent.classList.toggle('is-visible', isSubscribe);
+
+      syncSellingPlanInput();
+    }
+
+    /* ─────────────────────────────────────────
+        FREQUENCY SELECT CHANGE
+    ───────────────────────────────────────── */
+    if (freqSelect) {
+      freqSelect.addEventListener('change', function () {
+        if (!isSubscribe) {
+          selectPurchaseType('subscribe');
+        } else {
+          syncSellingPlanInput();
+        }
+      });
+    }
+
+    /* ─────────────────────────────────────────
+        EVENT LISTENERS — purchase type rows
+    ───────────────────────────────────────── */
+    purchaseRows.forEach(function (row) {
+      row.addEventListener('click', function () {
+        selectPurchaseType(row.dataset.sswPurchaseRow);
+      });
+      row.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectPurchaseType(row.dataset.sswPurchaseRow);
+        }
+      });
+    });
+
+    /* ─────────────────────────────────────────
+        INIT
+    ───────────────────────────────────────── */
+    selectPurchaseType(widget.dataset.defaultPurchase || 'one_time');
+
+  })();
+</script>
+
+<script>
+  (function () {
+    if (!window.location.pathname.includes('/products/')) return;
+
+    function getWidget() {
+      return document.querySelector('[data-widget="subscribe-save"]');
+    }
+
+    /* ─────────────────────────────────────────
+        READ CURRENT WIDGET STATE
+    ───────────────────────────────────────── */
+    function getWidgetValues() {
+      var widget = getWidget();
+      if (!widget) return null;
+
+      return {
+        qty: (widget.querySelector('.wid__varient__qty') || {}).value || '1',
+        plan: (widget.querySelector('.wid__selling_plan') || {}).value || '',
+        productId: widget.dataset.productId || '',
+      };
+    }
+
+    /* ─────────────────────────────────────────
+        FIND THE FORM LINKED TO #pdp_atc--btn
+    ───────────────────────────────────────── */
+    function getAtcForm() {
+      var btn = document.getElementById('pdp_atc--btn');
+      if (!btn) return null;
+
+      var formId = btn.getAttribute('form');
+
+      if (!formId) {
+        var buyButtonsEl = btn.closest('buy-buttons');
+        if (buyButtonsEl) formId = buyButtonsEl.getAttribute('form');
+      }
+
+      if (formId) return document.getElementById(formId);
+
+      return btn.closest('form');
+    }
+
+    /* ─────────────────────────────────────────
+        SYNC WIDGET VALUES → FORM INPUTS
+    ───────────────────────────────────────── */
+    function syncBuyInputs() {
+      var vals = getWidgetValues();
+      if (!vals) return;
+
+      var form = getAtcForm();
+      if (!form) return;
+
+      form.querySelectorAll('.form__qty').forEach(function (input) {
+        input.value = vals.qty;
+        input.setAttribute('value', vals.qty);
+      });
+
+      form.querySelectorAll('.form__selling_plan').forEach(function (input) {
+        if (vals.plan) {
+          input.value = vals.plan;
+          input.setAttribute('value', vals.plan);
+        } else {
+          input.value = '';
+          input.removeAttribute('value');
+        }
+      });
+
+      console.log('[SSW Sync] product:', vals.productId, '| qty:', vals.qty, '| plan:', vals.plan || '(none)');
+    }
+
+    /* ─────────────────────────────────────────
+        TRACK IF MAIN ATC WAS CLICKED RECENTLY
+    ───────────────────────────────────────── */
+    var isMainAtcTriggered = false;
+
+    document.addEventListener(
+      'click',
+      function (e) {
+        if (e.target.closest('#pdp_atc--btn')) {
+          isMainAtcTriggered = true;
+          setTimeout(function () {
+            isMainAtcTriggered = false;
+          }, 500);
+        }
+      },
+      true
+    );
+
+    /* ─────────────────────────────────────────
+        FETCH INTERCEPT — Scoped only to main ATC
+    ───────────────────────────────────────── */
+    if (!window.fetch.__cartPatched) {
+      var _fetch = window.fetch;
+
+      window.fetch = function (input, init) {
+        var url = typeof input === 'string' ? input : input && input.url ? input.url : '';
+
+        if (url.includes('/cart/add') && isMainAtcTriggered) {
+          syncBuyInputs();
+
+          var widget = getWidget();
+          if (widget) {
+            var vals = getWidgetValues();
+
+            if (vals) {
+              if (init && init.body instanceof FormData) {
+                init.body.set('quantity', vals.qty);
+                if (vals.plan) {
+                  init.body.set('selling_plan', vals.plan);
+                } else {
+                  init.body.delete('selling_plan');
+                }
+              } else if (init && typeof init.body === 'string') {
+                try {
+                  var json = JSON.parse(init.body);
+                  json.quantity = parseInt(vals.qty, 10);
+                  if (vals.plan) {
+                    json.selling_plan = vals.plan;
+                  } else {
+                    delete json.selling_plan;
+                  }
+                  init = Object.assign({}, init, { body: JSON.stringify(json) });
+                } catch (e) {
+                  var p = new URLSearchParams(init.body);
+                  p.set('quantity', vals.qty);
+                  if (vals.plan) {
+                    p.set('selling_plan', vals.plan);
+                  } else {
+                    p.delete('selling_plan');
+                  }
+                  init = Object.assign({}, init, { body: p.toString() });
+                }
+              }
+              console.log('[Cart Add Intercepted] for #pdp_atc--btn');
+            }
+          }
+        }
+
+        return _fetch.call(this, input, init);
+      };
+
+      window.fetch.__cartPatched = true;
+    }
+
+    /* ─────────────────────────────────────────
+        EVENT WIRING
+    ───────────────────────────────────────── */
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-widget="subscribe-save"]')) {
+        syncBuyInputs();
+      }
+    });
+
+    document.addEventListener('change', function (e) {
+      if (e.target.closest('[data-widget="subscribe-save"]')) {
+        syncBuyInputs();
+      }
+    });
+
+    document.addEventListener('ssw:updated', syncBuyInputs);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', syncBuyInputs);
+    } else {
+      syncBuyInputs();
+    }
+  })();
+</script>

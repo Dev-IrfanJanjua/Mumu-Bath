@@ -32,12 +32,14 @@
         },
         "subtitle_TqJGVn": {
           "type": "subtitle",
+          "disabled": true,
           "settings": {
             "subtitle": "Brightening Citrus Olive Oil Soap Bar"
           }
         },
         "short_desc_PCTrwt": {
           "type": "short_desc",
+          "disabled": true,
           "settings": {
             "short_desc": "Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin."
           }
@@ -51,8 +53,48 @@
             "size_chart_page": ""
           }
         },
+        "appstle_subscription_appstle_subscription_product_page_widget_pfCncU": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "disabled": true,
+          "settings": {}
+        },
+        "subscription_V7UHqU": {
+          "type": "subscription",
+          "disabled": true,
+          "settings": {
+            "title": "Subscribe & Save",
+            "default_purchase_type": "subscribe",
+            "otp_heading": "One Time Purchase",
+            "sub_heading": "Delivered every month",
+            "sub_discount_pct": 5,
+            "freq_label": "DELIVERY FREQUENCY",
+            "freq_description": "You Will Receive A Shipment Every Two Months",
+            "card_bg": "#ffffff",
+            "selected_card_bg": "#f8f6ee",
+            "border_color": "#e0e0e0",
+            "selected_border_color": "#1a2744",
+            "radio_border_color": "#cccccc",
+            "radio_active_color": "#fbdd40",
+            "label_color": "#000000",
+            "badge_bg": "#fbdd40",
+            "badge_text_color": "#000000",
+            "freq_label_color": "#555555",
+            "freq_desc_color": "#777777",
+            "select_bg": "#ffffff",
+            "border_radius": 8
+          }
+        },
+        "kaching_bundles_app_block_CJrMDK": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "manual_deal_block_id": ""
+          }
+        },
         "sub_bundle_9YPwfn": {
           "type": "sub_bundle",
+          "disabled": true,
           "settings": {
             "title": "Subscribe & Save",
             "default_purchase_type": "subscribe",
@@ -103,6 +145,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "show_cstm_btn": false,
             "cstm_class": true,
             "show_payment_button": false,
             "show_gift_card_recipient": true,
@@ -120,6 +163,17 @@
             "icon_2": "shopify://shop_images/image.svg",
             "text_2": "Free shipping on orders over $50",
             "text_3": ""
+          }
+        },
+        "accordion_fpKaYb": {
+          "type": "accordion",
+          "settings": {
+            "default_open": true,
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Description",
+            "content": "{{ product.description }}",
+            "page": ""
           }
         },
         "targetbay_product_reviews_product_stats_pF9gGF": {
@@ -140,17 +194,6 @@
           "settings": {
             "collapse_content": false,
             "show_below_gallery": false
-          }
-        },
-        "accordion_fpKaYb": {
-          "type": "accordion",
-          "settings": {
-            "default_open": true,
-            "show_below_gallery": false,
-            "icon": "none",
-            "title": "Description",
-            "content": "{{ product.description }}",
-            "page": ""
           }
         },
         "accordion_N3tiJp": {
@@ -262,13 +305,16 @@
         "subtitle_TqJGVn",
         "short_desc_PCTrwt",
         "variant_picker",
+        "appstle_subscription_appstle_subscription_product_page_widget_pfCncU",
+        "subscription_V7UHqU",
+        "kaching_bundles_app_block_CJrMDK",
         "sub_bundle_9YPwfn",
         "buy_buttons",
         "feature_icons_bEqrrw",
+        "accordion_fpKaYb",
         "targetbay_product_reviews_product_stats_pF9gGF",
         "price",
         "description",
-        "accordion_fpKaYb",
         "accordion_N3tiJp",
         "accordion_aM9zjH",
         "accordion_jwzrfA",

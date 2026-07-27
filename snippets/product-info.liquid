@@ -152,11 +152,14 @@ Supported variables
               {{ block.settings.short_desc }}
             </div>
 
+            {%- when 'subscription' -%}
+              {% render 'subscription-only-block', block: block, section: section, product: product %}
+
             {%- when 'sub_bundle' -%}
-              {% render 'subscription-bundle', block: block, section, section, product: product %}
+              {% render 'subscription-bundle', block: block, section: section, product: product %}
 
             {%- when 'feature_icons' -%}
-              {% render 'feature_icons', block: block, section, section %}
+              {% render 'feature_icons', block: block, section: section %}
             
           {%- when 'title' -%}
             {%- if product != blank -%}
@@ -357,17 +360,31 @@ Supported variables
             -%}
 
           {%- when 'buy_buttons' -%}
-            {%- render 'cstm-buy-button',
-                product: product,
-                form_id: product_form_id,
-                show_payment_button: block.settings.show_payment_button,
-                show_gift_card_recipient: block.settings.show_gift_card_recipient,
-                atc_button_background: block.settings.atc_button_background,
-                atc_button_text_color: block.settings.atc_button_text_color,
-                payment_button_background: block.settings.payment_button_background,
-                payment_button_text_color: block.settings.payment_button_text_color,
-                has_subscription_bundle: has_subscription_bundle
-            -%}
+            {% if block.settings.show_cstm_btn %}
+              {%- render 'cstm-buy-button',
+                  product: product,
+                  form_id: product_form_id,
+                  show_payment_button: block.settings.show_payment_button,
+                  show_gift_card_recipient: block.settings.show_gift_card_recipient,
+                  atc_button_background: block.settings.atc_button_background,
+                  atc_button_text_color: block.settings.atc_button_text_color,
+                  payment_button_background: block.settings.payment_button_background,
+                  payment_button_text_color: block.settings.payment_button_text_color,
+                  has_subscription_bundle: has_subscription_bundle
+              -%}
+            {% else %}
+              {%- render 'buy-buttons',
+                  product: product,
+                  form_id: product_form_id,
+                  show_payment_button: block.settings.show_payment_button,
+                  show_gift_card_recipient: block.settings.show_gift_card_recipient,
+                  atc_button_background: block.settings.atc_button_background,
+                  atc_button_text_color: block.settings.atc_button_text_color,
+                  payment_button_background: block.settings.payment_button_background,
+                  payment_button_text_color: block.settings.payment_button_text_color,
+                  has_subscription_bundle: has_subscription_bundle
+              -%}
+            {% endif %}
 
           {%- when 'pickup_availability' -%}
             {%- if product != blank -%}

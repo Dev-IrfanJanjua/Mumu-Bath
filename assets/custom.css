@@ -827,6 +827,315 @@ a.link-faded-reverse:last-child {
     background-size: contain;
 }
 
+/* ===== kachin bundle and appstle widget style ======= */
+
+.kaching-bundles .kaching-bundles__bar-container {
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background: #FFF !important;
+    cursor: pointer !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-container .kaching-bundles__bar-wrapper {
+    padding: 24px 16px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-radio {
+    box-shadow: 0 0 0 2px#0000005C !important;
+}
+
+.kaching-bundles  span.kaching-bundles__bar-title {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-second-line {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+    opacity: 1 !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-price {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-container:hover,
+.kaching-bundles .kaching-bundles__bar--selected .kaching-bundles__bar-container {
+    border-color: #000 !important;
+    box-shadow: inset 0 0 0 1px #000 !important;
+    background: #F9F6EE !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-content-left {
+    gap: 5px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-label {
+    border-radius: 44px !important;
+    background: #FBDD40 !important;
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 12px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    padding: 6px 8px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar-full-price {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 14px;
+    font-style: normal !important;
+    font-weight: 500;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+    opacity: 0.6 !important;
+    margin-top: 5px !important;
+}
+
+.kaching-bundles .kaching-bundles__bar--selected .kaching-bundles__bar-radio {
+    box-shadow: 0 0 0 2px #00000c !important;
+    background: #FBDD40 !important;
+}
+
+.kaching-bundles .kaching-bundles__bar {
+    margin: 0 !important;
+}
+
+.kaching-bundles .kaching-bundles__bars {
+    gap: 20px !important;
+}
+
+.kaching-bundles .kaching-bundles__block>.kaching-bundles__block-title:first-child {
+    margin-bottom: 12px !important;
+    margin-top: 0 !important;
+}
+
+.kaching-bundles .kaching-bundles__block-title {
+    margin-bottom: 12px !important;
+    margin-top: 0 !important;
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+}
+
+.kaching-bundles .kaching-bundles__block-title:before,
+.kaching-bundles .kaching-bundles__block-title:after{
+  display: none !important;
+}
+
+/* ===== appstle ==== */
+
+.appstle_widget_title {
+  color: #101010 !important;
+  font-family: "Plus Jakarta Sans" !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    margin-bottom: 12px !important;
+}
+
+.appstle_subscription_wrapper {
+    margin: 0 !important;
+}
+
+.appstle_subscription_wrapper_option.appstle_include_dropdown {
+    margin: 20px 0 0 !important;
+    padding: 20px !important;
+}
+
+.appstle_subscription_wrapper_option {
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.30) !important;
+    background: rgba(255, 255, 255, 0.30) !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+}
+
+.appstle_circle {
+    border: 2px solid #00000066 !important;
+}
+
+span.appstle_one_time_text {
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 120% !important;
+    text-transform: capitalize !important;
+}
+
+.appstle_subscription_wrapper_option.appstle-active-option {
+    background: #F9F6EE !important;
+}
+
+.appstle_subscription_wrapper_option.appstle-active-option .appstle_circle {
+    border-color: #000 !important;
+}
+
+.appstle_subscription_wrapper_option.appstle-active-option .appstle_circle:before{
+  display: none !important;
+}
+
+.appstle_subscription_wrapper_option.appstle-active-option  span.appstle_dot {
+    background: #FBDD40 !important;
+}
+
+span.appstle_subscription_amount.transcy-money {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+}
+
+span.appstle_subscription_compare_amount.transcy-money {
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -0.31px !important;
+    opacity: 0.6 !important;
+}
+
+span.appstle_subscribe_save_text {
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 120% !important;
+    text-transform: capitalize !important;
+}
+
+span.appstle-save-badge {
+    border-radius: 44px !important;
+    background: #FBDD40 !important;
+    padding: 6px 8px !important;
+    color: #000 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 12px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+label.appstle_select_label {
+    color: #101010!important;
+    font-family: Plus Jakarta Sans!important;
+    font-size: 14px!important;
+    font-style: normal!important;
+    font-weight: 600!important;
+    line-height: 120%!important;
+    text-transform: capitalize!important;
+    margin: 12px 0 !important;
+}
+
+.appstle_subscribe_option {
+    margin-top: 0 !important;
+}
+
+.appstleSelectedSellingPlanOptionDescription {
+    margin-top: 12px;
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 12px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 148% !important;
+    text-transform: capitalize !important;
+}
+
+.appstle_custom_select {
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 120% !important;
+    text-transform: capitalize !important;
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    background: #fff !important;
+}
+
+.appstle_custom_select {
+    color: #101010 !important;
+    font-family: "Plus Jakarta Sans" !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 120% !important;
+    text-transform: capitalize !important;
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background: #FFF !important;
+}
+
+.appstle_select {
+    padding: 12px !important;
+}
+
+#appstle_subscription_widget0 .appstle_tooltip_wrapper.appstle_tooltip_wrapper {
+    display: none !important;
+}
+
+.appstle_subscription_radio_wrapper,
+.appstle_one_time_details_wrapper {
+    align-items: center !important;
+}
+
+.main_pdp-wrapper  quantity-selector.quantity-selector.cart_qty_slctr {
+    margin-top: 20px;
+}
+
+.appstle-tootltip-parent {
+    display: none !important;
+}
+
+.main_pdp-wrapper  buy-buttons.buy-buttons {
+    gap: 0;
+}
+
+#appstle_subscription_widget0 {
+    margin: 0 !important;
+}
+
 @media screen and (max-width: 768px){
 
 .title_title{
@@ -837,6 +1146,31 @@ a.link-faded-reverse:last-child {
 .btn_btn{
   font-size: 14px;
   line-height: 120%; /* 26.64px */
+}
+
+span.appstle_one_time_text,
+span.appstle_subscribe_save_text {
+    font-size: 14px !important;
+}
+
+span.appstle-text-and-badge-wrapper {
+    gap: 5px !important;
+}
+
+span.appstle_subscription_amount.transcy-money {
+    font-size: 16px!important;
+}
+
+.appstle_subscription_wrapper_option.appstle_include_dropdown {
+    margin: 16px 0 0!important;
+}
+
+.kaching-bundles .kaching-bundles__bars {
+    gap: 16px!important;
+}
+
+.kaching-bundles .kaching-bundles__bar-container .kaching-bundles__bar-wrapper {
+    padding: 16px!important;
 }
 
 }

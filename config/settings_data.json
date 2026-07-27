@@ -94,9 +94,14 @@
         "disabled": true,
         "settings": {}
       },
+      "319724205969189013": {
+        "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {}
+      },
       "15557474716127144420": {
         "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       },
       "10436698916776057164": {
@@ -104,9 +109,9 @@
         "disabled": false,
         "settings": {}
       },
-      "319724205969189013": {
-        "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
-        "disabled": false,
+      "8651273087494775001": {
+        "type": "shopify://apps/bayengage-email-marketing/blocks/bayengage-embed/8614585b-d13d-43f9-bedc-abbb26a11ca6",
+        "disabled": true,
         "settings": {}
       }
     }

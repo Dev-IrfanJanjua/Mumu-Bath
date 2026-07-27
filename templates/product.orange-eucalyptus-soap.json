@@ -44,6 +44,7 @@
           "type": "accordion",
           "disabled": true,
           "settings": {
+            "default_open": true,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Benefits",
@@ -55,6 +56,7 @@
           "type": "accordion",
           "disabled": true,
           "settings": {
+            "default_open": true,
             "show_below_gallery": false,
             "icon": "none",
             "title": "How to Use",
@@ -66,6 +68,7 @@
           "type": "accordion",
           "disabled": true,
           "settings": {
+            "default_open": true,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Scent",
@@ -77,6 +80,7 @@
           "type": "accordion",
           "disabled": true,
           "settings": {
+            "default_open": true,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Suitable for",
@@ -88,6 +92,7 @@
           "type": "accordion",
           "disabled": true,
           "settings": {
+            "default_open": true,
             "show_below_gallery": false,
             "icon": "none",
             "title": "Ingredients",
@@ -115,6 +120,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "cstm_class": true,
             "show_payment_button": true,
             "show_gift_card_recipient": true,
             "atc_button_background": "",
@@ -172,6 +178,7 @@
         "complementary_products"
       ],
       "settings": {
+        "cstm_style": true,
         "container_size": "lg",
         "product_info_size": 50,
         "show_sticky_add_to_cart": false,

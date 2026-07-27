@@ -23,7 +23,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 130%;
     padding-bottom: 16px;
 }
 
@@ -62,6 +62,7 @@
 .main_pdp-wrapper details.accordion.group .accordion__content.prose strong,
 .main_pdp-wrapper .toggle-wrap .toggle-content ul strong {
     font-weight: 600;
+    line-height: 160%;
 }
 
 .main_pdp-wrapper .product-title {
@@ -168,6 +169,7 @@ span.pdp-rating-text strong {
     margin: 0;
 }
 
+buy-buttons button.button,
 .cstm-buy__btn {
     border-radius: 41px;
     background: var(--Yellow, #FBDD40);
@@ -184,6 +186,7 @@ span.pdp-rating-text strong {
     letter-spacing: 0;
 }
 
+buy-buttons button.button:hover,
 .cstm-buy__btn:hover{
     background: #000;
     color: #fff;
@@ -240,6 +243,7 @@ span.pdp-rating-text strong {
     margin-bottom: 12px;
 }
 
+buy-buttons button.button,
 .cstm-buy__btn {
     margin: 20px 0 16px;
 }

@@ -7606,9 +7606,3 @@ li,
 a{
   font-family: "Plus Jakarta Sans";
 }
-
-/* ==== app display none ==== */
-
-div#appstle_subscription_widget0 {
-    display: none !important;
-}

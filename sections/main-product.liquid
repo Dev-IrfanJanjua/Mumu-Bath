@@ -1160,11 +1160,165 @@ quick buy information in a template, that will be extracted in JS, which ensures
       ]
     },
     {
+      "type": "subscription",
+      "name": "Subscribe & Save",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "header",
+          "content": "── Subscribe & Save Widget ──"
+        },
+        {
+          "type": "select",
+          "id": "default_purchase_type",
+          "label": "Default Selected Purchase Type",
+          "options": [
+            { "value": "subscribe", "label": "Subscribe & Save" },
+            { "value": "one_time",  "label": "One Time Purchase" }
+          ],
+          "default": "subscribe"
+        },
+        {
+          "type": "text",
+          "id": "otp_heading",
+          "label": "One-Time Label",
+          "default": "One Time Purchase"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Subscribe Label",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "range",
+          "id": "sub_discount_pct",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "Subscription Discount %",
+          "default": 8,
+          "info": "Applied to the subscription price when Subscribe is selected"
+        },
+        {
+          "type": "text",
+          "id": "freq_label",
+          "label": "Frequency Label",
+          "default": "DELIVERY FREQUENCY"
+        },
+        {
+          "type": "text",
+          "id": "freq_description",
+          "label": "Frequency Description",
+          "default": "You Will Receive A Shipment Every Two Months"
+        },
+        {
+          "type": "header",
+          "content": "── Colors ──"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "selected_card_bg",
+          "label": "Selected Card Background",
+          "default": "#F8F6EE"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border Color",
+          "default": "#e0e0e0"
+        },
+        {
+          "type": "color",
+          "id": "selected_border_color",
+          "label": "Selected Border Color",
+          "default": "#1A2744"
+        },
+        {
+          "type": "color",
+          "id": "radio_border_color",
+          "label": "Radio Border (inactive)",
+          "default": "#cccccc"
+        },
+        {
+          "type": "color",
+          "id": "radio_active_color",
+          "label": "Radio Active Color",
+          "default": "#FBDD40"
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "label": "Label Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge Background",
+          "default": "#FBDD40"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "freq_label_color",
+          "label": "Frequency Label Color",
+          "default": "#555555"
+        },
+        {
+          "type": "color",
+          "id": "freq_desc_color",
+          "label": "Frequency Description Color",
+          "default": "#777777"
+        },
+        {
+          "type": "color",
+          "id": "select_bg",
+          "label": "Frequency Dropdown Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "min": 0,
+          "max": 24,
+          "step": 2,
+          "unit": "px",
+          "label": "Card Border Radius",
+          "default": 8
+        }
+      ]
+    },
+    {
       "type": "buy_buttons",
       "name": "t:sections.main_product.blocks.buy_buttons.name",
       "limit": 1,
       "settings": [
-        
+        {
+          "type": "checkbox",
+          "id": "show_cstm_btn",
+          "label": "Show Custom ATC Button",
+          "info": "Check this when using custom widget for subscription",
+          "default": false
+        },
         {
           "type": "checkbox",
           "id": "cstm_class",

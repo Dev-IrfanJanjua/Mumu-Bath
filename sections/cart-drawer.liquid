@@ -203,14 +203,15 @@ quantity-selector.cart_qty_slctr {
     border-radius: 4px;
     border: 0.8px solid #1E1E1E;
     background: #FFF;
-    max-height: 30px;
+    margin: 0 0;
+    font-family: 'GTStandard-M';
 }
 
 .cart-drawer__items .quantity-selector__button {
     height: 30px;
 }
 
-quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
+quantity-selector.cart_qty_slctr input.quantity-selector__input {
     color: #1E1E1E;
     text-align: center;
     font-family: "Plus Jakarta Sans";
@@ -218,7 +219,6 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
-    height: 30px;
 }
 
 .cart-drawer__items .line-item-info .v-stack {
@@ -377,6 +377,23 @@ p.h5.text-center.empty {
     text-transform: capitalize;
 }
 
+price-list.price-list.price-list--product {
+    margin: 7px 0 20px;
+}
+
+payment-terms.payment-terms {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+buy-buttons.buy-buttons.buy-buttons--has-dynamic {
+    gap: 0;
+}
+
+button.quantity-selector__button .icon-minus {
+    display: block !important;
+}
+
 @media screen and (max-width: 768px){
 
 .cart-drawer::part(header) {
@@ -416,6 +433,14 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 
 .cart-drawer__items .icon-minus{
   display: block
+}
+
+payment-terms.payment-terms {
+    margin-bottom: 16px;
+}
+
+price-list.price-list.price-list--product {
+    margin: 7px 0 16px;
 }
 
 }
