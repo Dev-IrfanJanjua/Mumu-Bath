@@ -158,7 +158,12 @@
             "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/all",
-            "button_open_new_tab": false
+            "button_open_new_tab": false,
+            "button_position": "default",
+            "slide_button_bg_color": "",
+            "slide_button_text_color": "",
+            "slide_button_hover_bg_color": "",
+            "slide_button_hover_text_color": ""
           }
         },
         "slide_DNFYcL": {
@@ -173,6 +178,11 @@
             "button_label": "Save Your Spot",
             "button_url": "shopify://products/ceramics-workshop",
             "button_open_new_tab": false,
+            "button_position": "default",
+            "slide_button_bg_color": "#F8EFE2",
+            "slide_button_text_color": "#000000",
+            "slide_button_hover_bg_color": "#000000",
+            "slide_button_hover_text_color": "#FFFFFF",
             "desktop_banner_image": "shopify://shop_images/halloween_desktop_dd485f2b-6b55-49e6-aa47-7df4b99e7cf1.jpg",
             "hero_image": "shopify://shop_images/mobile.png"
           }
@@ -189,6 +199,11 @@
             "button_label": "Shop Now",
             "button_url": "shopify://collections/all",
             "button_open_new_tab": false,
+            "button_position": "default",
+            "slide_button_bg_color": "",
+            "slide_button_text_color": "",
+            "slide_button_hover_bg_color": "",
+            "slide_button_hover_text_color": "",
             "desktop_banner_image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
             "hero_image": "shopify://shop_images/homepage-mobile_6506123f-8cea-4c66-80d7-05f8776b7ea8.png"
           }

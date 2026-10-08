@@ -37,7 +37,64 @@
     <div class="swiper hero-swiper hero-swiper--{{ section.id }}" data-hero-swiper-id="{{ section.id }}">
       <div class="swiper-wrapper">
         {%- for block in section.blocks -%}
-          <div class="swiper-slide" {{ block.shopify_attributes }}>
+          {%- liquid
+            assign btn_position = block.settings.button_position | default: 'default'
+
+            comment
+              Colour objects ko string me convert karke check karte hain (empty / transparent = global colour use hoga)
+            endcomment
+            assign slide_btn_bg = block.settings.slide_button_bg_color | append: ''
+            assign slide_btn_color = block.settings.slide_button_text_color | append: ''
+            assign slide_btn_hover_bg = block.settings.slide_button_hover_bg_color | append: ''
+            assign slide_btn_hover_color = block.settings.slide_button_hover_text_color | append: ''
+            if slide_btn_bg == 'rgba(0,0,0,0)'
+              assign slide_btn_bg = ''
+            endif
+            if slide_btn_color == 'rgba(0,0,0,0)'
+              assign slide_btn_color = ''
+            endif
+            if slide_btn_hover_bg == 'rgba(0,0,0,0)'
+              assign slide_btn_hover_bg = ''
+            endif
+            if slide_btn_hover_color == 'rgba(0,0,0,0)'
+              assign slide_btn_hover_color = ''
+            endif
+          -%}
+
+          {%- capture slide_button -%}
+            {%- if block.settings.button_label != blank and block.settings.button_url != blank -%}
+              <a class="hero-section__btn"
+                href="{{ block.settings.button_url }}"
+                {% if block.settings.button_open_new_tab %}
+                  target="_blank" rel="noopener noreferrer"
+                {% endif %}
+                aria-label="{{ block.settings.button_label | escape }}"
+              >
+                {{- block.settings.button_label | escape -}}
+              </a>
+            {%- endif -%}
+          {%- endcapture -%}
+
+          <div class="swiper-slide hero-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            {%- comment -%} Per-slide button colours — higher specificity + !important taake global rules override na karein {%- endcomment -%}
+            {%- if slide_btn_bg != '' or slide_btn_color != '' or slide_btn_hover_bg != '' or slide_btn_hover_color != '' -%}
+              <style>
+                {%- if slide_btn_bg != '' or slide_btn_color != '' %}
+                .hero-section .hero-slide--{{ block.id }} .hero-section__btn {
+                  {% if slide_btn_bg != '' %}background: {{ slide_btn_bg }} !important;{% endif %}
+                  {% if slide_btn_color != '' %}color: {{ slide_btn_color }} !important;{% endif %}
+                }
+                {%- endif %}
+                {%- if slide_btn_hover_bg != '' or slide_btn_hover_color != '' %}
+                .hero-section .hero-slide--{{ block.id }} .hero-section__btn:hover,
+                .hero-section .hero-slide--{{ block.id }} .hero-section__btn:focus-visible {
+                  {% if slide_btn_hover_bg != '' %}background: {{ slide_btn_hover_bg }} !important;{% endif %}
+                  {% if slide_btn_hover_color != '' %}color: {{ slide_btn_hover_color }} !important;{% endif %}
+                }
+                {%- endif %}
+              </style>
+            {%- endif -%}
+
             <div class="hero-rel">
               <div class="hero-section__grid">
                 {%- comment -%} ── LEFT COLUMN — Content (overlays image on both desktop & mobile) ── {%- endcomment -%}
@@ -85,17 +142,9 @@
                     </p>
                   {%- endif -%}
 
-                  {%- comment -%} CTA Button {%- endcomment -%}
-                  {%- if block.settings.button_label != blank and block.settings.button_url != blank -%}
-                    <a class="hero-section__btn"
-                      href="{{ block.settings.button_url }}"
-                      {% if block.settings.button_open_new_tab %}
-                        target="_blank" rel="noopener noreferrer"
-                      {% endif %}
-                      aria-label="{{ block.settings.button_label | escape }}"
-                    >
-                      {{- block.settings.button_label | escape -}}
-                    </a>
+                  {%- comment -%} CTA Button — default position (below description) {%- endcomment -%}
+                  {%- if btn_position == 'default' -%}
+                    {{ slide_button }}
                   {%- endif -%}
                 </div>
                 {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
@@ -176,6 +225,13 @@
                 </div>
               {%- endif -%}
               {%- comment -%} ── END Banner Image Wrapper ── {%- endcomment -%}
+
+              {%- comment -%} CTA Button — positioned on banner (top / center / bottom) {%- endcomment -%}
+              {%- if btn_position != 'default' and slide_button != blank -%}
+                <div class="hero-section__btn-wrap hero-section__btn-wrap--{{ btn_position }}">
+                  {{ slide_button }}
+                </div>
+              {%- endif -%}
             </div>
           </div>
         {%- endfor -%}
@@ -313,7 +369,7 @@
 
   /* ── CTA Button ── */
   .hero-section__btn {
-    background: {{ section.settings.button_bg_color }} !important;
+    background: var(--hero-btn-bg, #d4a84b) !important;
     color: var(--hero-btn-color, #000) !important;
     font-family: 'Plus Jakarta Sans';
     font-size: 18px;
@@ -334,13 +390,33 @@
 
   .hero-section__btn:hover,
   .hero-section__btn:focus-visible {
-    background-color: var(--hero-btn-hover-bg, #1a1a1a) !important;
+    background: var(--hero-btn-hover-bg, #1a1a1a) !important;
     color: var(--hero-btn-hover-color, #fff) !important;
     outline-offset: 3px;
   }
 
   .hero-rel {
     position: relative;
+  }
+
+  /* ── Positioned button (per-slide: top / center / bottom) ── */
+  .hero-section__btn-wrap {
+    position: absolute;
+    left: 9%;
+    z-index: 3;
+  }
+
+  .hero-section__btn-wrap--top {
+    top: 8%;
+  }
+
+  .hero-section__btn-wrap--center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-section__btn-wrap--bottom {
+    bottom: 8%;
   }
 
   /* ── Banner wrapper (holds desktop + mobile image, controls flow height) ── */
@@ -441,6 +517,11 @@
       width: 100%;
     }
 
+    .hero-section__btn-wrap {
+      left: 16px;
+      right: 16px;
+    }
+
     /* Banner: mobile image dikhaye, desktop image chupaye */
     .hero-section__banner-image--desktop {
       display: none;
@@ -538,10 +619,26 @@
         { "type": "text", "id": "button_label", "label": "Button Label", "default": "Shop Now" },
         { "type": "url", "id": "button_url", "label": "Button URL", "default": "/collections/all" },
         { "type": "checkbox", "id": "button_open_new_tab", "label": "Open in new tab", "default": false },
+        {
+          "type": "select",
+          "id": "button_position",
+          "label": "Button Position",
+          "options": [
+            { "value": "default", "label": "Default (below description)" },
+            { "value": "top", "label": "Top of banner" },
+            { "value": "center", "label": "Center of banner" },
+            { "value": "bottom", "label": "Bottom of banner" }
+          ],
+          "default": "default"
+        },
+        { "type": "paragraph", "content": "Leave colours empty to use the Global Button Colours from section settings." },
+        { "type": "color", "id": "slide_button_bg_color", "label": "Button Background" },
+        { "type": "color", "id": "slide_button_text_color", "label": "Button Text Colour" },
+        { "type": "color", "id": "slide_button_hover_bg_color", "label": "Button Hover Background" },
+        { "type": "color", "id": "slide_button_hover_text_color", "label": "Button Hover Text Colour" },
         { "type": "header", "content": "Images" },
         { "type": "image_picker", "id": "desktop_banner_image", "label": "Desktop Banner Image" },
-        { "type": "image_picker", "id": "hero_image", "label": "Hero Image Mobile" },
-      
+        { "type": "image_picker", "id": "hero_image", "label": "Hero Image Mobile" }
       ]
     }
   ],
@@ -574,8 +671,7 @@
             "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
             "button_label": "Shop Now",
             "button_url": "/collections/all",
-            "button_open_new_tab": false,
-           
+            "button_open_new_tab": false
           }
         },
         {
@@ -589,8 +685,7 @@
             "description": "Every bar is poured, cured, and cut by hand in small batches — no fillers, no shortcuts.",
             "button_label": "Shop Now",
             "button_url": "/collections/all",
-            "button_open_new_tab": false,
-          
+            "button_open_new_tab": false
           }
         }
       ]
