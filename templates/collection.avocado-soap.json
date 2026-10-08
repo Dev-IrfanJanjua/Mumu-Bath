@@ -33,8 +33,8 @@
         "image_6xebYE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Avocado_Oil_Soaps_-_banner.png",
-            "mobile_image": "shopify://shop_images/avocado-mobile_9a7f3bb4-2abf-4a36-b667-5968aa73a50f.png",
+            "image": "shopify://shop_images/avocado_oil_soap.jpg",
+            "mobile_image": "shopify://shop_images/Frame_427319804.png",
             "subheading": "",
             "title": "<h1>All Natural Avocado Soaps</h1>",
             "mobile_text_position": "place-self-start-center text-center",
@@ -75,6 +75,8 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
         "products_per_page": 34,
         "products_per_row_mobile": "2",
@@ -179,7 +181,7 @@
           "type": "question",
           "settings": {
             "question": "<strong>What is your return policy on avocado soaps?</strong>",
-            "answer": "<p>We accept returns within 30 days on unused, unopened items. Just contact us and we’ll guide you through the process.</p>"
+            "answer": "<p>We accept returns within 7 days on unused, unopened items. Just contact us and we’ll guide you through the process.</p>"
           }
         },
         "question_Lrdw8P": {

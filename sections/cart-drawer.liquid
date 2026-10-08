@@ -145,7 +145,7 @@
 
 .cart-drawer__items line-item.line-item {
     gap: 12px;
-    align-items: stretch;
+    align-items: start;
 }
 
 .cart-drawer__items img.line-item__media {
@@ -380,7 +380,22 @@ p.h5.text-center.empty {
 price-list.price-list.price-list--product {
     margin: 7px 0 20px;
 }
-
+.main_pdp-sec price-list.price-list.price-list--product {
+    margin: 0 !important;
+}
+.main_pdp-sec price-list.price-list.price-list--product .h4.text-subdued {
+       color: #000 !important;
+    font-family: Plus Jakarta Sans !important;
+    font-size: 22px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 18.3px !important;
+    letter-spacing: -.31px !important;
+}
+.main_pdp-sec price-list.price-list.price-list--product .h4.text-on-sale{
+   color: #000 !important;
+   letter-spacing: -.31px !important;
+}
 payment-terms.payment-terms {
     margin-bottom: 20px;
     display: flex;
@@ -424,7 +439,7 @@ quantity-selector.cart_qty_slctr input.quantity-selector__input.text-sm {
 
 .cart-drawer__items line-item.line-item {
     gap: 10px;
-    align-items: center ;
+    align-items: start;
 }
 
 .cart-drawer__items {

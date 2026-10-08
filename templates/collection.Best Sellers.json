@@ -34,10 +34,10 @@
         "image_PEm39A": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_61.png",
-            "mobile_image": "shopify://shop_images/homepage.png",
+            "image": "shopify://shop_images/best_seller.jpg",
+            "mobile_image": "shopify://shop_images/Frame_427319790.png",
             "subheading": "",
-            "title": "<strong>Naturally radiant, Never greasy </strong>",
+            "title": "Best Sellers",
             "mobile_text_position": "place-self-start-center text-center",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 520,
@@ -76,6 +76,8 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
         "products_per_page": 34,
         "products_per_row_mobile": "2",

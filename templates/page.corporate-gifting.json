@@ -56,7 +56,7 @@
         "btn_secondary_hover_bg": "#000000",
         "btn_secondary_hover_text": "#ffffff",
         "hide_secondary_mobile": true,
-        "image": "shopify://shop_images/Container_1.png",
+        "image": "shopify://shop_images/facial_bundle_set.png",
         "image_abs": "shopify://shop_images/Overlay_Blur.png",
         "bg_color": "#f8f6ee",
         "padding_top": 60,
@@ -166,7 +166,7 @@
         "customclass": "",
         "title": "<p>Make Every Thank You<br/>Feel Thoughtful</p>",
         "title_color": "#000000",
-        "subtitle": "Generic gifts are easy to forget. Mumu Bath helps you create gifting moments that feel warm, useful, and personal — whether you're celebrating employees, thanking clients, welcoming partners, or sending seasonal appreciation.",
+        "subtitle": "Mumu Bath helps you create gifting moments that feel warm, useful, and personal — whether you're celebrating employees, thanking clients, welcoming partners, or sending seasonal appreciation.",
         "sticky_offset": 80,
         "block_bg_color": "#faf7ef",
         "block_border_color": "#faf7ef",
@@ -237,6 +237,7 @@
         "value_xdMghR",
         "value_QfdrkL"
       ],
+      "disabled": true,
       "name": "Core Values",
       "settings": {
         "add_class": true,
@@ -430,48 +431,48 @@
         "faq_NAdctW": {
           "type": "faq",
           "settings": {
-            "question": "Is there a minimum order quantity?",
-            "answer": "<p>Minimum order quantities may apply depending on your request. Please contact us for details.</p>",
+            "question": "Is there an order minimum for corporate gifting orders? ",
+            "answer": "<p>Our order minimum quantity is 10 gifts with a minimum price of $25 per gift.</p>",
             "open_by_default": false
           }
         },
         "faq_Q7h4yH": {
           "type": "faq",
           "settings": {
-            "question": "Do you offer discounts for larger orders?",
-            "answer": "<p>Yes, we offer volume discounts on eligible bulk and corporate orders.</p>",
+            "question": "How long does the order process take?",
+            "answer": "<p>Once we receive your order request, you can expect to hear from our team in 1-2 business days. We'll work with you to choose the best gift for your needs.</p><p>We will ship all gifts to your recipient list within 4-7 business days, depending on order size. Rush order turnaround is possible on a case by case basis. Just let us know what you need!</p>",
             "open_by_default": false
           }
         },
         "faq_qMwJUF": {
           "type": "faq",
           "settings": {
-            "question": "Can we include a custom note or special packaging?",
-            "answer": "<p>Yes, personalized gift notes and custom packaging options are available for qualifying orders.</p>",
+            "question": "Where do you ship? How much does it cost?",
+            "answer": "<p>At the moment we only ship within the U.S., and shipping cost will vary depending on the shipping method needed to hit your deadline. We can ship to a single location, or send each gift directly to recipients. </p>",
             "open_by_default": false
           }
         },
         "faq_7xjUyT": {
           "type": "faq",
           "settings": {
-            "question": "How long does the process take?",
-            "answer": "<p>Production and delivery times vary based on order size and customization. We'll provide an estimated timeline when your order is confirmed.</p>",
+            "question": "Which products are available? ",
+            "answer": "<p>Our entire collection is available for corporate gifting. Our team will help curate the perfect gift for your specific needs. Our Mindful Kits in particular make the gifting process simple, easy, and thoughtful. </p>",
             "open_by_default": false
           }
         },
         "faq_JbgbdA": {
           "type": "faq",
           "settings": {
-            "question": "Can we choose products from the full collection?",
-            "answer": "<p>Yes, you can select from our available collection, subject to product availability.</p>",
+            "question": "Do you offer discounts?",
+            "answer": "<p>We offer discounts on corporate orders for 30 recipients or more.</p>",
             "open_by_default": false
           }
         },
         "faq_YNNbfg": {
           "type": "faq",
           "settings": {
-            "question": "Who should I contact for corporate gifting?",
-            "answer": "<p>Please contact our customer support team through our Contact page, and we'll be happy to assist with your corporate gifting needs.</p>",
+            "question": "Can I include a note or request special packaging?",
+            "answer": "<p>We offer a number of ways to personalize your gifts, and can discuss cost as part of your overall needs.</p>",
             "open_by_default": false
           }
         },

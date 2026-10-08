@@ -1,3 +1,12 @@
+.main_pdp-wrapper .targetbay-reviews-count-field .targetbay-write-review{
+    display: none;
+}
+.main_pdp-wrapper .targetbay-reviews-count-field .targetbay-question-fields{
+    display: none;
+}
+.main_pdp-wrapper .targetbay-reviews-count-field .targetbay-question-icon{
+    display: none;
+}
 .main_pdp-wrapper details.accordion.group {
     border: none;
     border-bottom: var(--stroke-weight-1, 1px) solid var(--color-grey-91, #E9E8E8);
@@ -65,7 +74,7 @@
     line-height: 160%;
 }
 
-.main_pdp-wrapper .product-title {
+.main_pdp-wrapper h1.product-title {
     color: #000;
     font-family: "Mona Sans";
     font-size: 48px;
@@ -147,6 +156,14 @@ span.pdp-rating-text {
 span.pdp-rating-text strong {
     font-weight: 600;
 }
+.main_pdp-wrapper .accordion__content.prose h1, h2, h3, h4, h5, h6{
+    font-size: 20px;
+    line-height: 24px;
+}
+.main_pdp-wrapper .accordion__content.prose p.product-title.h3{
+    font-size: 20px;
+    line-height: 24px;
+}
 
 .pdp_subtitle {
     color: #101010;
@@ -167,6 +184,7 @@ span.pdp-rating-text strong {
     font-weight: 400;
     line-height: 130%;
     margin: 0;
+    padding:16px; 
 }
 
 buy-buttons button.button,
@@ -181,7 +199,7 @@ buy-buttons button.button,
     font-weight: 500;
     line-height: 148%;
     text-transform: capitalize;
-    margin: 32px 0 16px;
+    margin: 16px 0 16px;
     transition: all 0.3s ease;
     letter-spacing: 0;
 }
@@ -233,6 +251,7 @@ buy-buttons button.button:hover,
 .pdp_shortdesc {
     font-size: 14px;
     line-height: 120%;
+    padding:14px; 
 }
 
 .main_pdp-wrapper span.accordion__toggle span.text-with--icon {

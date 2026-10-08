@@ -594,7 +594,7 @@
         "heading_font": "serif",
         "main_font": "system_ui_n4",
         "recaptcha_icon_image": "shopify://shop_images/bell.png",
-        "recaptcha_text": "A 50% deposit is required to confirm your booking, with the remaining 50% due before the day of the party. A one-time $45 cleaning fee also applies."
+        "recaptcha_text": "A $400 deposit is required to confirm your reservation. The remaining balance is due before the event date. A one-time cleaning fee of $55 also applies."
       }
     },
     "multi_column_rNMHQK": {
@@ -729,6 +729,34 @@
     "mblp_faqs_9Ac7cj": {
       "type": "mblp-faqs",
       "blocks": {
+        "faq_item_PeGVJ8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can a bath bomb workshop party be customized for specialevents?",
+            "answer": "Yes, your bath bomb workshop party can be tailored for birthdays, bridal showers, or team-building events. We’ll match the theme, colors, and scents to suit your occasion."
+          }
+        },
+        "faq_item_qdMVRE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is included in a bath bomb workshop party package?",
+            "answer": "Each bath bomb workshop party includes all supplies, instruction, and materials for every guest. We also handle setup and cleanup, so you can simply enjoy."
+          }
+        },
+        "faq_item_x6Yqam": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you require a deposit for private party bookings?",
+            "answer": "Yes, a small deposit secures your date and materials. The remaining balance is due closer to the event."
+          }
+        },
+        "faq_item_fYqbMM": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does a bath bomb making workshop usually last?",
+            "answer": "Each bath bomb making workshop runs about 1.5 to 2 hours. It includes hands-on creation, drying time, and plenty of time for laughter and photos."
+          }
+        },
         "faq_item_Pbqfcq": {
           "type": "faq_item",
           "settings": {
@@ -761,7 +789,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How does payment work?",
-            "answer": "We accept cash, credit cards, and digital payments. A 50% deposit is required to book, with the balance due before the day of your event."
+            "answer": "We accept cash, credit cards, and digital payments. A ＄400 deposit is required to book, with the balance due before the day of your event."
           }
         },
         "faq_item_cL8YxL": {
@@ -773,6 +801,10 @@
         }
       },
       "block_order": [
+        "faq_item_PeGVJ8",
+        "faq_item_qdMVRE",
+        "faq_item_x6Yqam",
+        "faq_item_fYqbMM",
         "faq_item_Pbqfcq",
         "faq_item_JTM9FJ",
         "faq_item_m9XEbf",
@@ -780,7 +812,6 @@
         "faq_item_CM4ajD",
         "faq_item_cL8YxL"
       ],
-      "disabled": true,
       "name": "MBLP FAQs",
       "settings": {
         "faqs-id": "",
@@ -797,71 +828,71 @@
         "faq_item_YQHfr8": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does a bath bomb making workshop usually last?",
-            "answer": "Each bath bomb making workshop runs about 1.5 to 2 hours. It includes hands-on creation, drying time, and plenty of time for laughter and photos."
+            "question": "How should I store my soap to make it last longer?",
+            "answer": "Use a well-draining soap dish to keep the bar dry between uses, helping it last longer."
           }
         },
         "faq_item_jA8iY6": {
           "type": "faq_item",
           "settings": {
-            "question": "Do you require a deposit for private party bookings?",
-            "answer": "Yes, a small deposit secures your date and materials. The remaining balance is due closer to the event."
+            "question": "Is your bathing soap safe for sensitive skin or eczema?",
+            "answer": "Yes, our bathing soap is formulated to be ultra-mild and is loved by customers with sensitive skin, eczema, or dry patches."
           }
         },
         "faq_item_CjLpPP": {
           "type": "faq_item",
           "settings": {
-            "question": "What is included in a bath bomb workshop party package?",
-            "answer": "Each bath bomb workshop party includes all supplies, instruction, and materials for every guest. We also handle setup and cleanup, so you can simply enjoy."
+            "question": "Are your soaps exfoliating?",
+            "answer": "Some of our bars include natural exfoliants like oatmeal or botanicals. Check each product description for details."
           }
         },
         "faq_item_qrrn7d": {
           "type": "faq_item",
           "settings": {
-            "question": "Do you provide refreshments, or should we bring our own?",
-            "answer": "We focus on the bath bomb experience, but you’re welcome to bring snacks or drinks. We’ll make sure there’s space for your setup."
+            "question": "Are your soaps suitable for oily or acne-prone skin?",
+            "answer": "Yes, many of our bars include ingredients like tea tree oil and charcoal that help balance oil and soothe breakouts."
           }
         },
         "faq_item_Vz3LPx": {
           "type": "faq_item",
           "settings": {
-            "question": "What if someone in the group has sensitive skin?",
-            "answer": "No worries! We use gentle, natural ingredients suitable for all skin types. If anyone has allergies, just let us know beforehand."
+            "question": "Do your bath soaps contain synthetic fragrances or colors?",
+            "answer": "No. All of our bath soaps are free from synthetic additives - we use only essential oils and natural plant-based colorants."
           }
         },
         "faq_item_DFRg9C": {
           "type": "faq_item",
           "settings": {
-            "question": "Can a bath bomb workshop party be customized for specialevents?",
-            "answer": "Yes, your bath bomb workshop party can be tailored for birthdays, bridal showers, or team-building events. We’ll match the theme, colors, and scents to suit your occasion."
+            "question": "Is there a shelf life for unopened soaps?",
+            "answer": "Unopened, stored in a cool, dry place, your soap can last up to 18 months."
           }
         },
         "faq_item_VMMcFy": {
           "type": "faq_item",
           "settings": {
-            "question": "What happens if I need to reschedule my party?",
-            "answer": "We understand plans can change. Just contact us as early as possible, and we’ll help you find a new date that works."
+            "question": "Can I travel with your soap bars?",
+            "answer": "Yes, they are perfect for travel - no TSA restrictions and no mess."
           }
         },
         "faq_item_WjRWCq": {
           "type": "faq_item",
           "settings": {
-            "question": "What should participants wear?",
-            "answer": "We recommend comfortable clothing you don’t mind getting a little powder on. Aprons are provided for extra protection."
+            "question": "Is your organic soap certified by any regulatory body?",
+            "answer": "We use certified organic ingredients, though the final organic soap bar is handcrafted in small batches and not currently third-party certified."
           }
         },
         "faq_item_GKEUTm": {
           "type": "faq_item",
           "settings": {
-            "question": "Do guests take home what they make in the bath bomb makingclass?",
-            "answer": "Yes! Every participant in our bath bomb making class gets to take home their custom-made bath bombs. It’s a beautiful keepsake that’s both personal and practical."
+            "question": "Do your soaps work in hard water?",
+            "answer": "Yes, our soaps lather well in both soft and hard water conditions."
           }
         },
         "faq_item_WU38p3": {
           "type": "faq_item",
           "settings": {
-            "question": "Can guests share tools and materials?",
-            "answer": "We provide enough materials for each participant, but some tools may be shared to keep the setup organized. Everything is sanitized between uses."
+            "question": "Do your soaps work in hard water?",
+            "answer": "No, our natural colors wash clean and don’t leave residue or staining."
           }
         }
       },
@@ -877,6 +908,7 @@
         "faq_item_GKEUTm",
         "faq_item_WU38p3"
       ],
+      "disabled": true,
       "name": "MBLP FAQs",
       "settings": {
         "faqs-id": "",

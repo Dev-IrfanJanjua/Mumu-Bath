@@ -9,53 +9,54 @@
   style="
     background-color: {{ section.settings.bg_color }};
     --ann-text-color: {{ section.settings.text_color }};
+    --ann-arrow-color: {{ section.settings.arrow_color }};
     --ann-pt: {{ section.settings.padding_y }}px;
     --ann-pb: {{ section.settings.padding_y }}px;
     --ann-font-size: {{ section.settings.font_size }}px;
-    --ann-speed: {{ section.settings.marquee_speed }}s;
+    --ann-arrow-size: {{ section.settings.arrow_size }}px;
   "
   role="region"
   aria-label="Announcement"
 >
+  <div class="ann__inner">
 
-  {%- comment -%} ── DESKTOP — static, centered ── {%- endcomment -%}
-  <div class="ann__desktop">
-    <div class="ann__desktop-inner">
-      {%- for block in message_blocks -%}
-        <span class="ann__item" {{ block.shopify_attributes }}>
-          {%- if section.settings.show_separator and forloop.first == false -%}
-            <span class="ann__sep" aria-hidden="true">{{ section.settings.separator }}</span>
-          {%- endif -%}
-          <span class="ann__rte rte">{{ block.settings.message }}</span>
-        </span>
-      {%- endfor -%}
+    {%- if message_blocks.size > 1 -%}
+      <button
+        type="button"
+        class="ann__arrow ann__arrow--prev"
+        id="ann-prev-{{ section.id }}"
+        aria-label="Previous announcement"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M15 5L8 12l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {%- endif -%}
+
+    <div class="swiper ann__swiper" id="ann-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- for block in message_blocks -%}
+          <div class="swiper-slide ann__slide" {{ block.shopify_attributes }}>
+            <span class="ann__rte rte">{{ block.settings.message }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
     </div>
+
+    {%- if message_blocks.size > 1 -%}
+      <button
+        type="button"
+        class="ann__arrow ann__arrow--next"
+        id="ann-next-{{ section.id }}"
+        aria-label="Next announcement"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {%- endif -%}
+
   </div>
-
-  {%- comment -%}
-    MOBILE — seamless CSS marquee.
-
-    The trick: render FOUR identical sets inside one flex track.
-    The keyframe moves the track left by exactly 25% (= one set).
-    When it snaps back to 0, sets 2-3-4 are still visible so
-    there is never a blank flash — completely seamless even with
-    a single short message.
-  {%- endcomment -%}
-  <div class="ann__mobile" aria-hidden="true">
-    <div class="ann__track">
-      {%- for n in (1..4) -%}
-        <div class="ann__set">
-          {%- for block in message_blocks -%}
-            <span class="ann__item">
-              <span class="ann__rte rte">{{ block.settings.message }}</span>
-              <span class="ann__sep" aria-hidden="true">{{ section.settings.separator }}</span>
-            </span>
-          {%- endfor -%}
-        </div>
-      {%- endfor -%}
-    </div>
-  </div>
-
 </div>
 {%- endif -%}
 
@@ -69,11 +70,36 @@
     position: relative;
   }
 
-  /* ── Shared text ── */
+  .cs_announcement-bar .ann__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+
+  /* ── Swiper area ── */
+  .cs_announcement-bar .ann__swiper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .cs_announcement-bar .ann__slide {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    padding: 0 4px;
+  }
+
+  /* ── Text ── */
   .cs_announcement-bar .ann__rte,
   .cs_announcement-bar .ann__rte p,
-  .cs_announcement-bar .ann__rte a,
-  .cs_announcement-bar .ann__sep {
+  .cs_announcement-bar .ann__rte a {
     color: var(--ann-text-color, #fff);
     font-size: var(--ann-font-size, 14px);
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -81,7 +107,6 @@
     font-weight: 300;
     line-height: 18px;
     margin: 0;
-    white-space: nowrap;
   }
   .cs_announcement-bar .ann__rte a {
     text-decoration: underline;
@@ -90,86 +115,156 @@
   }
   .cs_announcement-bar .ann__rte a:hover { opacity: 0.75; }
 
-  .ann__sep {
-    display: inline-block;
-    padding: 0 0.85em;
-    opacity: 0.5;
-  }
-
-  /* ─────────────────
-     DESKTOP — static
-  ───────────────── */
-  .ann__desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .ann__desktop-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  .ann__desktop .ann__item {
+  /* ── Arrows ── */
+  .cs_announcement-bar .ann__arrow {
+    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    white-space: nowrap;
+    justify-content: center;
+    width: calc(var(--ann-arrow-size, 20px) + 8px);
+    height: calc(var(--ann-arrow-size, 20px) + 8px);
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--ann-arrow-color, #ffffff);
+    transition: opacity 0.2s ease;
+    opacity: 0.85;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cs_announcement-bar .ann__arrow:hover { opacity: 1; }
+  .cs_announcement-bar .ann__arrow:focus-visible {
+    outline: 1px solid var(--ann-arrow-color, #ffffff);
+    outline-offset: 2px;
+  }
+  .cs_announcement-bar .ann__arrow svg {
+    width: var(--ann-arrow-size, 20px);
+    height: var(--ann-arrow-size, 20px);
+    display: block;
+  }
+  .cs_announcement-bar .ann__arrow.swiper-button-disabled {
+    opacity: 0.35;
+    pointer-events: none;
   }
 
-  /* hide mobile on desktop */
-  .ann__mobile { display: none; }
-
-  /* ──────────────────────────────────────────────────────
-     MOBILE — CSS marquee
-     4 sets rendered. Keyframe shifts track by -25%
-     (exactly one set). Snap back to 0 is invisible
-     because sets 2/3/4 fill the gap.
-  ────────────────────────────────────────────────────── */
   @media (max-width: 749px) {
-    .ann__desktop { display: none; }
-
-    .ann__mobile {
-      display: block;
-      overflow: hidden;
-      width: 100%;
+    .cs_announcement-bar .ann__inner {
+      gap: 2px;
+      padding: 0 6px;
     }
-
-    .ann__track {
-      display: flex;
-      flex-wrap: nowrap;
-      width: max-content;
-      /* GPU layer — prevents paint during animation */
-      will-change: transform;
-      animation: ann-marquee var(--ann-speed, 18s) linear infinite;
-    }
-
-    .ann__set {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-    }
-
-    .ann__mobile .ann__item {
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
-    }
+    .cs_announcement-bar .ann__rte,
+  .cs_announcement-bar .ann__rte p,
+  .cs_announcement-bar .ann__rte a {
+    font-size: 12px;
+  }
   }
 
-  /* ── Keyframe: move by 25% = exactly one of the four sets ── */
-  @keyframes ann-marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-25%); }
-  }
-
-  {% comment %} /* ── Respect reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .ann__track { animation: none; }
-    .ann__mobile { display: none !important; }
-    .ann__desktop { display: flex !important; }
-  } {% endcomment %}
+    .cs_announcement-bar .swiper-wrapper {
+      transition-duration: 0ms !important;
+    }
+  }
 </style>
+
+<script>
+  (function () {
+    var sectionId = {{ section.id | json }};
+    var slideCount = {{ message_blocks.size }};
+
+    var SWIPER_CSS = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+    var SWIPER_JS  = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+
+    function loadSwiper(callback) {
+      if (window.Swiper) { callback(); return; }
+
+      if (!document.getElementById('swiper-cdn-css')) {
+        var link = document.createElement('link');
+        link.id = 'swiper-cdn-css';
+        link.rel = 'stylesheet';
+        link.href = SWIPER_CSS;
+        document.head.appendChild(link);
+      }
+
+      var existing = document.getElementById('swiper-cdn-js');
+      if (existing) {
+        existing.addEventListener('load', callback);
+        return;
+      }
+
+      var script = document.createElement('script');
+      script.id = 'swiper-cdn-js';
+      script.src = SWIPER_JS;
+      script.onload = callback;
+      document.head.appendChild(script);
+    }
+
+    function initAnnouncement() {
+      var el = document.getElementById('ann-swiper-' + sectionId);
+      if (!el) return;
+
+      if (el.swiper) { el.swiper.destroy(true, true); }
+
+      var autoplayDelay = {{ section.settings.autoplay_delay | times: 1000 }};
+
+      new Swiper(el, {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: {{ section.settings.transition_speed }},
+        loop: slideCount > 1,
+        allowTouchMove: slideCount > 1,
+        autoHeight: true,
+        {% comment %} autoplay: (autoplayDelay > 0 && slideCount > 1) ? {
+          delay: autoplayDelay,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        } : false, {% endcomment %}
+        navigation: {
+          nextEl: '#ann-next-' + sectionId,
+          prevEl: '#ann-prev-' + sectionId
+        }
+      });
+    }
+
+    function boot() {
+      loadSwiper(initAnnouncement);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+
+    /* Theme editor support */
+    document.addEventListener('shopify:section:load', function (e) {
+      if (e.detail.sectionId === sectionId) boot();
+    });
+    document.addEventListener('shopify:section:unload', function (e) {
+      if (e.detail.sectionId !== sectionId) return;
+      var el = document.getElementById('ann-swiper-' + sectionId);
+      if (el && el.swiper) el.swiper.destroy(true, true);
+    });
+    document.addEventListener('shopify:block:select', function (e) {
+      if (e.detail.sectionId !== sectionId) return;
+      var el = document.getElementById('ann-swiper-' + sectionId);
+      if (!el || !el.swiper) return;
+      var index = Array.prototype.indexOf.call(
+        el.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)'),
+        e.detail.blockId ? el.querySelector('[data-block-id="' + e.detail.blockId + '"]') : null
+      );
+      if (el.swiper.autoplay) el.swiper.autoplay.stop();
+      if (index > -1) el.swiper.slideToLoop(index);
+    });
+    document.addEventListener('shopify:block:deselect', function (e) {
+      if (e.detail.sectionId !== sectionId) return;
+      var el = document.getElementById('ann-swiper-' + sectionId);
+      if (el && el.swiper && el.swiper.autoplay) el.swiper.autoplay.start();
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -192,6 +287,12 @@
       "type": "color",
       "id": "text_color",
       "label": "Text Colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow Colour",
       "default": "#ffffff"
     },
     {
@@ -218,31 +319,29 @@
     },
     {
       "type": "header",
-      "content": "Separator"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_separator",
-      "label": "Show Separator Between Messages (desktop)",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "separator",
-      "label": "Separator Character",
-      "default": "✦"
-    },
-    {
-      "type": "header",
-      "content": "Mobile Marquee"
+      "content": "Slider Settings"
     },
     {
       "type": "range",
-      "id": "marquee_speed",
-      "label": "Scroll Speed (seconds for one loop)",
-      "min": 6, "max": 60, "step": 2,
-      "default": 18,
-      "info": "Lower = faster. Desktop is always static."
+      "id": "arrow_size",
+      "label": "Arrow Size (px)",
+      "min": 12, "max": 32, "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay Delay (seconds)",
+      "min": 0, "max": 12, "step": 1,
+      "default": 4,
+      "info": "Set to 0 to turn autoplay off."
+    },
+    {
+      "type": "range",
+      "id": "transition_speed",
+      "label": "Transition Speed (ms)",
+      "min": 200, "max": 1500, "step": 50,
+      "default": 600
     }
   ],
   "blocks": [
@@ -265,11 +364,12 @@
       "settings": {
         "bg_color": "#1a1a1a",
         "text_color": "#ffffff",
+        "arrow_color": "#ffffff",
         "font_size": 14,
         "padding_y": 10,
-        "show_separator": true,
-        "separator": "✦",
-        "marquee_speed": 18
+        "arrow_size": 18,
+        "autoplay_delay": 4,
+        "transition_speed": 600
       },
       "blocks": [
         {

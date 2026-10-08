@@ -17,8 +17,13 @@
           "disabled": true,
           "settings": {}
         },
+        "targetbay_product_reviews_product_stats_URXhjx": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
         "ratings_PRKteR": {
           "type": "ratings",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/Frame_36.svg",
             "text": "<strong>4.45</strong>  (5.3k) reviews"
@@ -35,6 +40,12 @@
           "disabled": true,
           "settings": {
             "subtitle": "Brightening Citrus Olive Oil Soap Bar"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
           }
         },
         "short_desc_PCTrwt": {
@@ -55,7 +66,6 @@
         },
         "appstle_subscription_appstle_subscription_product_page_widget_pfCncU": {
           "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-          "disabled": true,
           "settings": {}
         },
         "subscription_V7UHqU": {
@@ -86,7 +96,6 @@
         },
         "kaching_bundles_app_block_CJrMDK": {
           "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "disabled": true,
           "settings": {
             "product": "{{product}}",
             "manual_deal_block_id": ""
@@ -161,7 +170,7 @@
             "icon_1": "shopify://shop_images/Vector.svg",
             "text_1": "Cancel anytime no hassle",
             "icon_2": "shopify://shop_images/image.svg",
-            "text_2": "Free shipping on orders over $50",
+            "text_2": "Free shipping on orders over $85",
             "text_3": ""
           }
         },
@@ -180,13 +189,6 @@
           "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
           "disabled": true,
           "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "disabled": true,
-          "settings": {
-            "show_taxes_notice": false
-          }
         },
         "description": {
           "type": "description",
@@ -300,9 +302,11 @@
       },
       "block_order": [
         "vendor",
+        "targetbay_product_reviews_product_stats_URXhjx",
         "ratings_PRKteR",
         "title",
         "subtitle_TqJGVn",
+        "price",
         "short_desc_PCTrwt",
         "variant_picker",
         "appstle_subscription_appstle_subscription_product_page_widget_pfCncU",
@@ -313,7 +317,6 @@
         "feature_icons_bEqrrw",
         "accordion_fpKaYb",
         "targetbay_product_reviews_product_stats_pF9gGF",
-        "price",
         "description",
         "accordion_N3tiJp",
         "accordion_aM9zjH",
@@ -410,6 +413,7 @@
       "blocks": {
         "benefit_zLJfmA": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2952.png",
             "title": "Gently Cleanses",
@@ -419,6 +423,7 @@
         },
         "benefit_ra4kKm": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2953.png",
             "title": "Hydrates While You Wash",
@@ -428,6 +433,7 @@
         },
         "benefit_zxkwEG": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2954.png",
             "title": "Brightens the Look",
@@ -437,6 +443,7 @@
         },
         "benefit_rJHCHi": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2955.png",
             "title": "Soothes Sensitive Skin",
@@ -446,6 +453,7 @@
         },
         "benefit_Yan6kE": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2956.png",
             "title": "Long-Lasting Bar",
@@ -455,6 +463,7 @@
         },
         "benefit_XiLAYM": {
           "type": "benefit",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/image_2957.png",
             "title": "Face + Body",
@@ -473,10 +482,10 @@
       ],
       "name": "Benefits Showcase",
       "settings": {
-        "image": "shopify://shop_images/Frame_2147243043_727827c8-613d-4211-8892-c2e77c1eaacb.png",
+        "image": "shopify://shop_images/KissmeSunshine.webp",
         "tag": "Benefits",
         "heading": "<p>A Daily Soap Bar That Does More Than Cleanse</p>",
-        "subtitle": "<p>Our Kiss Me Sunshine Soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin.</p>",
+        "subtitle": "<p>Our Kiss me sunshine olive oil soap is handcrafted with ultra-mild, plant-based ingredients to refresh and soothe delicate skin.</p>",
         "bg_color": "#ffffff",
         "heading_color": "#000000",
         "tag_color": "#000000",
@@ -541,6 +550,7 @@
         "ingredient_GiiTVY",
         "ingredient_EGrAaP"
       ],
+      "disabled": true,
       "name": "Botanicals Grid",
       "settings": {
         "title": "<p>Powered By <br/>Skin-Loving Botanicals</p>",
@@ -624,6 +634,7 @@
         "review_qE7xRy",
         "review_ejpXY6"
       ],
+      "disabled": true,
       "name": "Reviews Swiper",
       "settings": {
         "padding_top_desktop": 80,
@@ -697,6 +708,7 @@
         "row_aap34X",
         "row_NJp74C"
       ],
+      "disabled": true,
       "name": "Comparison Table",
       "settings": {
         "title": "Why Switch From Ordinary Soap?",
@@ -731,9 +743,9 @@
         "button_text": "",
         "bg_color": "#ffffff",
         "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80,
+        "padding_bottom_desktop": 0,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_bottom_mobile": 0,
         "cs-btn": true
       }
     },
@@ -748,8 +760,9 @@
       "block_order": [
         "targetbay_product_reviews_product_reviews_4rGUWh"
       ],
+      "disabled": true,
       "settings": {
-        "separate_section_with_border": true,
+        "separate_section_with_border": false,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false
       }
@@ -889,6 +902,33 @@
         "title": "Related products",
         "content": ""
       }
+    },
+    "apps_GTAJkU": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_rkPdWG": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_product_reviews_waHjPj": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_68thEF": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_rkPdWG",
+        "targetbay_product_reviews_product_reviews_waHjPj",
+        "targetbay_product_reviews_site_reviews_68thEF"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true
+      }
     }
   },
   "order": [
@@ -903,6 +943,7 @@
     "logo_list_xHnX8R",
     "custom_liquid_jdrn4z",
     "1742279709b3f4ee9a",
-    "related-products"
+    "related-products",
+    "apps_GTAJkU"
   ]
 }

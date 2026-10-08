@@ -16,8 +16,9 @@
       "blocks": {
         "message_cC9tid": {
           "type": "message",
+          "disabled": true,
           "settings": {
-            "text": "Use code <strong>PRIDE6</strong> to enjoy 10% off sitewide and celebrate Pride Month. 🌈"
+            "text": "July 27–31: Buy 1, Get 1 Free on All Facial Products & Facial Gift Sets — Use Code <strong>FFC234</strong>"
           }
         },
         "message-1": {
@@ -29,7 +30,6 @@
         },
         "message_zNjGG6": {
           "type": "message",
-          "disabled": true,
           "settings": {
             "text": "<strong>★ Enjoy free shipping on every purchase over $85 ★ </strong>"
           }
@@ -55,25 +55,42 @@
     "cutom_announcement_bar_Bh9xwd": {
       "type": "cutom-announcement-bar",
       "blocks": {
+        "message_MGPrcJ": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "message": "<p>Thank you for making our Grand Opening a huge success! Use code <strong>GO0916</strong> to enjoy <strong>10% off every online order</strong>.</p>"
+          }
+        },
+        "message_B9kyci": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "message": "<p>Use code LABOR00 to enjoy free shipping for 2 days only.</p>"
+          }
+        },
         "message_XBwrHx": {
           "type": "message",
           "settings": {
-            "message": "<p>Handmade in New York · Taiwanese Farm Botanicals · Free Shipping Over $75</p>"
+            "message": "<p><strong>★ Enjoy free shipping on every purchase over $85 ★&nbsp;</strong></p>"
           }
         }
       },
       "block_order": [
+        "message_MGPrcJ",
+        "message_B9kyci",
         "message_XBwrHx"
       ],
       "name": "Custom Announcement Bar",
       "settings": {
         "bg_color": "#242221",
         "text_color": "#ffffff",
+        "arrow_color": "#ffffff",
         "font_size": 13,
         "padding_y": 12,
-        "show_separator": false,
-        "separator": "",
-        "marquee_speed": 18
+        "arrow_size": 18,
+        "autoplay_delay": 4,
+        "transition_speed": 600
       }
     },
     "header": {
@@ -86,12 +103,11 @@
             "side_image": "shopify://shop_images/image_2776.png",
             "button_text": "Shop Facial Skincare",
             "button_link": "https://www.mumubath.com/collections/facial-skincare",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
+            "promo_title": "",
             "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image_2": "shopify://shop_images/Z6C0471_websize.jpg",
+            "promo_title_2": "Facial Skincare Bundle",
+            "promo_link_2": "shopify://collections/facial-care-bundle"
           }
         },
         "mega_menu_item_promo_jcgqVU": {
@@ -101,12 +117,11 @@
             "side_image": "shopify://shop_images/image_2776_1.png",
             "button_text": "Shop Body Skincare",
             "button_link": "shopify://collections/body-skincare",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image": "shopify://shop_images/Z6C0745_websize.jpg",
+            "promo_title": "Shop Body Oil",
+            "promo_link": "shopify://collections/body",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_QFyKRX": {
@@ -116,12 +131,11 @@
             "side_image": "shopify://shop_images/image_2776_2.png",
             "button_text": "Shop Bath Products",
             "button_link": "shopify://collections/bath-and-body",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image": "shopify://shop_images/Z6C0933_websize.jpg",
+            "promo_title": "Shop Avocado Oil Soap",
+            "promo_link": "shopify://collections/avocado-oil-soap",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_KTDkVL": {
@@ -131,12 +145,10 @@
             "side_image": "shopify://shop_images/image_2776_3.png",
             "button_text": "Shop Hair Care",
             "button_link": "shopify://collections/hair",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_title": "",
+            "promo_link": "",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_r7f4qL": {
@@ -146,12 +158,11 @@
             "side_image": "shopify://shop_images/image_2776_4.png",
             "button_text": "Shop Hand Care",
             "button_link": "shopify://collections/hand-care",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image": "shopify://shop_images/Z6C1960_websize.jpg",
+            "promo_title": "Shop Hand Care Bundle",
+            "promo_link": "shopify://products/reviveritual-duo",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_TbG39m": {
@@ -161,42 +172,38 @@
             "side_image": "shopify://shop_images/image_2776_5.png",
             "button_text": "Shop Candles & Fragrances",
             "button_link": "shopify://collections/scented-candles",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image": "shopify://shop_images/Z6C1507_websize.jpg",
+            "promo_title": "Shop Candles",
+            "promo_link": "shopify://collections/luxury-candles",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_aRFLtR": {
           "type": "mega_menu_item_promo",
           "settings": {
-            "menu_item_handle": "tools",
-            "side_image": "shopify://shop_images/image_2776_6.png",
-            "button_text": "Shop Tools",
+            "menu_item_handle": "accessories",
+            "side_image": "shopify://shop_images/ACCESSORIES-TILE.jpg_2.png",
+            "button_text": "Shop Accessories",
             "button_link": "shopify://collections/accessories",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_title": "",
+            "promo_link": "",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_item_promo_HxKMzw": {
           "type": "mega_menu_item_promo",
           "settings": {
             "menu_item_handle": "gift-shop",
-            "side_image": "shopify://shop_images/image_2776_7.png",
+            "side_image": "shopify://shop_images/facial_bundle_set.png",
             "button_text": "Shop Gift Sets & Bundles",
             "button_link": "shopify://collections/gift-sets-bundles",
-            "promo_image": "shopify://shop_images/Frame_2147243482.png",
-            "promo_title": "Shop Best Seller",
-            "promo_link": "shopify://collections/face-body",
-            "promo_image_2": "shopify://shop_images/Frame_2147243483.png",
-            "promo_title_2": "Bundle & Save",
-            "promo_link_2": "shopify://collections/subscription-products"
+            "promo_image": "shopify://shop_images/Z6C0644_websize.jpg",
+            "promo_title": "Shop Gift Bundle",
+            "promo_link": "shopify://collections/gift-sets-bundles",
+            "promo_title_2": "",
+            "promo_link_2": ""
           }
         },
         "mega_menu_RRVpKP": {

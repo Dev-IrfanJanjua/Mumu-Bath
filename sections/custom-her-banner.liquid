@@ -1,8 +1,19 @@
 {% comment %}
-  Hero Section — Natural Care / Beauty Brand
-  Features: Rating + rich text, heading, description, CTA button (left) | Image (right)
-  Responsive, SEO-optimised, speed-conscious
+  Hero Section — Natural Care / Beauty Brand (Swiper Slider)
+  Slider: Swiper.js (CDN) — sirf loop + autoplay (koi navigation arrows, koi pagination dots nahi)
+  Har slide ek block hai. Sab images par blank condition lagi hui hai.
+
+  UPDATE: Ab desktop_banner_image aur hero_image (mobile) dono EK hi
+  ".hero-section__banner" wrapper ke andar render hote hain. CSS classes
+  (--desktop / --mobile) decide karti hain kaunsi image kis screen size par
+  dikhegi. Content (heading/desc/button) ab mobile par bhi image ke upar
+  overlay hota hai — bilkul desktop wale style ki tarah. Desktop CSS/behaviour
+  bilkul same rakha gaya hai, sirf mobile (max-width:750px) query me changes hain.
 {% endcomment %}
+
+{%- comment -%} ── Swiper CDN ── {%- endcomment -%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <section
   class="hero-section"
@@ -22,106 +33,153 @@
   "
   aria-label="{{ section.settings.section_aria_label | escape }}"
 >
-  <div class="page-width">
-    <div class="hero-rel">
-      <div class="hero-section__grid">
-        {%- comment -%} ── LEFT COLUMN ── {%- endcomment -%}
-        <div class="hero-section__content">
-          {%- comment -%} Rating Row {%- endcomment -%}
-          {%- if section.settings.show_rating -%}
-            <div class="hero-section__rating" aria-label="{{ section.settings.rating_aria_label | escape }}">
-              {%- assign rating_alt = section.settings.rating_image_alt | escape -%}
+  <div class="page-widths">
+    <div class="swiper hero-swiper hero-swiper--{{ section.id }}" data-hero-swiper-id="{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="hero-rel">
+              <div class="hero-section__grid">
+                {%- comment -%} ── LEFT COLUMN — Content (overlays image on both desktop & mobile) ── {%- endcomment -%}
+                <div class="hero-section__content">
+                  {%- comment -%} Rating Row {%- endcomment -%}
+                  {%- if block.settings.show_rating -%}
+                    <div
+                      class="hero-section__rating"
+                      aria-label="{{ block.settings.rating_aria_label | escape }}"
+                    >
+                      {%- if block.settings.rating_image != blank -%}
+                        {%- assign rating_alt = block.settings.rating_image.alt | default: 'Customer rating' | escape -%}
+                        {{
+                          block.settings.rating_image
+                          | image_url: width: 120
+                          | image_tag:
+                            loading: 'eager',
+                            fetchpriority: 'low',
+                            alt: rating_alt,
+                            width: 120,
+                            height: 20,
+                            class: 'hero-section__rating-img'
+                        }}
+                      {%- endif -%}
 
-              {%- if section.settings.rating_image != blank -%}
-                {{
-                  section.settings.rating_image
-                  | image_url: width: 120
-                  | image_tag:
-                    loading: 'eager',
-                    fetchpriority: 'low',
-                    alt: rating_alt,
-                    width: 120,
-                    height: 20,
-                    class: 'hero-section__rating-img'
-                }}
-              {%- else -%}
-                <span class="hero-section__rating-stars" aria-hidden="true">★★★★★</span>
-              {%- endif -%}
+                      {%- if block.settings.rating_richtext != blank -%}
+                        <div class="hero-section__rating-text rte">
+                          {{ block.settings.rating_richtext }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
 
-              {%- if section.settings.rating_richtext != blank -%}
-                <div class="hero-section__rating-text rte">
-                  {{ section.settings.rating_richtext }}
+                  {%- comment -%} Heading {%- endcomment -%}
+                  {%- if block.settings.heading != blank -%}
+                    <{{ block.settings.heading_tag }} class="hero-section__heading">
+                      {{ block.settings.heading }}
+                    </{{ block.settings.heading_tag }}>
+                  {%- endif -%}
+
+                  {%- comment -%} Description {%- endcomment -%}
+                  {%- if block.settings.description != blank -%}
+                    <p class="hero-section__description">
+                      {{ block.settings.description }}
+                    </p>
+                  {%- endif -%}
+
+                  {%- comment -%} CTA Button {%- endcomment -%}
+                  {%- if block.settings.button_label != blank and block.settings.button_url != blank -%}
+                    <a class="hero-section__btn"
+                      href="{{ block.settings.button_url }}"
+                      {% if block.settings.button_open_new_tab %}
+                        target="_blank" rel="noopener noreferrer"
+                      {% endif %}
+                      aria-label="{{ block.settings.button_label | escape }}"
+                    >
+                      {{- block.settings.button_label | escape -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+                {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
+              </div>
+
+              {%- comment -%} ── Banner Image Wrapper — Desktop image + Mobile image dono yahan ── {%- endcomment -%}
+              {%- if block.settings.desktop_banner_image != blank or block.settings.hero_image != blank -%}
+                <div class="hero-section__banner">
+                  {%- comment -%} Desktop banner image — sirf desktop par dikhta hai {%- endcomment -%}
+                  {%- if block.settings.desktop_banner_image != blank -%}
+                    {%- assign banner_alt = block.settings.desktop_banner_image.alt
+                      | default: block.settings.heading
+                      | strip_html
+                      | escape
+                    -%}
+                    {%- if forloop.first -%}
+                      {{
+                        block.settings.desktop_banner_image
+                        | image_url: width: 2000
+                        | image_tag:
+                          loading: 'eager',
+                          fetchpriority: 'high',
+                          alt: banner_alt,
+                          widths: '1200,1500,1800,2000',
+                          class: 'hero-section__banner-image hero-section__banner-image--desktop'
+                      }}
+                    {%- else -%}
+                      {{
+                        block.settings.desktop_banner_image
+                        | image_url: width: 2000
+                        | image_tag:
+                          loading: 'lazy',
+                          fetchpriority: 'low',
+                          alt: banner_alt,
+                          widths: '1200,1500,1800,2000',
+                          class: 'hero-section__banner-image hero-section__banner-image--desktop'
+                      }}
+                    {%- endif -%}
+                  {%- endif -%}
+
+                  {%- comment -%} Mobile hero image — sirf mobile par dikhta hai {%- endcomment -%}
+                  {%- if block.settings.hero_image != blank -%}
+                    {%- assign hero_alt = block.settings.hero_image.alt
+                      | default: block.settings.heading
+                      | strip_html
+                      | escape
+                    -%}
+                    {%- if forloop.first -%}
+                      {{
+                        block.settings.hero_image
+                        | image_url: width: 900
+                        | image_tag:
+                          loading: 'eager',
+                          fetchpriority: 'high',
+                          alt: hero_alt,
+                          width:'100%',
+                          height: 'auto',
+                          class: 'hero-section__banner-image hero-section__banner-image--mobile',
+                          sizes: '100vw',
+                          widths: '400, 600, 750, 900'
+                      }}
+                    {%- else -%}
+                      {{
+                        block.settings.hero_image
+                        | image_url: width: 900
+                        | image_tag:
+                          loading: 'lazy',
+                          fetchpriority: 'low',
+                          alt: hero_alt,
+                          width: '100%',
+                          height: 'auto',
+                          class: 'hero-section__banner-image hero-section__banner-image--mobile',
+                          sizes: '100vw',
+                          widths: '400, 600, 750, 900'
+                      }}
+                    {%- endif -%}
+                  {%- endif -%}
                 </div>
               {%- endif -%}
+              {%- comment -%} ── END Banner Image Wrapper ── {%- endcomment -%}
             </div>
-          {%- endif -%}
-
-          {%- comment -%} Heading {%- endcomment -%}
-          {%- if section.settings.heading != blank -%}
-            <{{ section.settings.heading_tag }} class="hero-section__heading">
-              {{ section.settings.heading }}
-            </{{ section.settings.heading_tag }}>
-          {%- endif -%}
-
-          {%- comment -%} Description {%- endcomment -%}
-          {%- if section.settings.description != blank -%}
-            <p class="hero-section__description">
-              {{ section.settings.description }}
-            </p>
-          {%- endif -%}
-
-          {%- comment -%} CTA Button {%- endcomment -%}
-          {%- if section.settings.button_label != blank and section.settings.button_url != blank -%}
-            <a
-              class="hero-section__btn"
-              href="{{ section.settings.button_url }}"
-              {% if section.settings.button_open_new_tab %}
-                target="_blank" rel="noopener noreferrer"
-              {% endif %}
-              aria-label="{{ section.settings.button_label | escape }}"
-            >
-              {{- section.settings.button_label | escape -}}
-            </a>
-          {%- endif -%}
-        </div>
-        {%- comment -%} ── END LEFT COLUMN ── {%- endcomment -%}
-
-        {%- comment -%} ── RIGHT COLUMN — Hero Image ── {%- endcomment -%}
-        <div class="hero-section__media">
-          {%- if section.settings.hero_image != blank -%}
-            {{
-              section.settings.hero_image
-              | image_url: width: 900
-              | image_tag:
-                loading: 'eager',
-                fetchpriority: 'high',
-                alt: section.settings.hero_image_alt,
-                width: section.settings.hero_image_width,
-                height: section.settings.hero_image_height,
-                class: 'hero-section__img',
-                sizes: '(max-width: 749px) 100vw, 50vw',
-                widths: '400, 600, 750, 900'
-            }}
-          {%- else -%}
-            {{ 'collection-1' | placeholder_svg_tag: 'hero-section__img hero-section__img--placeholder' }}
-          {%- endif -%}
-        </div>
-        {%- comment -%} ── END RIGHT COLUMN ── {%- endcomment -%}
+          </div>
+        {%- endfor -%}
       </div>
-      {%- if section.settings.desktop_banner_image != blank -%}
-        <div class="hero-section__desktop-banner">
-          {{
-            section.settings.desktop_banner_image
-            | image_url: width: 2000
-            | image_tag:
-              loading: 'eager',
-              fetchpriority: 'low',
-              alt: section.settings.desktop_banner_image_alt,
-              widths: '1200,1500,1800,2000',
-              class: 'hero-section__desktop-banner-image'
-          }}
-        </div>
-      {%- endif -%}
     </div>
   </div>
 </section>
@@ -142,7 +200,28 @@
     }
   }
 
-  /* ── Two-column grid ── */
+  /* ── Swiper shell ── */
+  .hero-swiper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-swiper .swiper-slide {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Swiper load hone se pehle sirf pehli slide dikhe (flash rokne ke liye) */
+  .hero-swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: block;
+  }
+
+  .hero-swiper:not(.swiper-initialized) .swiper-slide + .swiper-slide {
+    display: none;
+  }
+
+  /* ── Two-column grid (Desktop default: overlay on top of banner) ── */
   .hero-section__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -157,10 +236,12 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      left: 9%;
+      z-index: 2;
     }
   }
 
-  /* ── Content (left) ── */
+  /* ── Content ── */
   .hero-section__content {
     display: flex;
     flex-direction: column;
@@ -190,13 +271,6 @@
     object-fit: contain;
   }
 
-  .hero-section__rating-stars {
-    color: #f5a623;
-    font-size: 1.125rem;
-    letter-spacing: 0.05em;
-    line-height: 1;
-  }
-
   .hero-section__rating-text {
     color: #101010;
     text-align: center;
@@ -204,7 +278,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 148%; /* 26.64px */
+    line-height: 148%;
     text-transform: capitalize;
   }
 
@@ -215,11 +289,12 @@
   /* ── Heading ── */
   .hero-section__heading {
     color: #000;
-    font-family: var(--banner-font);
-    font-weight: var(--banner-weight);
+    {% comment %} font-family: var(--banner-font); {% endcomment %}
+    font-family: Mona Sans !important;
+    font-weight: 600;
     font-size: 60px;
     font-style: normal;
-    line-height: 66px; /* 110% */
+    line-height: 66px;
     letter-spacing: -0.86px;
     text-transform: capitalize;
   }
@@ -231,20 +306,20 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 133.333% */
+    line-height: 24px;
     padding: 0 0 30px;
     max-width: 566px;
   }
 
-  /* ── CTA Button — bgc + color transition only, no transform ── */
+  /* ── CTA Button ── */
   .hero-section__btn {
-    background: #FBDD3F !important;
+    background: {{ section.settings.button_bg_color }} !important;
     color: var(--hero-btn-color, #000) !important;
     font-family: 'Plus Jakarta Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 148%; /* 26.64px */
+    line-height: 148%;
     text-transform: capitalize;
     display: flex;
     width: 209.5px;
@@ -264,44 +339,34 @@
     outline-offset: 3px;
   }
 
-  /* ── Media (right) ── */
-  .hero-section__media {
-    order: 1;
-    border-radius: 4px;
-    overflow: hidden;
-    line-height: 0;
-  }
-
-  @media (min-width: 750px) {
-    .hero-section__media {
-      order: 2;
-      display: none;
-    }
-  }
-
-  .hero-section__img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-
-  .hero-section__img--placeholder {
-    aspect-ratio: 4 / 3;
-    background: #e8e0d8;
-  }
-
   .hero-rel {
     position: relative;
   }
 
-  .hero-section__desktop-banner-image {
+  /* ── Banner wrapper (holds desktop + mobile image, controls flow height) ── */
+  .hero-section__banner {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-section__banner-image {
     display: block;
     width: 100%;
     height: auto;
   }
 
+  /* Default (desktop-first): show desktop image, hide mobile image */
+  .hero-section__banner-image--desktop {
+    display: block;
+  }
+
+  .hero-section__banner-image--mobile {
+    display: none;
+  }
+
+  /* ═══════════════════════════════════════════════
+     MOBILE ONLY CHANGES — desktop bilkul untouched
+     ═══════════════════════════════════════════════ */
   @media (max-width: 750px) {
     .hero-section__content {
       gap: 16px;
@@ -313,13 +378,23 @@
       gap: 30px;
       align-items: center;
       justify-content: center;
+      /* Content ko image ke upar overlay karne ke liye — desktop wale pattern jaisa */
+      position: absolute;
+      top: 22%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 0 16px;
+      z-index: 2;
     }
+
     .hero-section__rating-img {
       display: block;
       width: 100px;
       height: 15px;
       object-fit: contain;
     }
+
     .hero-section__rating {
       gap: 9px;
       justify-content: center;
@@ -329,7 +404,7 @@
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
-      line-height: 148%; /* 20.72px */
+      line-height: 148%;
       text-transform: capitalize;
     }
 
@@ -337,7 +412,7 @@
       font-size: 36px;
       font-style: normal;
       font-weight: 500;
-      line-height: 42px; /* 116.667% */
+      line-height: 42px;
       letter-spacing: -0.86px;
       text-transform: capitalize;
       max-width: 343px;
@@ -348,7 +423,7 @@
       font-size: 14px;
       font-style: normal;
       font-weight: 400;
-      line-height: 22px; /* 157.143% */
+      line-height: 22px;
       padding: 0 0 8px;
       max-width: 316px;
       text-align: center;
@@ -361,16 +436,63 @@
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
-      line-height: 148%; /* 20.72px */
+      line-height: 148%;
       text-transform: capitalize;
       width: 100%;
     }
 
-    .hero-section__desktop-banner-image {
+    /* Banner: mobile image dikhaye, desktop image chupaye */
+    .hero-section__banner-image--desktop {
       display: none;
+    }
+
+    .hero-section__banner-image--mobile {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-height: 520px; 
+       min-height: 520px; 
     }
   }
 </style>
+
+<script>
+  (function () {
+    var sectionId = {{ section.id | json }};
+
+    function initHeroSwiper() {
+      var el = document.querySelector('.hero-swiper--' + sectionId);
+      if (!el) return;
+
+      if (el.swiper) {
+        el.swiper.destroy(true, true);
+      }
+
+      if (typeof Swiper === 'undefined') {
+        setTimeout(initHeroSwiper, 100);
+        return;
+      }
+
+      new Swiper(el, {
+        loop: el.querySelectorAll('.swiper-slide').length > 1,
+        speed: 1000,
+        autoplay: {
+          delay: 1500,
+          disableOnInteraction: false
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initHeroSwiper);
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.target.querySelector('.hero-swiper--' + sectionId)) {
+        initHeroSwiper();
+      }
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -378,229 +500,49 @@
   "tag": "section",
   "class": "section-hero-natural",
   "limit": 1,
+  "max_blocks": 10,
   "settings": [
+    { "type": "header", "content": "Section Spacing" },
+    { "type": "range", "id": "padding_top_desktop", "label": "Padding Top — Desktop (px)", "min": 0, "max": 200, "step": 4, "default": 80 },
+    { "type": "range", "id": "padding_bottom_desktop", "label": "Padding Bottom — Desktop (px)", "min": 0, "max": 200, "step": 4, "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding Top — Mobile (px)", "min": 0, "max": 120, "step": 4, "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding Bottom — Mobile (px)", "min": 0, "max": 120, "step": 4, "default": 48 },
+    { "type": "header", "content": "Background" },
+    { "type": "color", "id": "bg_color", "label": "Section Background Colour", "default": "#f9f5f0" },
+    { "type": "header", "content": "Global Button Colours" },
+    { "type": "color", "id": "button_bg_color", "label": "Button Background", "default": "#d4a84b" },
+    { "type": "color", "id": "button_text_color", "label": "Button Text Colour", "default": "#1a1a1a" },
+    { "type": "color", "id": "button_hover_bg_color", "label": "Button Hover Background", "default": "#1a1a1a" },
+    { "type": "color", "id": "button_hover_text_color", "label": "Button Hover Text Colour", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading Colour", "default": "#1a1a1a" },
+    { "type": "color", "id": "description_color", "label": "Description Colour", "default": "#555555" },
+    { "type": "header", "content": "Accessibility" },
+    { "type": "text", "id": "section_aria_label", "label": "Section Aria Label", "default": "Hero banner — Natural Care, Rooted In Taiwan" }
+  ],
+  "blocks": [
     {
-      "type": "header",
-      "content": "Section Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top_desktop",
-      "label": "Padding Top — Desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 80
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_desktop",
-      "label": "Padding Bottom — Desktop (px)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 80
-    },
-    {
-      "type": "range",
-      "id": "padding_top_mobile",
-      "label": "Padding Top — Mobile (px)",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "default": 48
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_mobile",
-      "label": "Padding Bottom — Mobile (px)",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "default": 48
-    },
-    {
-      "type": "header",
-      "content": "Background"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Section Background Colour",
-      "default": "#f9f5f0"
-    },
-    {
-      "type": "header",
-      "content": "Rating"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "label": "Show Rating Row",
-      "default": true
-    },
-    {
-      "type": "image_picker",
-      "id": "rating_image",
-      "label": "Rating Stars Image (optional)",
-      "info": "Upload a stars/badge image. Leave blank to use ★★★★★ text fallback."
-    },
-    {
-      "type": "text",
-      "id": "rating_image_alt",
-      "label": "Rating Image Alt Text",
-      "default": "Five gold stars"
-    },
-    {
-      "type": "richtext",
-      "id": "rating_richtext",
-      "label": "Rating Label (Rich Text)",
-      "default": "<p>10,500+ 5-Star Reviews</p>"
-    },
-    {
-      "type": "text",
-      "id": "rating_aria_label",
-      "label": "Rating Row Aria Label",
-      "default": "Customer rating: 10,500+ five-star reviews"
-    },
-    {
-      "type": "header",
-      "content": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Natural Care, Rooted In Taiwan"
-    },
-    {
-      "type": "select",
-      "id": "heading_tag",
-      "label": "Heading HTML Tag",
-      "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" }
-      ],
-      "default": "h1"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading Colour",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "header",
-      "content": "Description"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York."
-    },
-    {
-      "type": "color",
-      "id": "description_color",
-      "label": "Description Colour",
-      "default": "#555555"
-    },
-    {
-      "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Shop Now"
-    },
-    {
-      "type": "url",
-      "id": "button_url",
-      "label": "Button URL",
-      "default": "/collections/all"
-    },
-    {
-      "type": "checkbox",
-      "id": "button_open_new_tab",
-      "label": "Open in new tab",
-      "default": false
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
-      "label": "Button Background",
-      "default": "#d4a84b"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button Text Colour",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_bg_color",
-      "label": "Button Hover Background",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_text_color",
-      "label": "Button Hover Text Colour",
-      "default": "#ffffff"
-    },
-    {
-      "type": "header",
-      "content": "Hero Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "desktop_banner_image",
-      "label": "Desktop Banner Image"
-    },
-    {
-      "type": "text",
-      "id": "desktop_banner_image_alt",
-      "label": "Desktop Banner Image Alt",
-      "default": "Banner Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image Mobile"
-    },
-    {
-      "type": "text",
-      "id": "hero_image_alt",
-      "label": "Hero Image Alt Text",
-      "default": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals"
-    },
-    {
-      "type": "number",
-      "id": "hero_image_width",
-      "label": "Image intrinsic width (px)",
-      "default": 900,
-      "info": "Set to the actual pixel width of your uploaded image for correct width/height attributes."
-    },
-    {
-      "type": "number",
-      "id": "hero_image_height",
-      "label": "Image intrinsic height (px)",
-      "default": 700,
-      "info": "Set to the actual pixel height of your uploaded image."
-    },
-    {
-      "type": "header",
-      "content": "Accessibility"
-    },
-    {
-      "type": "text",
-      "id": "section_aria_label",
-      "label": "Section Aria Label",
-      "default": "Hero banner — Natural Care, Rooted In Taiwan"
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "header", "content": "Rating" },
+        { "type": "checkbox", "id": "show_rating", "label": "Show Rating Row", "default": true },
+        { "type": "image_picker", "id": "rating_image", "label": "Rating Stars Image" },
+        { "type": "richtext", "id": "rating_richtext", "label": "Rating Label (Rich Text)", "default": "<p>10,500+ 5-Star Reviews</p>" },
+        { "type": "text", "id": "rating_aria_label", "label": "Rating Row Aria Label", "default": "Customer rating: 10,500+ five-star reviews" },
+        { "type": "header", "content": "Heading" },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "Natural Care, Rooted In Taiwan" },
+        { "type": "select", "id": "heading_tag", "label": "Heading HTML Tag", "options": [ { "value": "h1", "label": "H1" }, { "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" } ], "default": "h1" },
+        { "type": "header", "content": "Description" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York." },
+        { "type": "header", "content": "Button" },
+        { "type": "text", "id": "button_label", "label": "Button Label", "default": "Shop Now" },
+        { "type": "url", "id": "button_url", "label": "Button URL", "default": "/collections/all" },
+        { "type": "checkbox", "id": "button_open_new_tab", "label": "Open in new tab", "default": false },
+        { "type": "header", "content": "Images" },
+        { "type": "image_picker", "id": "desktop_banner_image", "label": "Desktop Banner Image" },
+        { "type": "image_picker", "id": "hero_image", "label": "Hero Image Mobile" },
+      
+      ]
     }
   ],
   "presets": [
@@ -612,27 +554,46 @@
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
         "bg_color": "#f9f5f0",
-        "show_rating": true,
-        "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
-        "rating_image_alt": "Five gold stars",
-        "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
-        "heading": "Natural Care, Rooted In Taiwan",
-        "heading_tag": "h1",
-        "heading_color": "#1a1a1a",
-        "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
-        "description_color": "#555555",
-        "button_label": "Shop Now",
-        "button_url": "/collections/all",
-        "button_open_new_tab": false,
         "button_bg_color": "#d4a84b",
         "button_text_color": "#1a1a1a",
         "button_hover_bg_color": "#1a1a1a",
         "button_hover_text_color": "#ffffff",
-        "hero_image_alt": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals",
-        "hero_image_width": 900,
-        "hero_image_height": 700,
+        "heading_color": "#1a1a1a",
+        "description_color": "#555555",
         "section_aria_label": "Hero banner — Natural Care, Rooted In Taiwan"
-      }
+      },
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "show_rating": true,
+            "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
+            "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+            "heading": "Natural Care, Rooted In Taiwan",
+            "heading_tag": "h1",
+            "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
+            "button_label": "Shop Now",
+            "button_url": "/collections/all",
+            "button_open_new_tab": false,
+           
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "show_rating": true,
+            "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
+            "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+            "heading": "Small Batch, Big Care",
+            "heading_tag": "h2",
+            "description": "Every bar is poured, cured, and cut by hand in small batches — no fillers, no shortcuts.",
+            "button_label": "Shop Now",
+            "button_url": "/collections/all",
+            "button_open_new_tab": false,
+          
+          }
+        }
+      ]
     }
   ]
 }

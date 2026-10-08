@@ -33,8 +33,8 @@
         "image_d48gEB": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Gift_Sets_Bundles.jpg",
-            "mobile_image": "shopify://shop_images/Gift_Sets_Bundles_mobile.jpg",
+            "image": "shopify://shop_images/bundle_page.jpg",
+            "mobile_image": "shopify://shop_images/Frame_427319789.png",
             "subheading": "",
             "title": "<h2>All Sets / Bundles</h2>",
             "mobile_text_position": "place-self-start-center text-center",
@@ -75,6 +75,8 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
         "products_per_page": 34,
         "products_per_row_mobile": "2",

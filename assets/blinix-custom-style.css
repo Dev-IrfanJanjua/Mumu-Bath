@@ -33,7 +33,8 @@
 .slideshow__slide .content-over-media .slideshow__slide-content .prose h2 {
   font-size: 45px;
   font-weight: 600;
-  font-family: "Plus Jakarta Sans";
+  /* font-family: "Plus Jakarta Sans"; */
+      font-family: Mona Sans !important;
  
 }
 

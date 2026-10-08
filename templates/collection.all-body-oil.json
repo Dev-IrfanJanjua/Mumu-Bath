@@ -33,8 +33,8 @@
         "image_RgWjEM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/All_Body_Oil-2.jpg",
-            "mobile_image": "shopify://shop_images/main_abnner_4_1.jpg",
+            "image": "shopify://shop_images/body_oil.jpg",
+            "mobile_image": "shopify://shop_images/body_oil-2.png",
             "subheading": "Body Oils",
             "title": "<h1>Nourish Your Skin with Our Luxurious Body Oils</h1>\n<br>\n<p>\nIndulge your skin with our luxurious body oils, crafted to deliver deep hydration and a radiant glow. Each oil is enriched with natural ingredients, leaving your skin soft, nourished, and beautifully scented after every use.</p>",
             "mobile_text_position": "place-self-start-center text-center",
@@ -75,6 +75,8 @@
     "main": {
       "type": "main-collection",
       "settings": {
+        "cstm_style": true,
+        "cs-btn": true,
         "hide_product_information": false,
         "products_per_page": 34,
         "products_per_row_mobile": "2",

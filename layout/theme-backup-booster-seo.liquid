@@ -2,7 +2,6 @@
 
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
-{% include 'booster-seo' %}
     <script async src="https://t.contentsquare.net/uxa/72cfab8093369.js"></script>
   
   {% if request.path contains 'bath-bomb-workshop-party' %}
@@ -75,17 +74,17 @@ src="//cdn-4.convertexperiments.com/v1/js/10018649-10018971.js?environment=produ
       content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0"
     >
 
-    {% comment %}<title>
+    <title>
       {% if page_title == blank -%}
         {{- shop.name -}}
       {%- else -%}
         {{- page_title -}}
         {%- if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif -%}
       {%- endif %}
-    </title>{% endcomment %}
+    </title>
 
     {%- if page_description -%}
-      {% comment %}<meta name="description" content="{{ page_description | escape }}">{% endcomment %}
+      <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
 
     <link rel="canonical" href="{{ canonical_url }}">

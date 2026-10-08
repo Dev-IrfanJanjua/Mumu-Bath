@@ -9,38 +9,209 @@
  */
 {
   "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Fy6w6g": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/desktop_founder_s_birthday_bash.jpg",
+            "mobile_image": "shopify://shop_images/mobile_founder_s_birthday_bash.png",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 500,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "solid",
+            "button_2_background": "#232121",
+            "button_2_text_color": "#ffffff",
+            "background": "",
+            "background_opacity": 34,
+            "text_color": "#131313",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "slide-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
+            "mobile_image": "shopify://shop_images/homepage-mobile.png",
+            "subheading": "",
+            "title": "  <h2 class=\"blinix-heading-one\">Taiwanese Roots. Natural Luxury.</h2>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 420,
+            "button_1_text": "Shop Now",
+            "button_1_link": "shopify://collections/all",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#fbdd40",
+            "button_2_text_color": "#000000",
+            "background": "#ffffff",
+            "background_opacity": 0,
+            "text_color": "#232121",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        },
+        "image_9bAqr4": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
+            "mobile_image": "shopify://shop_images/homepage-mobile.png",
+            "subheading": "Taiwanese Roots. Natural Luxury.",
+            "title": "",
+            "mobile_text_position": "place-self-center-start text-start",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(255, 0, 0, 0), rgba(4, 4, 4, 0) 100%)"
+          }
+        },
+        "slide-2": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/1-1.jpg",
+            "mobile_image": "shopify://shop_images/mobile-1.jpg",
+            "subheading": "",
+            "title": " <h2 class=\"blinix-heading-one\">Radiance Awaits</h2>\n<p>Mumu Bath strikes the perfect\nbalance between affordability and\npremium quality, offering accessible\nluxury in the bath and bodycare space.</p>",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 440,
+            "button_1_text": "Shop Now",
+            "button_1_link": "shopify://collections/all",
+            "button_1_style": "solid",
+            "button_1_background": "#232121",
+            "button_1_text_color": "#232121",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#1c1c1c",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Fy6w6g",
+        "slide-1",
+        "image_9bAqr4",
+        "slide-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": false,
+        "cycle_speed": 4,
+        "background": "#fcfbee",
+        "controls_color": "#1c1c1c"
+      }
+    },
     "custom_her_banner_jXad3K": {
       "type": "custom-her-banner",
+      "blocks": {
+        "slide_7gJjMr": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "show_rating": true,
+            "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
+            "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+            "heading": "Natural Care, Rooted In Taiwan",
+            "heading_tag": "h1",
+            "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/all",
+            "button_open_new_tab": false
+          }
+        },
+        "slide_DNFYcL": {
+          "type": "slide",
+          "settings": {
+            "show_rating": true,
+            "rating_richtext": "",
+            "rating_aria_label": "",
+            "heading": "",
+            "heading_tag": "h1",
+            "description": "",
+            "button_label": "Save Your Spot",
+            "button_url": "shopify://products/ceramics-workshop",
+            "button_open_new_tab": false,
+            "desktop_banner_image": "shopify://shop_images/halloween_desktop_dd485f2b-6b55-49e6-aa47-7df4b99e7cf1.jpg",
+            "hero_image": "shopify://shop_images/mobile.png"
+          }
+        },
+        "slide_Vrpdar": {
+          "type": "slide",
+          "settings": {
+            "show_rating": true,
+            "rating_richtext": "<p>1500+ 5-Star Reviews</p>",
+            "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
+            "heading": "Natural Care, Rooted In Taiwan",
+            "heading_tag": "h1",
+            "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/all",
+            "button_open_new_tab": false,
+            "desktop_banner_image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
+            "hero_image": "shopify://shop_images/homepage-mobile_6506123f-8cea-4c66-80d7-05f8776b7ea8.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_7gJjMr",
+        "slide_DNFYcL",
+        "slide_Vrpdar"
+      ],
       "name": "Hero — Natural Care",
       "settings": {
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 0,
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
-        "bg_color": "#F8EFE2",
-        "show_rating": true,
-        "rating_image": "shopify://shop_images/Container.svg",
-        "rating_image_alt": "Five gold stars",
-        "rating_richtext": "<p>10,500+ 5-Star Reviews</p>",
-        "rating_aria_label": "Customer rating: 10,500+ five-star reviews",
-        "heading": "Natural Care, Rooted In Taiwan",
-        "heading_tag": "h1",
-        "heading_color": "#1a1a1a",
-        "description": "Natural soaps, body care, and gift sets made with Taiwanese botanical inspiration and small-batch care in New York.",
-        "description_color": "#555555",
-        "button_label": "Shop Now",
-        "button_url": "/collections/all",
-        "button_open_new_tab": false,
+        "bg_color": "#f8efe2",
         "button_bg_color": "#d4a84b",
         "button_text_color": "#1a1a1a",
         "button_hover_bg_color": "#1a1a1a",
         "button_hover_text_color": "#ffffff",
-        "desktop_banner_image": "shopify://shop_images/homepage_new_cover_d117718c-dfec-4457-97f0-890c044e5457.jpg",
-        "desktop_banner_image_alt": "Banner Image",
-        "hero_image": "shopify://shop_images/homepage_new_banner-_mobile.png",
-        "hero_image_alt": "Flat lay of natural soap bars, body oils, and skincare products from mumu bath on earthy pedestals",
-        "hero_image_width": 900,
-        "hero_image_height": 700,
+        "heading_color": "#1a1a1a",
+        "description_color": "#555555",
         "section_aria_label": "Hero banner — Natural Care, Rooted In Taiwan"
       }
     },
@@ -63,7 +234,7 @@
             "image": "shopify://shop_images/body_butter-pc_cover.png",
             "image_mobile": "shopify://shop_images/body_butter_cover.png",
             "image_alt": "Body butter and cream products",
-            "label": "<p>Body Butter & <br/>Body Creams</p>",
+            "label": "<p>Body Butter</p>",
             "collection_url": "shopify://collections/body-butters"
           }
         },
@@ -73,7 +244,7 @@
             "image": "shopify://shop_images/facial_products-pc-1.png",
             "image_mobile": "shopify://shop_images/facial_products-pc-1.png",
             "image_alt": "Face care products",
-            "label": "<p>Face</p>",
+            "label": "<p>Facial Products</p>",
             "collection_url": "shopify://collections/facial-skincare"
           }
         },
@@ -90,7 +261,7 @@
         "category_card_YPRMQ4": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/ACCESSORIES-TILE.jpg_2.png",
+            "image": "shopify://shop_images/Separated_Elements_From_Image_4.png",
             "image_alt": "Bath and body accessories",
             "label": "<p>Accessories</p>",
             "collection_url": "shopify://collections/accessories"
@@ -142,13 +313,12 @@
       "name": "About Ritual Section",
       "settings": {
         "add_class": "",
-        "image": "shopify://shop_images/Frame_2147241350.png",
+        "image": "shopify://shop_images/sasha.png",
         "image_alt": "About image",
         "heading": "A Ritual Rooted In Taiwan",
-        "description": "<p>Mumu Bath began with Sasha’s search for gentle, natural care for her family, including her baby with eczema. Inspired by her Taiwanese heritage and her family’s farm, she created bath and body rituals that bring comfort, calm, and care into everyday life.<br/><br/>From botanical teas to Asian-inspired scents, every product is handmade in New York with natural ingredients and a simple purpose — to turn your daily shower into a small moment of peace.</p>",
-        "signature": "shopify://shop_images/image_21.png",
-        "signature_alt": "Founder signature",
-        "founder_name": "Founder",
+        "description": "<p>Mumu Bath started from something very personal.<br/><br/>After becoming a mom, I began searching for gentler, more natural ways to care for my family. That journey brought me back to my Taiwanese roots — the botanicals, teas, scents, and simple rituals I grew up with.<br/><br/>Today, we make our products by hand in New York, blending those memories with natural ingredients and modern self-care.<br/><br/>My hope is that Mumu Bath brings a little more joy, comfort, and calm to your everyday life — turning an ordinary shower into a small moment just for you.<br/><br/>With love,<br/>Sasha Chou<br/>Founder, Mumu Bath</p>",
+        "signature_alt": "",
+        "founder_name": "",
         "button_label": "Discover Our Story",
         "button_link": "shopify://pages/story",
         "bg_color": "#f8f6ee",
@@ -414,6 +584,7 @@
         "review_DQ3irB",
         "review_HzpHiX"
       ],
+      "disabled": true,
       "name": "Reviews Swiper",
       "settings": {
         "padding_top_desktop": 60,
@@ -432,6 +603,7 @@
       "blocks": {
         "card_zyKyzJ": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "desktop_image": "shopify://shop_images/Frame_2147243043.png",
             "mobile_image": "shopify://shop_images/Frame_2147243043_2.png",
@@ -443,6 +615,7 @@
         },
         "card_6yxtWM": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "desktop_image": "shopify://shop_images/Frame_2147243044.png",
             "mobile_image": "shopify://shop_images/Frame_2147243044_1.png",
@@ -455,10 +628,10 @@
         "card_4a6AxV": {
           "type": "card",
           "settings": {
-            "desktop_image": "shopify://shop_images/Frame_2147243043_1.png",
-            "mobile_image": "shopify://shop_images/Frame_2147243048.png",
+            "desktop_image": "shopify://shop_images/Z6C0677_websize.jpg",
+            "mobile_image": "shopify://shop_images/Z6C0683_websize.jpg",
             "heading": "<p>For gifts that feel personal</p>",
-            "link": "shopify://collections/avocado-oil-soap",
+            "link": "shopify://collections/all-sets-bundles",
             "button_text": "Shop Gifts Sets",
             "full_width": true
           }
@@ -495,137 +668,6 @@
         "tag_bg_color": "#ffffff",
         "tag_text_color": "#000000",
         "read_more_text": "Read More"
-      }
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "image_BthT9f": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/the_year_of_the_horse.jpg",
-            "mobile_image": "shopify://shop_images/the_year_of_the_horse.png",
-            "subheading": "",
-            "title": "",
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "content_max_width": 420,
-            "button_1_text": "",
-            "button_1_link": "shopify://products/valentine-s-exclusive-box",
-            "button_1_style": "solid",
-            "button_1_background": "#232121",
-            "button_1_text_color": "#232121",
-            "button_2_text": "",
-            "button_2_link": "",
-            "button_2_style": "outline",
-            "button_2_background": "#fbdd40",
-            "button_2_text_color": "#000000",
-            "background": "#ffffff",
-            "background_opacity": 0,
-            "text_color": "#232121",
-            "border_color": "",
-            "gradient_overlay": ""
-          }
-        },
-        "slide-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/1_15.jpg",
-            "mobile_image": "shopify://shop_images/mobile_2.jpg",
-            "subheading": "",
-            "title": "  <h2 class=\"blinix-heading-one\">Taiwanese Roots. Natural Luxury.</h2>",
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "content_max_width": 420,
-            "button_1_text": "Shop Now",
-            "button_1_link": "shopify://collections/all",
-            "button_1_style": "solid",
-            "button_1_background": "#232121",
-            "button_1_text_color": "#232121",
-            "button_2_text": "",
-            "button_2_link": "",
-            "button_2_style": "outline",
-            "button_2_background": "#fbdd40",
-            "button_2_text_color": "#000000",
-            "background": "#ffffff",
-            "background_opacity": 0,
-            "text_color": "#232121",
-            "border_color": "",
-            "gradient_overlay": ""
-          }
-        },
-        "image_Fy6w6g": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/banner_5.jpg",
-            "mobile_image": "shopify://shop_images/hero_banner_2.jpg",
-            "subheading": "",
-            "title": "  <h2 class=\"blinix-heading-one\">✿ Mumu Bath ✿\n</h2>\n\n<p class=\"bold-des\"><b> Our products are crafted from high-quality, organic, and natural ingredients, ideal for sensitive skin.</b></p>",
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "content_max_width": 500,
-            "button_1_text": "Shop Mumu Bath",
-            "button_1_link": "shopify://collections/all",
-            "button_1_style": "solid",
-            "button_1_background": "#232121",
-            "button_1_text_color": "#232121",
-            "button_2_text": "",
-            "button_2_link": "",
-            "button_2_style": "solid",
-            "button_2_background": "#232121",
-            "button_2_text_color": "#ffffff",
-            "background": "",
-            "background_opacity": 34,
-            "text_color": "#131313",
-            "border_color": "",
-            "gradient_overlay": ""
-          }
-        },
-        "slide-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/1-1.jpg",
-            "mobile_image": "shopify://shop_images/mobile-1.jpg",
-            "subheading": "",
-            "title": " <h2 class=\"blinix-heading-one\">Radiance Awaits</h2>\n<p>Mumu Bath strikes the perfect\nbalance between affordability and\npremium quality, offering accessible\nluxury in the bath and bodycare space.</p>",
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "content_max_width": 440,
-            "button_1_text": "Shop Now",
-            "button_1_link": "shopify://collections/all",
-            "button_1_style": "solid",
-            "button_1_background": "#232121",
-            "button_1_text_color": "#232121",
-            "button_2_text": "",
-            "button_2_link": "",
-            "button_2_style": "outline",
-            "button_2_background": "#ffffff",
-            "button_2_text_color": "#000000",
-            "background": "",
-            "background_opacity": 50,
-            "text_color": "#1c1c1c",
-            "border_color": "",
-            "gradient_overlay": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_BthT9f",
-        "slide-1",
-        "image_Fy6w6g",
-        "slide-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "allow_transparent_header": false,
-        "show_next_section_button": false,
-        "media_size": "auto",
-        "autoplay": true,
-        "autoplay_pause_on_video": false,
-        "cycle_speed": 4,
-        "background": "#fcfbee",
-        "controls_color": "#1c1c1c"
       }
     },
     "featured-collections": {
@@ -1079,6 +1121,15 @@
         "remove_vertical_spacing": true
       }
     },
+    "178945371683ff7ae6": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
     "1742373873806b2ce2": {
       "type": "apps",
       "blocks": {
@@ -1092,7 +1143,6 @@
       "block_order": [
         "targetbay_product_reviews_review_carousel_WWLP9P"
       ],
-      "disabled": true,
       "custom_css": [
         ".tb-revcarousel-header {display: none;}"
       ],
@@ -1161,14 +1211,14 @@
         "location_h7xDAw": {
           "type": "location",
           "settings": {
-            "map_embed": "<iframe\n  src=\"https://www.google.com/maps?q=94%20Willoughby%20St%2C%20Brooklyn%2C%20NY%2011201&output=embed\"\n  width=\"600\"\n  height=\"450\"\n  style=\"border: 0;\"\n  allowfullscreen=\"\"\n  loading=\"lazy\"\n  referrerpolicy=\"no-referrer-when-downgrade\">\n</iframe></iframe>",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12100.735837853721!2d-74.00400641284178!3d40.69194600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bcc8ea3b92d%3A0xbbaa622f3b9fc3f0!2sMumu%20Bath!5e0!3m2!1szh-TW!2sus!4v1787847611471!5m2!1szh-TW!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
             "location_heading": "Mumu Bath Downtown Brooklyn",
             "address": "94 Willoughby St, Brooklyn, NY 11201",
             "hours_heading": "Opening Hours",
             "days": "Open daily",
-            "hours": "11:30 AM-7:00 PM",
+            "hours": "11:00 AM-7:30 PM",
             "direction_icon": "shopify://shop_images/Frame_2147227530.svg",
-            "direction_url": "https://maps.app.goo.gl/7kC8r7YvpxnDkveV7",
+            "direction_url": "https://maps.app.goo.gl/dBabnwryVLkpvimQ9",
             "direction_text": "Get Directions"
           }
         }
@@ -1179,7 +1229,7 @@
       ],
       "name": "Store Locations",
       "settings": {
-        "heading": "Visit Our Brooklyn Stores",
+        "heading": "Visit Our Stores",
         "bg_color": "#ffffff",
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 100,
@@ -1189,6 +1239,7 @@
     }
   },
   "order": [
+    "slideshow",
     "custom_her_banner_jXad3K",
     "shop_by_categeory_irn6JN",
     "custom_featured_collection_3JMW8E",
@@ -1199,7 +1250,6 @@
     "hair_reviews_XLpwYz",
     "comfortable_skin_4kz4Vt",
     "custom_featured_blogs_HH4XUC",
-    "slideshow",
     "featured-collections",
     "logo_list_8gKhzJ",
     "image_with_text_k6TRXx",
@@ -1209,6 +1259,7 @@
     "image-with-text-scroll",
     "multi_column_66qtDq",
     "image_with_text_MdkqrP",
+    "178945371683ff7ae6",
     "1742373873806b2ce2",
     "newsletter",
     "1728125863d2c64a00",

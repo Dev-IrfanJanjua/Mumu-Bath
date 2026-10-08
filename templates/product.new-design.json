@@ -17,8 +17,13 @@
           "disabled": true,
           "settings": {}
         },
+        "targetbay_product_reviews_product_stats_JMmmGb": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
         "ratings_PRKteR": {
           "type": "ratings",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/Frame_36.svg",
             "text": "<strong>4.45</strong>  (5.3k) reviews"
@@ -36,6 +41,12 @@
             "subtitle": "Brightening Citrus Olive Oil Soap Bar"
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
         "short_desc_PCTrwt": {
           "type": "short_desc",
           "settings": {
@@ -44,6 +55,7 @@
         },
         "sub_bundle_9YPwfn": {
           "type": "sub_bundle",
+          "disabled": true,
           "settings": {
             "title": "Subscribe & Save",
             "default_purchase_type": "subscribe",
@@ -91,9 +103,14 @@
             "border_radius": 12
           }
         },
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "show_cstm_btn": false,
             "cstm_class": true,
             "show_payment_button": false,
             "show_gift_card_recipient": true,
@@ -109,7 +126,7 @@
             "icon_1": "shopify://shop_images/Vector.svg",
             "text_1": "Cancel anytime no hassle",
             "icon_2": "shopify://shop_images/image.svg",
-            "text_2": "Free shipping on orders over $50",
+            "text_2": "Free shipping on orders over $85",
             "text_3": ""
           }
         },
@@ -117,13 +134,6 @@
           "type": "shopify://apps/targetbay-product-reviews/blocks/product-stats/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
           "disabled": true,
           "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "disabled": true,
-          "settings": {
-            "show_taxes_notice": false
-          }
         },
         "description": {
           "type": "description",
@@ -214,11 +224,6 @@
           "disabled": true,
           "settings": {}
         },
-        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa": {
-          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-          "disabled": true,
-          "settings": {}
-        },
         "separator": {
           "type": "separator",
           "disabled": true,
@@ -253,15 +258,17 @@
       },
       "block_order": [
         "vendor",
+        "targetbay_product_reviews_product_stats_JMmmGb",
         "ratings_PRKteR",
         "title",
         "subtitle_TqJGVn",
+        "price",
         "short_desc_PCTrwt",
         "sub_bundle_9YPwfn",
+        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
         "buy_buttons",
         "feature_icons_bEqrrw",
         "targetbay_product_reviews_product_stats_pF9gGF",
-        "price",
         "description",
         "accordion_fpKaYb",
         "accordion_N3tiJp",
@@ -271,7 +278,6 @@
         "accordion_UP6zMm",
         "variant_picker",
         "quantity_selector",
-        "appstle_subscription_appstle_subscription_product_page_widget_DdB3qa",
         "separator",
         "product_variations_ya4kgK",
         "payment_terms",
@@ -681,27 +687,10 @@
         "button_text": "",
         "bg_color": "#ffffff",
         "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80,
+        "padding_bottom_desktop": 0,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
+        "padding_bottom_mobile": 0,
         "cs-btn": true
-      }
-    },
-    "17828123203f41bcde": {
-      "type": "apps",
-      "blocks": {
-        "targetbay_product_reviews_product_reviews_4rGUWh": {
-          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "targetbay_product_reviews_product_reviews_4rGUWh"
-      ],
-      "settings": {
-        "separate_section_with_border": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false
       }
     },
     "logo_list_xHnX8R": {
@@ -839,6 +828,33 @@
         "title": "Related products",
         "content": ""
       }
+    },
+    "apps_Vw3bQj": {
+      "type": "apps",
+      "blocks": {
+        "targetbay_product_reviews_tb_common_8hp77X": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/tb-common/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_product_reviews_9eb6ha": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/product-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        },
+        "targetbay_product_reviews_site_reviews_T8TEeG": {
+          "type": "shopify://apps/targetbay-product-reviews/blocks/site-reviews/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_tb_common_8hp77X",
+        "targetbay_product_reviews_product_reviews_9eb6ha",
+        "targetbay_product_reviews_site_reviews_T8TEeG"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true
+      }
     }
   },
   "order": [
@@ -849,10 +865,10 @@
     "hair_reviews_j9UcQj",
     "comparison_table_8XELjr",
     "custom_featured_collection_WxBGjD",
-    "17828123203f41bcde",
     "logo_list_xHnX8R",
     "custom_liquid_jdrn4z",
     "1742279709b3f4ee9a",
-    "related-products"
+    "related-products",
+    "apps_Vw3bQj"
   ]
 }

@@ -53,6 +53,16 @@
     line-height: 120%;
     text-transform: capitalize;
 }
+.section-{{ section.id }} .benefits-heading h2{
+    margin: 0 ;
+    color: {{ section.settings.heading_color }};
+    font-family: "Mona Sans" !important;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: capitalize;
+}
 
 .section-{{ section.id }} .benefits-subtitle {
     color: {{ section.settings.text_color }};
@@ -123,7 +133,10 @@
     font-size: 30px;
     line-height: 38px;
   }
-
+ .section-{{ section.id }} .benefits-heading h2{
+    font-size: 30px;
+    line-height: 38px;
+  }
   .section-{{ section.id }} .benefits-grid {
     gap: 24px 18px;
   }
@@ -148,44 +161,138 @@
   <div class="page-width">
     <div class="benefits-layout">
 
-      {% if section.settings.image != blank %}
-        <div class="benefits-image">
+      {% comment %} Left Image: pehle metafield check, warna schema setting {% endcomment %}
+      {% assign benefit_image = product.metafields.custom.benefits_left_img %}
+      <div class="benefits-image">
+        {% if benefit_image != blank %}
+          {{
+            benefit_image
+            | image_url: width: 1600
+            | image_tag:
+              widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+              loading: 'lazy',
+              alt: product.title
+          }}
+        {% elsif section.settings.image != blank %}
           {{
             section.settings.image
             | image_url: width: 1600
             | image_tag:
               widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
               loading: 'lazy',
-              alt: 'image'
+              alt: 'Benefits Image'
           }}
-        </div>
-      {% endif %}
+        {% endif %}
+      </div>
 
       <div class="benefits-content">
 
-        {% if section.settings.tag != blank %}
+        {% comment %} Tag: pehle metafield check, warna schema setting {% endcomment %}
+        {% assign benefit_tag = product.metafields.custom.benefits_tag %}
+        {% if benefit_tag != blank or section.settings.tag != blank %}
           <div class="benefits-tag">
-            {{ section.settings.tag }}
+            {% if benefit_tag != blank %}
+              {{ benefit_tag }}
+            {% else %}
+              {{ section.settings.tag }}
+            {% endif %}
           </div>
         {% endif %}
 
-        {% if section.settings.heading != blank %}
+        {% comment %} Heading: pehle metafield check, warna schema setting {% endcomment %}
+        {% assign benefit_heading = product.metafields.custom.benefits_heading %}
+        {% if benefit_heading != blank or section.settings.heading != blank %}
           <h2 class="benefits-heading fade-in-left">
-            {{
-              section.settings.heading
-              | replace: '<p>', ''
-              | replace: '</p>', ''
-            }}
+            {% if benefit_heading != blank %}
+              {{ benefit_heading | metafield_tag | replace: '<p>', '' | replace: '</p>', '' }}
+            {% else %}
+              {{ section.settings.heading | replace: '<p>', '' | replace: '</p>', '' }}
+            {% endif %}
           </h2>
         {% endif %}
 
-        {% if section.settings.subtitle != blank %}
+        {% comment %} Subtitle: pehle metafield check, warna schema setting {% endcomment %}
+        {% assign benefit_subtitle = product.metafields.custom.benefits %}
+        {% if benefit_subtitle != blank or section.settings.subtitle != blank %}
           <div class="benefits-subtitle fade-in-left">
-            {{ section.settings.subtitle | replace: '<p>', '' | replace: '</p>', '' }}
+            {% if benefit_subtitle != blank %}
+              {{ benefit_subtitle | metafield_tag | replace: '<p>', '' | replace: '</p>', '' }}
+            {% else %}
+              {{ section.settings.subtitle | replace: '<p>', '' | replace: '</p>', '' }}
+            {% endif %}
           </div>
         {% endif %}
 
-        {% if section.blocks.size > 0 %}
+        {% comment %}
+          Ek single LIST type metafield "benefits_list" use ho rahi hai (list of "Benefit" metaobjects,
+          jis ke fields "icon" (Image/File), "title" (Single line text), "text" (Multi-line text) hain).
+
+          Logic: agar metafield mein entries hain to SEEDHA unhi par loop hoga (block add karne ki zaroorat nahi).
+          Agar metafield khaali hai to customizer ke blocks par loop hoga (jaisa pehle tha).
+          Agar dono maujood hain (list bhi aur block bhi) to same index ka block sirf extra settings
+          (jaise title_height) aur missing field ke fallback ke liye use hota hai.
+        {% endcomment %}
+        {% assign benefits_metafield_list = product.metafields.custom.benefits_list.value %}
+
+        {% if benefits_metafield_list.size > 0 %}
+          <div class="benefits-grid">
+            {% for benefit_item in benefits_metafield_list %}
+              {% assign idx = forloop.index0 %}
+              {% assign block = section.blocks[idx] %}
+
+              <div class="benefits-item fade-in-item"{% if block %} {{ block.shopify_attributes }}{% endif %}>
+
+                {% comment %} Icon: metaobject item ka field, warna (agar blank ho) block ka setting {% endcomment %}
+                {% if benefit_item.icon != blank %}
+                  <div class="benefits-item-icon">
+                    {{
+                      benefit_item.icon
+                      | image_url: width: 100
+                      | image_tag:
+                        widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+                        loading: 'lazy',
+                        alt: 'image'
+                    }}
+                  </div>
+                {% elsif block.settings.icon != blank %}
+                  <div class="benefits-item-icon">
+                    {{
+                      block.settings.icon
+                      | image_url: width: 100
+                      | image_tag:
+                        widths: '50,100,150,200,300,400,500,600,800,1000,1200,1400,1600',
+                        loading: 'lazy',
+                        alt: 'image'
+                    }}
+                  </div>
+                {% endif %}
+
+                {% comment %} Title: metaobject item ka field, warna (agar blank ho) block ka setting {% endcomment %}
+                {% if benefit_item.title != blank %}
+                  <h3 class="benefits-item-title" style="--height: {{ block.settings.title_height | default: 50 }}px">
+                    {{ benefit_item.title }}
+                  </h3>
+                {% elsif block.settings.title != blank %}
+                  <h3 class="benefits-item-title" style="--height: {{ block.settings.title_height }}px">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+
+                {% comment %} Text: metaobject item ka field, warna (agar blank ho) block ka setting {% endcomment %}
+                {% if benefit_item.text != blank %}
+                  <div class="benefits-item-text">
+                    {{ benefit_item.text }}
+                  </div>
+                {% elsif block.settings.text != blank %}
+                  <div class="benefits-item-text">
+                    {{ block.settings.text | replace: '<p>', '' | replace: '</p>', '' }}
+                  </div>
+                {% endif %}
+
+              </div>
+            {% endfor %}
+          </div>
+        {% elsif section.blocks.size > 0 %}
           <div class="benefits-grid">
             {% for block in section.blocks %}
               <div class="benefits-item fade-in-item" {{ block.shopify_attributes }}>
@@ -394,16 +501,46 @@
       "category": "Custom",
       "blocks": [
         {
-          "type": "benefit"
+          "type": "benefit",
+          "settings": {
+            "title": "Gently Cleanses",
+            "text": "<p>Removes daily buildup without leaving skin tight or stripped.</p>"
+          }
         },
         {
-          "type": "benefit"
+          "type": "benefit",
+          "settings": {
+            "title": "Hydrates While You Wash",
+            "text": "<p>Olive and coconut oils help skin feel soft and nourished.</p>"
+          }
         },
         {
-          "type": "benefit"
+          "type": "benefit",
+          "settings": {
+            "title": "Brightens The Look",
+            "text": "<p>Paprika brings antioxidant-rich care for a fresh, radiant glow.</p>"
+          }
         },
         {
-          "type": "benefit"
+          "type": "benefit",
+          "settings": {
+            "title": "Soothes Sensitive Skin",
+            "text": "<p>A mild, plant-based formula for delicate everyday cleansing.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Long-Lasting Bar",
+            "text": "<p>Cold-processed for ingredient quality and a harder, longer-lasting bar.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Face + Body",
+            "text": "<p>One bar, two purposes simplify your shower routine.</p>"
+          }
         }
       ]
     }

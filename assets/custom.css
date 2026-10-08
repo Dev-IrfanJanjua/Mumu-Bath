@@ -89,7 +89,15 @@
   font-display: swap;
   -webkit-font-smoothing: antialiased;
 }
-
+.content-over-media h1{
+      font-family: Mona Sans !important;
+}
+.content-over-media p.h1{
+      font-family: Mona Sans !important;
+}
+.predictive-search__results .h6.text-subdued{
+  color: #1c1c1c;
+}
 .time-slots {
     background-color: #F8F6EE !important;
 }
@@ -837,7 +845,7 @@ a.link-faded-reverse:last-child {
 }
 
 .kaching-bundles .kaching-bundles__bar-container .kaching-bundles__bar-wrapper {
-    padding: 24px 16px !important;
+    padding: 14px 16px !important;
 }
 
 .kaching-bundles .kaching-bundles__bar-radio {
@@ -922,7 +930,7 @@ a.link-faded-reverse:last-child {
 }
 
 .kaching-bundles .kaching-bundles__bars {
-    gap: 20px !important;
+    gap: 18px !important;
 }
 
 .kaching-bundles .kaching-bundles__block>.kaching-bundles__block-title:first-child {
@@ -1170,7 +1178,7 @@ span.appstle_subscription_amount.transcy-money {
 }
 
 .kaching-bundles .kaching-bundles__bar-container .kaching-bundles__bar-wrapper {
-    padding: 16px!important;
+    padding: 14px 16px!important;
 }
 
 }

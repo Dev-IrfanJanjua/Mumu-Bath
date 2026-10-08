@@ -50,7 +50,7 @@ Supported variables
       <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
-        {{- variant.price | money_with_currency -}}
+        {{- variant.price | money -}}
       {%- else -%}
         {{- variant.price | money -}}
       {%- endif -%}
@@ -60,7 +60,7 @@ Supported variables
       <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
-        {{- variant.compare_at_price | money_with_currency -}}
+        {{- variant.compare_at_price | money -}}
       {%- else -%}
         {{- variant.compare_at_price | money -}}
       {%- endif -%}

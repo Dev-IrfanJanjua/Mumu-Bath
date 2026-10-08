@@ -131,7 +131,7 @@
         "image_with_text_giKtec": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/2_1d58ec32-715c-4674-8847-f5eee171eb79.jpg",
+            "image": "shopify://shop_images/Frame_427319802.png",
             "title": "",
             "heading_tag": "h3",
             "content": "",
@@ -174,8 +174,8 @@
         "image_YiQkw8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_11_cf01e970-6b8e-4c20-9f9f-41792b642be7.png",
-            "mobile_image": "shopify://shop_images/our_mission_cae0d94d-0e10-488c-8ae3-734668868eb2.png",
+            "image": "shopify://shop_images/Colorful_Shapes_Header_Banner_78.png",
+            "mobile_image": "shopify://shop_images/story.png",
             "subheading": "",
             "title": "<h2>Our Mission</h2>\n<p style=\"font-size: 16px\">Empower your self-care rituals with Mumu Bath. We celebrate our Taiwanese roots, offering a touch of natural luxury with bath and body products inspired by the lush landscapes and traditions of Taiwan. Our mission is to provide top-quality, organic, all-natural products that transform daily routines into cherished moments.</p>",
             "mobile_text_position": "place-self-start-center text-center",
@@ -219,7 +219,7 @@
         "image_with_text_gNAMMa": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/5.jpg",
+            "image": "shopify://shop_images/Frame_427319803.png",
             "title": "",
             "heading_tag": "h3",
             "content": "",

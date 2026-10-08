@@ -63,7 +63,8 @@
 
   .section-{{ section.id }} .cb-title.title_title {
     color: {{ section.settings.title_color }};
-    font-family: var(--banner-font);
+    {% comment %} font-family: var(--banner-font); {% endcomment %}
+         font-family: Mona Sans !important;
     font-weight: var(--banner-weight);
     font-size: 60px;
     line-height: 66px;
